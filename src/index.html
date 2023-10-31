@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/static/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/static/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/static/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/static/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/static/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>The Memoriser</title>
+  <meta itemprop="image" content="http://thememoriser.com/static/logo/logo-square.png">
+  <link rel="canonical" href="https://thememoriser.com" />
+
+
+  <meta name="description"
+    content="Flashcard application using active recall testing and spaced repetition. Improve your memory while learning lots of interesting things.">
+
+  <meta property="og:title" content="The Memoriser">
+  <meta property="og:site_name" content="The Memoriser">
+  <meta property="og:url" content="https://thememoriser.com">
+  <meta property="og:description"
+    content="Flashcard application using active recall testing and spaced repetition. Improve your memory while learning lots of interesting things.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://thememoriser.com/static/logo/logo-square.png">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@TheMemoriser" />
+  <meta name="twitter:title" content="The Memoriser" />
+  <meta name="twitter:description"
+    content="Flashcard application using active recall testing and spaced repetition. Improve your memory while learning lots of interesting things." />
+  <meta name="twitter:image" content="https://thememoriser.com/static/logo/logo-square.png" />
+  <meta name="twitter:url" content="https://thememoriser.com" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #bootloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: linear-gradient(rgb(128, 128, 128), rgba(64, 64, 64, 1));
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+
+    #bootloader .top-box {
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+
+    #bootloader .image {
+      height: 30vh;
+      max-height: 600px;
+    }
+
+    #bootloader .console {
+      flex-grow: 1;
+      flex-basis: 0;
+      overflow-y: scroll;
+      width: 100vw;
+
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    #bootloader .console::-webkit-scrollbar {
+      display: none;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div id="bootloader">
+    <div class="top-box"></div>
+    <img class="image" src="/static/loader/loader.png">
+    <div class="console"></div>
+  </div>
+</body>
+
+</html>

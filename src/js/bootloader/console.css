@@ -1,0 +1,35 @@
+#bootloader .console {
+  text-align: center;
+  color: lightgray;
+  font-size: clamp(0.2rem, 0.8rem, 2.5vmin);
+  font-family: monospace;
+  
+  --mask: linear-gradient(to top,
+      rgba(0, 0, 0, 1) 0, rgba(0 0, 0, 1) 40%,
+      rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0) 0) 100% 50% / 100% 100% repeat-x;
+      
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  
+  display: flex;
+  
+  flex-direction: column;
+  vertical-align: bottom;
+}
+
+#bootloader .console>div:first-child {
+  padding-top: 20vh;  
+}
+
+#bootloader .console .status {
+  font-weight: bold;
+  color: var(--main-orange);
+}
+
+#bootloader .console .status.success {
+  color: var(--main-green);
+}
+
+#bootloader .console .status.error {
+  color: var(--main-red);
+}

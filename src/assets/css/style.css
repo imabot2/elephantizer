@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+
+:root {
+  --main-blue: #4865d6;
+  --main-red: #e83c4b;
+  --main-yellow: #bbdb06;
+  --main-orange: #F08700;
+  --main-green: #0CCA4A;
+  --main-purple: #331832;
+  --main-light-grey: #cdcdcd;
+  --main-dark-grey: #919191;
+  --main-darker-grey: #505050;
+  --main-title-font: 'Luckiest Guy', cursive;
+
+}
+
