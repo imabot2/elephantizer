@@ -2,9 +2,11 @@
 
 ## Architecture
 
-
-|- bootloader
-
+js
+|- index.js
+|- /bootloader
+  |- index.js
+  
 
 
 ## Bootloader
