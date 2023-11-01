@@ -112,7 +112,7 @@ module.exports = (env) => {
 
       new HtmlWebpackPlugin({
         title: 'Error 404',
-        chunks: ['main'],
+        chunks: ['error404'],
         template: './src/error404.ejs',
         filename: `404.html`,
       }),
