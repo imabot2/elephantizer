@@ -38,7 +38,7 @@ const translations = [
       Elephantizer is perfect for students, professionals, seniors and lifelong learners looking to enhance their knowledge retention and study efficiency.
       Whether you're preparing for an exam, learning a new language, or mastering a complex subject, Elephnatizer is your ideal study companion. 
       Start your journey to better memorization and knowledge retention today with Elephantizer!`,
-      loaderImage : '/static/loader/loader.png',
+      loaderImage : '/static/loader/loader-en.png',
     }
   },
 

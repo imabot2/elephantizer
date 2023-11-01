@@ -1,21 +1,20 @@
-import getUserLocale from 'get-user-locale';
-import { languageFromUrl } from './helper.js';
+import languages from './model.js';
 
 
-class Translation {
-  constructor() {
-
-    this.language = 'en-US';
-    console.log (getUserLocale())
-    
-    console.log (window.location.pathname);
-    console.log (languageFromUrl());
+class Languages {
+  constructor() {    
   }
 
-  
 
+  /**
+   * Return the current language detected (URL first, then browser)
+   * @returns {string} The current language ('en', 'fr' ...)
+   */
+  current() {
+    return languages.current;
+  }
 
 }
 
 
-export default new Translation();
+export default new Languages();

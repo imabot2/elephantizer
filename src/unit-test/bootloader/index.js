@@ -4,7 +4,7 @@ import bootloader from "Js/bootloader/index.js";
 for (let i = 0; i < 30; i++) {
 
   setTimeout(() => {
-    let id = bootloader.createNewMessage(`Message #${i}: Si velut placidiora consilio.`);
+    let id = bootloader.newMessage(`Message #${i}: Si velut placidiora consilio.`);
 
     setTimeout(function () {
       if (id % 2)

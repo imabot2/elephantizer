@@ -25,7 +25,7 @@ class Bootloader {
    * @param {string} message The message text
    * @returns {integer} The ID of the new message
    */
-  createNewMessage(message) { return view.createNewMessage(message); }
+  newMessage(message) { return view.createNewMessage(message); }
 
 
   /**

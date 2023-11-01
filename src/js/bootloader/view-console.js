@@ -9,7 +9,7 @@ export class Console {
    * Constructor, 
    * - Get the DOM element
    * - Initialize the messages
-   * - Prepare the 
+   * - Prepare the event triggered when the last message is resolved
    */
   constructor() {
     // Get the console container element
@@ -52,6 +52,9 @@ export class Console {
     let element = str2dom.one(htmlMessage);
     // Set the message
     element.querySelector('.message').innerHTML = message;
+    // Set the loading tag
+    element.querySelector('.status').textContent = `[${translate.loadingTag}]`;
+
     // Append to dom
     this.consoleEl.append(element);
     // Scroll to bottom
@@ -75,7 +78,7 @@ export class Console {
   setError(id) {
     // Get element and set successful
     let statusEl = this.messages[id].element.querySelector(".status");
-    statusEl.textContent = "[FAILED]";
+    statusEl.textContent = `[${translate.errorTag}]`;
     statusEl.classList.add("error");
 
     // Display message in the console
@@ -94,7 +97,7 @@ export class Console {
   setSuccess(id) {
     // Get element and set successful
     let statusEl = this.messages[id].element.querySelector(".status");
-    statusEl.textContent = "[OK]";
+    statusEl.textContent = `[${translate.successTag}]`
     statusEl.classList.add("success");
 
     // Display message in the console

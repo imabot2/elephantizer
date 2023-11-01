@@ -29,7 +29,7 @@ module.exports = (env) => {
 
     // Default entry point is main
     entry: {
-      main: ['./src/js/index.js'],
+      main: ['./src/js/main.js'],
       error404: ['./src/js/error404.js'],
     },
 

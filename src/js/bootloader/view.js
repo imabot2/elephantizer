@@ -1,16 +1,24 @@
 import "./console.css"
+import languages from "Js/languages";
 import { Console } from "./view-console.js";
 
 class View extends Console {
 
   /**
-   * Constructor, call the parent constructor
+   * Constructor
+   * - Call the parent constructor
+   * - Get DOM elements
+   * - Change the loading image according to the user language
    */
   constructor() {
     super();
 
     // Get the loader overlay element
     this.loaderEl = document.getElementById('bootloader');
+
+    // Set the loading image according to current language
+    this.loaderImageEl = this.loaderEl.querySelector('img');
+    this.loaderImageEl.src = `/static/loader/loader-${languages.current()}.png`;
   }
 
 
@@ -32,10 +40,6 @@ class View extends Console {
       this.clearConsole();
     }, ms);
   }
-
-
-
-
 }
 
 
