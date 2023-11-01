@@ -2,6 +2,7 @@
   position: fixed;
   right: 2vmin;
   top: 2vmin;
+  border-radius: 50%;
 }
 
 #auth-top-icon>img {

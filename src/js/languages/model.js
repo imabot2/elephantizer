@@ -45,6 +45,15 @@ class Languages {
     return getUserLocale({ useFallbackLocale: true }).split('-')[0];
   }
 
+
+  populateTemplate(template, translation) {
+    for (const [key, value] of Object.entries(translation)) {
+      template = template.replaceAll(`<%=${key}%>`, value);
+    }
+    return template;
+  }
+  
+
 }
 
 

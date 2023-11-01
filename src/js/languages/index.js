@@ -1,8 +1,8 @@
-import languages from './model.js';
+import model from './model.js';
 
 
 class Languages {
-  constructor() {    
+  constructor() {
   }
 
 
@@ -10,11 +10,18 @@ class Languages {
    * Return the current language detected (URL first, then browser)
    * @returns {string} The current language ('en', 'fr' ...)
    */
-  current() {
-    return languages.current;
-  }
+  current() { return model.current; }
+
+
+  render(template, translation) { return model.populateTemplate(template, translation) };
+
 
 }
 
+// Create and export a singleton of the class
+const singleton = new Languages();
+export default singleton;
 
-export default new Languages();
+// Export the EJS parser
+export const parseEjs = singleton.render;
+
