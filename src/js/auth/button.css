@@ -1,0 +1,29 @@
+#auth-top-icon {
+  position: fixed;
+  right: 2vmin;
+  top: 2vmin;
+}
+
+#auth-top-icon>img {
+  opacity: 0.9;
+  border-radius: 50%;
+  cursor: pointer;
+  width: clamp(50px, 100vmin, 6vmin);
+  height: clamp(50px, 100vmin, 6vmin);
+  line-height: normal;
+  z-index: 2;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#auth-top-icon>img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.auth-provider-logo {
+  max-height: 1.2em;
+}
+
+#auth-top-icon>img[src="#"] {
+  display: none;
+}
