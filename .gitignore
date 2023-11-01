@@ -128,3 +128,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+#dist folder
+dist/
+
+#Firebase config is not public
+src/js/firebase/firebase-config.js
