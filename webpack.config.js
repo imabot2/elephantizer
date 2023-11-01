@@ -30,6 +30,7 @@ module.exports = (env) => {
     // Default entry point is main
     entry: {
       main: ['./src/js/index.js'],
+      error404: ['./src/js/error404.js'],
     },
 
 
@@ -107,6 +108,13 @@ module.exports = (env) => {
 
         ],
         options: { concurrency: 100, },
+      }),
+
+      new HtmlWebpackPlugin({
+        title: 'Error 404',
+        chunks: ['main'],
+        template: './src/error404.ejs',
+        filename: `404.html`,
       }),
 
       ...translations.map((page) => {

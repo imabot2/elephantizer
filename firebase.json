@@ -8,8 +8,20 @@
     ],
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/",
+        "destination": "/en/index.html"
+      },
+      {
+        "source": "/quiz/**",
+        "destination": "/en/index.html"
+      },
+      {
+        "source": "/en/quiz/**",
+        "destination": "/en/index.html"
+      },
+      {
+        "source": "/fr/quiz/**",
+        "destination": "/fr/index.html"
       }
     ]
   }

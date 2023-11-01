@@ -1,0 +1,1 @@
+import langauges from "Js/languages/index.js";

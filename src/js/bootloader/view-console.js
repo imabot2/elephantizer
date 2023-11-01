@@ -1,4 +1,5 @@
 import htmlMessage from "./message.html";
+import translate from './translate.js';
 import str2dom from "doma";
 
 
