@@ -5,9 +5,9 @@ import "Assets/css/style.css";
 import languages from "Js/languages/index.js";
 import bootloader from "Js/bootloader/index.js";
 
-
-let id1 = bootloader.newMessage('mesa 1');
-let id2 = bootloader.newMessage('mesa 2');
+bootloader.newMessage('Message loading 1');
+let id1 = bootloader.newMessage('Message OK');
+let id2 = bootloader.newMessage('Message pas OK');
 
 bootloader.setSuccess(id1)
 bootloader.setError(id2)

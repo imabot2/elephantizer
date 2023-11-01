@@ -1,6 +1,6 @@
-# The Memoriser
+# Elephantizer
 
-Visit the app on [The Memoriser](https://memoriser.com)
+Visit the app on [Elephantizer](https://elephantizer.com)
 
 
 ## TODO
