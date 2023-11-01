@@ -26,6 +26,8 @@
     "bootstrap-icons": "^1.11.1",
     "doma": "^4.0.0",
     "firebase": "^10.5.2",
-    "get-user-locale": "^2.3.1"
+    "get-user-locale": "^2.3.1",
+    "email-validator": "^2.0.4",
+    "password-validator": "^5.3.0"
   }
 }

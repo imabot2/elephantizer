@@ -1,6 +1,6 @@
 import "./console.css"
 import languages from "Js/languages";
-import { Console } from "./view-console.js";
+import { Console } from "./viewConsole.js";
 
 class View extends Console {
 

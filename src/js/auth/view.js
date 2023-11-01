@@ -1,13 +1,13 @@
-import ViewSignIn from "./viewSignin.js"
 import * as bootstrap from "bootstrap";
 import "./button.css"
-import htmlButton from "./templateButton.html";
+import htmlButton from "./button.html";
 import str2dom from "doma";
 import translate from "./translate.js";
+import model from "./model.js";
 
 
 
-class View extends ViewSignIn {
+class View {
 
   /**
    * Constructor
@@ -16,9 +16,6 @@ class View extends ViewSignIn {
    * - Change the loading image according to the user language
    */
   constructor() {
-    
-    // Call the parent constructor
-    super();
 
     // Get the template
     this.buttonEl = str2dom.one(htmlButton);
@@ -29,7 +26,19 @@ class View extends ViewSignIn {
 
     // Initialize tooltip
     this.buttonTooltip = new bootstrap.Tooltip(this.buttonImageEl, { html: true });
+
+
+    // Add event listener when the user click the auth button
+    this.buttonEl.addEventListener('click', () => { this.onButtonClick() });
   }
+
+
+  onButtonClick() {
+    // If the user is already logged, log out when the button is clicked
+    // Otherwise, if the user is not logged, open the login modal
+    if (model.isLoggedIn) model.signOut(); else this.showSignInForm();
+  }
+
 
 
   /**
@@ -53,14 +62,25 @@ class View extends ViewSignIn {
    * @param {string} imagePath URL or path to the image to display
    * @param {strnig} tooltip Text to display in the tooltip
    */
-  updateButton(imagePath, tooltipContent) {
+  showUserLoggedButton(name, email, photo) {
 
     // Set the new image
-    this.buttonImageEl.src = imagePath;
+    this.buttonImageEl.src = photo ?? "/static/icons/user.png";
+    console.log(name, email)
+
+    // Update tooltip content
+    this.buttonTooltip.setContent({ ".tooltip-inner": "vous êtes connecté" });
+  }
+
+  updateButton(imageSrc, tooltipContent) {
+    // Set the new image
+    this.buttonImageEl.src = imageSrc;
 
     // Update tooltip content
     this.buttonTooltip.setContent({ ".tooltip-inner": tooltipContent });
   }
+
+
 
 }
 

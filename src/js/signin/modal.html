@@ -1,4 +1,4 @@
-<div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+<div class="modal fade" id="login-modal" aria-labelledby="login-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
 
@@ -26,9 +26,9 @@
           </div>
 
           <form class="d-grid">
-            <input type="email" class="email form-control form-control-lg mb-3" placeholder="Email address"
+            <input type="email" class="email form-control form-control-lg mb-3" placeholder="<%=emailPlaceholder%>"
               autocomplete="username">
-            <input type="password" class="password form-control form-control-lg" placeholder="Password"
+            <input type="password" class="password form-control form-control-lg" placeholder="<%=passwordPlaceholder%>"
               autocomplete="current-password">
             <div class="form-text mt-0 pt-0 mb-3">
               <a href="#" class="link-underline-light small"><%=forgotPassword%></a>
