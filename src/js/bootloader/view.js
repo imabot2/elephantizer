@@ -2,7 +2,7 @@ import "./console.css"
 import { Console } from "./view-console.js";
 
 class View extends Console {
-  
+
   /**
    * Constructor, call the parent constructor
    */

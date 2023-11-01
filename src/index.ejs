@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= htmlTag %>">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -20,22 +20,19 @@
   <link rel="canonical" href="https://thememoriser.com" />
 
 
-  <meta name="description"
-    content="Flashcard application using active recall testing and spaced repetition. Improve your memory while learning lots of interesting things.">
+  <meta name="description" content="<%= description %>">
 
   <meta property="og:title" content="The Memoriser">
   <meta property="og:site_name" content="The Memoriser">
   <meta property="og:url" content="https://thememoriser.com">
-  <meta property="og:description"
-    content="Flashcard application using active recall testing and spaced repetition. Improve your memory while learning lots of interesting things.">
+  <meta property="og:description" content="<%= description %>">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://thememoriser.com/static/logo/logo-square.png">
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TheMemoriser" />
   <meta name="twitter:title" content="The Memoriser" />
-  <meta name="twitter:description"
-    content="Flashcard application using active recall testing and spaced repetition. Improve your memory while learning lots of interesting things." />
+  <meta name="twitter:description" content="<%= description %>" />
   <meta name="twitter:image" content="https://thememoriser.com/static/logo/logo-square.png" />
   <meta name="twitter:url" content="https://thememoriser.com" />
 
@@ -60,9 +57,11 @@
       flex-direction: column;
     }
 
-    #bootloader .top-box {
+    #bootloader .resume {
       flex-grow: 1;
       flex-basis: 0;
+      opacity: 0;
+      overflow-y: scroll;
     }
 
     #bootloader .image {
@@ -90,8 +89,8 @@
 
 <body>
   <div id="bootloader">
-    <div class="top-box"></div>
-    <img class="image" src="/static/loader/loader.png">
+    <div class="resume"><%= resume %></div>
+    <img class="image" src="<%= loaderImage %>">
     <div class="console"></div>
   </div>
 </body>

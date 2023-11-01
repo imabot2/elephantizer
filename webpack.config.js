@@ -2,135 +2,159 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const { translations } = require("./translations.js");
+const { unitTests } = require("./unit-test.js");
 
 
 
-module.exports = {
+module.exports = (env) => {
+  // Display compilation mode
+  console.log('mode = ', env.mode);
 
-  // Optional and for development only. This provides the ability to
-  // map the built code back to the original source format when debugging.
-  devtool: "eval-source-map",
-  watch: true,
-  mode: "development",
-  //mode: 'production',
-
-
-
-  // The entry point file described above
-  entry: {
-    main: ['./src/js/index.js'],
-    test: ['./src/unit-test/bootloader/index.js'],
-  },
-
-
-  // The location of the build folder described above
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js',
-    publicPath: '/',
-    clean: true,
-  },
+  // Prepare the config variable
+  config = {
+    
+    // Set compilation mode
+    mode: env.mode ?? 'production',
+    
+    // Optional and for development only. This provides the ability to
+    // map the built code back to the original source format when debugging.
+    devtool: "eval-source-map",
+    
+    // Watch in development mode only
+    watch: (env.mode == 'production') ? false : true,
+    
 
 
-  resolve: {
-    alias: {
-      Assets: path.resolve(__dirname, "src/assets/"),
-      Quizzes: path.resolve(__dirname, "src/quizzes/"),
-      Js: path.resolve(__dirname, "src/js/")
-    }
-  },
 
-  module: {
-    rules: [
+    // Default entry point is main
+    entry: {
+      main: ['./src/js/index.js'],
+    },
 
-      // CSS loader
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
 
-      // Images loader
-      {
-        test: /\.(png|svg|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8000, // Convert images < 8kb to base64 strings
-              name: 'images/[hash]-[name].[ext]'
-            }
-          },
-        ],
-      },
+    // The location of the build folder
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: '[name].[contenthash].js',
+      publicPath: '/',
+      clean: true,
+    },
 
-      // HTML loader
-      {
-        test: /src(\/|\\)js(\/|\\)[^/]+(\/|\\)[A-Za-z]+\.html$/i,
-        loader: "html-loader",
-        options: { sources: false },
-      },
 
-    ],
-  },
+    resolve: {
+      alias: {
+        Assets: path.resolve(__dirname, "src/assets/"),
+        Quizzes: path.resolve(__dirname, "src/quizzes/"),
+        Js: path.resolve(__dirname, "src/js/")
+      }
+    },
 
-  plugins: [
+    module: {
+      rules: [
 
-    // Copy static assets, images, favicons ...
-    new CopyPlugin({
-      patterns: [
+        // CSS loader
         {
-          from: 'src/assets/static/', // src location
-          to: 'static',               // destination location in dist folder
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
         },
+
+        // Images loader
         {
-          from: 'src/assets/static/favicon/favicon.ico',
-          to: 'favicon.ico',
+          test: /\.(png|svg|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: "url-loader",
+              options: {
+                limit: 8000, // Convert images < 8kb to base64 strings
+                name: 'images/[hash]-[name].[ext]'
+              }
+            },
+          ],
         },
+
+        // HTML loader
         {
-          from: 'src/assets/static/favicon/apple-touch-icon.png',
-          to: 'apple-touch-icon.png',
-        },
-        {
-          from: 'src/assets/static/favicon/apple-touch-icon.png',
-          to: 'apple-touch-icon-precomposed.png',
+          test: /src(\/|\\)js(\/|\\)[^/]+(\/|\\)[A-Za-z]+\.html$/i,
+          loader: "html-loader",
+          options: { sources: false },
         },
 
       ],
-      options: { concurrency: 100, },
-    }),
+    },
 
-    // Minify HMTL and entries
-    new HtmlWebpackPlugin({
-      title: 'thememoryzer',
-      chunks: ['main'],
-      template: './src/index.html',
-    }),
+    plugins: [
+
+      // Copy static assets, images, favicons ...
+      new CopyPlugin({
+        patterns: [
+          {
+            from: 'src/assets/static/', // src location
+            to: 'static',               // destination location in dist folder
+          },
+          {
+            from: 'src/assets/static/favicon/favicon.ico',
+            to: 'favicon.ico',
+          },
+          {
+            from: 'src/assets/static/favicon/apple-touch-icon.png',
+            to: 'apple-touch-icon.png',
+          },
+          {
+            from: 'src/assets/static/favicon/apple-touch-icon.png',
+            to: 'apple-touch-icon-precomposed.png',
+          },
+
+        ],
+        options: { concurrency: 100, },
+      }),
+
+      ...translations.map((page) => {
+
+        return new HtmlWebpackPlugin({
+          title: 'thememoryzer',
+          chunks: ['main'],
+          template: './src/index.ejs',
+          filename: `${page.path}index.html`,
+          templateParameters: page.templateParameters,
+        });
+
+      }),
 
 
-    // Minify CSS
-    new MiniCssExtractPlugin(),
-  ]
+      // Minify CSS
+      new MiniCssExtractPlugin(),
+    ]
+  }
 
+
+  // Append unit test if development mode
+  if (env.mode === 'development') {
+
+    // Add unit test entries
+    unitTests.forEach((test) => {
+      config.entry[test.name] = [`./src/unit-test/${test.name}/index.js`];
+    })
+
+    // Add unit test html pages
+    config.plugins = config.plugins.concat(
+      ...unitTests.map((test) => {
+
+        return new HtmlWebpackPlugin({
+          title: 'thememoryzer',
+          chunks: [test.name],
+          filename: `unit-test/${test.name}/index.html`,
+          template: './src/index.ejs',
+          templateParameters: translations[0].templateParameters,
+        });
+
+      }),
+
+    )
+  }
+
+
+
+  //console.log(config.entry);
+  return config;
 };
-
-
-// Add extra plugins if development mode to create the unit tests
-if (module.exports.mode === 'development') {
-  module.exports.plugins = module.exports.plugins.concat([
-    // Unit test for the bootloader
-    new HtmlWebpackPlugin({
-      title: 'thememoryzer',
-      chunks: ['test'],
-      filename: 'test/bootloader.html',
-      template: './src/index.html',
-    }),
-
-    // Unit test for Levenshtein
-    new HtmlWebpackPlugin({
-      title: 'thememoryzer',
-      chunks: ['test'],
-      filename: 'test/levenshtein.html',
-      template: './src/index.html',
-    }),
-  ]);
-}
