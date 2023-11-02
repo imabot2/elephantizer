@@ -7,7 +7,9 @@ import model from "./model.js";
 import notifications from "Js/notifications";
 import Timer from "Js/timer";
 
-
+/**
+ * View class for the verification module
+ */
 class View {
 
   /**

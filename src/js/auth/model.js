@@ -1,5 +1,5 @@
 import { app } from "Js/firebase/index.js";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import view from "./view.js";
 import notifications from "Js/notifications";
 import verification from "Js/verification";
@@ -16,7 +16,6 @@ class Model {
     // Prepare the global events
     this.signInEvent = new Event("auth-sign-in");
     this.signOutEvent = new Event("auth-sign-out");
-    this.emailNotVerifiedEvent = new Event("auth-email-not-verified");
 
     // At start up, the user is not logged in
     this.isLoggedIn = false;
@@ -29,6 +28,16 @@ class Model {
 
 
   /**
+   * 
+   * @returns 
+   */
+  signOut() {
+    // Log out the user
+    signOut(this.auth);
+  }
+
+
+  /**
    * Callback function called when the user is logged
    * @param {object} user The user data
    */
@@ -36,23 +45,24 @@ class Model {
 
     // If the user is not yet logged, display the notification
     if (!this.isLoggedIn) {
+      
+      // The user is now logged
+      this.isLoggedIn = true;
 
       // The user is logged in, trigger the sign in event
       document.body.dispatchEvent(this.signInEvent)
 
       // The user is logged, but the email is not verified, trigger the event
       if (!user.emailVerified) {
+
+        // If the email show the modal and pool for verification
         verification.showModal(user.email);
-        document.body.dispatchEvent(this.emailNotVerifiedEvent);
+        verification.pollingForEmailVerified();
       }
     }
 
 
-    // The user is now logged
-    this.isLoggedIn = true;
 
-    // Hide the login form
-    //view.hideSignInForm();
 
     // Update user picture or log out icon
     view.showUserLoggedButton(this.getUserName(), this.getUserEmail(), this.getUserPicture());

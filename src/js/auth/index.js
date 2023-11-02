@@ -6,7 +6,6 @@ class Auth {
   constructor() {
   }
 
-
   /**
    * Return a promise when the user status changed
    * @returns {promise} A promise with the user credentials

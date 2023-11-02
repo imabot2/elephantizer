@@ -10,13 +10,16 @@ const translations = {
     emailPlaceholder: "Email address",
     passwordPlaceholder: "Password",
     signUpSubmitBtn: "Create Account",
+
     existingAccountFooter: "Already have an account?",
     login: "Log In",
 
     error1001: "Error #1001",
     error1001Message: "An error has occurred during account creation",
+
     existingAccountTitle: "Existing Account",
     existingAccountMessage: 'An account with email <strong><%=email%></strong> already exists.',
+
     accountCreatedTitle: "Account created",
     accountCreatedMessage: "Your account has been succesfully created.",
     usernameTooShort: "Username must be at least 4 characters long",
@@ -30,12 +33,16 @@ const translations = {
     emailPlaceholder: "Adresse email",
     passwordPlaceholder: "Mot de passe",
     signUpSubmitBtn: "Créer un compte",
-    existingAccountFooter: "Vous avez déja un compte ?",
+    
+    existingAccountFooter: "Vous avez déja un compte ?",    
     login: "Se connecter",
-    error1001: "Erreur 1001",
+
+    error1001: "Erreur 1001",    
     error1001Message: "Une erreur est survenue pendant la création du compte.",   
-    existingAccount: "Compte déjà existant",
+    
+    existingAccountTitle: "Compte déjà existant",
     existingAccountMessage: "Un compte avec l'adresse email <strong><%=email%></strong> existe déjà.",
+    
     accountCreatedTitle: "Compte créé",
     accountCreatedMessage: "Votre compte a été créé avec succès.",
     usernameTooShort: "Le nom d'utilisateur doit comporter au moins 4 caractères.",

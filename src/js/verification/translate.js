@@ -23,25 +23,37 @@ const translations = {
     error3001: "Error #3001",
     error3001Message: "An unexpected error occurred while sending verification email to <%=email%>.",
 
+    emailVerifiedTitle: "Email verified", 
+    emailVerifiedMessage: "Your email has been successfully verified.",
+
+    error3002: 'Error #3002',
+    error3002Message: "An error occurred during email address verification.",
+
   },
 
   fr: {
     modalTitle: "Validation de votre email",
     weVeSentEmail: "Nous vous avons envoyé un email de vérification à l'adresse ",
     spamChecking: "Il vous faudra peut-être vérifier vos courriers indésirables (spam).",
-    confirmationLink: "Cliquer sur le lien de confirmation dans cet e-mail nous permet de savoir que l'adresse e-mail est valide et qu'elle vous appartient.",
+    confirmationLink: "Cliquer sur le lien de confirmation dans cet email nous permet de savoir que l'adresse e-mail est valide et qu'elle vous appartient.",
     fewMinutes: "Le courrier électronique peut prendre quelques minutes pour arriver. Si vous n'avez rien reçu, cliquez sur le bouton ci-dessous pour envoyer un nouveau message.",
     resendEmail: "Renvoyer un email de vérification",
     retryIn: "Réessayer dans ",
 
     emailSentTitle: "Vérfier votre boite mail!",
-    emailSentMessage: "Nous avons envoyé un e-mail à <strong><%=email%></strong>.<br> Ouvrez-le pour activer votre compte.",
+    emailSentMessage: "Nous avons envoyé un email à <strong><%=email%></strong>.<br> Ouvrez-le pour activer votre compte.",
 
     tooManyRequestsTitle: "Trop de requêtes",
     tooManyRequestsMessage: "Trop de demandes au serveur. L'email de vérification n'a pas été envoyé. Veuillez réessayer plus tard.",
 
     error3001: "Erreur 3001",
     error3001Message: "Erreur lors de l'envoi de l'email de vérification à <%=email%>.",
+
+    emailVerifiedTitle: "Email vérifié", 
+    emailVerifiedMessage: "Votre email a été vérifié avec succès.",
+
+    error3002: 'Erreur 3002',
+    error3002Message: "Une erreur est survenue pendant la vérification de l'adresse email.",
   },
 
 }

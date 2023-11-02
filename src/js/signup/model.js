@@ -8,7 +8,15 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import account from "Js/account";
 import verification from "Js/verification"
 
+
+
+/**
+ * Model for the signup module
+ */
 class Model {
+  /**
+   * Constructor
+   */
   constructor() {
     // Initialize Firebase Authentication and get a reference to the service
     this.auth = getAuth(app);
@@ -35,7 +43,9 @@ class Model {
           // Update username before sending the verification email
           account.updateUsername(username).finally(() => {
             // Send verification email
-            verification.sendEmail();
+            verification.sendEmail().then(() => {
+              verification.showModal();
+            })
           })
 
           // Resolve the promise

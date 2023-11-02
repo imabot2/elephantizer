@@ -4,6 +4,7 @@ import htmlButton from "./button.html";
 import str2dom from "doma";
 import translate from "./translate.js";
 import model from "./model.js";
+import signIn from "Js/signin"
 
 
 
@@ -32,20 +33,13 @@ class View {
     this.buttonEl.addEventListener('click', () => { this.onButtonClick() });
   }
 
-
+  /**
+   * Callback function called when the user click on the auth button
+   */
   onButtonClick() {
     // If the user is already logged, log out when the button is clicked
     // Otherwise, if the user is not logged, open the login modal
-    if (model.isLoggedIn) model.signOut(); else this.showSignInForm();
-  }
-
-
-
-  /**
-   * Show the logout icon at top right
-   */
-  showLogOutButton() {
-    this.updateButton("/static/icons/logout.png", translate.logoutButtonTooltip);
+    if (model.isLoggedIn) model.signOut(); else signIn.showModal();
   }
 
 
@@ -62,14 +56,14 @@ class View {
    * @param {string} imagePath URL or path to the image to display
    * @param {strnig} tooltip Text to display in the tooltip
    */
-  showUserLoggedButton(name, email, photo) {
+  showUserLoggedButton(username, email, picture) {
 
     // Set the new image
-    this.buttonImageEl.src = photo ?? "/static/icons/user.png";
-    console.log(name, email)
+    const image = picture ?? "/static/icons/user-default-picture.png";
+    const tooltip = translate.userLoggedButtonTooltip.replace("<%=username%>", username ).replace('<%=email%>', email);
 
-    // Update tooltip content
-    this.buttonTooltip.setContent({ ".tooltip-inner": "vous êtes connecté" });
+    this.updateButton(image, tooltip);   
+    
   }
 
   updateButton(imageSrc, tooltipContent) {

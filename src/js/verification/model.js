@@ -1,7 +1,9 @@
 import { app } from "Js/firebase/index.js";
-import { getAuth, sendEmailVerification } from "firebase/auth";
+import { getAuth, sendEmailVerification, reload } from "firebase/auth";
+import auth from 'Js/auth';
 import notifications from "Js/notifications";
 import translate from "./translate";
+import view from "./view";
 
 class Model {
   /**
@@ -10,6 +12,9 @@ class Model {
   constructor() {
     // Initialize Firebase Authentication and get a reference to the service
     this.auth = getAuth(app);
+
+    // Polling setInterval for email verification
+    this.polling = undefined;
   }
 
 
@@ -29,13 +34,61 @@ class Model {
         .catch((error) => {
           switch (error.code) {
             case "auth/too-many-requests": notifications.error(translate.tooManyRequestsTitle, translate.tooManyRequestsMessage, 5000); break;
-            default: 
+            default:
               // An unknow error occured while sending the email
               notifications.error(translate.error3001, translate.error3001Message.replace("<%=email%>", this.auth.currentuser.email));
           }
           reject(error);
         });
     });
+  }
+
+
+
+  /**
+ * Refresh used authentification data and check if the email has been verified
+ * Once the email is verified, close the message and push a notification
+ */
+  pollingForEmailVerified() {
+
+    // If there is already a polling running, do not run a second one
+    if (this.polling !== undefined) {return}
+
+    this.polling = setInterval(() => {
+      console.log ('polling')
+      // If the user is no longer logged, don't check for email verification  
+      if (this.auth.currentUser === null) {
+        this.stopPolling();
+        return;
+      }
+
+      // Reload user data
+      reload(this.auth.currentUser)
+        .then(() => {
+
+          // Check if the email is verified
+          if (this.auth.currentUser.emailVerified) {
+            // The email has been verified, notify the user and hide the modal
+            notifications.success(translate.emailVerifiedTitle, translate.emailVerifiedMessage);
+            view.hideModal();
+            this.stopPolling();
+          }
+        })
+        .catch((error) => {
+          notifications.error(translate.error3002, translate.error3002Message);
+          reject(error)
+        });
+
+    }, 3000);
+  }
+
+
+  /**
+   * Stop the polling for email verification
+   */
+  stopPolling() {
+    clearInterval(this.polling);
+    this.polling = undefined;
   }
 }
 
