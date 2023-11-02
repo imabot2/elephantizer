@@ -1,0 +1,31 @@
+#burger {
+  position: fixed;
+  left: 2vmin;
+  top: 2vmin;
+  opacity: 0.9;
+  border-radius: 50%;
+  cursor: pointer;
+  width: clamp(50px, 100px, 6vmin);
+  height: clamp(50px, 100px, 6vmin);
+  z-index: 2;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+
+#burger:not(.disable):hover {
+  opacity: 1;
+  transform: scale(1.1);  
+}
+
+
+#burger.disable {  
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+#menu-modal .font-title {
+  font-family: var(--main-title-font);
+  vertical-align: -0.2em!important;
+}
+
