@@ -4,6 +4,7 @@ import str2dom from "doma";
 import { parseEjs } from "Js/languages/";
 import translate from "./translate.js";
 import model from './model.js'
+import validator from "email-validator";
 
 class View {
 
@@ -25,10 +26,15 @@ class View {
     // Get email and password element
     this.emailEl = this.modalEl.querySelector('.email');
     this.passwordEl = this.modalEl.querySelector('.password');
+    this.emailEl.addEventListener('input', () => { this.unsetEmailValid(); })
 
     // Submit button
     this.submitButtonEl = this.modalEl.querySelector('.submit-btn');
     this.submitButtonEl.addEventListener('click', () => { this.onSubmit(); });
+
+    // Forget password button
+    this.forgotPasswordEl = this.modalEl.querySelector('.forget-password');
+    this.forgotPasswordEl.addEventListener('click', (e) => { this.onForgotPassword(e); });
   }
 
 
@@ -68,6 +74,45 @@ class View {
         this.enableForm();
       })
   }
+
+
+  /**
+   * Callback function called when the user click on the forgot password button
+   */
+  onForgotPassword(event) {
+    event.preventDefault();
+
+
+    // Check if the email is valid
+    let emailValid = validator.validate(this.emailEl.value);
+    if (!emailValid) {
+      this.setEmailInvalid();
+      return;
+    }
+
+    // The email is valid, send the reset link
+    this.disableForm();
+    model.sendPasswordResetEmail(this.emailEl.value)
+      .finally(() => { 
+        this.enableForm();
+      })
+  }
+
+  /**
+   * Mark the email input  as invalid
+   */
+  setEmailInvalid() {
+    this.emailEl.classList.add("is-invalid");
+  }
+
+
+  /**
+   * Unse the email input as invalid
+   */
+  unsetEmailValid() {
+    this.emailEl.classList.remove("is-invalid");
+  }
+
 
   /**
    * Disable the form inputs

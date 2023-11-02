@@ -4,11 +4,10 @@ import model from "./model.js";
 
 class SignUp {
   constructor() {
-    
+
   }
 
 
-  
 }
 
 

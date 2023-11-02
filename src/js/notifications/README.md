@@ -23,7 +23,8 @@
 | 3001  | Error while sending verification email | [/src/js/verification/model.js](/src/js/verification/model.js)  |
 | 3002  | Error while cheking if email is verified | [/src/js/verification/model.js](/src/js/verification/model.js)  |
 | 4001  | Error during sign in with email/password | [/src/js/signin/model.js](/src/js/signin/model.js)  |
-| 4002  | Error during sign in with Google accoiunt | [/src/js/signin/model.js](/src/js/signin/model.js)  |
+| 4002  | Error during sign in with Google account | [/src/js/signin/model.js](/src/js/signin/model.js)  |
+| 4003  | Error while sending reset password email | [/src/js/signin/model.js](/src/js/signin/model.js)  |
 
 
 Shortcut to preview Markdown in VSCode : Ctrl+K V
