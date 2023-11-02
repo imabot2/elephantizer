@@ -6,14 +6,14 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    error2001: "Error #2001",
-    error2001Message: "An unexpected error occurred while updating the username"
+    error2000: "Error #2000",
+    error2000Message: "An unexpected error occurred while updating the username"
     
   },
 
   fr: {
-    error2001: "Erreur 2001",
-    error2001Message: "Une erreur inattendue s'est produite pendant la mise à jour du nom d'utilisateur",
+    error2000: "Erreur 2000",
+    error2000Message: "Une erreur inattendue s'est produite pendant la mise à jour du nom d'utilisateur",
   },
 
 }

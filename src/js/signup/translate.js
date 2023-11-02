@@ -14,8 +14,8 @@ const translations = {
     existingAccountFooter: "Already have an account?",
     login: "Log In",
 
-    error1001: "Error #1001",
-    error1001Message: "An error has occurred during account creation",
+    error1000: "Error #1000",
+    error1000Message: "An error has occurred during account creation",
 
     existingAccountTitle: "Existing Account",
     existingAccountMessage: 'An account with email <strong><%=email%></strong> already exists.',
@@ -37,8 +37,8 @@ const translations = {
     existingAccountFooter: "Vous avez déja un compte ?",    
     login: "Se connecter",
 
-    error1001: "Erreur 1001",    
-    error1001Message: "Une erreur est survenue pendant la création du compte.",   
+    error1000: "Erreur 1000",    
+    error1000Message: "Une erreur est survenue pendant la création du compte.",   
     
     existingAccountTitle: "Compte déjà existant",
     existingAccountMessage: "Un compte avec l'adresse email <strong><%=email%></strong> existe déjà.",

@@ -26,7 +26,7 @@ class Model {
           resolve();
         })
         .catch((error) => {
-          notifications.error(translate.error2001, translate.error2001Message)
+          notifications.error(translate.error2000, translate.error2000Message)
           reject(error);
         })
     })

@@ -24,17 +24,17 @@ const translations = {
     invalidEmailTitle: 'Invalid Email',
     invalidEmailMessage: 'Please check your email address.',
 
-    error4001Title: 'Error #4001',
-    error4001Message: 'An unexpected error occured during login. Please retry later.',
+    error4000Title: 'Error #4000',
+    error4000Message: 'An unexpected error occured during login. Please retry later.',
 
     googlePopupClosedTitle: 'Pop-Up Closed',
     googlePopupClosedMessage: 'The Google authentification pop-up has been closed before the end of the process.',
 
-    error4002: 'Error #4002',
-    error4002Message: 'An error occured during authentification with your Google account. Please retry later.',
+    error4001: 'Error #4001',
+    error4001Message: 'An error occured during authentification with your Google account. Please retry later.',
 
-    error4003: 'Error #4003',
-    error4003Message: 'An error occurred when sending an email to reset the password.',
+    error4002: 'Error #4002',
+    error4002Message: 'An error occurred when sending an email to reset the password.',
 
     tooManyRequestsTitle: "Too many request",
     tooManyRequestsMessage: "Too many server requests. Password reset email has not been sent. Please retry later.",
@@ -63,17 +63,17 @@ const translations = {
     invalidEmailMessage: 'Vérifiez votre adresse email.',
 
 
-    error4001Title : 'Erreur #4001',
-    error4001Message : "Une erreur inattendue s'est produite lors de la connexion. Veuillez réessayer plus tard",
+    error4000Title : 'Erreur #4000',
+    error4000Message : "Une erreur inattendue s'est produite lors de la connexion. Veuillez réessayer plus tard",
 
     googlePopupClosedTitle: 'Pop-Up Closed',
     googlePopupClosedMessage: "La fenêtre d'authentification avec Google a été fermée avant la fin de l'authentification.",
 
-    error4002: 'Erreur #4002',
-    error4002Message: "Une erreur s'est produite lors de l'authentification avec votre compte Google. Veuillez réessayer plus tard.",
+    error4001: 'Erreur #4001',
+    error4001Message: "Une erreur s'est produite lors de l'authentification avec votre compte Google. Veuillez réessayer plus tard.",
 
-    error4003: 'Erreur #4003',
-    error4003Message: "Une erreur est survenue lors de l'envoi d'un email pour reinitialiser le mot de passe.",
+    error4002: 'Erreur #4002',
+    error4002Message: "Une erreur est survenue lors de l'envoi d'un email pour reinitialiser le mot de passe.",
    
     tooManyRequestsTitle: "Trop de requêtes",
     tooManyRequestsMessage: "Trop de demandes au serveur. L'email de réinitialisation du mot de passe n'a pas été envoyé. Veuillez réessayer plus tard.",

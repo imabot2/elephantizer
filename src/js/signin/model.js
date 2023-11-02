@@ -4,7 +4,9 @@ import view from "./view.js";
 import translate from "./translate.js";
 import notifications from "Js/notifications";
 
-
+/**
+ * Model class for the signin module
+ */
 class Model {
 
 
@@ -36,7 +38,7 @@ class Model {
             case 'auth/invalid-email': notifications.error(translate.invalidEmailTitle, translate.invalidEmailMessage); break;
             case "auth/invalid-login-credentials": notifications.error(translate.wrongCredentialsTitle, translate.wrongCredentialsMessage); break;
             default:
-              notifications.error(translate.error4001Title, translate.error4001Message);
+              notifications.error(translate.error4000Title, translate.error4000Message);
               console.error(error)
           }
           reject(error);
@@ -58,7 +60,7 @@ class Model {
           switch (error.code) {
             case "auth/popup-closed-by-user": notifications.error(translate.googlePopupClosedTitle, translate.googlePopupClosedMessage); break;
             default:
-              notifications.error(translate.error4002, translate.error4002Message);
+              notifications.error(translate.error4001, translate.error4001Message);
               console.error(error);
 
           }
@@ -81,11 +83,10 @@ class Model {
           resolve(); 
         })
         .catch((error) => {
-
           switch (error.code) {
             case "auth/too-many-requests": notifications.error(translate.tooManyRequestsTitle, translate.tooManyRequestsMessage);
             default:
-              notifications.error(translate.error4003, translate.error4003Message)
+              notifications.error(translate.error4002, translate.error4002Message)
               console.error(error)              
           }
           reject(error);

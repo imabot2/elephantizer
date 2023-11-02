@@ -20,14 +20,14 @@ const translations = {
     tooManyRequestsTitle: "Too many request",
     tooManyRequestsMessage: "Too many server requests. Verification email has not been sent. Please retry later.",
 
-    error3001: "Error #3001",
-    error3001Message: "An unexpected error occurred while sending verification email to <%=email%>.",
+    error3000: "Error #3000",
+    error3000Message: "An unexpected error occurred while sending verification email to <%=email%>.",
 
     emailVerifiedTitle: "Email verified", 
     emailVerifiedMessage: "Your email has been successfully verified.",
 
-    error3002: 'Error #3002',
-    error3002Message: "An error occurred during email address verification.",
+    error3001: 'Error #3001',
+    error3001Message: "An error occurred during email address verification.",
 
   },
 
@@ -46,14 +46,14 @@ const translations = {
     tooManyRequestsTitle: "Trop de requêtes",
     tooManyRequestsMessage: "Trop de demandes au serveur. L'email de vérification n'a pas été envoyé. Veuillez réessayer plus tard.",
 
-    error3001: "Erreur 3001",
-    error3001Message: "Erreur lors de l'envoi de l'email de vérification à <%=email%>.",
+    error3000: "Erreur 3000",
+    error3000Message: "Erreur lors de l'envoi de l'email de vérification à <%=email%>.",
 
     emailVerifiedTitle: "Email vérifié", 
     emailVerifiedMessage: "Votre email a été vérifié avec succès.",
 
-    error3002: 'Erreur 3002',
-    error3002Message: "Une erreur est survenue pendant la vérification de l'adresse email.",
+    error3001: 'Erreur 3001',
+    error3001Message: "Une erreur est survenue pendant la vérification de l'adresse email.",
   },
 
 }

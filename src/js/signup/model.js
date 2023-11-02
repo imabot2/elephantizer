@@ -75,7 +75,7 @@ class Model {
         .catch((error) => {
           switch (error.code) {
             case "auth/email-already-in-use": notifications.warning(translate.existingAccountTitle, translate.existingAccountMessage.replace("<%=email%>", email)); break;
-            default: notifications.error(translate.error1001, translate.error1001Message);
+            default: notifications.error(translate.error1000, translate.error1000Message);
           }
           reject(error);
         });
