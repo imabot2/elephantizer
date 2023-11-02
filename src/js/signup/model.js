@@ -5,8 +5,8 @@ import validator from "email-validator";
 import notifications from "Js/notifications";
 import { app } from "Js/firebase/index.js";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
-
+import account from "Js/account";
+import verification from "Js/verification"
 
 class Model {
   constructor() {
@@ -19,9 +19,9 @@ class Model {
     * Submit a new user based on email and password
     * @param {string} email email address of the new user
     * @param {*} password password of the new user
-    * @returns a promise resolved if the user is created
+    * @returns A promise resolved if the user is created
     */
-  submitNewUser(email, password) {
+  submitNewUser(username, email, password) {
 
     // Return a promise on user creation
     return new Promise((resolve, reject) => {
@@ -29,24 +29,20 @@ class Model {
       // Create the new user
       this.registerUserInFirebase(email, password)
         .then(() => {
-          console.log('registered but I have to send you an email')
-          /*
-          model.sendVerificationEmail().then(() => {
-            notifications.success(translate.accountCreatedTitle, translate.accountCreatedMessage);
-            view.hideSignUpForm();
+          // Account is successfully created
+          notifications.success(translate.accountCreatedTitle, translate.accountCreatedMessage);
+
+          // Update username before sending the verification email
+          account.updateUsername(username).finally(() => {
+            // Send verification email
+            verification.sendEmail();
           })
-          */
+
+          // Resolve the promise
           resolve();
         })
         .catch((error) => {
-
-          // An error occured during user creation, notify the user
-          switch (error) {
-            case "auth/email-already-in-use": notifications.warning(translate.existingAccountTitle, translate.existingAccountMessage.replace("<%=email%>", email)); break;
-            default:
-              notifications.error(translate.unexpectedError, translate.accountCreationFailed);
-          }
-          reject();
+          reject(error);
         })
     })
   }
@@ -57,6 +53,7 @@ class Model {
    * Register a new user in Firebase
    * @param {string} email The email address of the new user
    * @param {string} password The password of the new user
+   * @return {promise} A promise resolved when the user is created
    */
   registerUserInFirebase(email, password) {
     return new Promise((resolve, reject) => {
@@ -67,7 +64,11 @@ class Model {
           resolve(userCredential);
         })
         .catch((error) => {
-          reject(error.code);
+          switch (error.code) {
+            case "auth/email-already-in-use": notifications.warning(translate.existingAccountTitle, translate.existingAccountMessage.replace("<%=email%>", email)); break;
+            default: notifications.error(translate.error1001, translate.error1001Message);
+          }
+          reject(error);
         });
 
     })

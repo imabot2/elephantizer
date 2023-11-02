@@ -1,7 +1,8 @@
 import { app } from "Js/firebase/index.js";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import view from "./view.js";
-import notifications from "Js/notifications"
+import notifications from "Js/notifications";
+import verification from "Js/verification";
 
 
 class Model {
@@ -40,7 +41,10 @@ class Model {
       document.body.dispatchEvent(this.signInEvent)
 
       // The user is logged, but the email is not verified, trigger the event
-      if (!user.emailVerified) document.body.dispatchEvent(this.emailNotVerifiedEvent);
+      if (!user.emailVerified) {
+        verification.showModal(user.email);
+        document.body.dispatchEvent(this.emailNotVerifiedEvent);
+      }
     }
 
 

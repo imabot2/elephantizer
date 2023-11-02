@@ -77,7 +77,7 @@ class View {
     this.buttonImageEl.src = imageSrc;
 
     // Update tooltip content
-    this.buttonTooltip.setContent({ ".tooltip-inner": tooltipContent });
+    this.buttonTooltip.setContent({ ".tooltip-inner": tooltipContent });  
   }
 
 
