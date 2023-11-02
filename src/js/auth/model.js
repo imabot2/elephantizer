@@ -1,8 +1,10 @@
 import { app } from "Js/firebase/index.js";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import view from "./view.js";
+import translate from "./translate.js";
 import notifications from "Js/notifications";
 import verification from "Js/verification";
+
 
 
 class Model {
@@ -45,24 +47,27 @@ class Model {
 
     // If the user is not yet logged, display the notification
     if (!this.isLoggedIn) {
-      
+
       // The user is now logged
       this.isLoggedIn = true;
 
       // The user is logged in, trigger the sign in event
-      document.body.dispatchEvent(this.signInEvent)
+      document.body.dispatchEvent(this.signInEvent);
+
+
 
       // The user is logged, but the email is not verified, trigger the event
-      if (!user.emailVerified) {
-
+      if (user.emailVerified) {
+        // The user logged in with a verified email, notify the user
+        notifications.success(translate.userLoggedTitle, translate.userLoggedMessage.replace('<%=email%>', user.email));
+      }
+      else {
         // If the email show the modal and pool for verification
         verification.showModal(user.email);
         verification.pollingForEmailVerified();
       }
+
     }
-
-
-
 
     // Update user picture or log out icon
     view.showUserLoggedButton(this.getUserName(), this.getUserEmail(), this.getUserPicture());
@@ -87,7 +92,6 @@ class Model {
     if (this.auth.currentUser.displayName) return this.auth.currentUser.displayName;
     return this.auth.currentUser.email;
   }
-
 
   /**
    * Get the user picture 

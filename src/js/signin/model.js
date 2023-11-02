@@ -23,13 +23,13 @@ class Model {
 
       signInWithEmailAndPassword(this.auth, email, password)
         .then(() => { resolve(); })
-        .catch((error) => {
-          console.log (error)
+        .catch((error) => {          
           switch (error.code) {
             case 'auth/invalid-email': notifications.error(translate.invalidEmailTitle, translate.invalidEmailMessage); break;
             case "auth/invalid-login-credentials": notifications.error(translate.wrongCredentialsTitle, translate.wrongCredentialsMessage); break;
             default:
               notifications.error(translate.error4001Title, translate.error4001Message);
+              console.error (error)
           }
           reject(error);
         });

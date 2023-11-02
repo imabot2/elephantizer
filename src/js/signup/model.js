@@ -44,7 +44,7 @@ class Model {
           account.updateUsername(username).finally(() => {
             // Send verification email
             verification.sendEmail().then(() => {
-              verification.showModal();
+              verification.showModal(email);
             })
           })
 

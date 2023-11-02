@@ -11,6 +11,9 @@ class Auth {
    * @returns {promise} A promise with the user credentials
    */
   async waitForAuthCompleted() { return await model.onUserStateChanged(); }
+
+
+
 }
 
 

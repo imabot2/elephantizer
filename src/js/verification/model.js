@@ -54,8 +54,9 @@ class Model {
     // If there is already a polling running, do not run a second one
     if (this.polling !== undefined) {return}
 
+    // Start the timer for polling
     this.polling = setInterval(() => {
-      console.log ('polling')
+      
       // If the user is no longer logged, don't check for email verification  
       if (this.auth.currentUser === null) {
         this.stopPolling();
@@ -75,7 +76,9 @@ class Model {
           }
         })
         .catch((error) => {
+          // If an error occured, notify the user and stop the polling
           notifications.error(translate.error3002, translate.error3002Message);
+          this.stopPolling();
           reject(error)
         });
 

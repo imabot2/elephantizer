@@ -7,13 +7,18 @@ const translations = {
 
   en: {
     loginButtonTooltip: 'Click here to log in or sign up.',
-    logoutButtonTooltip: '',
-    userLoggedButtonTooltip: '<span class="badge text-bg-danger fs-6"><%=username%></span><br><span class="badge text-bg-primary"><%=email%></span><br>Click to log out.'
+    userLoggedButtonTooltip: '<span class="badge text-bg-danger fs-6"><%=username%></span><br><span class="badge text-bg-primary"><%=email%></span><br>Click to log out.',
+
+    userLoggedTitle: "Logged In",
+    userLoggedMessage: "You are logged with the address <strong><%=email%></strong>",
   },
 
   fr: {
     loginButtonTooltip: 'Cliquez ici pour vous connecter ou créer un compte.',    
-    userLoggedButtonTooltip: '<span class="badge text-bg-danger"><%=username%></span><br><span class="badge text-bg-primary"><%=email%></span><br>Cliquez pour vous déconnecter.'
+    userLoggedButtonTooltip: '<span class="badge text-bg-danger"><%=username%></span><br><span class="badge text-bg-primary"><%=email%></span><br>Cliquez pour vous déconnecter.',
+
+    userLoggedTitle: "Connecté",
+    userLoggedMessage: "Vous êtes connecté avec l'adresse <strong><%=email%></strong>",
   },
 
 }
