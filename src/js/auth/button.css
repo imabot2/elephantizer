@@ -14,6 +14,7 @@
   line-height: normal;
   z-index: 2;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  --bs-max-width: 300px;
 }
 
 #auth-top-icon>img:hover {
@@ -21,10 +22,11 @@
   transform: scale(1.1);
 }
 
-.auth-provider-logo {
-  max-height: 1.2em;
-}
-
 #auth-top-icon>img[src="#"] {
   display: none;
+}
+
+/* Increase tooltip max width with custom class */
+.auth-top-icon-tooltip {  
+  --bs-tooltip-max-width: 400px;
 }

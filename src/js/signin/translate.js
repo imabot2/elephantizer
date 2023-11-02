@@ -26,6 +26,12 @@ const translations = {
 
     error4001Title: 'Error #4001',
     error4001Message: 'An unexpected error occured during login. Please retry later.',
+
+    googlePopupClosedTitle: 'Pop-Up Closed',
+    googlePopupClosedMessage: 'The Google authentification pop-up has been closed before the end of the process.',
+
+    error4002: 'Error #4002',
+    error4002Message: 'An error occured during authentification with your Google account. Please retry later.',
   },
 
   fr: {
@@ -50,6 +56,12 @@ const translations = {
 
     error4001Title : 'Erreur #4001',
     error4001Message : "Une erreur inattendue s'est produite lors de la connexion. Veuillez réessayer plus tard",
+
+    googlePopupClosedTitle: 'Pop-Up Closed',
+    googlePopupClosedMessage: "La fenêtre d'authentification avec Google a été fermée avant la fin de l'authentification.",
+
+    error4002: 'Erreur #4002',
+    error4002Message: "Une erreur s'est produite lors de l'authentification avec votre compte Google. Veuillez réessayer plus tard.",
   },
 
 }

@@ -58,7 +58,6 @@ class Model {
   }
 
 
-
   /**
    * Register a new user in Firebase
    * @param {string} email The email address of the new user
@@ -84,6 +83,7 @@ class Model {
     })
   }
 
+
   /**
    * Check if a username is valid
    * @param {string} username The username to check
@@ -108,6 +108,7 @@ class Model {
 
   }
 
+
   /**
    * Check is a password is valid and return a human readable string explaining the problem
    * @param {string} password The password to check
@@ -131,7 +132,6 @@ class Model {
     if (validation.length == 0) return "";
     return validation[0].message;
   }
-
 
 
   /**

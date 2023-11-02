@@ -6,10 +6,17 @@ import notifications from "Js/notifications";
 import verification from "Js/verification";
 
 
-
+/**
+ * Model for the auth module
+ */
 class Model {
 
-
+  /**
+   * Constructor
+   * - Get authentification handler
+   * - Create the events (sing-in and sing-out)
+   * - Add event listener on authentification status changed
+   */
   constructor() {
 
     // Initialize Firebase Authentication and get a reference to the service

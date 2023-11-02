@@ -46,9 +46,9 @@ class Model {
 
 
   /**
- * Refresh used authentification data and check if the email has been verified
- * Once the email is verified, close the message and push a notification
- */
+   * Refresh used authentification data and check if the email has been verified
+   * Once the email is verified, close the message and push a notification
+   */
   pollingForEmailVerified() {
 
     // If there is already a polling running, do not run a second one

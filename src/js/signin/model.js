@@ -1,5 +1,5 @@
 import { app } from "Js/firebase/index.js";
-import { getAuth, signInWithEmailAndPassword, signInWithGoogle } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import view from "./view.js";
 import translate from "./translate.js";
 import notifications from "Js/notifications";
@@ -14,9 +14,17 @@ class Model {
   constructor() {
     // Initialize Firebase Authentication and get a reference to the service
     this.auth = getAuth(app);
+    // Get a reference to the Google Authentification service
+    this.googleProvider = new GoogleAuthProvider();
   }
 
 
+  /**
+   * 
+   * @param {*} email 
+   * @param {*} password 
+   * @returns 
+   */
   signInWithEmailPassword(email, password) {
 
     return new Promise((resolve, reject) => {
@@ -42,15 +50,24 @@ class Model {
    */
   signInWithGoogle() {
 
-    model.signInWithGoogle()
-      .catch((errorMsg) => {
-        console.log(errorMsg);
-      })
-      .finally(() => {
-        view.enableLoginForm();
-        view.enableLoginButton();
-      });
+    return new Promise((resolve, reject) => {
+
+      signInWithPopup(this.auth, this.googleProvider)
+        .then(() => { resolve(); })
+        .catch((error) => {
+          switch (error.code) {
+            case "auth/popup-closed-by-user": notifications.error(translate.googlePopupClosedTitle, translate.googlePopupClosedMessage); break;
+            default: 
+              notifications.error(translate.error4002, translate.error4002Message);
+              console.error(error);
+
+          }
+          reject(error)
+        })
+    });
   }
+
+
 }
 
 

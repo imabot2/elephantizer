@@ -20,6 +20,7 @@ class View {
 
     // Get the Google button
     this.googleBtnEl = this.modalEl.querySelector('.google-btn');
+    this.googleBtnEl.addEventListener('click', () => { this.onGoogleSignIn(); })
 
     // Get email and password element
     this.emailEl = this.modalEl.querySelector('.email');
@@ -29,6 +30,28 @@ class View {
     this.submitButtonEl = this.modalEl.querySelector('.submit-btn');
     this.submitButtonEl.addEventListener('click', () => { this.onSubmit(); });
   }
+
+
+  /**
+   * The user clicked on the "Sign In With Google Button"
+   */
+  onGoogleSignIn() {
+    // Disable the form during login
+    this.disableForm();
+
+    // Sign in with Google
+    model.signInWithGoogle()
+      .then(() => {
+        // User successfully logged in, hide the modal
+        this.hideModal()
+      })
+      .catch(() => {
+        // An error occured during login, enable the form
+        this.enableForm();
+      })
+
+  }
+
 
   /**
    * Callback function called when the user sign in with email/password

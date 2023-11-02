@@ -26,7 +26,7 @@ class View {
     this.buttonImageEl = this.buttonEl.querySelector('img');
 
     // Initialize tooltip
-    this.buttonTooltip = new bootstrap.Tooltip(this.buttonImageEl, { html: true });
+    this.buttonTooltip = new bootstrap.Tooltip(this.buttonImageEl, { html: true, maxWidth: "300px" });
 
 
     // Add event listener when the user click the auth button
