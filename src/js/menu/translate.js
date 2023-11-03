@@ -7,7 +7,7 @@ const translations = {
 
   en: {
     back: "back",
-    menuTitle: "Menu",
+    title: "Menu",
     selectMemoryTest: "Select Memory Test",
     settings: "Settings",
     about: "About",
@@ -15,7 +15,7 @@ const translations = {
 
   fr: {
     back: "Retour",
-    menuTitle: "Menu",
+    title: "Menu",
     selectMemoryTest: "Sélection des questions",
     settings: "Préférences",
     about: "À propos",

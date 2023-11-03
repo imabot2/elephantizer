@@ -5,6 +5,7 @@ import auth from "Js/auth"; // Authentification module
 import "Js/signup"; // For user registration
 import "Js/menu"; // For burger menu
 
+
 // Log first message
 const versionId = bootloader.log('Elephantizer v2');
 bootloader.setSuccess(versionId);
