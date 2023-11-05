@@ -17,14 +17,9 @@ console.debug('Open the menu at startup');
 menu.open();
 menu.navigate('settings');
 
-if (auth.isLogged()) {
-
-}
-else {
-  notifications.error('Error', "You are not logged in", 10000);
-}
+if (!auth.isLogged()) notifications.warning('Error', "You are not logged in", 10000);
 
 
 
 
-    
+

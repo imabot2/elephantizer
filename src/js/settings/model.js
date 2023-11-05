@@ -21,7 +21,6 @@ class model {
     // Default settings
     this.default = {
 
-
       // Current language
       language: 'en',
 
@@ -37,13 +36,14 @@ class model {
       series: ['/en/countries-on-the-map/europe/'],
     }
 
+    this.firstSettingsFromDB = false;
+
     // At startup, set the current settings as the default settings
     this.current = structuredClone(this.default);
 
     // Catch events to listen/unsubscribe from DB updates
     document.body.addEventListener('auth-sign-in', () => { this.listenDB(); });
-    document.body.addEventListener('auth-sign-out', () => { this.stopListeningDB();});
-
+    document.body.addEventListener('auth-sign-out', () => { this.stopListeningDB(); });
   }
 
 
@@ -53,14 +53,26 @@ class model {
    */
   init() {
 
-      // Set the default parameters to the view
-      view.update();
+    // Set the default parameters to the view
+    view.update();
 
-      // If the user not logged, return a resolved promise
-      if (!auth.isLogged()) return Promise.resolve();
-        
-      // The user is logged, download settings from the database
-      return this.load({updateView: true});      
+    // If the user not logged, return a resolved promise
+    if (!auth.isLogged()) return Promise.resolve();
+
+    // The user is logged, start listening for settings update
+    this.listenDB();
+
+    // Polling until the first settings are fetched from DB
+    return new Promise((resolve) => {
+      // Every 50 ms...
+      let polling = setInterval(() => {
+        // ... check if settings are loaded from DB
+        if (this.firstSettingsFromDB) {
+          clearInterval(polling);
+          resolve();
+        }
+      }, 50)
+    })
   }
 
 
@@ -105,8 +117,6 @@ class model {
     if (updateView) view.update();
     if (save) this.save();
   }
-
-
 
 
 
@@ -168,6 +178,7 @@ class model {
     })
   }
 
+
   /**
    * Listen for Firestore DB settings change 
    * On change, update the current settings
@@ -177,6 +188,9 @@ class model {
     // If the user is not logged in, do not use the listener
     if (!auth.isLogged()) return;
 
+    // If there is already a listener, running, don't start another one
+    if (this.unsubscribe != undefined) return;
+    console.log('start listener');
     // Create the document reference
     const docRefSettings = doc(db, "users", `${auth.userId()}`, "settings", "current");
 
@@ -187,8 +201,11 @@ class model {
       if (source == "Server") {
         // Update the current settings and the settings menu
         this.update(doc.data(), { updateView: true });
+        // Set the flag to true to continue the boot sequence
+        this.firstSettingsFromDB = true;
       }
-    });
+
+    })
   }
 
 
@@ -196,7 +213,10 @@ class model {
    * Stop listening from the settings update from DB
    */
   stopListeningDB() {
-    if (this.unsubscribe !== undefined) this.unsubscribe();  
+    if (this.unsubscribe !== undefined) {
+      this.unsubscribe();
+      this.unsubscribe = undefined;
+    }
   }
 
 

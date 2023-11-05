@@ -19,7 +19,6 @@ bootloader.setSuccess(authId);
 // Wait for settings
 const settingsId = bootloader.log(translate.settings);
 await settings.init();
-settings.listenDB();
 bootloader.setSuccess(settingsId);
 
 

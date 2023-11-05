@@ -26,7 +26,7 @@ class View {
     this.buttonImageEl = this.buttonEl.querySelector('img');
 
     // Initialize tooltip
-    this.buttonTooltip = new bootstrap.Tooltip(this.buttonImageEl, { html: true, maxWidth: "300px" });
+    this.buttonTooltip = new bootstrap.Tooltip(this.buttonImageEl, { trigger : 'hover', html: true, maxWidth: "300px" });
 
 
     // Add event listener when the user click the auth button
@@ -40,6 +40,10 @@ class View {
     // If the user is already logged, log out when the button is clicked
     // Otherwise, if the user is not logged, open the login modal
     if (model.isLoggedIn) model.signOut(); else signIn.showModal();
+    
+    // Disable temporary the tooltip to prevent strange behavior on mobile devices
+    this.buttonTooltip.disable();
+    setTimeout(() => { this.buttonTooltip.enable(); }, 100)
   }
 
 
