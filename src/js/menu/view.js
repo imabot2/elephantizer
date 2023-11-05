@@ -51,12 +51,6 @@ class View {
 
     // Set the main menu title
     this.setTitle(translate.title);
-    /*
-    setTimeout(() => {
-      this.modalEl.querySelector('.modal-dialog').classList.add('modal-fullscreen')
-    }, 3000)
-*/
-    this.open();
     
   }
 

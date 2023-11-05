@@ -6,11 +6,13 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    authentification: 'Checking for authentification',
+    authentification: 'Authentification',
+    settings: 'User settings',
   },
 
   fr: {
-    authentification: "Vérification de l'authentification.",
+    authentification: "Authentification.",
+    settings: "Préférences de l'utilisateurs",
   },
 
 }

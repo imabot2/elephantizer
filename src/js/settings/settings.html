@@ -1,31 +1,97 @@
 <div id="settings-menu" class="collapse">
-  <div class="d-flex align-items-center pb-2">
-    <div class="font-title fs-4 pe-2 mt-2"><%=duration%></div>
-    <div class="flex-grow-1 text-end"><%=durationLabel%></div>
+
+  <div class="learningMode">
+    <div class="pb-2">
+      <div class="font-title fs-5 pe-2 mt-2">
+        <%=learningMode%>
+      </div>
+      <div class="small">
+        <%=learningModeLabel%>
+      </div>
+    </div>
+    <div class="btn-group d-flex pb-4" role="group">
+
+      <input type="radio" class="btn-check " name="testMode" id="settings-learningMode-typing" autocomplete="off"
+        data-type="settings" data-key="learningMode" data-value="typing">
+      <label class="btn btn-primary" for="settings-learningMode-typing">
+        <%=typingMode%>
+      </label>
+
+      <input type="radio" class="btn-check" name="testMode" id="settings-learningMode-cards" autocomplete="off"
+        data-type="settings" data-key="learningMode" data-value="cards">
+      <label class="btn btn-primary" for="settings-learningMode-cards">
+        <%=cardMode%>
+      </label>
+    </div>
   </div>
-  <div class="btn-group d-flex" role="group" aria-label="Basic radio toggle button group">
 
-    <input type="radio" class="btn-check menu-btn" name="btnradio" id="settings-duration-15"
-      autocomplete="off" data-type="settings" data-key="duration" data-value="15">
-    <label class="btn btn-outline-primary" for="settings-duration-15"><%=duration15s%></label>
+  <div class="timerMode">
+    <div class="pb-2">
+      <div class="font-title fs-5 pe-2 mt-2">
+        <%=timerMode%>
+      </div>
+      <div class="small">
+        <%=timerModeLabel%>
+      </div>
+    </div>
+    <div class="btn-group d-flex pb-4" role="group">
+      <input type="radio" class="btn-check" name="timerMode" id="settings-timerMode-down" autocomplete="off"
+        data-type="settings" data-key="timerMode" data-value="down">
+      <label class="btn btn-primary" for="settings-timerMode-down">
+        <%=downMode%>
+      </label>
 
-    <input type="radio" class="btn-check menu-btn" name="btnradio" id="settings-duration-30"
-      autocomplete="off" data-type="settings" data-key="duration" data-value="30">
-    <label class="btn btn-outline-primary" for="settings-duration-30"><%=duration30s%></label>
+      <input type="radio" class="btn-check " name="timerMode" id="settings-timerMode-up" autocomplete="off"
+        data-type="settings" data-key="timerMode" data-value="up">
+      <label class="btn btn-primary" for="settings-timerMode-up">
+        <%=upMode%>
+      </label>
 
-    <input type="radio" class="btn-check menu-btn" name="btnradio" id="settings-duration-60"
-      autocomplete="off" data-type="settings" data-key="duration" data-value="60">
-    <label class="btn btn-outline-primary" for="settings-duration-60"><%=duration60s%></label>
-
-    <input type="radio" class="btn-check menu-btn" name="btnradio" id="settings-duration-120"
-      autocomplete="off" data-type="settings" data-key="duration" data-value="120">
-    <label class="btn btn-outline-primary" for="settings-duration-120"><%=duration2min%></label>
-
-    <input type="radio" class="btn-check menu-btn" name="btnradio" id="settings-duration-300"
-      autocomplete="off" data-type="settings" data-key="duration" data-value="300">
-    <label class="btn btn-outline-primary" for="settings-duration-300"><%=duration5min%></label>
+      <input type="radio" class="btn-check" name="timerMode" id="settings-timerMode-series" autocomplete="off"
+        data-type="settings" data-key="timerMode" data-value="series">
+      <label class="btn btn-primary" for="settings-timerMode-series">
+        <%=seriesMode%>
+      </label>
+    </div>
   </div>
 
-  <hr>
+  <div class="duration">
+    <div class="pb-2">
+      <div class="font-title fs-5 pe-2 mt-2">
+        <%=duration%>
+      </div>
+      <div class="small">
+        <%=durationLabel%>
+      </div>
+    </div>
+    <div class="btn-group d-flex" role="group">
+
+      <input type="radio" class="btn-check" name="duration" id="settings-duration-30" autocomplete="off"
+        data-type="settings" data-key="duration" data-value="30">
+      <label class="btn btn-primary" for="settings-duration-30">
+        <%=duration30s%>
+      </label>
+
+      <input type="radio" class="btn-check" name="duration" id="settings-duration-60" autocomplete="off"
+        data-type="settings" data-key="duration" data-value="60">
+      <label class="btn btn-primary" for="settings-duration-60">
+        <%=duration60s%>
+      </label>
+
+      <input type="radio" class="btn-check" name="duration" id="settings-duration-120" autocomplete="off"
+        data-type="settings" data-key="duration" data-value="120">
+      <label class="btn btn-primary" for="settings-duration-120">
+        <%=duration2min%>
+      </label>
+
+      <input type="radio" class="btn-check" name="duration" id="settings-duration-300" autocomplete="off"
+        data-type="settings" data-key="duration" data-value="300">
+      <label class="btn btn-primary" for="settings-duration-300">
+        <%=duration5min%>
+      </label>
+
+    </div>
+  </div>
+
 
 </div>

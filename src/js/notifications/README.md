@@ -27,5 +27,7 @@
 | 4001  | Error during sign in with Google account | [/src/js/signin/model.js](/src/js/signin/model.js)  |
 | 4002  | Error while sending reset password email | [/src/js/signin/model.js](/src/js/signin/model.js)  |
 | 5000  | Error while saving current settings | [/src/js/settings/model.js](/src/js/settings/model.js)  |
+| 5001  | Error while listening current settings | [/src/js/settings/model.js](/src/js/settings/model.js)  |
+| 5002  | Error while downloading current settings | [/src/js/settings/model.js](/src/js/settings/model.js)  |
 
 Shortcut to preview Markdown in VSCode : Ctrl+K V

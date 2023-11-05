@@ -1,24 +1,27 @@
-import view from "./view.js"
-import model from "./model.js"
+import model from "./model.js";
+import view from "./view.js";
+
 
 
 class Settings {
   /**
    * Constructor
    */
-  constructor() { }
+  constructor() {
+    view.update();
+  }
 
   /**
-   * Get the current settings
-   * @returns The current settings
+   * Load settings from Firestore and update the settings menu
+   * @returns A promise resolved when the settings are up-to-date
    */
-  current() { return model.current; }
+  async init() { return model.init(); }
 
 
   /**
-   * Save the current settings in the database
+   * Listen for settings changes from the Firestore DB
    */
-  save() { return model.save(); }
+  listenDB() { return model.listenDB(); }
 
 
   /**

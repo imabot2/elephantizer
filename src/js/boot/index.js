@@ -4,6 +4,7 @@ import bootloader from "Js/bootloader/index.js"; // Page loader
 import auth from "Js/auth"; // Authentification module
 import "Js/signup"; // For user registration
 import "Js/menu"; // For burger menu
+import settings from "Js/settings";
 
 
 // Log first message
@@ -15,6 +16,11 @@ const authId = bootloader.log(translate.authentification);
 await auth.waitForAuthCompleted();
 bootloader.setSuccess(authId);
 
+// Wait for settings
+const settingsId = bootloader.log(translate.settings);
+await settings.init();
+settings.listenDB();
+bootloader.setSuccess(settingsId);
 
 
 
