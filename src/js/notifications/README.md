@@ -9,7 +9,8 @@
 |  [1000 : 1999]     | Error during registration | [signup](/src/js/signup)  |
 |  [2000 : 2999]     | Error in account management | [account](/src/js/account)  |
 |  [3000 : 3999]     | Error in account verification | [verification](/src/js/verification)  |
-|  [4000 : 4999]     | Error during sign in | [sign](/src/js/sign)  |
+|  [4000 : 4999]     | Error during sign in | [sign](/src/js/sign) |
+|  [5000 : 5999]     | Error during settings operations | [settings](/src/js/settings) |
 
 
 
@@ -25,6 +26,6 @@
 | 4000  | Error during sign in with email/password | [/src/js/signin/model.js](/src/js/signin/model.js)  |
 | 4001  | Error during sign in with Google account | [/src/js/signin/model.js](/src/js/signin/model.js)  |
 | 4002  | Error while sending reset password email | [/src/js/signin/model.js](/src/js/signin/model.js)  |
-
+| 5000  | Error while saving current settings | [/src/js/settings/model.js](/src/js/settings/model.js)  |
 
 Shortcut to preview Markdown in VSCode : Ctrl+K V

@@ -13,6 +13,12 @@ class Languages {
   current() { return model.current; }
 
 
+  /**
+   * Render the template according to a given translation
+   * @param {string} template A string (usualy an html file) with ejs delimiters <%= =>
+   * @param {object} translation 
+   * @returns The rendered template
+   */
   render(template, translation) { return model.populateTemplate(template, translation) };
 
 

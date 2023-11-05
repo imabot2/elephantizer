@@ -36,9 +36,26 @@ class Model {
   }
 
 
+
   /**
-   * 
-   * @returns 
+    * Check if the user is logged with a verified email
+    * @returns True if the user is logged with a verified email, false otherwise
+    */
+  isLoggedAndVerified() {
+
+    // If the user is not logged, return false
+    if (this.auth.currentUser === null) return false;
+
+    // If the user email has not been verified, return false
+    if (!this.auth.currentUser.emailVerified) return false;
+
+    // The user is logged and email is verified, return true
+    return true;
+  }
+
+
+  /**
+   * Log the user out
    */
   signOut() {
     // Log out the user
@@ -62,7 +79,6 @@ class Model {
       document.body.dispatchEvent(this.signInEvent);
 
 
-
       // The user is logged, but the email is not verified, trigger the event
       if (user.emailVerified) {
         // The user logged in with a verified email, notify the user
@@ -81,6 +97,16 @@ class Model {
   }
 
 
+  /**
+   * 
+   * @returns The user ID or undefined if the user is not logged
+   */
+  getUserId() {
+    if (this.auth.currentUser === null) return undefined;
+    return this.auth.currentUser.uid;
+  }
+
+  
   /**
    * Return the current user email used for authentification
    * @returns The user email or undefined if the user is not logged in

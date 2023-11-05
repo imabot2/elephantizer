@@ -14,5 +14,5 @@ Visit the app on [Elephantizer](https://elephantizer.com)
 * Add tooltips on results titles
 * Make image inner or outer
 * There is a bug when calculating the accuracy => enter Egypte when the expected answer is Egypt => accuracy = 100%
-
+* Delete non confirmed users
 

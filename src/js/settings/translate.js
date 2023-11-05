@@ -13,6 +13,9 @@ const translations = {
     duration60s: "60s",
     duration2min: "2min",
     duration5min: "5min",
+
+    error5000: 'Error #5000',
+    error5000message: 'An unknow error occured while saving your settings. Please check your internet connection or try again later.',
   },
   fr: {
     duration: "Durée",
@@ -22,6 +25,9 @@ const translations = {
     duration60s: "60s",
     duration2min: "2min",
     duration5min: "5min",
+
+    error5000: 'Erreur 5000',
+    error5000message: "Une erreur inconnue s'est produite lors de la sauvegarde de vos paramètres. Veuillez vérifier votre connexion internet ou réessayer plus tard.",
   },
 
 }

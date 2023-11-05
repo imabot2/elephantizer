@@ -7,7 +7,7 @@ let firebaseConfig =  {
   storageBucket: "elephantizer-bd873.appspot.com",
   messagingSenderId: "389733182169",
   appId: "1:389733182169:web:06b8867d9c716eb1562cc8",
-  measurementId: "G-8Y7DEXFSP1"            
+  measurementId: "G-8Y7DEXFSP1"           
 };
 
 export default firebaseConfig;

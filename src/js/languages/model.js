@@ -46,6 +46,12 @@ class Languages {
   }
 
 
+  /**
+   * Render the template according to a given translation
+   * @param {string} template A string (usualy an html file) with ejs delimiters <%= =>
+   * @param {object} translation 
+   * @returns The rendered template
+   */
   populateTemplate(template, translation) {
     for (const [key, value] of Object.entries(translation)) {
       template = template.replaceAll(`<%=${key}%>`, value);

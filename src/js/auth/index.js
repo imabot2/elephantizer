@@ -13,6 +13,18 @@ class Auth {
   async waitForAuthCompleted() { return await model.onUserStateChanged(); }
 
 
+  /**
+   * Check if the user is logged with a verified email
+   * @returns True if the user is logged with a verified email, false otherwise
+   */
+  isLogged() { return model.isLoggedAndVerified(); }
+
+
+  /**
+   * Get the current user ID
+   * @returns The ID of the current user or undefined if the user is not logged
+   */
+  userId() { return model.getUserId(); }
 
 }
 

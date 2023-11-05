@@ -5,4 +5,3 @@ import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap icons
 
 // Boot sequence
 import "Js/boot/";
-
