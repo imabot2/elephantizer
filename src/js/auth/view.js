@@ -26,7 +26,7 @@ class View {
     this.buttonImageEl = this.buttonEl.querySelector('img');
 
     // Initialize tooltip
-    this.buttonTooltip = new bootstrap.Tooltip(this.buttonImageEl, { trigger : 'hover', html: true, maxWidth: "300px" });
+    this.buttonTooltip = new bootstrap.Tooltip(this.buttonImageEl, { trigger : 'hover', html: true });
 
 
     // Add event listener when the user click the auth button
@@ -42,6 +42,7 @@ class View {
     if (model.isLoggedIn) model.signOut(); else signIn.showModal();
     
     // Disable temporary the tooltip to prevent strange behavior on mobile devices
+    this.buttonTooltip.hide();
     this.buttonTooltip.disable();
     setTimeout(() => { this.buttonTooltip.enable(); }, 100)
   }
