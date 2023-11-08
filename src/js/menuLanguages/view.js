@@ -1,8 +1,10 @@
+import htmlContainer from "./container.html";
+import htmlButton from "./button.html";
 import * as bootstrap from "bootstrap";
 import str2dom from "doma";
 import { parseEjs } from "Js/languages/";
 import translate from "./translate.js";
-import htmlContainer from "./container.html";
+import model from "./model.js";
 import menu from 'Js/menu'
 
 class View {
@@ -12,8 +14,26 @@ class View {
    * - Append the settings menu to the modal
    */
   constructor() {
-    // Append the settings to the menu
+    // Prepare the language container
     this.containerEl = str2dom.one(parseEjs(htmlContainer, translate));
+    // Get the parent in the container
+    this.parentEl = this.containerEl.querySelector('.parent');
+
+    // Populate the language list
+    this.populate();
+  }
+
+
+  /**
+   * Populate the language menu
+   */
+  populate() {
+    // For each language
+    for (var language of model) {
+      // Prepare and append the button
+      let button = str2dom.one(parseEjs(htmlButton, language));
+      this.parentEl.append(button);
+    }
   }
 
 

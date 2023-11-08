@@ -15,7 +15,7 @@ class MenuMemoryTests {
   /**
    * Extend the collapse menu
    */
-  expand() { view.expand(); }
+  expand(path) { view.expand(path); }
 }
 
 

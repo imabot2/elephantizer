@@ -190,7 +190,7 @@ class model {
 
     // If there is already a listener, running, don't start another one
     if (this.unsubscribe != undefined) return;
-    console.log('start listener');
+
     // Create the document reference
     const docRefSettings = doc(db, "users", `${auth.userId()}`, "settings", "current");
 

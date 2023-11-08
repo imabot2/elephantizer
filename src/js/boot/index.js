@@ -6,7 +6,6 @@ import "Js/signup"; // For user registration
 import "Js/menu"; // For burger menu
 import settings from "Js/settings";
 
-
 // Log first message
 const versionId = bootloader.log('Elephantizer v2');
 bootloader.setSuccess(versionId);

@@ -46,7 +46,7 @@ module.exports = (env) => {
     resolve: {
       alias: {
         Assets: path.resolve(__dirname, "src/assets/"),
-        Quizzes: path.resolve(__dirname, "src/quizzes/"),
+        Catalog: path.resolve(__dirname, "src/catalog/"),
         Js: path.resolve(__dirname, "src/js/")
       }
     },

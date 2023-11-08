@@ -1,7 +1,7 @@
 import "./menu.css";
 import * as bootstrap from "bootstrap";
 import str2dom from "doma";
-import { parseEjs } from "Js/languages/";
+import { parseEjs } from "Js/languages";
 import translate from "./translate.js";
 import htmlModal from "./modal.html";
 import htmlBurger from "./burger.html";
@@ -77,7 +77,7 @@ class View {
     if (element === null) return;
 
     // Navigate to the new menu
-    model.navigate(element.getAttribute('navigation-target'));
+    model.navigate(element.getAttribute('navigation-target'), element.getAttribute('navigation-path'));
   }
 
 
