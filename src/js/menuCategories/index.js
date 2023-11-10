@@ -12,6 +12,11 @@ class MenuMemoryTests {
   appendTo(parent) { view.appendTo(parent); }
 
 
+    /**
+     * Collapse the category menu
+     */
+    collapse() { view.collapse(); }
+
   /**
    * Extend the collapse menu
    */

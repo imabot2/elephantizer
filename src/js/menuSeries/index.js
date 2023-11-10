@@ -11,11 +11,16 @@ class MenuCategories {
    */
   appendTo(parent) { view.appendTo(parent); }
 
+  /**
+   * Collapse the series menu
+   */
+  collapse() { view.collapse(); }
 
+  
   /**
    * Extend the collapse menu
    */
-  expand() { view.expand(); }
+  expand(path) { view.expand(path); }
 }
 
 

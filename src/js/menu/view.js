@@ -51,7 +51,14 @@ class View {
 
     // Set the main menu title
     this.setTitle(translate.title);
+
     
+    setTimeout(() => {
+      console.log ('FOR DEBUG');
+      this.open();
+      model.navigate('series', 'en/countries-on-the-map');
+    }, 1000)
+
   }
 
 

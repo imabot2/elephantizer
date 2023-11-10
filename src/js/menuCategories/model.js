@@ -12,10 +12,6 @@ class Model {
   constructor() {}
 
 
-  getLanguage(path) {
-    return catalog[path].name;
-  }
-
   /**
    * Return an array with the categories
    * @returns An array of objects containing the name and path of the categories

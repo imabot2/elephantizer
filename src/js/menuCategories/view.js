@@ -19,8 +19,6 @@ class View {
     this.containerEl = str2dom.one(parseEjs(htmlContainer, translate));
     // Get the parent in the container
     this.parentEl = this.containerEl.querySelector('.parent');
-
-    this.languageNameEl = this.containerEl.querySelector('.language-name');
   }
 
 
@@ -29,10 +27,6 @@ class View {
    * @param {string} path Path to the current categories
    */
   populate(path) {
-
-    // Set the current language name in the button
-    this.languageNameEl.innerText = model.getLanguage(path);
-
 
     // Erase the previous categories list
     this.parentEl.innerHTML = "";
@@ -56,7 +50,7 @@ class View {
     parent.append(this.containerEl);
 
     // Prepare the collapse
-    this.containerCollapse = new bootstrap.Collapse(this.containerEl, { toggle: false, parent: parent });
+    this.containerCollapse = new bootstrap.Collapse(this.containerEl, { toggle: false, parent: parent, show: 1 });
   }
 
 

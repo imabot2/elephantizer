@@ -6,13 +6,13 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    countriesOnTheMap: 'Countries On The Map',
-    chess: 'Chess',
+    africa: 'African Countries',
+    europe: 'European Countries',
   },
 
   fr: {
-    countriesOnTheMap: 'Les pays sur la carte en anglais',
-    chess: 'Échecs',
+    africa: "Les pays d'Afrique en anglais",
+    europe: "Les pays d'Europe en anglais",
   },
 }
 

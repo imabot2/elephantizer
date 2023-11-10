@@ -6,13 +6,11 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    countriesOnTheMap: 'Countries On The Map',
-    chess: 'Chess',
+    stockfishStartingPosition: 'Stockfish Starting Position',
   },
 
   fr: {
-    countriesOnTheMap: 'Les pays sur la carte en anglais',
-    chess: 'Échecs',
+    stockfishStartingPosition: 'Les premiers coups selon Stockfish',
   },
 }
 

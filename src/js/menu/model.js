@@ -19,12 +19,13 @@ class Model {
    * The back button is clicked
    */
   onBackBtnClicked() {
+    
     switch (this.currentMenu) {
       case 'main': menu.close(); break;
       case 'settings': this.navigate('main'); break;
       case 'languages': this.navigate('main'); break;
       case 'categories': this.navigate('languages'); break;
-      case 'memory-tests': this.navigate('categories'); break;
+      case 'series': this.navigate('categories'); break;
     }
   }
 
@@ -33,8 +34,14 @@ class Model {
    * Navigate to the requested menu
    * @param {string} target Name of the target menu
    */
-  navigate(target, path='') {
+  navigate(target, path = '') {
 
+    menu.collapse();
+    settings.collapse();
+    menuLanguages.collapse();
+    menuCategories.collapse();
+    menuSeries.collapse();
+    
     switch (target) {
       case 'main': menu.expand(); break;
       case 'settings': settings.expand(); break;
@@ -42,7 +49,6 @@ class Model {
       case 'categories': menuCategories.expand(path); break;
       case 'series': menuSeries.expand(path); break;
     }
-    this.currentMenu = target;
   }
 
 }

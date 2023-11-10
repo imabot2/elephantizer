@@ -32,6 +32,11 @@ class Settings {
 
 
   /**
+   * Collapse the settings menu
+   */
+  collapse() { view.collapse(); }
+
+  /**
    * Show the settings menu (Expand the collapse menu)
    */
   expand() { view.expand(); }

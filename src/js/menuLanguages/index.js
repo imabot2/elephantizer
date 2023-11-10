@@ -11,6 +11,11 @@ class MenuLanguages {
    */
   appendTo(parent) { view.appendTo(parent); }
 
+  /**
+   * Collapse the language menu
+   */
+  collapse() { view.collapse(); }
+
 
   /**
    * Extend the collapse menu

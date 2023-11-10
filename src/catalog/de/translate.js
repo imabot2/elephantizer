@@ -6,11 +6,11 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    countriesOnTheMap: 'Countries On The Map',
+    countriesOnTheMap: 'Countries On The Map in German',
   },
 
   fr: {
-    countriesOnTheMap: 'Les pays sur la carte',
+    countriesOnTheMap: 'Les pays sur la carte en Allemand',
   },
 }
 

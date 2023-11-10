@@ -82,7 +82,7 @@ class Model {
       // The user is logged, but the email is not verified, trigger the event
       if (user.emailVerified) {
         // The user logged in with a verified email, notify the user
-        notifications.success(translate.userLoggedTitle, translate.userLoggedMessage.replace('<%=email%>', user.email));
+        notifications.success(translate.userLoggedTitle, translate.userLoggedMessage.replace('<%=email%>', user.email), 1000);
       }
       else {
         // If the email show the modal and pool for verification

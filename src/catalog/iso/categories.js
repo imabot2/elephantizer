@@ -1,11 +1,11 @@
 import translate from './translate.js';
-import countryCode from "./country-codes/list.js";
+import countryCode from "./country-codes/series.js";
 
 
 const categories = {
   "country-codes" : {
     name: translate.isoCountryCode,
-    list: countryCode,
+    series: countryCode,
   },
 };
 
