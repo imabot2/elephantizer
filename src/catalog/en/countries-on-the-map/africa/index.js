@@ -1,57 +1,57 @@
-import algeria from "Quizzes/en/countries-on-the-map/africa/img/algeria.png";
-import angola from "Quizzes/en/countries-on-the-map/africa/img/angola.png";
-import benin from "Quizzes/en/countries-on-the-map/africa/img/benin.png";
-import botswana from "Quizzes/en/countries-on-the-map/africa/img/botswana.png";
-import burkinaFaso from "Quizzes/en/countries-on-the-map/africa/img/burkina-faso.png";
-import burundi from "Quizzes/en/countries-on-the-map/africa/img/burundi.png";
-import cameroon from "Quizzes/en/countries-on-the-map/africa/img/cameroon.png";
-import capeVerde from "Quizzes/en/countries-on-the-map/africa/img/cape-verde.png";
-import centralAfricanRepublic from "Quizzes/en/countries-on-the-map/africa/img/central-african-republic.png";
-import chad from "Quizzes/en/countries-on-the-map/africa/img/chad.png";
-import comoros from "Quizzes/en/countries-on-the-map/africa/img/comoros.png";
-import democraticRepublicOfTheCongo from "Quizzes/en/countries-on-the-map/africa/img/democratic-republic-of-the-congo.png";
-import djibouti from "Quizzes/en/countries-on-the-map/africa/img/djibouti.png";
-import egypt from "Quizzes/en/countries-on-the-map/africa/img/egypt.png";
-import equatorialGuinea from "Quizzes/en/countries-on-the-map/africa/img/equatorial-guinea.png";
-import eritrea from "Quizzes/en/countries-on-the-map/africa/img/eritrea.png";
-import eswatini from "Quizzes/en/countries-on-the-map/africa/img/eswatini.png";
-import ethiopia from "Quizzes/en/countries-on-the-map/africa/img/ethiopia.png";
-import gabon from "Quizzes/en/countries-on-the-map/africa/img/gabon.png";
-import gambia from "Quizzes/en/countries-on-the-map/africa/img/gambia.png";
-import ghana from "Quizzes/en/countries-on-the-map/africa/img/ghana.png";
-import guinea from "Quizzes/en/countries-on-the-map/africa/img/guinea.png";
-import guineaBissau from "Quizzes/en/countries-on-the-map/africa/img/guinea-bissau.png";
-import ivoryCoast from "Quizzes/en/countries-on-the-map/africa/img/ivory-coast.png";
-import kenya from "Quizzes/en/countries-on-the-map/africa/img/kenya.png";
-import lesotho from "Quizzes/en/countries-on-the-map/africa/img/lesotho.png";
-import liberia from "Quizzes/en/countries-on-the-map/africa/img/liberia.png";
-import libya from "Quizzes/en/countries-on-the-map/africa/img/libya.png";
-import madagascar from "Quizzes/en/countries-on-the-map/africa/img/madagascar.png";
-import malawi from "Quizzes/en/countries-on-the-map/africa/img/malawi.png";
-import mali from "Quizzes/en/countries-on-the-map/africa/img/mali.png";
-import mauritania from "Quizzes/en/countries-on-the-map/africa/img/mauritania.png";
-import mauritius from "Quizzes/en/countries-on-the-map/africa/img/mauritius.png";
-import morocco from "Quizzes/en/countries-on-the-map/africa/img/morocco.png";
-import mozambique from "Quizzes/en/countries-on-the-map/africa/img/mozambique.png";
-import namibia from "Quizzes/en/countries-on-the-map/africa/img/namibia.png";
-import niger from "Quizzes/en/countries-on-the-map/africa/img/niger.png";
-import nigeria from "Quizzes/en/countries-on-the-map/africa/img/nigeria.png";
-import republicOfTheCongo from "Quizzes/en/countries-on-the-map/africa/img/republic-of-the-congo.png";
-import rwanda from "Quizzes/en/countries-on-the-map/africa/img/rwanda.png";
-import saoTomeAndPrincipe from "Quizzes/en/countries-on-the-map/africa/img/sao-tome-and-principe.png";
-import senegal from "Quizzes/en/countries-on-the-map/africa/img/senegal.png";
-import seychelles from "Quizzes/en/countries-on-the-map/africa/img/seychelles.png";
-import sierraLeone from "Quizzes/en/countries-on-the-map/africa/img/sierra-leone.png";
-import somalia from "Quizzes/en/countries-on-the-map/africa/img/somalia.png";
-import southAfrica from "Quizzes/en/countries-on-the-map/africa/img/south-africa.png";
-import southSudan from "Quizzes/en/countries-on-the-map/africa/img/south-sudan.png";
-import sudan from "Quizzes/en/countries-on-the-map/africa/img/sudan.png";
-import tanzania from "Quizzes/en/countries-on-the-map/africa/img/tanzania.png";
-import togo from "Quizzes/en/countries-on-the-map/africa/img/togo.png";
-import tunisia from "Quizzes/en/countries-on-the-map/africa/img/tunisia.png";
-import uganda from "Quizzes/en/countries-on-the-map/africa/img/uganda.png";
-import zambia from "Quizzes/en/countries-on-the-map/africa/img/zambia.png";
-import zimbabwe from "Quizzes/en/countries-on-the-map/africa/img/zimbabwe.png";
+import algeria from "Catalog/en/countries-on-the-map/africa/img/algeria.png";
+import angola from "Catalog/en/countries-on-the-map/africa/img/angola.png";
+import benin from "Catalog/en/countries-on-the-map/africa/img/benin.png";
+import botswana from "Catalog/en/countries-on-the-map/africa/img/botswana.png";
+import burkinaFaso from "Catalog/en/countries-on-the-map/africa/img/burkina-faso.png";
+import burundi from "Catalog/en/countries-on-the-map/africa/img/burundi.png";
+import cameroon from "Catalog/en/countries-on-the-map/africa/img/cameroon.png";
+import capeVerde from "Catalog/en/countries-on-the-map/africa/img/cape-verde.png";
+import centralAfricanRepublic from "Catalog/en/countries-on-the-map/africa/img/central-african-republic.png";
+import chad from "Catalog/en/countries-on-the-map/africa/img/chad.png";
+import comoros from "Catalog/en/countries-on-the-map/africa/img/comoros.png";
+import democraticRepublicOfTheCongo from "Catalog/en/countries-on-the-map/africa/img/democratic-republic-of-the-congo.png";
+import djibouti from "Catalog/en/countries-on-the-map/africa/img/djibouti.png";
+import egypt from "Catalog/en/countries-on-the-map/africa/img/egypt.png";
+import equatorialGuinea from "Catalog/en/countries-on-the-map/africa/img/equatorial-guinea.png";
+import eritrea from "Catalog/en/countries-on-the-map/africa/img/eritrea.png";
+import eswatini from "Catalog/en/countries-on-the-map/africa/img/eswatini.png";
+import ethiopia from "Catalog/en/countries-on-the-map/africa/img/ethiopia.png";
+import gabon from "Catalog/en/countries-on-the-map/africa/img/gabon.png";
+import gambia from "Catalog/en/countries-on-the-map/africa/img/gambia.png";
+import ghana from "Catalog/en/countries-on-the-map/africa/img/ghana.png";
+import guinea from "Catalog/en/countries-on-the-map/africa/img/guinea.png";
+import guineaBissau from "Catalog/en/countries-on-the-map/africa/img/guinea-bissau.png";
+import ivoryCoast from "Catalog/en/countries-on-the-map/africa/img/ivory-coast.png";
+import kenya from "Catalog/en/countries-on-the-map/africa/img/kenya.png";
+import lesotho from "Catalog/en/countries-on-the-map/africa/img/lesotho.png";
+import liberia from "Catalog/en/countries-on-the-map/africa/img/liberia.png";
+import libya from "Catalog/en/countries-on-the-map/africa/img/libya.png";
+import madagascar from "Catalog/en/countries-on-the-map/africa/img/madagascar.png";
+import malawi from "Catalog/en/countries-on-the-map/africa/img/malawi.png";
+import mali from "Catalog/en/countries-on-the-map/africa/img/mali.png";
+import mauritania from "Catalog/en/countries-on-the-map/africa/img/mauritania.png";
+import mauritius from "Catalog/en/countries-on-the-map/africa/img/mauritius.png";
+import morocco from "Catalog/en/countries-on-the-map/africa/img/morocco.png";
+import mozambique from "Catalog/en/countries-on-the-map/africa/img/mozambique.png";
+import namibia from "Catalog/en/countries-on-the-map/africa/img/namibia.png";
+import niger from "Catalog/en/countries-on-the-map/africa/img/niger.png";
+import nigeria from "Catalog/en/countries-on-the-map/africa/img/nigeria.png";
+import republicOfTheCongo from "Catalog/en/countries-on-the-map/africa/img/republic-of-the-congo.png";
+import rwanda from "Catalog/en/countries-on-the-map/africa/img/rwanda.png";
+import saoTomeAndPrincipe from "Catalog/en/countries-on-the-map/africa/img/sao-tome-and-principe.png";
+import senegal from "Catalog/en/countries-on-the-map/africa/img/senegal.png";
+import seychelles from "Catalog/en/countries-on-the-map/africa/img/seychelles.png";
+import sierraLeone from "Catalog/en/countries-on-the-map/africa/img/sierra-leone.png";
+import somalia from "Catalog/en/countries-on-the-map/africa/img/somalia.png";
+import southAfrica from "Catalog/en/countries-on-the-map/africa/img/south-africa.png";
+import southSudan from "Catalog/en/countries-on-the-map/africa/img/south-sudan.png";
+import sudan from "Catalog/en/countries-on-the-map/africa/img/sudan.png";
+import tanzania from "Catalog/en/countries-on-the-map/africa/img/tanzania.png";
+import togo from "Catalog/en/countries-on-the-map/africa/img/togo.png";
+import tunisia from "Catalog/en/countries-on-the-map/africa/img/tunisia.png";
+import uganda from "Catalog/en/countries-on-the-map/africa/img/uganda.png";
+import zambia from "Catalog/en/countries-on-the-map/africa/img/zambia.png";
+import zimbabwe from "Catalog/en/countries-on-the-map/africa/img/zimbabwe.png";
 
 
 
@@ -68,7 +68,7 @@ export var metaData = {
 
 
 
-export var questions = [
+export var cards = [
   {
     uid: "dz",
     image: algeria,

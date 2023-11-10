@@ -1,12 +1,12 @@
 <div class="d-flex fs-5">
   <div class="form-check">
     <input class="form-check-input" type="radio" name="memory-test-radio-selector" data-type="select-deck"
-      data-path="<%=path%>" data-bs-toggle="tooltip"
-      data-bs-title="Select only this test. This will disable all others.">
+      data-path="<%=path%>" data-bs-html="true" data-bs-toggle="tooltip"
+      data-bs-title="<%=radioTooltip%>">
   </div>
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="<%=id%>" data-type="toggle-deck" data-path="<%=path%>"
-      data-bs-toggle="tooltip" data-bs-title="Add or remove this memory test.">
+      data-bs-toggle="tooltip" data-bs-title="<%=checkboxTooltip%>">
     <label class="form-check-label w-100" for="<%=id%>">
       <%=name%>
     </label>

@@ -53,6 +53,8 @@ class View {
     // Erase the previous categories list
     this.parentEl.innerHTML = "";
 
+    const htmlButtonTranslated = parseEjs(htmlButton, translate);
+
     // For each category, append the button
     model.series(path).forEach((deck) => {
       
@@ -60,7 +62,7 @@ class View {
       deck.id = deck.path.replaceAll('/', '_');
       
       // ...prepare and append the button
-      let button = str2dom.one(parseEjs(htmlButton, deck));
+      let button = str2dom.one(parseEjs(htmlButtonTranslated, deck));
       this.parentEl.append(button);
 
     })

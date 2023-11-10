@@ -1,9 +1,9 @@
-import startingPosition from "Quizzes/en/chess/stockfish-starting-position/img/starting-position.png";
-import a2a4 from "Quizzes/en/chess/stockfish-starting-position/img/a2a4.png";
-import b1c3 from "Quizzes/en/chess/stockfish-starting-position/img/b1c3.png";
-import d2d4 from "Quizzes/en/chess/stockfish-starting-position/img/d2d4.png";
-import e2e4 from "Quizzes/en/chess/stockfish-starting-position/img/e2e4.png";
-import g1f3 from "Quizzes/en/chess/stockfish-starting-position/img/g1f3.png";
+import startingPosition from "Catalog/en/chess/stockfish-starting-position/img/starting-position.png";
+import a2a4 from "Catalog/en/chess/stockfish-starting-position/img/a2a4.png";
+import b1c3 from "Catalog/en/chess/stockfish-starting-position/img/b1c3.png";
+import d2d4 from "Catalog/en/chess/stockfish-starting-position/img/d2d4.png";
+import e2e4 from "Catalog/en/chess/stockfish-starting-position/img/e2e4.png";
+import g1f3 from "Catalog/en/chess/stockfish-starting-position/img/g1f3.png";
 
 // Target language of the test
 export var metaData = {
@@ -18,7 +18,7 @@ export var metaData = {
 
 
 
-export var questions = [
+export var cards = [
   {
     uid: "root",
     image: startingPosition,

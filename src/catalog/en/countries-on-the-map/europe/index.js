@@ -1,49 +1,49 @@
-import albania from "Quizzes/en/countries-on-the-map/europe/img/albania.png";
-import andorra from "Quizzes/en/countries-on-the-map/europe/img/andorra.png";
-import austria from "Quizzes/en/countries-on-the-map/europe/img/austria.png"
-import belarus from "Quizzes/en/countries-on-the-map/europe/img/belarus.png"
-import belgium from "Quizzes/en/countries-on-the-map/europe/img/belgium.png";
-import bosniaAndHerzegovina from "Quizzes/en/countries-on-the-map/europe/img/bosnia-and-herzegovina.png";
-import bulgaria from "Quizzes/en/countries-on-the-map/europe/img/bulgaria.png"
-import croatia from "Quizzes/en/countries-on-the-map/europe/img/croatia.png"
-import czechia from "Quizzes/en/countries-on-the-map/europe/img/czechia.png"
-import cyprus from "Quizzes/en/countries-on-the-map/europe/img/cyprus.png"
-import denmark from "Quizzes/en/countries-on-the-map/europe/img/denmark.png";
-import estonia from "Quizzes/en/countries-on-the-map/europe/img/estonia.png"
-import finland from "Quizzes/en/countries-on-the-map/europe/img/finland.png";
-import france from "Quizzes/en/countries-on-the-map/europe/img/france.png";
-import germany from "Quizzes/en/countries-on-the-map/europe/img/germany.png";
-import greece from "Quizzes/en/countries-on-the-map/europe/img/greece.png";
-import hungary from "Quizzes/en/countries-on-the-map/europe/img/hungary.png"
-import iceland from "Quizzes/en/countries-on-the-map/europe/img/iceland.png";
-import ireland from "Quizzes/en/countries-on-the-map/europe/img/ireland.png";
-import italy from "Quizzes/en/countries-on-the-map/europe/img/italy.png";
-import kosovo from "Quizzes/en/countries-on-the-map/europe/img/kosovo.png";
-import latvia from "Quizzes/en/countries-on-the-map/europe/img/latvia.png"
-import liechtenstein from "Quizzes/en/countries-on-the-map/europe/img/liechtenstein.png"
-import lithuania from "Quizzes/en/countries-on-the-map/europe/img/lithuania.png";
-import luxembourg from "Quizzes/en/countries-on-the-map/europe/img/luxembourg.png";
-import malta from "Quizzes/en/countries-on-the-map/europe/img/malta.png"
-import moldova from "Quizzes/en/countries-on-the-map/europe/img/moldova.png"
-import monaco from "Quizzes/en/countries-on-the-map/europe/img/monaco.png";
-import montenegro from "Quizzes/en/countries-on-the-map/europe/img/montenegro.png"
-import netherlands from "Quizzes/en/countries-on-the-map/europe/img/netherlands.png";
-import northMacedonia from "Quizzes/en/countries-on-the-map/europe/img/north-macedonia.png"
-import norway from "Quizzes/en/countries-on-the-map/europe/img/norway.png";
-import poland from "Quizzes/en/countries-on-the-map/europe/img/poland.png";
-import portugal from "Quizzes/en/countries-on-the-map/europe/img/portugal.png";
-import romania from "Quizzes/en/countries-on-the-map/europe/img/romania.png"
-import russia from "Quizzes/en/countries-on-the-map/europe/img/russia.png";
-import sanMarino from "Quizzes/en/countries-on-the-map/europe/img/san-marino.png";
-import serbia from "Quizzes/en/countries-on-the-map/europe/img/serbia.png";
-import slovakia from "Quizzes/en/countries-on-the-map/europe/img/slovakia.png"
-import slovenia from "Quizzes/en/countries-on-the-map/europe/img/slovenia.png";
-import spain from "Quizzes/en/countries-on-the-map/europe/img/spain.png";
-import sweden from "Quizzes/en/countries-on-the-map/europe/img/sweden.png";
-import switzerland from "Quizzes/en/countries-on-the-map/europe/img/switzerland.png";
-import unitedKingdom from "Quizzes/en/countries-on-the-map/europe/img/united-kingdom.png";
-import vaticanCity from "Quizzes/en/countries-on-the-map/europe/img/vatican-city.png";
-import ukraine from "Quizzes/en/countries-on-the-map/europe/img/ukraine.png";
+import albania from "Catalog/en/countries-on-the-map/europe/img/albania.png";
+import andorra from "Catalog/en/countries-on-the-map/europe/img/andorra.png";
+import austria from "Catalog/en/countries-on-the-map/europe/img/austria.png"
+import belarus from "Catalog/en/countries-on-the-map/europe/img/belarus.png"
+import belgium from "Catalog/en/countries-on-the-map/europe/img/belgium.png";
+import bosniaAndHerzegovina from "Catalog/en/countries-on-the-map/europe/img/bosnia-and-herzegovina.png";
+import bulgaria from "Catalog/en/countries-on-the-map/europe/img/bulgaria.png"
+import croatia from "Catalog/en/countries-on-the-map/europe/img/croatia.png"
+import czechia from "Catalog/en/countries-on-the-map/europe/img/czechia.png"
+import cyprus from "Catalog/en/countries-on-the-map/europe/img/cyprus.png"
+import denmark from "Catalog/en/countries-on-the-map/europe/img/denmark.png";
+import estonia from "Catalog/en/countries-on-the-map/europe/img/estonia.png"
+import finland from "Catalog/en/countries-on-the-map/europe/img/finland.png";
+import france from "Catalog/en/countries-on-the-map/europe/img/france.png";
+import germany from "Catalog/en/countries-on-the-map/europe/img/germany.png";
+import greece from "Catalog/en/countries-on-the-map/europe/img/greece.png";
+import hungary from "Catalog/en/countries-on-the-map/europe/img/hungary.png"
+import iceland from "Catalog/en/countries-on-the-map/europe/img/iceland.png";
+import ireland from "Catalog/en/countries-on-the-map/europe/img/ireland.png";
+import italy from "Catalog/en/countries-on-the-map/europe/img/italy.png";
+import kosovo from "Catalog/en/countries-on-the-map/europe/img/kosovo.png";
+import latvia from "Catalog/en/countries-on-the-map/europe/img/latvia.png"
+import liechtenstein from "Catalog/en/countries-on-the-map/europe/img/liechtenstein.png"
+import lithuania from "Catalog/en/countries-on-the-map/europe/img/lithuania.png";
+import luxembourg from "Catalog/en/countries-on-the-map/europe/img/luxembourg.png";
+import malta from "Catalog/en/countries-on-the-map/europe/img/malta.png"
+import moldova from "Catalog/en/countries-on-the-map/europe/img/moldova.png"
+import monaco from "Catalog/en/countries-on-the-map/europe/img/monaco.png";
+import montenegro from "Catalog/en/countries-on-the-map/europe/img/montenegro.png"
+import netherlands from "Catalog/en/countries-on-the-map/europe/img/netherlands.png";
+import northMacedonia from "Catalog/en/countries-on-the-map/europe/img/north-macedonia.png"
+import norway from "Catalog/en/countries-on-the-map/europe/img/norway.png";
+import poland from "Catalog/en/countries-on-the-map/europe/img/poland.png";
+import portugal from "Catalog/en/countries-on-the-map/europe/img/portugal.png";
+import romania from "Catalog/en/countries-on-the-map/europe/img/romania.png"
+import russia from "Catalog/en/countries-on-the-map/europe/img/russia.png";
+import sanMarino from "Catalog/en/countries-on-the-map/europe/img/san-marino.png";
+import serbia from "Catalog/en/countries-on-the-map/europe/img/serbia.png";
+import slovakia from "Catalog/en/countries-on-the-map/europe/img/slovakia.png"
+import slovenia from "Catalog/en/countries-on-the-map/europe/img/slovenia.png";
+import spain from "Catalog/en/countries-on-the-map/europe/img/spain.png";
+import sweden from "Catalog/en/countries-on-the-map/europe/img/sweden.png";
+import switzerland from "Catalog/en/countries-on-the-map/europe/img/switzerland.png";
+import unitedKingdom from "Catalog/en/countries-on-the-map/europe/img/united-kingdom.png";
+import vaticanCity from "Catalog/en/countries-on-the-map/europe/img/vatican-city.png";
+import ukraine from "Catalog/en/countries-on-the-map/europe/img/ukraine.png";
 
 
 
@@ -60,7 +60,7 @@ flag: "/static/circle-flags/gb.svg",
 
 
 
-export var questions = [
+export var cards = [
   {
     uid: "al",
     image: albania,
