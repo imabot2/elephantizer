@@ -1,6 +1,8 @@
 import view from "./view.js";
 import series from "Js/series";
 import menuSeries from "Js/menuSeries";
+import notifications from "Js/notifications";
+import translate from "./translate.js";
 
 /**
  * Model for the SELECTION module
@@ -14,12 +16,16 @@ class Model {
     this.selection = [];
   }
 
-
+  /**
+   * Callback function called when the selection is updated
+   */
   onSelectionUpdated() {
-    console.log (this.selection);
-    view.update();
+    // Update the checkboxes and radio button in the Series menu
     menuSeries.updateSelection(this.selection);
+    // Update the current selection
+    view.update();
   }
+
 
   /**
    * Toggle a deck given by its path
@@ -45,12 +51,12 @@ class Model {
     return new Promise((resolve, reject) => {
       // Add the path to the current selection
       this.selection.push(path);
-      
+
       // Load the deck from server
       series.load(path)
-        .then(() => { 
+        .then(() => {
           this.onSelectionUpdated();
-          resolve(); 
+          resolve();
         })
         .catch(() => {
           // If the deck can't be loaded, remove the path from the current selection
@@ -67,11 +73,20 @@ class Model {
    * @param {string} path Path of the deck to remove
    */
   remove(path) {
-    
+
+    // Check if there is at least two deck in the current selection
+    if (this.selection.length <= 1) {
+      // Can't remove the last deck
+      notifications.warning(translate.atLeastOneDeck, translate.atLeastOneDeckMessage);
+      // The selection is updated
+      this.onSelectionUpdated();
+      return;
+    }
+
     // Get the index and remove the deck
     const index = this.selection.indexOf(path);
     this.selection.splice(index, 1);
-    
+
     // The selection is updated
     this.onSelectionUpdated();
   }

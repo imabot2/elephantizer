@@ -1,4 +1,5 @@
 import * as bootstrap from 'bootstrap';
+import "./toast.css"
 import container from "./container.html";
 import template from "./toast.html";
 import str2dom from "doma";
@@ -64,7 +65,7 @@ class View {
     // Set the toast color and icon
     toastEl.querySelector(".toast-title").innerHTML = `<i class="bi bi-exclamation-triangle-fill me-2"></i> ${title}`;
     toastEl.querySelector(".toast-header").classList.add("text-bg-warning");
-    toastEl.querySelector(".toast-header").classList.add("text-white");
+    //toastEl.querySelector(".toast-header").classList.add("text-white");
 
     // Set the requested message in the toast body
     toastEl.querySelector(".toast-body").innerHTML = message;

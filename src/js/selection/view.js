@@ -1,6 +1,7 @@
 import * as bootstrap from "bootstrap";
 import model from "./model.js";
 import htmlContainer from "./container.html";
+import htmlItem from "./item.html";
 import translate from "./translate.js";
 import str2dom from "doma";
 import { parseEjs } from "Js/languages/";
@@ -14,6 +15,10 @@ class View {
 
   update() {
     console.log(model.selection);
+
+    model.selection.forEach((path) => {
+      console.log (path);
+    })
   }
 
   /**
@@ -33,7 +38,7 @@ class View {
    * @param {integer} delay Delay before collapsing in milliseconds
    */
   collapse(delay = 0) {
-    console.log(delay)
+    // Collapse after the requested delay
     setTimeout(() => {
       this.containerCollapse.hide();
     }, delay);
@@ -44,8 +49,11 @@ class View {
    * @param {integer} delay Delay before expanding in milliseconds
    */
   expand(delay = 0) {
-
+    
+    // Update the current selection
     this.update();
+
+    // Expand after the timeout
     setTimeout(() => {
       this.containerCollapse.show();
     }, delay)

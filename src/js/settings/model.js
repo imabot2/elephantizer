@@ -31,9 +31,6 @@ class model {
       timerMode: "down",
       // Timer duration [s]
       duration: 60,
-
-      // Contains the series of decks
-      series: ['/en/countries-on-the-map/europe/'],
     }
 
     this.firstSettingsFromDB = false;

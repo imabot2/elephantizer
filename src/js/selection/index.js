@@ -4,14 +4,19 @@ import view from "./view.js";
 class Selection {
   constructor() { }
 
-
-
-
   /**
    * Return the current selection
    * @returns {array} An array containing the path to the current selection
    */
   current() { return model.selection; }
+
+
+  /**
+   * Add a new deck in the selection
+   * @param {string} path Path of the deck to add
+   * @returns A promise resolved when the deck is loaded
+   */
+  add(path) { return model.add(path); }
 
 
   /**

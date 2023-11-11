@@ -49,6 +49,7 @@ class View {
     })
   }
 
+
   /**
    * Callback function called when a button (radio or checkbox) is clicked
    * @param {object} event The enven that triggered the function call
@@ -65,7 +66,6 @@ class View {
     if (type == "toggle-deck") selection.toggleDeck(path);
     if (type == "select-deck") selection.selectDeck(path);
   }
-
 
 
   /**
@@ -99,6 +99,7 @@ class View {
 
   }
 
+
   /**
    * Append the settings to the provided parent
    * @param {object} parent Parent element
@@ -119,6 +120,7 @@ class View {
     this.containerCollapse.hide();
   }
 
+  
   /**
    * Extend the collapse menu
    */

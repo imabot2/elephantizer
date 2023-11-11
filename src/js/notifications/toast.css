@@ -1,0 +1,4 @@
+.toast-notifications {
+  --bs-toast-bg: rgba(var(--bs-body-bg-rgb), 0.95);
+  --bs-toast-font-size: 0.92rem;
+}

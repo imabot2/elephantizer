@@ -5,6 +5,7 @@ import auth from "Js/auth"; // Authentification module
 import "Js/signup"; // For user registration
 import "Js/menu"; // For burger menu
 import settings from "Js/settings";
+import selection from "Js/selection";
 
 // Log first message
 const versionId = bootloader.log('Elephantizer v2');
@@ -21,6 +22,8 @@ await settings.init();
 bootloader.setSuccess(settingsId);
 
 
+console.log ("Load default deck");
+selection.add('en/countries-on-the-map/europe');
 
 
 setTimeout(() => {
