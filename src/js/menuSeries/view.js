@@ -40,6 +40,7 @@ class View {
     const path = target.getAttribute('data-path');
     if (type == "toggle-deck") selection.toggleDeck(path);
     if (type == "select-deck") selection.selectDeck(path);
+    console.log (selection.current());
   }
 
 

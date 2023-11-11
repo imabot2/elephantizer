@@ -25,13 +25,13 @@ const translations = {
     invalidEmailMessage: 'Please check your email address.',
 
     error4000Title: 'Error #4000',
-    error4000Message: 'An unexpected error occured during login. Please retry later.',
+    error4000Message: 'An unexpected error occurred during login. Please retry later.',
 
     googlePopupClosedTitle: 'Pop-Up Closed',
     googlePopupClosedMessage: 'The Google authentification pop-up has been closed before the end of the process.',
 
     error4001: 'Error #4001',
-    error4001Message: 'An error occured during authentification with your Google account. Please retry later.',
+    error4001Message: 'An error occurred during authentification with your Google account. Please retry later.',
 
     error4002: 'Error #4002',
     error4002Message: 'An error occurred when sending an email to reset the password.',

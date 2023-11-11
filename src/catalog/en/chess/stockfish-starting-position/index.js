@@ -18,41 +18,35 @@ export var metaData = {
 
 
 
-export var cards = [
-  {
-    uid: "root",
+export var cards = {
+  "root": {
     image: startingPosition,
     prompt: "What is the best move?",
     answer: "e2e4"
   },
-  {
-    uid: "a2e4",
+  "a2e4": {
     image: a2a4,
     prompt: "What is the best move?",
     answer: "g8f6"
   },
-  {
-    uid: "b1c3",
+  "b1c3": {
     image: b1c3,
     prompt: "What is the best move?",
     answer: "d7d5"
   },
-  {
-    uid: "d2d4",
+  "d2d4": {
     image: d2d4,
     prompt: "What is the best move?",
     answer: "g8f6"
   },
-  {
-    uid: "e2e4",
+  "e2e4": {
     image: e2e4,
     prompt: "What is the best move?",
     answer: "e7e5"
   },
-  {
-    uid: "g1f3",
+  "g1f3": {
     image: g1f3,
     prompt: "What is the best move?",
     answer: "e7e6"
   },
-];
+};

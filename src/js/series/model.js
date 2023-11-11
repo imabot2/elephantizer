@@ -1,47 +1,53 @@
+import notifications from 'Js/notifications';
+import translate from './translate.js';
+
+
+/**
+ * Model for the series class
+ */
 class Model {
   constructor() {
-    this.series = [];
+    // Contains all the series already loaded
+    this.series = {};
   }
+
 
   /**
    * Load a deck, if not yet in memory
    * @param {string} path Path to load, example: 'en/countries-on-the-map/europe'
+   * @returns A promise resolved when the deck is loaded
    */
   load(path) {
-    // Import the required typing test
-    import('../../catalog/' + path + '/index.js')
-      .then((deck) => {
-        console.log (deck.metaData);
-        return;
+    
+    // Return a promise
+    return new Promise((resolve, reject) => {
+      
+      // Check if the deck is already loaded
+      if (path in this.series) { resolve(this.series[path]); return; }
 
-        // Check of the quiz has not been deleted in the meantime
-        if (this.metaData[quizPath] === undefined) { resolve(); return; }
+      // Import the required typing test
+      import('../../catalog/' + path + '/index.js')
+        .then((deck) => {
 
-        // Update the quiz meta data 
-        this.metaData[quizPath] = quiz.metaData;
+          // Prepare the object to append in the list
+          const newDeck = {
+            meta: deck.metaData,
+            cards: deck.cards
+          }
+          // Append the object in the list          
+          this.series[path] = newDeck;
 
-        // Add the path to each question (path is also the reference to the meta data index)
-        quiz.questions.map((q) => {
-          q.path = quizPath;
-          q.rawAnswer = q.answer;
-        });
-
-        // Append the questions to the list
-        this.questions = this.questions.concat(quiz.questions);
-
-        // Resolve and return the new questions
-        resolve(quiz.questions);
-      })
-      .catch((error) => {
-        console.error (error);
-        // The quiz has not been loaded, delete the meta data related to the current quiz
-        delete this.metaData[quizPath];
-
-        // Reject the promise
-        reject(error);
-      })
-
+          // Resolve th promise and return the new deck
+          resolve(this.series[path]);
+        })
+        .catch((error) => {
+          // An error occurred, notify the user and reject the promise
+          notifications.error(translate.error6000, translate.error6000Message, 15000);
+          reject(error);
+        })
+    })
   }
+
 
 }
 

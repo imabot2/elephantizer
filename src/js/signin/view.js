@@ -52,7 +52,7 @@ class View {
         this.hideModal()
       })
       .catch(() => {
-        // An error occured during login, enable the form
+        // An error occurred during login, enable the form
         this.enableForm();
       })
 
@@ -70,7 +70,7 @@ class View {
         this.hideModal()
       })
       .catch(() => {
-        // An error occured during login, enable the form
+        // An error occurred during login, enable the form
         this.enableForm();
       })
   }

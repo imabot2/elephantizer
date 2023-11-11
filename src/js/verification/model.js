@@ -35,7 +35,7 @@ class Model {
           switch (error.code) {
             case "auth/too-many-requests": notifications.error(translate.tooManyRequestsTitle, translate.tooManyRequestsMessage, 5000); break;
             default:
-              // An unknow error occured while sending the email
+              // An unknow error occurred while sending the email
               notifications.error(translate.error3000, translate.error3000Message.replace("<%=email%>", this.auth.currentuser.email));
           }
           reject(error);
@@ -76,7 +76,7 @@ class Model {
           }
         })
         .catch((error) => {
-          // If an error occured, notify the user and stop the polling
+          // If an error occurred, notify the user and stop the polling
           notifications.error(translate.error3001, translate.error3001Message);
           this.stopPolling();
           reject(error)

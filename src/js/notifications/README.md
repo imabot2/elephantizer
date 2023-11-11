@@ -1,8 +1,52 @@
 # Notifications
 
+Display a notification to the user based on [Bootstrap Toasts](https://getbootstrap.com/docs/5.3/components/toasts/).
+
+
+## Usage
+
+Import the library:
+
+``` js
+import notifications from 'Js/notifications';
+```
+
+`notifications` is a singleton. To create a Toast notification, call one of the following method after importing the module:
+
+``` js
+notification.error(title, message, duration);
+notification.warning(title, message, duration);
+notification.success(title, message, duration);
+notification.info(title, message, duration);
+notification.message(title, message, duration);
+```
+
+* The first parameter is the Toast title
+* The second parameter is the Toast content
+* The third parameter is the elay in milliseconds before hiding the toast.
+
+Here are some usage examples:
+
+``` js
+notifications.error("Error", "This an error message", 3000);
+notifications.warning("Warning", "This a warning message", 3500);
+notifications.success("Success", "This a success message", 4000);
+notifications.info("Info", "This an info message", 4500);
+notifications.message("Message", "This a message", 5000);
+```
+
+The above example stack the Toast as on the following image:
+
+![Alt text](image.png)
+
+## Unit Test
+
+A unit test is available in [/src/unit-test/notifications/](/src/unit-test/notifications/). Unit test can only run in development mode. 
 
 
 ## Error Categories
+
+Error codes are classified in categories (1000 error code for each module):
 
 | Error Code Range | Description | Module |
 | ---------------- | ----------- | ---- |
@@ -11,6 +55,7 @@
 |  [3000 : 3999]     | Error in account verification | [verification](/src/js/verification)  |
 |  [4000 : 4999]     | Error during sign in | [sign](/src/js/sign) |
 |  [5000 : 5999]     | Error during settings operations | [settings](/src/js/settings) |
+|  [6000 : 6999]     | Error during series operations | [series](/src/js/series) |
 
 
 
@@ -29,5 +74,6 @@
 | 5000  | Error while saving current settings | [/src/js/settings/model.js](/src/js/settings/model.js)  |
 | 5001  | Error while listening current settings | [/src/js/settings/model.js](/src/js/settings/model.js)  |
 | 5002  | Error while downloading current settings | [/src/js/settings/model.js](/src/js/settings/model.js)  |
+| 6000  | Error while downloading a deck | [/src/js/series/model.js](/src/js/series/model.js)  |
 
 Shortcut to preview Markdown in VSCode : Ctrl+K V

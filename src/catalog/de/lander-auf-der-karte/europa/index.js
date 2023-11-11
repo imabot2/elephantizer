@@ -60,281 +60,235 @@ export var metaData = {
 
 
 // Target language of the test
-export var cards = [
-  {
-    uid: "al",
+export var cards = {
+  'al': {
     image: albania,
     prompt: "Welches Land ist das?",
     answer: "Albanien"
   },
-  {
-    uid: "ad",
+  "ad": {
     image: andorra,
     prompt: "Welches Land ist das?",
     answer: "Andorra"
   },
-  {
-    uid: "at",
+  "at": {
     image: austria,
     prompt: "Welches Land ist das?",
     answer: "Österreich"
   },
-  {
-    uid: "by",
+  "by": {
     image: belarus,
     prompt: "Welches Land ist das?",
     answer: "Weißrussland"
   },
-  {
-    uid: "be",
+  "be": {
     image: belgium,
     prompt: "Welches Land ist das?",
     answer: "Belgien"
   },
-  {
-    uid: "ba",
+  "ba": {
     image: bosniaAndHerzegovina,
     prompt: "Welches Land ist das?",
     answer: "Bosnien-Herzegowina"
   },
-  {
-    uid: "bg",
+  "bg": {
     image: bulgaria,
     prompt: "Welches Land ist das?",
     answer: "Bulgarien"
   },
-  {
-    uid: "hr",
+  "hr": {
     image: croatia,
     prompt: "Welches Land ist das?",
     answer: "Kroatien"
   },
-  {
-    uid: "cz",
+  "cz": {
     image: czechia,
     prompt: "Welches Land ist das?",
     answer: "Tschechien"
   },
-  {
-    uid: "cy",
+  "cy": {
     image: cyprus,
     prompt: "Welches Land ist das?",
     answer: "Zypern"
   },
-  {
-    uid: "dk",
+  "dk": {
     image: denmark,
     prompt: "Welches Land ist das?",
     answer: "Dänemark"
   },
-  {
-    uid: "ee",
+  "ee": {
     image: estonia,
     prompt: "Welches Land ist das?",
     answer: "Estland"
   },
-  {
-    uid: "fi",
+  "fi": {
     image: finland,
     prompt: "Welches Land ist das?",
     answer: "Finnland"
   },
-  {
-    uid: "fr",
+  "fr": {
     image: france,
     prompt: "Welches Land ist das?",
     answer: "Frankreich"
   },
-  {
-    uid: "de",
+  "de": {
     image: germany,
     prompt: "Welches Land ist das?",
     answer: "Deutschland"
   },
-  {
-    uid: "gr",
+  "gr": {
     image: greece,
     prompt: "Welches Land ist das?",
     answer: "Griechenland"
   },
-  {
-    uid: "hu",
+  "hu": {
     image: hungary,
     prompt: "Welches Land ist das?",
     answer: "Ungarn"
   },
-  {
-    uid: "is",
+  "is": {
     image: iceland,
     prompt: "Welches Land ist das?",
     answer: "Island"
   },
-  {
-    uid: "ie",
+  "ie": {
     image: ireland,
     prompt: "Welches Land ist das?",
     answer: "Irland"
   },
-  {
-    uid: "it",
+  "it": {
     image: italy,
     prompt: "Welches Land ist das?",
     answer: "Italien"
   },
-  {
-    uid: "xk",
+  "xk": {
     image: kosovo,
     prompt: "Welches Land ist das?",
     answer: "Kosovo"
   },
-  {
-    uid: "lv",
+  "lv": {
     image: latvia,
     prompt: "Welches Land ist das?",
     answer: "Lettland"
   },
-  {
-    uid: "li",
+  "li": {
     image: liechtenstein,
     prompt: "Welches Land ist das?",
     answer: "Liechtenstein"
   },
-  {
-    uid: "lt",
+  "lt": {
     image: lithuania,
     prompt: "Welches Land ist das?",
     answer: "Litauen"
   },
-  {
-    uid: "lu",
+  "lu": {
     image: luxembourg,
     prompt: "Welches Land ist das?",
     answer: "Luxemburg"
   },
-  {
-    uid: "mt",
+  "mt": {
     image: malta,
     prompt: "Welches Land ist das?",
     answer: "Malta"
   },
-  {
-    uid: "md",
+  "md": {
     image: moldova,
     prompt: "Welches Land ist das?",
     answer: "Moldau"
   },
-  {
-    uid: "mc",
+  "mc": {
     image: monaco,
     prompt: "Welches Land ist das?",
     answer: "Monaco"
   },
-  {
-    uid: "me",
+  "me": {
     image: montenegro,
     prompt: "Welches Land ist das?",
     answer: "Montenegro"
   },
-  {
-    uid: "nl",
+  "nl": {
     image: netherlands,
     prompt: "Welches Land ist das?",
     answer: "Neiderland"
   },
-  {
-    uid: "mk",
+  "mk": {
     image: northMacedonia,
     prompt: "Welches Land ist das?",
     answer: "Nordmazedonien"
   },
-  {
-    uid: "no",
+  "no": {
     image: norway,
     prompt: "Welches Land ist das?",
     answer: "Norwegen"
   },
-  {
-    uid: "pl",
+  "pl": {
     image: poland,
     prompt: "Welches Land ist das?",
     answer: "Polen"
   },
-  {
-    uid: "pt",
+  "pt": {
     image: portugal,
     prompt: "Welches Land ist das?",
     answer: "Portugal"
   },
-  {
-    uid: "ro",
+  "ro": {
     image: romania,
     prompt: "Welches Land ist das?",
     answer: "Rumänien"
   },
-  {
-    uid: "ru",
+  "ru": {
     image: russia,
     prompt: "Welches Land ist das?",
     answer: "Russland"
   },
-  {
-    uid: "sm",
+  "sm": {
     image: sanMarino,
     prompt: "Welches Land ist das?",
     answer: "San Marino"
   },
-  {
-    uid: "rs",
+  "rs": {
     image: serbia,
     prompt: "Welches Land ist das?",
     answer: "Serbien"
   },
-  {
-    uid: "sk",
+  "sk": {
     image: slovakia,
     prompt: "Welches Land ist das?",
     answer: "Slovakei"
   },
-  {
-    uid: "si",
+  "si": {
     image: slovenia,
     prompt: "Welches Land ist das?",
     answer: "Slovenien"
   },
-  {
-    uid: "es",
+  "es": {
     image: spain,
     prompt: "Welches Land ist das?",
     answer: "Spanien"
   },
-  {
-    uid: "se",
+  "se": {
     image: sweden,
     prompt: "Welches Land ist das?",
     answer: "Schweden"
   },
-  {
-    uid: "ch",
+  "ch": {
     image: switzerland,
     prompt: "Welches Land ist das?",
     answer: "Schweiz"
   },
-  {
-    uid: "gb",
+  "gb": {
     image: unitedKingdom,
     prompt: "Welches Land ist das?",
     answer: "Vereinigtes Königreich"
   },
-  {
-    uid: "va",
+  "va": {
     image: vaticanCity,
     prompt: "Welches Land ist das?",
     answer: "Vatikanstadt"
   },
-  {
-    uid: "ua",
+  "ua": {
     image: ukraine,
     prompt: "Welches Land ist das?",
     answer: "Ukraine"
   },
-];
+};

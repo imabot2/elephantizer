@@ -5,17 +5,26 @@ import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap icons
 
 // Boot sequence
 import "Js/boot/";
-
-import auth from "Js/auth"
-import settings from "Js/settings";
-import notifications from "Js/notifications"
 import series from "Js/series";
 
+//console.log('Load a non existing deck');
+//series.load('en/non-existing/europe');
 
+async function loadAndShow(path) {
+  let deck = await series.load(path)
+  console.log(`${Object.keys(deck.cards).length} cards in ${path}`);
+}
+let deck;
 
-console.log('Load a deck');
-series.load('en/countries-on-the-map/europe');
+console.log('Load a series of deck');
+await loadAndShow('de/lander-auf-der-karte/europa');
 
+await loadAndShow('en/countries-on-the-map/europe');
+await loadAndShow('en/countries-on-the-map/africa');
+await loadAndShow('en/chess/stockfish-starting-position');
 
+await loadAndShow('fr/pays-sur-la-carte/europe');
 
+await loadAndShow('iso/country-codes/europe');
+await loadAndShow('iso/country-codes/europe');
 

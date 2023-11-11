@@ -1,6 +1,6 @@
 const unitTests = [
   { name: 'bootloader' },
-  { name: 'toasts' },
+  { name: 'notifications' },
   { name: 'timer' },
   { name: 'settings' },
   { name: 'series' },

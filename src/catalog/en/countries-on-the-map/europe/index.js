@@ -60,281 +60,235 @@ flag: "/static/circle-flags/gb.svg",
 
 
 
-export var cards = [
-  {
-    uid: "al",
+export var cards = {
+  "al": {
     image: albania,
     prompt: "What country is this?",
     answer: "Albania"
   },
-  {
-    uid: "ad",
+  "ad": {
     image: andorra,
     prompt: "What country is this?",
     answer: "Andorra"
   },
-  {
-    uid: "at",
+  "at": {
     image: austria,
     prompt: "What country is this?",
     answer: "Austria"
   },
-  {
-    uid: "by",
+  "by": {
     image: belarus,
     prompt: "What country is this?",
     answer: "Belarus"
   },
-  {
-    uid: "be",
+  "be": {
     image: belgium,
     prompt: "What country is this?",
     answer: "Belgium"
   },
-  {
-    uid: "ba",
+  "ba": {
     image: bosniaAndHerzegovina,
     prompt: "What country is this?",
     answer: "Bosnia And Herzegovina"
   },
-  {
-    uid: "bg",
+  "bg": {
     image: bulgaria,
     prompt: "What country is this?",
     answer: "Bulgaria"
   },
-  {
-    uid: "hr",
+  "hr": {
     image: croatia,
     prompt: "What country is this?",
     answer: "Croatia"
   },
-  {
-    uid: "cz",
+  "cz": {
     image: czechia,
     prompt: "What country is this?",
     answer: "Czechia"
   },
-  {
-    uid: "cy",
+  "cy": {
     image: cyprus,
     prompt: "What country is this?",
     answer: "Cyprus"
   },
-  {
-    uid: "dk",
+  "dk": {
     image: denmark,
     prompt: "What country is this?",
     answer: "Denmark"
   },
-  {
-    uid: "ee",
+  "ee": {
     image: estonia,
     prompt: "What country is this?",
     answer: "Estonia"
   },
-  {
-    uid: "fi",
+  "fi": {
     image: finland,
     prompt: "What country is this?",
     answer: "Finland"
   },
-  {
-    uid: "fr",
+  "fr": {
     image: france,
     prompt: "What country is this?",
     answer: "France"
   },
-  {
-    uid: "de",
+  "de": {
     image: germany,
     prompt: "What country is this?",
     answer: "Germany"
   },
-  {
-    uid: "gr",
+  "gr": {
     image: greece,
     prompt: "What country is this?",
     answer: "Greece"
   },
-  {
-    uid: "hu",
+  "hu": {
     image: hungary,
     prompt: "What country is this?",
     answer: "Hungary"
   },
-  {
-    uid: "is",
+  "is": {
     image: iceland,
     prompt: "What country is this?",
     answer: "Iceland"
   },
-  {
-    uid: "ie",
+  "ie": {
     image: ireland,
     prompt: "What country is this?",
     answer: "Ireland"
   },
-  {
-    uid: "it",
+  "it": {
     image: italy,
     prompt: "What country is this?",
     answer: "Italy"
   },
-  {
-    uid: "xk",
+  "xk": {
     image: kosovo,
     prompt: "What country is this?",
     answer: "Kosovo"
   },
-  {
-    uid: "lv",
+  "lv": {
     image: latvia,
     prompt: "What country is this?",
     answer: "Latvia"
   },
-  {
-    uid: "li",
+  "li": {
     image: liechtenstein,
     prompt: "What country is this?",
     answer: "Liechtenstein"
   },
-  {
-    uid: "lt",
+  "lt": {
     image: lithuania,
     prompt: "What country is this?",
     answer: "Lithuania"
   },
-  {
-    uid: "lu",
+  "lu": {
     image: luxembourg,
     prompt: "What country is this?",
     answer: "Luxembourg"
   },
-  {
-    uid: "mt",
+  "mt": {
     image: malta,
     prompt: "What country is this?",
     answer: "Malta"
   },
-  {
-    uid: "md",
+  "md": {
     image: moldova,
     prompt: "What country is this?",
     answer: "Moldova"
   },
-  {
-    uid: "mc",
+  "mc": {
     image: monaco,
     prompt: "What country is this?",
     answer: "Monaco"
   },
-  {
-    uid: "me",
+  "me": {
     image: montenegro,
     prompt: "What country is this?",
     answer: "Montenegro"
   },
-  {
-    uid: "nl",
+  "nl": {
     image: netherlands,
     prompt: "What country is this?",
     answer: "Netherlands"
   },
-  {
-    uid: "mk",
+  "mk": {
     image: northMacedonia,
     prompt: "What country is this?",
     answer: "North Macedonia"
   },
-  {
-    uid: "no",
+  "no": {
     image: norway,
     prompt: "What country is this?",
     answer: "Norway"
   },
-  {
-    uid: "pl",
+  "pl": {
     image: poland,
     prompt: "What country is this?",
     answer: "Poland"
   },
-  {
-    uid: "pt",
+  "pt": {
     image: portugal,
     prompt: "What country is this?",
     answer: "Portugal"
   },
-  {
-    uid: "ro",
+  "ro": {
     image: romania,
     prompt: "What country is this?",
     answer: "Romania"
   },
-  {
-    uid: "ru",
+  "ru": {
     image: russia,
     prompt: "What country is this?",
     answer: "Russia"
   },
-  {
-    uid: "sm",
+  "sm": {
     image: sanMarino,
     prompt: "What country is this?",
     answer: "San Marino"
   },
-  {
-    uid: "rs",
+  "rs": {
     image: serbia,
     prompt: "What country is this?",
     answer: "Serbia"
   },
-  {
-    uid: "sk",
+  "sk": {
     image: slovakia,
     prompt: "What country is this?",
     answer: "Slovakia"
   },
-  {
-    uid: "si",
+  "si": {
     image: slovenia,
     prompt: "What country is this?",
     answer: "Slovenia"
   },
-  {
-    uid: "es",
+  "es": {
     image: spain,
     prompt: "What country is this?",
     answer: "Spain"
   },
-  {
-    uid: "se",
+  "se": {
     image: sweden,
     prompt: "What country is this?",
     answer: "Sweden"
   },
-  {
-    uid: "ch",
+  "ch": {
     image: switzerland,
     prompt: "What country is this?",
     answer: "Switzerland"
   },
-  {
-    uid: "gb",
+  "gb": {
     image: unitedKingdom,
     prompt: "What country is this?",
     answer: "United Kingdom"
   },
-  {
-    uid: "va",
+  "va": {
     image: vaticanCity,
     prompt: "What country is this?",
     answer: "Vatican City"
   },
-  {
-    uid: "ua",
+  "ua": {
     image: ukraine,
     prompt: "What country is this?",
     answer: "Ukraine"
   },
-];
+};

@@ -61,281 +61,235 @@ export var metaData = {
 
 
 
-export var cards = [
-  {
-    uid: "al",
+export var cards = {
+  "al": {
     image: albania,
     prompt: "Quel est ce pays ?",
     answer: "Albanie"
   },
-  {
-    uid: "ad",
+  "ad": {
     image: andorra,
     prompt: "Quel est ce pays ?",
     answer: "Andorre"
   },
-  {
-    uid: "at",
+  "at": {
     image: austria,
     prompt: "Quel est ce pays ?",
     answer: "Autriche"
   },
-  {
-    uid: "by",
+  "by": {
     image: belarus,
     prompt: "Quel est ce pays ?",
     answer: "Biélorussie"
   },
-  {
-    uid: "be",
+  "be": {
     image: belgium,
     prompt: "Quel est ce pays ?",
     answer: "Belgique"
   },
-  {
-    uid: "ba",
+  "ba": {
     image: bosniaAndHerzegovina,
     prompt: "Quel est ce pays ?",
     answer: "Bosnie-Herzégovine"
   },
-  {
-    uid: "bg",
+  "bg": {
     image: bulgaria,
     prompt: "Quel est ce pays ?",
     answer: "Bulgarie"
   },
-  {
-    uid: "hr",
+  "hr": {
     image: croatia,
     prompt: "Quel est ce pays ?",
     answer: "Croatie"
   },
-  {
-    uid: "cz",
+  "cz": {
     image: czechia,
     prompt: "Quel est ce pays ?",
     answer: "Tchéquie"
   },
-  {
-    uid: "cy",
+  "cy": {
     image: cyprus,
     prompt: "Quel est ce pays ?",
     answer: "Chypre"
   },
-  {
-    uid: "dk",
+  "dk": {
     image: denmark,
     prompt: "Quel est ce pays ?",
     answer: "Danemark"
   },
-  {
-    uid: "ee",
+  "ee": {
     image: estonia,
     prompt: "Quel est ce pays ?",
     answer: "Estonie"
   },
-  {
-    uid: "fi",
+  "fi": {
     image: finland,
     prompt: "Quel est ce pays ?",
     answer: "Finlande"
   },
-  {
-    uid: "fr",
+  "fr": {
     image: france,
     prompt: "Quel est ce pays ?",
     answer: "France"
   },
-  {
-    uid: "de",
+  "de": {
     image: germany,
     prompt: "Quel est ce pays ?",
     answer: "Allemagne"
   },
-  {
-    uid: "gr",
+  "gr": {
     image: greece,
     prompt: "Quel est ce pays ?",
     answer: "Grèce"
   },
-  {
-    uid: "hu",
+  "hu": {
     image: hungary,
     prompt: "Quel est ce pays ?",
     answer: "Hongrie"
   },
-  {
-    uid: "is",
+  "is": {
     image: iceland,
     prompt: "Quel est ce pays ?",
     answer: "Islande"
   },
-  {
-    uid: "ie",
+  "ie": {
     image: ireland,
     prompt: "Quel est ce pays ?",
     answer: "Irlande"
   },
-  {
-    uid: "it",
+  "it": {
     image: italy,
     prompt: "Quel est ce pays ?",
     answer: "Italie"
   },
-  {
-    uid: "xk",
+  "xk": {
     image: kosovo,
     prompt: "Quel est ce pays ?",
     answer: "Kosovo"
   },
-  {
-    uid: "lv",
+  "lv": {
     image: latvia,
     prompt: "Quel est ce pays ?",
     answer: "Lettonie"
   },
-  {
-    uid: "li",
+  "li": {
     image: liechtenstein,
     prompt: "Quel est ce pays ?",
     answer: "Liechtenstein"
   },
-  {
-    uid: "lt",
+  "lt": {
     image: lithuania,
     prompt: "Quel est ce pays ?",
     answer: "Lituanie"
   },
-  {
-    uid: "lu",
+  "lu": {
     image: luxembourg,
     prompt: "Quel est ce pays ?",
     answer: "Luxembourg"
   },
-  {
-    uid: "mt",
+  "mt": {
     image: malta,
     prompt: "Quel est ce pays ?",
     answer: "Malte"
   },
-  {
-    uid: "md",
+  "md": {
     image: moldova,
     prompt: "Quel est ce pays ?",
     answer: "Moldavie"
   },
-  {
-    uid: "mc",
+  "mc": {
     image: monaco,
     prompt: "Quel est ce pays ?",
     answer: "Monaco"
   },
-  {
-    uid: "me",
+  "me": {
     image: montenegro,
     prompt: "Quel est ce pays ?",
     answer: "Monténégro"
   },
-  {
-    uid: "nl",
+  "nl": {
     image: netherlands,
     prompt: "Quel est ce pays ?",
     answer: "Pays-Bas"
   },
-  {
-    uid: "mk",
+  "mk": {
     image: northMacedonia,
     prompt: "Quel est ce pays ?",
     answer: "Macédoine du Nord"
   },
-  {
-    uid: "no",
+  "no": {
     image: norway,
     prompt: "Quel est ce pays ?",
     answer: "Norvège"
   },
-  {
-    uid: "pl",
+  "pl": {
     image: poland,
     prompt: "Quel est ce pays ?",
     answer: "Pologne"
   },
-  {
-    uid: "pt",
+  "pt": {
     image: portugal,
     prompt: "Quel est ce pays ?",
     answer: "Portugal"
   },
-  {
-    uid: "ro",
+  "ro": {
     image: romania,
     prompt: "Quel est ce pays ?",
     answer: "Roumanie"
   },
-  {
-    uid: "ru",
+  "ru": {
     image: russia,
     prompt: "Quel est ce pays ?",
     answer: "Russie"
   },
-  {
-    uid: "sm",
+  "sm": {
     image: sanMarino,
     prompt: "Quel est ce pays ?",
     answer: "Saint-Marin"
   },
-  {
-    uid: "rs",
+  "rs": {
     image: serbia,
     prompt: "Quel est ce pays ?",
     answer: "Serbie"
   },
-  {
-    uid: "sk",
+  "sk": {
     image: slovakia,
     prompt: "Quel est ce pays ?",
     answer: "Slovaquie"
   },
-  {
-    uid: "si",
+  "si": {
     image: slovenia,
     prompt: "Quel est ce pays ?",
     answer: "Slovénie"
   },
-  {
-    uid: "es",
+  "es": {
     image: spain,
     prompt: "Quel est ce pays ?",
     answer: "Espagne"
   },
-  {
-    uid: "se",
+  "se": {
     image: sweden,
     prompt: "Quel est ce pays ?",
     answer: "Suède"
   },
-  {
-    uid: "ch",
+  "ch": {
     image: switzerland,
     prompt: "Quel est ce pays ?",
     answer: "Suisse"
   },
-  {
-    uid: "gb",
+  "gb": {
     image: unitedKingdom,
     prompt: "Quel est ce pays ?",
     answer: "Royaume-Uni"
   },
-  {
-    uid: "va",
+  "va": {
     image: vaticanCity,
     prompt: "Quel est ce pays ?",
     answer: "Vatican"
   },
-  {
-    uid: "ua",
+  "ua": {
     image: ukraine,
     prompt: "Quel est ce pays ?",
     answer: "Ukraine"
   },
-];
+};

@@ -44,7 +44,7 @@ import switzerland from "Catalog/en/countries-on-the-map/europe/img/switzerland.
 import unitedKingdom from "Catalog/en/countries-on-the-map/europe/img/united-kingdom.png";
 import vaticanCity from "Catalog/en/countries-on-the-map/europe/img/vatican-city.png";
 import ukraine from "Catalog/en/countries-on-the-map/europe/img/ukraine.png";
-
+// 46 cards
 
 
 // Target language of the test
@@ -59,281 +59,235 @@ export var metaData = {
 
 
 
-export var cards = [
-  {
-    uid: "al",
+export var cards = {
+  "al": {
     image: albania,
     prompt: "ISO country code?",
     answer: "AL"
   },
-  {
-    uid: "ad",
+  "ad": {
     image: andorra,
     prompt: "ISO country code?",
     answer: "AD"
   },
-  {
-    uid: "at",
+  "at": {
     image: austria,
     prompt: "ISO country code?",
     answer: "AT"
   },
-  {
-    uid: "by",
+  "by": {
     image: belarus,
     prompt: "ISO country code?",
     answer: "BY"
   },
-  {
-    uid: "be",
+  "be": {
     image: belgium,
     prompt: "ISO country code?",
     answer: "BE"
   },
-  {
-    uid: "ba",
+  "ba": {
     image: bosniaAndHerzegovina,
     prompt: "ISO country code?",
     answer: "BA"
   },
-  {
-    uid: "bg",
+  "bg": {
     image: bulgaria,
     prompt: "ISO country code?",
     answer: "BG"
   },
-  {
-    uid: "hr",
+  "hr": {
     image: croatia,
     prompt: "ISO country code?",
     answer: "HR"
   },
-  {
-    uid: "cz",
+  "cz": {
     image: czechia,
     prompt: "ISO country code?",
     answer: "CZ"
   },
-  {
-    uid: "cy",
+  "cy": {
     image: cyprus,
     prompt: "ISO country code?",
     answer: "CY"
   },
-  {
-    uid: "dk",
+  "dk": {
     image: denmark,
     prompt: "ISO country code?",
     answer: "DK"
   },
-  {
-    uid: "ee",
+  "ee": {
     image: estonia,
     prompt: "ISO country code?",
     answer: "EE"
   },
-  {
-    uid: "fi",
+  "fi": {
     image: finland,
     prompt: "ISO country code?",
     answer: "FI"
   },
-  {
-    uid: "fr",
+  "fr": {
     image: france,
     prompt: "ISO country code?",
     answer: "FR"
   },
-  {
-    uid: "de",
+  "de": {
     image: germany,
     prompt: "ISO country code?",
     answer: "DE"
   },
-  {
-    uid: "gr",
+  "gr": {
     image: greece,
     prompt: "ISO country code?",
     answer: "GR"
   },
-  {
-    uid: "hu",
+  "hu": {
     image: hungary,
     prompt: "ISO country code?",
     answer: "HU"
   },
-  {
-    uid: "is",
+  "is": {
     image: iceland,
     prompt: "ISO country code?",
     answer: "IS"
   },
-  {
-    uid: "ie",
+  "ie": {
     image: ireland,
     prompt: "ISO country code?",
     answer: "IE"
   },
-  {
-    uid: "it",
+  "it": {
     image: italy,
     prompt: "ISO country code?",
     answer: "IT"
   },
-  {
-    uid: "xk",
+  "xk": {
     image: kosovo,
     prompt: "ISO country code?",
     answer: "XK"
   },
-  {
-    uid: "lv",
+  "lv": {
     image: latvia,
     prompt: "ISO country code?",
     answer: "LV"
   },
-  {
-    uid: "li",
+  "li": {
     image: liechtenstein,
     prompt: "ISO country code?",
     answer: "LI"
   },
-  {
-    uid: "lt",
+  "lt": {
     image: lithuania,
     prompt: "ISO country code?",
     answer: "LT"
   },
-  {
-    uid: "lu",
+  "lu": {
     image: luxembourg,
     prompt: "ISO country code?",
     answer: "LU"
   },
-  {
-    uid: "mt",
+  "mt": {
     image: malta,
     prompt: "ISO country code?",
     answer: "MT"
   },
-  {
-    uid: "md",
+  "md": {
     image: moldova,
     prompt: "ISO country code?",
     answer: "MD"
   },
-  {
-    uid: "mc",
+  "mc": {
     image: monaco,
     prompt: "ISO country code?",
     answer: "MC"
   },
-  {
-    uid: "me",
+  "me": {
     image: montenegro,
     prompt: "ISO country code?",
     answer: "ME"
   },
-  {
-    uid: "nl",
+  "nl": {
     image: netherlands,
     prompt: "ISO country code?",
     answer: "NL"
   },
-  {
-    uid: "mk",
+  "mk": {
     image: northMacedonia,
     prompt: "ISO country code?",
     answer: "MK"
   },
-  {
-    uid: "no",
+  "no": {
     image: norway,
     prompt: "ISO country code?",
     answer: "NO"
   },
-  {
-    uid: "pl",
+  "pl": {
     image: poland,
     prompt: "ISO country code?",
     answer: "PL"
   },
-  {
-    uid: "pt",
+  "pt": {
     image: portugal,
     prompt: "ISO country code?",
     answer: "PT"
   },
-  {
-    uid: "ro",
+  "ro": {
     image: romania,
     prompt: "ISO country code?",
     answer: "RO"
   },
-  {
-    uid: "ru",
+  "ru": {
     image: russia,
     prompt: "ISO country code?",
     answer: "RU"
   },
-  {
-    uid: "sm",
+  "sm": {
     image: sanMarino,
     prompt: "ISO country code?",
     answer: "SM"
   },
-  {
-    uid: "rs",
+  "rs": {
     image: serbia,
     prompt: "ISO country code?",
     answer: "RS"
   },
-  {
-    uid: "sk",
+  "sk": {
     image: slovakia,
     prompt: "ISO country code?",
     answer: "SK"
   },
-  {
-    uid: "si",
+  "si": {
     image: slovenia,
     prompt: "ISO country code?",
     answer: "SI"
   },
-  {
-    uid: "es",
+  "es": {
     image: spain,
     prompt: "ISO country code?",
     answer: "ES"
   },
-  {
-    uid: "se",
+  "se": {
     image: sweden,
     prompt: "ISO country code?",
     answer: "SE"
   },
-  {
-    uid: "ch",
+  "ch": {
     image: switzerland,
     prompt: "ISO country code?",
     answer: "CH"
   },
-  {
-    uid: "gb",
+  "gb": {
     image: unitedKingdom,
     prompt: "ISO country code?",
     answer: "GB"
   },
-  {
-    uid: "va",
+  "va": {
     image: vaticanCity,
     prompt: "ISO country code?",
     answer: "VA"
   },
-  {
-    uid: "ua",
+  "ua": {
     image: ukraine,
     prompt: "ISO country code?",
     answer: "UA"
   },
-];
+};

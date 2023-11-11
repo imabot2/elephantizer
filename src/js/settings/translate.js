@@ -36,13 +36,13 @@ const translations = {
 
 
     error5000: 'Error #5000',
-    error5000Message: 'An unknow error occured while saving your settings. Please check your internet connection or try again later.',
+    error5000Message: 'An unknow error occurred while saving your settings. Please check your internet connection or try again later.',
 
     error5001: 'Error #5001',
-    error5001Message: 'An unknow error occured while real time listening your settings. Please check your internet connection or try again later.',
+    error5001Message: 'An unknow error occurred while real time listening your settings. Please check your internet connection or try again later.',
 
     error5002: 'Error #5002',
-    error5002Message: 'An unknow error occured while downloading your settings. Please check your internet connection or try again later.',
+    error5002Message: 'An unknow error occurred while downloading your settings. Please check your internet connection or try again later.',
   },
 
 
