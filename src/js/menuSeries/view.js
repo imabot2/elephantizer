@@ -8,13 +8,14 @@ import "./menuSeries.css";
 import menu from 'Js/menu';
 import model from './model.js';
 import selection from 'Js/selection';
+import series from "Js/series";
 var mobile = require('is-mobile');
 
 class View {
 
   /**
    * Constructor
-   * - Append the settings menu to the modal
+   * - Prepare the DOM elements
    */
   constructor() {
     // Append the settings to the menu
@@ -96,7 +97,27 @@ class View {
       const tooltipTriggerList = this.parentEl.querySelectorAll('[data-bs-toggle="tooltip"]');
       [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, { trigger: 'hover', delay: 250 }));
     }
+  }
 
+
+  /**
+   * Populate the breadcrumb according to the path
+   * @param {string} path The path to the current series
+   */
+  populateBreadcrumb(path) {
+
+    // Get data for populating the breadcrumb
+    const data = series.pathToObject(path);
+
+    // Populate the language button
+    let categoryEl = this.containerEl.querySelector('.breadcrumb-category');
+    categoryEl.innerText = data.language;
+    categoryEl.setAttribute('navigation-path', data.languagePath);
+
+    // Populate the category button
+    let seriesEl = this.containerEl.querySelector('.breadcrumb-series');
+    seriesEl.innerText = data.category;
+    seriesEl.setAttribute('navigation-path', data.categoryPath);
   }
 
 
@@ -125,7 +146,10 @@ class View {
    * Extend the collapse menu
    */
   expand(path) {
-    if (path) this.populate(path);    
+    if (path) {
+      this.populateBreadcrumb(path);
+      this.populate(path);    
+    }
     this.updateSelection(selection.current());
     menu.setTitle(translate.title);
     this.containerCollapse.show();

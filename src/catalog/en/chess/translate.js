@@ -7,10 +7,12 @@ const translations = {
 
   en: {
     stockfishStartingPosition: 'Stockfish Starting Position',
+    stockfishStartingPositionShort: 'Stockfish',
   },
 
   fr: {
     stockfishStartingPosition: 'Les premiers coups selon Stockfish',
+    stockfishStartingPositionShort: 'Stockfish',
   },
 }
 

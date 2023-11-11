@@ -4,6 +4,7 @@ const series = {
 
   "europa" : {
     name: translate.europe,
+    shortName:  translate.europeShort,
   },
 };
 

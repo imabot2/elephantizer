@@ -7,10 +7,12 @@ const translations = {
 
   en: {
     europe: 'European Countries in German',
+    europeShort: 'Europe',
   },
 
   fr: {
     europe: "Les pays d'Europe en allemand",
+    europeShort: "Europe",
   },
 }
 

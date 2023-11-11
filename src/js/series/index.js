@@ -3,6 +3,20 @@ import model from './model.js';
 class Series {
   constructor() { }
 
+  /**
+   * Return human readable data for a given path
+   * @param {string} path The partial or full path
+   * @returns An object containing the data (names, paths ...)
+   */
+  pathToObject(path) { return model.pathToObject(path); }
+
+
+  /**
+   * Get the meta data for a given path
+   * @param {string} path The path of the deck
+   * @returns {object} The meta data for the deck
+   */
+  meta(path) { return model.meta(path); }
 
 
   /**

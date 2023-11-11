@@ -48,7 +48,7 @@ class View {
     this.backBtn.addEventListener('click', (event) => { model.onBackBtnClicked(event); });
 
     // Set the event listener when the user click a button in the modal
-    this.containerEl.addEventListener("click", (event) => { this.onBtnClicked(event); });
+    this.bodyEl.addEventListener("click", (event) => { this.onBtnClicked(event); });
 
     // Set the main menu title
     this.setTitle(translate.title);

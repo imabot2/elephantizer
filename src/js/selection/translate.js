@@ -7,14 +7,14 @@ const translations = {
 
   en: {
     title: "Current selection",
-    atLeastOneDeck: "No series selected", 
-    atLeastOneDeckMessage: "You must select at least one series of cards.",
+    atLeastOneDeck: "Empty Selection",
+    atLeastOneDeckMessage: "You must select at least one series.",
   },
 
   fr: {
     title: "Thèmes sélectionnés",
-    atLeastOneDeck: "Aucune série sélectionnée", 
-    atLeastOneDeckMessage: "Vous devez sélectionner au moins une série de cartes.",
+    atLeastOneDeck: "Selection vide",
+    atLeastOneDeckMessage: "Vous devez sélectionner au moins une série.",
   },
 
 }

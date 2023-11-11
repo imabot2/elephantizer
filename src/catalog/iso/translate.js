@@ -7,10 +7,12 @@ const translations = {
 
   en: {
     isoCountryCode: 'ISO Country Code',
+    isoCountryCodeShort: 'ISO Country Code',
   },
 
   fr: {
     isoCountryCode: 'Les codes ISO des pays',
+    isoCountryCodeShort: 'Les codes ISO des pays',
   },
 }
 

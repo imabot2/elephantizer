@@ -13,6 +13,7 @@ class Model {
 
 
 
+
   /**
    * Return an array with the current series
    * @returns An array of objects containing the name and path of the serries

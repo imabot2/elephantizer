@@ -7,10 +7,12 @@ const translations = {
 
   en: {
     countriesOnTheMap: 'Countries On The Map in German',
+    countriesOnTheMapShort: 'Countries On The Map',
   },
 
   fr: {
     countriesOnTheMap: 'Les pays sur la carte en Allemand',
+    countriesOnTheMapShort: 'Les pays sur la carte',
   },
 }
 

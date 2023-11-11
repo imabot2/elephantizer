@@ -6,13 +6,18 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    africa: 'African Countries',
-    europe: 'European Countries',
+    africa: 'African Countries in English',
+    africaShort: 'Africa',
+    europe: 'European Countries in English',
+    europeShort: 'Europe',
   },
 
   fr: {
     africa: "Les pays d'Afrique en anglais",
+    africaShort: "Afrique",
     europe: "Les pays d'Europe en anglais",
+    europeShort: "Europe",
+
   },
 }
 

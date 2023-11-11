@@ -6,12 +6,13 @@ import htmlContainer from "./container.html";
 import htmlButton from "./button.html";
 import menu from 'Js/menu';
 import model from './model.js';
+import series from "Js/series"
 
 class View {
 
   /**
    * Constructor
-   * - Append the settings menu to the modal
+   * - Prepare the DOM elements
    */
   constructor() {
 
@@ -42,6 +43,22 @@ class View {
 
 
   /**
+   * Populate the breadcrumb according to the path
+   * @param {string} path The path to the current series
+   */
+  populateBreadcrumb(path) {
+
+    // Get data for populating the breadcrumb
+    const data = series.pathToObject(path);
+
+    // Populate the language button
+    let categoryEl = this.containerEl.querySelector('.breadcrumb-category');
+    categoryEl.innerText = data.language;
+    categoryEl.setAttribute('navigation-path', data.languagePath);
+  }
+
+
+  /**
    * Append the settings to the provided parent
    * @param {object} parent Parent element
    */
@@ -61,17 +78,24 @@ class View {
     this.containerCollapse.hide();
   }
 
-  /**
-   * Extend the collapse menu
-   */
+
   /**
    * Expand the menu
    * If path is provided, the menu is populated beforehand
    * @param {string} path Path to the new language
    */
   expand(path = undefined) {
-    if (path) this.populate(path);
+    
+    // If the path is defined, populate the menu
+    if (path) {
+      this.populate(path);
+      this.populateBreadcrumb(path);
+    }
+
+    // Set title
     menu.setTitle(translate.title);
+
+    // Show the container
     this.containerCollapse.show();
   }
 

@@ -16,6 +16,55 @@ class Model {
     this.selection = [];
   }
 
+
+  /**
+   * Return an ordered list of meta data sorted by
+   * 1. Language name
+   * 2. Category short name
+   * 3. Deck short name
+   * @returns An ordered list of the meta data of the current selection
+   */
+  orderedList() {
+
+    // Get the list of meta data
+    let list = this.selection.map(path => series.meta(path));
+    console.log ('For trasking the bug', list);
+    // Sort the list
+    list.sort(this.compare);
+
+    // Return the ordered list
+    return list;
+  }
+
+  /**
+   * Compare two deck (for the sort function) based on:
+   * 1. Language name
+   * 2. Category short name
+   * 3. Deck short name
+   * @param {object} A Meta data of the first object
+   * @param {object} B Meta data of the second object
+   * @returns The relative order of the two elements
+   */
+  compare(A, B) {
+
+    // Order by language first
+    if (A.language.name.toLowerCase() < B.language.name.toLowerCase()) return -1;
+    if (A.language.name.toLowerCase() > B.language.name.toLowerCase()) return 1;
+
+    // Then order by category name
+    if (A.category.shortName.toLowerCase() < B.category.shortName.toLowerCase()) return -1;
+    if (A.category.shortName.toLowerCase() > B.category.shortName.toLowerCase()) return 1;
+
+    // The Order by deck name
+    if (A.deck.shortName.toLowerCase() < B.deck.shortName.toLowerCase()) return -1;
+    if (A.deck.shortName.toLowerCase() > B.deck.shortName.toLowerCase()) return 1;
+
+    // Twice the same path, shouldn't happen
+    return 0;
+  }
+
+
+
   /**
    * Callback function called when the selection is updated
    */
@@ -23,9 +72,8 @@ class Model {
     // Update the checkboxes and radio button in the Series menu
     menuSeries.updateSelection(this.selection);
     // Update the current selection
-    view.update();
+    view.populate();
   }
-
 
   /**
    * Toggle a deck given by its path
@@ -58,7 +106,8 @@ class Model {
           this.onSelectionUpdated();
           resolve();
         })
-        .catch(() => {
+        .catch((error) => {
+          console.log (error);
           // If the deck can't be loaded, remove the path from the current selection
           this.remove();
           this.onSelectionUpdated();
