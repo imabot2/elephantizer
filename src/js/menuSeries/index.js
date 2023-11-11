@@ -4,6 +4,12 @@ import model from "./model.js";
 class MenuCategories {
   constructor() { }
 
+  /**
+   * Update the buttons accoring to the current selection
+   * @param {array} selection An array containing the paths of the current selection
+   */
+  updateSelection(selection) { view.updateSelection(selection); }
+
 
   /**
    * Append the settings to the provided parent

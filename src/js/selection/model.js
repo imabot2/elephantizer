@@ -1,10 +1,24 @@
+import view from "./view.js";
 import series from "Js/series";
+import menuSeries from "Js/menuSeries";
 
-
-
+/**
+ * Model for the SELECTION module
+ */
 class Model {
+  /**
+   * Constructor
+   * - Create an empty selection
+   */
   constructor() {
     this.selection = [];
+  }
+
+
+  onSelectionUpdated() {
+    console.log (this.selection);
+    view.update();
+    menuSeries.updateSelection(this.selection);
   }
 
   /**
@@ -34,10 +48,14 @@ class Model {
       
       // Load the deck from server
       series.load(path)
-        .then(() => { resolve(); })
+        .then(() => { 
+          this.onSelectionUpdated();
+          resolve(); 
+        })
         .catch(() => {
           // If the deck can't be loaded, remove the path from the current selection
-          this.removePath();
+          this.remove();
+          this.onSelectionUpdated();
           reject();
         })
     })
@@ -49,9 +67,13 @@ class Model {
    * @param {string} path Path of the deck to remove
    */
   remove(path) {
+    
     // Get the index and remove the deck
     const index = this.selection.indexOf(path);
     this.selection.splice(index, 1);
+    
+    // The selection is updated
+    this.onSelectionUpdated();
   }
 
   /**
@@ -59,7 +81,13 @@ class Model {
    * @param {string} path  Path the the deck, example: 'en/countries-on-the-map/europe'
    */
   selectDeck(path) {
-    console.log('single', path);
+    // Clear the selection
+    this.selection = [];
+    // Add the requested path
+    this.add(path);
+
+    // The selection is updated
+    this.onSelectionUpdated();
   }
 
 }

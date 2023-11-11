@@ -11,7 +11,7 @@ import settings from "Js/settings";
 import menuLanguages from "Js/menuLanguages";
 import menuCategories from "Js/menuCategories";
 import menuSeries from "Js/menuSeries";
-
+import selection from "Js/selection";
 
 
 class View {
@@ -34,10 +34,11 @@ class View {
 
     // Get the modal body element (collapse parent)
     this.bodyEl = this.modalEl.querySelector(".modal-body");
+    this.containerEl = this.bodyEl.querySelector('.collapsible-menu') 
 
     // Prepare the collapsable menus
-    this.mainMenuEl = this.bodyEl.querySelector(".main-menu");
-    this.mainMenuCollapse = new bootstrap.Collapse(this.mainMenuEl, { toggle: false, parent: this.bodyEl });
+    this.mainMenuEl = this.containerEl.querySelector(".main-menu");
+    this.mainMenuCollapse = new bootstrap.Collapse(this.mainMenuEl, { toggle: false, parent: this.containerEl });
 
     // Populate the menu with submenus
     this.populate();
@@ -47,7 +48,7 @@ class View {
     this.backBtn.addEventListener('click', (event) => { model.onBackBtnClicked(event); });
 
     // Set the event listener when the user click a button in the modal
-    this.bodyEl.addEventListener("click", (event) => { this.onBtnClicked(event); });
+    this.containerEl.addEventListener("click", (event) => { this.onBtnClicked(event); });
 
     // Set the main menu title
     this.setTitle(translate.title);
@@ -66,10 +67,11 @@ class View {
    * Populate the menu with submenu (settings, languages, categories...)
    */
   populate() {
-    settings.appendTo(this.bodyEl);
-    menuLanguages.appendTo(this.bodyEl);
-    menuCategories.appendTo(this.bodyEl);
-    menuSeries.appendTo(this.bodyEl);
+    settings.appendTo(this.containerEl);
+    menuLanguages.appendTo(this.containerEl);
+    menuCategories.appendTo(this.containerEl);
+    menuSeries.appendTo(this.containerEl);
+    selection.appendTo(this.bodyEl);
   }
 
   /**
@@ -85,18 +87,6 @@ class View {
 
     // Navigate to the new menu
     model.navigate(element.getAttribute('navigation-target'), element.getAttribute('navigation-path'));
-  }
-
-
-
-  /**
-   * Append an element to the menu content / body
-   * @param {object} element The element to append to the menu content
-   * @returns The parent element (the body)
-   */
-  appendToBody(element) {
-    this.bodyEl.append(element);
-    return this.bodyEl;
   }
 
 

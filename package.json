@@ -14,22 +14,23 @@
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
+    "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
     "style-loader": "^3.3.3",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4",
     "url-loader": "^4.1.1",
-    "file-loader": "^6.2.0"
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.1",
     "doma": "^4.0.0",
-    "email-validator": "^2.0.4",    
+    "email-validator": "^2.0.4",
     "firebase": "^10.5.2",
     "get-user-locale": "^2.3.1",
-    "password-validator": "^5.3.0"    
+    "is-mobile": "^4.0.0",
+    "password-validator": "^5.3.0"
   }
 }

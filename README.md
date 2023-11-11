@@ -15,4 +15,5 @@ Visit the app on [Elephantizer](https://elephantizer.com)
 * Make image inner or outer
 * There is a bug when calculating the accuracy => enter Egypte when the expected answer is Egypt => accuracy = 100%
 * Delete non confirmed users
+* Fix the bug in the menu with collapse: https://github.com/twbs/bootstrap/issues/39385
 

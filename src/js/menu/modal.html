@@ -6,7 +6,9 @@
         <button type="button"
           class="back-btn btn btn-sm btn-secondary position-absolute left-0 top-50 translate-middle-y align-middle">
           <i class="bi bi-arrow-left-circle-fill mr-2"></i>
-          <span class="d-none d-md-inline"><%=back%></span>
+          <span class="d-none d-md-inline">
+            <%=back%>
+          </span>
         </button>
         <h1 class="modal-title menu-title text-center w-100 font-title">
           <%=title%>
@@ -17,28 +19,30 @@
 
       <div class="modal-body position-relative">
 
-        <div class="collapse main-menu show">
-          <div class="d-grid gap-2">
-            <button class="btn btn-lg btn-primary menu-btn" navigation-target="languages" type="button">
-              <span class="font-title">
-                <%=selectMemoryTest%>
-              </span>
-            </button>
-            <button class="setting-btn btn btn-lg btn-primary menu-btn" navigation-target="settings" type="button">
-              <span class="font-title">
-                <%=settings%>
-              </span>
-            </button>
-            <button class="about-btn btn btn-lg btn-primary disabled" navigation-target="about" type="button">
-              <span class="font-title">
-                <%=about%>
-              </span>
-            </button>
+        <div class="collapsible-menu">
+          <div class="collapse main-menu show">
+            <div class="d-grid gap-2">
+              <button class="btn btn-lg btn-primary menu-btn" navigation-target="languages" type="button">
+                <span class="font-title">
+                  <%=selectMemoryTest%>
+                </span>
+              </button>
+              <button class="setting-btn btn btn-lg btn-primary menu-btn" navigation-target="settings" type="button">
+                <span class="font-title">
+                  <%=settings%>
+                </span>
+              </button>
+              <button class="about-btn btn btn-lg btn-primary disabled" navigation-target="about" type="button">
+                <span class="font-title">
+                  <%=about%>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
-
+       
+        
       </div>
-
+      
+      </div>
     </div>
-  </div>
-</div>

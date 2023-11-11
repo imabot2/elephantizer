@@ -4,9 +4,11 @@ import { parseEjs } from "Js/languages/";
 import translate from "./translate.js";
 import htmlContainer from "./container.html";
 import htmlButton from "./button.html";
-import menu from 'Js/menu'
+import "./menuSeries.css";
+import menu from 'Js/menu';
 import model from './model.js';
 import selection from 'Js/selection';
+var mobile = require('is-mobile');
 
 class View {
 
@@ -24,23 +26,44 @@ class View {
     this.parentEl.addEventListener('click', (e) => { this.onBtnClicked(e); });
   }
 
+  /**
+   * Update the buttons accoring to the current selection
+   * @param {array} selection An array containing the paths of the current selection
+   */
+  updateSelection(selection) {
+    
+    // Get the buttons to update
+    const buttons = this.parentEl.querySelectorAll('[data-path]');
+
+    // For each button
+    buttons.forEach((button) => {
+      
+      // Get the type (radio or checkbox) and the path
+      const type = button.getAttribute('type');
+      const path = button.getAttribute('data-path');
+      
+      // The radio buttons are checked only if there is one deck in the selection
+      if (type == 'radio') button.checked = selection.includes(path) && (selection.length == 1);
+      // Otherwise, this is a checkbox, check if in selection
+      else button.checked = selection.includes(path);
+    })
+  }
 
   /**
    * Callback function called when a button (radio or checkbox) is clicked
    * @param {object} event The enven that triggered the function call
    */
   onBtnClicked(event) {
-    
+
     // Check if this is a checkbox or radio button
-    const target  = event.target.closest('[data-type]');
-    if (target==null) return;
+    const target = event.target.closest('[data-type]');
+    if (target == null) return;
 
     // Get the button type and path
     const type = target.getAttribute('data-type');
     const path = target.getAttribute('data-path');
     if (type == "toggle-deck") selection.toggleDeck(path);
     if (type == "select-deck") selection.selectDeck(path);
-    console.log (selection.current());
   }
 
 
@@ -49,7 +72,7 @@ class View {
    * Populate the Series menu according to the current path
    * @param {string} path Path to the current series
    */
-  populate(path) {    
+  populate(path) {
 
     // Erase the previous categories list
     this.parentEl.innerHTML = "";
@@ -58,19 +81,21 @@ class View {
 
     // For each category, append the button
     model.series(path).forEach((deck) => {
-      
+
       // Prepare the checkbox ID
       deck.id = deck.path.replaceAll('/', '_');
-      
+
       // ...prepare and append the button
       let button = str2dom.one(parseEjs(htmlButtonTranslated, deck));
       this.parentEl.append(button);
 
     })
 
-    // Enable the tooltips
-    const tooltipTriggerList = this.parentEl.querySelectorAll('[data-bs-toggle="tooltip"]');    
-    [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, { trigger: 'hover' }));
+    // Enable the tooltips only on desktop
+    if (!mobile()) {
+      const tooltipTriggerList = this.parentEl.querySelectorAll('[data-bs-toggle="tooltip"]');
+      [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, { trigger: 'hover', delay: 250 }));
+    }
 
   }
 
@@ -98,7 +123,8 @@ class View {
    * Extend the collapse menu
    */
   expand(path) {
-    if (path) this.populate(path);
+    if (path) this.populate(path);    
+    this.updateSelection(selection.current());
     menu.setTitle(translate.title);
     this.containerCollapse.show();
   }
