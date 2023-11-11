@@ -19,7 +19,7 @@ module.exports = (env) => {
     
     // Optional and for development only. This provides the ability to
     // map the built code back to the original source format when debugging.
-    devtool: "eval-source-map",
+    devtool: (env.mode == 'production') ? false : "eval-source-map",
     
     // Watch in development mode only
     watch: (env.mode == 'production') ? false : true,

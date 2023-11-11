@@ -21,6 +21,7 @@
 #burger.disable {  
   opacity: 0.5;
   cursor: not-allowed;
+  z-index: 2;
 }
 
 #menu-modal .font-title {

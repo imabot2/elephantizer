@@ -106,7 +106,8 @@ class model {
    * @param {boolean} options.updateView Update the view after updating the settings when true
    * @param {boolean} options.save Save the settings on Firestore when true
    */
-  update(newSettings, { updateView = false, save = false }) {
+  update(newSettings = {}, { updateView = false, save = false }) {
+
     // Merge only the fields existing in the default settings
     Object.keys(this.default).forEach((key) => {
       this.current[key] = newSettings[key] ?? this.current[key] ?? this.default[key];
@@ -193,11 +194,15 @@ class model {
 
     // Set the listener on the reference document
     this.unsubscribe = onSnapshot(docRefSettings, (doc) => {
+      
       // Update only if remote changes
       const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
       if (source == "Server") {
+        
+        // If the document does not exist (first connextion ?), create an empty settings
+        const settings = (doc.exists()) ? doc.data() : {};
         // Update the current settings and the settings menu
-        this.update(doc.data(), { updateView: true });
+        this.update(settings, { updateView: true });
         // Set the flag to true to continue the boot sequence
         this.firstSettingsFromDB = true;
       }

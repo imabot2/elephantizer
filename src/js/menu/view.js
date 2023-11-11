@@ -55,13 +55,6 @@ class View {
 
     // Set the event listener when the user click a button in the modal
     this.bodyEl.addEventListener("click", (event) => { this.onBtnClicked(event); });
-
-    setTimeout(() => {
-      console.log('FOR DEBUG');
-      this.open();
-      model.navigate('series', 'en/countries-on-the-map');
-    }, 1000)
-
   }
 
 
