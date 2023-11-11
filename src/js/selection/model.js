@@ -28,7 +28,7 @@ class Model {
 
     // Get the list of meta data
     let list = this.selection.map(path => series.meta(path));
-    console.log ('For trasking the bug', list);
+    console.log('For trasking the bug', list);
     // Sort the list
     list.sort(this.compare);
 
@@ -97,6 +97,7 @@ class Model {
    */
   add(path) {
     return new Promise((resolve, reject) => {
+
       // Add the path to the current selection
       this.selection.push(path);
 
@@ -107,12 +108,13 @@ class Model {
           resolve();
         })
         .catch((error) => {
-          console.log (error);
+          console.error(error);
           // If the deck can't be loaded, remove the path from the current selection
           this.remove();
           this.onSelectionUpdated();
           reject();
         })
+
     })
   }
 

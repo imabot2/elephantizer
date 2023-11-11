@@ -34,14 +34,20 @@ class View {
 
     // Get the modal body element (collapse parent)
     this.bodyEl = this.modalEl.querySelector(".modal-body");
-    this.containerEl = this.bodyEl.querySelector('.collapsible-menu') 
+    this.containerEl = this.bodyEl.querySelector('.collapsible-menu')
 
     // Prepare the collapsable menus
     this.mainMenuEl = this.containerEl.querySelector(".main-menu");
     this.mainMenuCollapse = new bootstrap.Collapse(this.mainMenuEl, { toggle: false, parent: this.containerEl });
 
+    // Set the main menu title
+    this.setTitle(translate.title);
+        
     // Populate the menu with submenus
     this.populate();
+
+    // Reset to the main menu when the modal is closed
+    this.modalEl.addEventListener('hidden.bs.modal',() => { model.navigate('main') });
 
     // Set callback when the user click the back button
     this.backBtn = this.modalEl.querySelector(".back-btn");
@@ -50,12 +56,8 @@ class View {
     // Set the event listener when the user click a button in the modal
     this.bodyEl.addEventListener("click", (event) => { this.onBtnClicked(event); });
 
-    // Set the main menu title
-    this.setTitle(translate.title);
-
-    
     setTimeout(() => {
-      console.log ('FOR DEBUG');
+      console.log('FOR DEBUG');
       this.open();
       model.navigate('series', 'en/countries-on-the-map');
     }, 1000)

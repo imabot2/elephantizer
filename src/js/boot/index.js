@@ -23,6 +23,7 @@ bootloader.setSuccess(settingsId);
 
 
 console.log ("Load default deck");
+
 selection.add('en/countries-on-the-map/europe');
 
 
