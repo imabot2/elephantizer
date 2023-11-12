@@ -1,0 +1,16 @@
+#special-characters-button {
+  width: 80%;
+  border-radius: 50%;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  opacity: 0.9;
+}
+
+#special-characters-button:not(.disable):hover {
+  width: 88%;
+  opacity: 1;
+  cursor: pointer;
+}
+
+#special-characters-button.disable {
+  opacity: 0.5;
+}
