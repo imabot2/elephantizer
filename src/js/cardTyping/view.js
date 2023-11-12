@@ -22,6 +22,13 @@ class View {
     this.imagesWide[0].src = img0;
     this.imagesWide[1].src = img1;
 
+    this.imagesSmall = [];
+    this.imagesSmall[0] = this.containerEl.querySelector('.image-sm-0>img');
+    this.imagesSmall[1] = this.containerEl.querySelector('.image-sm-1>img');
+
+    this.imagesSmall[0].src = img2;
+    this.imagesSmall[1].src = img2;
+
     // On resize, resize the main container     
     window.visualViewport.addEventListener('resize', () => { this.onResize(); });
 

@@ -42,7 +42,7 @@
 
   border: 1px solid red;
   border-radius: 20px;
-  background-color: rgba(255, 0, 0, 0.1);
+  background-color: rgba(255, 0, 0, 0.01);
 }
 
 
@@ -52,9 +52,90 @@
 
   border: 1px solid green;
   border-radius: 25px;
-  background-color: rgba(0, 255, 0, 0.1);
+  background-color: rgba(0, 255, 0, 0.01);
 }
 
+
+
+
+#card-typing .image-sm-0,
+#card-typing .image-sm-1 {
+  position: absolute;
+  transition: opacity var(--question-transition-delay);
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid cyan;
+  border-radius: 35px;
+  background-color: rgba(0, 255, 255, 0.01);
+}
+
+#card-typing .image-sm-0>img,
+#card-typing .image-sm-1>img {
+  
+  max-height: 80%;
+  max-width: 80%;
+}
+
+#card-typing .text-0,
+#card-typing .text-1 {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;  
+  justify-content: center;
+  align-items: center;  
+  flex-direction: column;
+}
+
+#card-typing .text-0>div,
+#card-typing .text-1>div {
+  text-align: center;
+  font-size: clamp(1rem, 6vmin, 10rem );
+  font-weight: bold;
+
+  max-height: 80%;
+  max-width: 80%;
+}
+
+#card-typing .text-0>div:first-child,
+#card-typing .text-1>div:first-child {  
+  font-size: clamp(0.8rem, 3vmin, 7rem);
+  background-color: var(--main-blue);
+  color: white;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  border-radius: clamp(0.5rem, 3rem, 2vmin);
+  margin-bottom: 4vmin;  
+}
+
+#card-typing .text-0>div:not(:first-child),
+#card-typing .text-1>div:not(:first-child) {  
+  color: #222;
+}
+#card-typing .text-0>div:not(:first-child)>em,
+#card-typing .text-1>div:not(:first-child)>em {  
+  color: var(--main-red);
+  font-style: normal;   
+}
+
+#card-typing .correction-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  border: 1px solid yellow;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 0, 0.01);
+}
 
 #card-typing .answer-bar-container {
   height: 150px;
@@ -62,26 +143,5 @@
 
   border: 1px solid blue;
   border-radius: 25px;
-  background-color: rgba(0, 0, 255, 0.1);
+  background-color: rgba(0, 0, 255, 0.01);
 }
-
-
-#card-typing .image-sm>img {
-  object-fit: contain;
-  max-height: 70vh;
-  max-width: 70vw;
-  object-fit: cover;
-  transition: opacity var(--question-transition-delay);
-}
-
-
-#card-typing .correction-container {
-  position : absolute;
-  bottom: 0;
-  width: 100%;
-  height: 80px;
-  border: 1px solid yellow;
-  border-radius: 30px;
-  background-color: rgba(255, 255, 0, 0.1);
-}
-
