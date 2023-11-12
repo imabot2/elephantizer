@@ -12,7 +12,7 @@ const translations = {
 
   fr: {
     authentification: "Authentification.",
-    settings: "Préférences de l'utilisateurs",
+    settings: "Paramètres de l'utilisateurs",
   },
 
 }

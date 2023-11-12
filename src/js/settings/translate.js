@@ -48,7 +48,7 @@ const translations = {
 
   
   fr: {
-    title: "Préférences",
+    title: "Paramètres",
 
 
     learningMode: "Mode d'apprentissage",

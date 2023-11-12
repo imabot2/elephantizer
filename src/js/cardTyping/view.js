@@ -5,7 +5,9 @@ import str2dom from "doma";
 
 
 import img0 from "Catalog/en/countries-on-the-map/europe/img/albania.png"
-import img1 from "Catalog/en/chess/stockfish-starting-position/img/starting-position.png"
+import img1 from "Catalog/en/countries-on-the-map/europe/img/andorra.png"
+
+import img2 from "Catalog/en/chess/stockfish-starting-position/img/starting-position.png"
 
 class View {
   constructor() {
@@ -13,12 +15,12 @@ class View {
     this.containerEl = str2dom.one(htmlCard);
     document.body.append(this.containerEl);
 
-    this.image = [];
-    this.image[0] = this.containerEl.querySelector('.image-0>img');
-    this.image[1] = this.containerEl.querySelector('.image-1>img');
+    this.imagesWide = [];
+    this.imagesWide[0] = this.containerEl.querySelector('.image-lg-0>img');
+    this.imagesWide[1] = this.containerEl.querySelector('.image-lg-1>img');
 
-    this.image[0].src = img0;
-    this.image[1].src = img1;
+    this.imagesWide[0].src = img0;
+    this.imagesWide[1].src = img1;
 
     // On resize, resize the main container     
     window.visualViewport.addEventListener('resize', () => { this.onResize(); });

@@ -9,7 +9,7 @@ const translations = {
     back: "back",
     title: "Menu",
     selectMemoryTest: "Select Memory Test",
-    settings: "Settings",
+    settings: '<i class="bi bi-gear-fill me-2"></i> Settings',
     about: "About",
   },
 
@@ -17,7 +17,7 @@ const translations = {
     back: "Retour",
     title: "Menu",
     selectMemoryTest: "Sélection des questions",
-    settings: "Préférences",
+    settings: '<i class="bi bi-gear-fill me-2"></i> Paramètres',
     about: "À propos",
   },
 
