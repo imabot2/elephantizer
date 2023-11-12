@@ -44,14 +44,10 @@
   margin: 0;
   padding: 0;
 
-  font-size: clamp(1rem, 6vmin, 4rem);
+  font-size: clamp(1rem, 6.5vmin, 4rem);
   text-align: center;
 
   white-space: pre-wrap;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   overflow-y: auto;
 
@@ -59,12 +55,8 @@
   scrollbar-width: none;
 }
 
-
-
-#answer-bar .input:empty {
-  
-  
-  width: 10px;
+#answer-bar .input::-webkit-scrollbar {
+  display: none;
 }
 
 
