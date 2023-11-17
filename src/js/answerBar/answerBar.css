@@ -55,6 +55,7 @@
   scrollbar-width: none;
 }
 
+
 #answer-bar .input::-webkit-scrollbar {
   display: none;
 }
