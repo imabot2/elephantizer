@@ -6,9 +6,22 @@ import catalog from "Catalog/catalog.js";
  * Model for the series class
  */
 class Model {
+
+  /**
+   * Constructor Initialize an empty object
+   */
   constructor() {
     // Contains all the series already loaded
     this.series = {};
+  }
+
+  /**
+   * Returns the list of UIDs for a given deck
+   * @param {string} path The path of the deck
+   * @returns An array containing the UIDs
+   */
+  getUids(path) {
+    return Object.keys(this.series[path].cards);
   }
 
   /**
@@ -85,7 +98,7 @@ class Model {
             cards: deck.cards
           }
 
-          // Resolve th promise and return the new deck
+          // Resolve the promise and return the new deck
           resolve(this.series[path]);
         })
         .catch((error) => {

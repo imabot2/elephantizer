@@ -6,6 +6,7 @@ import "Js/signup"; // For user registration
 import "Js/menu"; // For burger menu
 import settings from "Js/settings";
 import selection from "Js/selection";
+import statistics from "Js/statistics";
 import cardTyping from "Js/cardTyping";
 
 // Log first message
@@ -21,6 +22,12 @@ bootloader.setSuccess(authId);
 const settingsId = bootloader.log(translate.settings);
 await settings.init();
 bootloader.setSuccess(settingsId);
+
+// Wait for statistics
+const statisticsId = bootloader.log(translate.statistics);
+await statistics.init();
+bootloader.setSuccess(statisticsId);
+
 
 
 console.log ("Load default deck");

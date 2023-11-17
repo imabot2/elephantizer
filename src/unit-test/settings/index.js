@@ -6,9 +6,9 @@ import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap icons
 // Boot sequence
 import "Js/boot/";
 
-import auth from "Js/auth"
+import auth from "Js/auth";
 import settings from "Js/settings";
-import notifications from "Js/notifications"
+import notifications from "Js/notifications";
 import menu from "Js/menu";
 
 

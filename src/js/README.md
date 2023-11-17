@@ -29,6 +29,8 @@ Each module contains a file `index.js` that is the entry point to use the module
 
 The [account module](/src/js/account/) manages the user account (username, email, password...)
 
+
+
 # /answerbar
 
 The answer bar manage the answer bar in typing mode.
@@ -44,3 +46,7 @@ The [bootloader module](/src/js/bootloader/) manages the loading layer and the c
 
 
 
+ # /series
+
+
+The series module store the series loaded from JS module imported from the server. The series are loaded and keeped in memory. You may have 5 series in memory, and only one in the [current selection](/src/js/selection/).

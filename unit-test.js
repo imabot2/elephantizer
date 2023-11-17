@@ -3,6 +3,7 @@ const unitTests = [
   { name: 'notifications' },
   { name: 'timer' },
   { name: 'settings' },
+  { name: 'statistics' },
   { name: 'series' },
 ];
 

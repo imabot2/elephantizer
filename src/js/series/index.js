@@ -19,6 +19,14 @@ class Series {
   meta(path) { return model.meta(path); }
 
 
+
+  /**
+   * Returns the list of UIDs for a given deck
+   * @param {string} path The path of the deck
+   * @returns An array containing the UIDs
+   */
+  getUids(path) { return model.getUids(path); }
+
   /**
    * Load a deck, if not yet in memory
    * @param {string} path Path to load, example: 'en/countries-on-the-map/europe'
