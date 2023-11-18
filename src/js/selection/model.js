@@ -22,15 +22,15 @@ class Model {
    * @returns A promise resolved when the default deck is loaded
    */
   loadDefaultSelection() {
-    
+
     // Empty the current selection
     this.selection = [];
 
     // According to the user language, load the default deck
     switch (language.current()) {
-      case 'fr': return this.add('fr/pays-sur-la-carte/europe'); 
+      case 'fr': return this.add('fr/pays-sur-la-carte/europe');
       case 'de': return this.add('de/lander-auf-der-karte/europa');
-      default: return this.add('en/countries-on-the-map/europe'); 
+      default: return this.add('en/countries-on-the-map/europe');
     }
   }
 
@@ -41,7 +41,7 @@ class Model {
    * @returns a promise resolved when the series are loaded, reject if no deck can't be loaded
    */
   set(newSelection) {
-    
+
     // Empty the current selection
     this.selection = [];
 
@@ -57,15 +57,22 @@ class Model {
       // When all promises are resolved or rejected
       Promise.allSettled(promises).finally(() => {
 
-        // If the selection is not empty, resolve the promise
-        if (this.selection.length) { resolve(); return; }
+        // If the selection is not empty, update the view and resolve the promise
+        if (this.selection.length) { 
+          this.onSelectionUpdated(); 
+          resolve(); 
+          return; 
+        }
 
         // The selection is empty, load the default deck
         this.loadDefaultSelection()
-        .then(() => { resolve(); })
-        .catch((error) => { reject(error); })
+          .then(() => { 
+            this.onSelectionUpdated();
+            resolve(); 
+          })
+          .catch((error) => { reject(error); })
       });
-    })    
+    })
   }
 
 
@@ -74,10 +81,10 @@ class Model {
    * @param {array} selection Array of path saved in backend
    */
   setLastSavedSelection(selection) {
-    this.lastSavedSelection = structuredClone(selection);    
+    this.lastSavedSelection = structuredClone(selection);
   }
 
-  
+
   /**
    * Compare the current selection with the selection stored on server
    * @return {boolean} Return true if the selection has changed, false otherwise
@@ -142,7 +149,7 @@ class Model {
   onSelectionUpdated() {
     // Update the checkboxes and radio button in the Series menu
     menuSeries.updateSelection(this.selection);
-    
+
     // Update the current selection
     view.populate();
   }
