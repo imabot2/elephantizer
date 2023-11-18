@@ -6,7 +6,7 @@ import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap icons
 import "Js/boot/";
 import settings from "Js/settings";
 import statistics from "Js/statistics";
-
+import selection from "Js/selection";
 
 
 
@@ -14,11 +14,13 @@ document.body.addEventListener('auth-sign-in', async () => {
   
   await settings.startListeningDB();
   await statistics.startListeningDB();
+  
 });
 
 
 
-document.body.addEventListener('auth-sign-out', () => {   
+document.body.addEventListener('auth-sign-out', async () => {   
   settings.stopListeningDB();
   statistics.stopListeningDB();
+  await selection.loadDefaultSelection();
 });

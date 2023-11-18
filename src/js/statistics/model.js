@@ -46,7 +46,6 @@ class Model {
    * @returns A promise resolved when the statistics are ready (default or database if the user is logged)
    */
   init() {
-    console.log('Init statistics from Firestore');
     return this.startListeningDB();
   }
 

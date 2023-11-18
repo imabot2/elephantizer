@@ -3,7 +3,7 @@ import series from "Js/series";
 import menuSeries from "Js/menuSeries";
 import notifications from "Js/notifications";
 import translate from "./translate.js";
-
+import language from "Js/languages";
 /**
  * Model for the SELECTION module
  */
@@ -14,6 +14,57 @@ class Model {
    */
   constructor() {
     this.selection = [];
+  }
+
+  /**
+   * Set the default selection according to the user language
+   * @returns A promise resolved when the default deck is loaded
+   */
+  loadDefaultSelection() {
+    
+    // Empty the current selection
+    this.selection = [];
+
+    // According to the user language, load the default deck
+    switch (language.current()) {
+      case 'fr': return this.add('fr/pays-sur-la-carte/europe'); 
+      case 'de': return this.add('de/lander-auf-der-karte/europa');
+      default: return this.add('en/countries-on-the-map/europe'); 
+    }
+  }
+
+
+  /**
+   * Update the current selection with an array of new paths
+   * @param {array} newSelection An array containing the new selection
+   * @returns a promise resolved when the series are loaded, reject if no deck can't be loaded
+   */
+  set(newSelection) {
+    
+    // Empty the current selection
+    this.selection = [];
+
+    // Return a promise when all the decks are loaded
+    return new Promise((resolve, reject) => {
+
+      // Array of promises
+      let promises = [];
+
+      // Add each deck in the new selection
+      newSelection.forEach((path) => { promises.push(this.add(path, false)); })
+
+      // When all promises are resolved or rejected
+      Promise.allSettled(promises).finally(() => {
+
+        // If the selection is not empty, resolve the promise
+        if (this.selection.length) { resolve(); return; }
+
+        // The selection is empty, load the default deck
+        this.loadDefaultSelection()
+        .then(() => { resolve(); })
+        .catch((error) => { reject(error); })
+      });
+    })    
   }
 
 
@@ -28,13 +79,14 @@ class Model {
 
     // Get the list of meta data
     let list = this.selection.map(path => series.meta(path));
-    
+
     // Sort the list
     list.sort(this.compare);
 
     // Return the ordered list
     return list;
   }
+
 
   /**
    * Compare two deck (for the sort function) based on:
@@ -71,9 +123,11 @@ class Model {
   onSelectionUpdated() {
     // Update the checkboxes and radio button in the Series menu
     menuSeries.updateSelection(this.selection);
+    
     // Update the current selection
     view.populate();
   }
+
 
   /**
    * Toggle a deck given by its path
@@ -95,7 +149,7 @@ class Model {
    * @param {string} path Path of the deck to add
    * @returns A promise resolved when the deck is loaded
    */
-  add(path) {
+  add(path, updateView = true) {
     return new Promise((resolve, reject) => {
 
       // Add the path to the current selection
@@ -104,15 +158,14 @@ class Model {
       // Load the deck from server
       series.load(path)
         .then(() => {
-          this.onSelectionUpdated();
-          resolve();
+          if (updateView) this.onSelectionUpdated();
+          resolve(true);
         })
         .catch((error) => {
           console.error(error);
           // If the deck can't be loaded, remove the path from the current selection
-          this.remove();
-          this.onSelectionUpdated();
-          reject();
+          this.remove(path, updateView);
+          reject(false);
         })
 
     })
@@ -123,14 +176,14 @@ class Model {
    * Note that if the deck is keeped in memory even if it is no longer in the selection
    * @param {string} path Path of the deck to remove
    */
-  remove(path) {
+  remove(path, updateView = true) {
 
     // Check if there is at least two deck in the current selection
     if (this.selection.length <= 1) {
       // Can't remove the last deck
       notifications.warning(translate.atLeastOneDeck, translate.atLeastOneDeckMessage);
       // The selection is updated
-      this.onSelectionUpdated();
+      if (updateView) this.onSelectionUpdated();
       return;
     }
 
@@ -139,21 +192,22 @@ class Model {
     this.selection.splice(index, 1);
 
     // The selection is updated
-    this.onSelectionUpdated();
+    if (updateView) this.onSelectionUpdated();
   }
+
 
   /**
    * Select a single deck (remove the selection and add the deck)
    * @param {string} path  Path the the deck, example: 'en/countries-on-the-map/europe'
    */
-  selectDeck(path) {
+  selectDeck(path, updateView = true) {
     // Clear the selection
     this.selection = [];
     // Add the requested path
-    this.add(path);
+    this.add(path, updateView);
 
     // The selection is updated
-    this.onSelectionUpdated();
+    if (updateView) this.onSelectionUpdated();
   }
 
 }

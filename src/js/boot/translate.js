@@ -9,12 +9,14 @@ const translations = {
     authentification: 'Authentification',
     settings: 'User settings',
     statistics: 'User data', 
+    defaultSeries: 'Load default deck',
   },
 
   fr: {
-    authentification: "Authentification.",
+    authentification: "Authentification",
     settings: "Paramètres de l'utilisateurs",
     statistics: 'Données utilisateurs', 
+    defaultSeries: 'Charge le jeu de cartes',
   },
 
 }

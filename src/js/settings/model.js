@@ -2,6 +2,7 @@ import ModelData from "./modelData.js";
 import view from './view.js';
 import auth from "Js/auth";
 import notifications from "Js/notifications";
+import selection from "Js/selection";
 import { db } from "Js/firebase";
 import { doc, setDoc, getDoc, onSnapshot } from "firebase/firestore";
 
@@ -79,6 +80,9 @@ class Model extends ModelData {
    * @param {boolean} options.save Save the settings on Firestore when true
    */
   update(newSettings = {}, { updateView = false, save = false }) {
+
+    // Update the selection 
+    selection.set(newSettings.selection ?? []);
 
     // Merge only the fields existing in the default settings
     Object.keys(this.default).forEach((key) => {

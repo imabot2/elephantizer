@@ -12,6 +12,16 @@ class Selection {
 
 
   /**
+   * Set the default selection according to the user language
+   * @returns A promise resolved when the default deck is loaded
+   */
+  async loadDefaultSelection() { return model.loadDefaultSelection(); }
+
+
+  set(newSelection) { return model.set(newSelection); }
+
+
+  /**
    * Add a new deck in the selection
    * @param {string} path Path of the deck to add
    * @returns A promise resolved when the deck is loaded
