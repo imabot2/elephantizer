@@ -2,7 +2,7 @@ import series from "Js/series";
 import auth from "Js/auth";
 import notifications from "Js/notifications";
 import { db } from "Js/firebase";
-import { doc, serverTimestamp, writeBatch } from "firebase/firestore";
+import { doc, collection, query, onSnapshot, serverTimestamp, writeBatch } from "firebase/firestore";
 
 
 
@@ -10,14 +10,30 @@ import { doc, serverTimestamp, writeBatch } from "firebase/firestore";
  * Model for the statistics module
  */
 class Model {
+
+
+  /**
+   * 
+   */
   constructor() {
     // Contains the user statistics for each questions
     this.data = {};
+
+
   }
 
 
+  /**
+   * Get the statistics of a given question
+   * Create the deck statistics if the deck does not exist
+   * Create the questions statistics if the statistics doex not exist
+   * @param {string} path Path to the deck
+   * @param {string} uid UID of the requested question
+   * @returns {object} the statistics of the question
+   */
   get(path, uid) {
     if (!this.data.hasOwnProperty('path')) this.createDeck(path);
+    if (!this.data[path].stats.hasOwnProperty('uid')) this.createQuestion(path, uid);
     return this.data[path].stats[uid];
   }
 
@@ -31,6 +47,79 @@ class Model {
   }
 
 
+  /**
+  * Listen for Firestore DB settings change 
+  * On change, update the current settings
+  */
+  listenDB() {
+
+
+    // If the user is not logged in, do not use the listener
+    if (!auth.isLogged()) return;
+
+    // If there is already a listener, running, don't start another one
+    if (this.unsubscribe != undefined) return;
+    
+    const queryStats = query(collection(db, "users", `${auth.userId()}`, "statistics"));
+
+    console.log ('LISTENING')
+
+    this.unsubscribe = onSnapshot(queryStats, (querySnapshot) => {
+      console.log ('callback');
+      querySnapshot.forEach((doc) => {
+        console.log (doc.data());
+      })
+      
+    })
+    /*
+    import { collection, query, where, onSnapshot } from "firebase/firestore";
+
+const q = query(collection(db, "cities"), where("state", "==", "CA"));
+const unsubscribe = onSnapshot(q, (querySnapshot) => {
+  const cities = [];
+  querySnapshot.forEach((doc) => {
+      cities.push(doc.data().name);
+  });
+  console.log("Current cities in CA: ", cities.join(", "));
+});
+*/
+
+
+    /*
+        
+        
+    
+        // Create the document reference
+        const docRefSettings = doc(db, "users", `${auth.userId()}`, "settings", "current");
+    
+        // Set the listener on the reference document
+        this.unsubscribe = onSnapshot(docRefSettings, (doc) => {
+          
+          // Update only if remote changes
+          const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
+          if (source == "Server") {
+            
+            // If the document does not exist (first connextion ?), create an empty settings
+            const settings = (doc.exists()) ? doc.data() : {};
+            // Update the current settings and the settings menu
+            this.update(settings, { updateView: true });
+            // Set the flag to true to continue the boot sequence
+            this.firstSettingsFromDB = true;
+          }
+    
+        })
+        */
+  }
+
+  /**
+   * Stop listening from the settings update from DB
+   */
+  stopListeningDB() {
+    if (this.unsubscribe !== undefined) {
+      this.unsubscribe();
+      this.unsubscribe = undefined;
+    }
+  }
 
 
 
@@ -71,6 +160,18 @@ class Model {
   }
 
 
+  /**
+   * Create empty statistics for a question given by its path and UID
+   * @param {string} path Path to the deck
+   * @param {string} uid UID of the question
+   */
+  createQuestion(path, uid) {
+    this.data[path].stats[uid] = {
+      count: 0,
+      score: 0,
+    }
+  }
+
 
   /**
    * Create the statistics for a given deck
@@ -87,12 +188,7 @@ class Model {
 
     // For each UID, create a new stat
     const uids = series.getUids(path);
-    uids.forEach(uid => {
-      this.data[path].stats[uid] = {
-        count: 0,
-        score: 0,
-      }
-    })
+    uids.forEach(uid => { this.createQuestion(path, uid); });
   }
 
 }

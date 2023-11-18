@@ -1,4 +1,5 @@
-import view from './view.js'
+import ModelData from "./modelData.js";
+import view from './view.js';
 import auth from "Js/auth";
 import notifications from "Js/notifications";
 import { db } from "Js/firebase";
@@ -8,44 +9,30 @@ import { doc, setDoc, getDoc, onSnapshot } from "firebase/firestore";
 
 /**
  * Model for the settings module
+ * Extends the class model data that contains the settings data
  */
-class model {
+class Model extends ModelData {
 
   /**
    * Constructor
-   * - Create the default settings object
-   * - Deep copy the default settings to the current settings
+   * - Call the parent constructor
+   * - Create the event when settings are updated from server
    */
   constructor() {
 
-    // Default settings
-    this.default = {
+    // Call parent constructor,
+    // Create default and current data
+    super();
 
-      // Current language
-      language: 'en',
-
-      // Learning mode [ 'typing' | 'cards' ]
-      learningMode: 'typing',
-
-      // Timer mode [ 'series' | 'up' | 'down' ]
-      timerMode: "down",
-      // Timer duration [s]
-      duration: 60,
-    }
-
-    this.firstSettingsFromDB = false;
-
-    // At startup, set the current settings as the default settings
-    this.current = structuredClone(this.default);
-
-    // Catch events to listen/unsubscribe from DB updates
-    document.body.addEventListener('auth-sign-in', () => { this.listenDB(); });
-    document.body.addEventListener('auth-sign-out', () => { this.stopListeningDB(); });
+    // Prepare the global events for the Firestore listener
+    this.settingsUpdatedFromServer = new Event("settings-updated-from-server");
   }
 
 
   /**
    * Load settings from Firestore and update the settings menu
+   * Initialization must be done outside the constructor, 
+   * otherwise there is conflict between the view constructor and the model constructor
    * @returns A promise resolved when the settings are up-to-date
    */
   init() {
@@ -56,21 +43,10 @@ class model {
     // If the user not logged, return a resolved promise
     if (!auth.isLogged()) return Promise.resolve();
 
-    // The user is logged, start listening for settings update
-    this.listenDB();
-
-    // Polling until the first settings are fetched from DB
-    return new Promise((resolve) => {
-      // Every 50 ms...
-      let polling = setInterval(() => {
-        // ... check if settings are loaded from DB
-        if (this.firstSettingsFromDB) {
-          clearInterval(polling);
-          resolve();
-        }
-      }, 50)
-    })
+    // Start listening for update from Firestore
+    return this.startListeningDB();
   }
+
 
 
   /**
@@ -81,15 +57,11 @@ class model {
    * @param {boolean} options.save Save the settings on Firestore when true
    */
   updateField(key, value, { updateView = false, save = false }) {
-    // Check if the key exists
-    if (!key in this.default) return;
 
-    // Check if the value changed
-    if (this.current[key] != value) {
-      // Update the value and save the new settings
-      this.current[key] = value;
+    // Update the field
+    if (super.updateField(key, value)) {
 
-      // If requested, update the view and save the settings
+      // If the field is updated, update the view and save the settings is requested
       if (updateView) view.update();
       if (save) this.save();
     }
@@ -178,35 +150,22 @@ class model {
 
 
   /**
-   * Listen for Firestore DB settings change 
-   * On change, update the current settings
+   * Start listening for update from the Firestore server
+   * @returns A promise resolved when the first update is received from the server
    */
-  listenDB() {
+  startListeningDB() {
 
-    // If the user is not logged in, do not use the listener
-    if (!auth.isLogged()) return;
-
+    // If the user is not logged in, do not start the listener
+    if (!auth.isLogged()) return Promise.resolve();
+    
     // If there is already a listener, running, don't start another one
-    if (this.unsubscribe != undefined) return;
+    if (this.unsubscribe != undefined) return Promise.resolve();
 
-    // Create the document reference
-    const docRefSettings = doc(db, "users", `${auth.userId()}`, "settings", "current");
-
-    // Set the listener on the reference document
-    this.unsubscribe = onSnapshot(docRefSettings, (doc) => {
-      
-      // Update only if remote changes
-      const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
-      if (source == "Server") {
-        
-        // If the document does not exist (first connextion ?), create an empty settings
-        const settings = (doc.exists()) ? doc.data() : {};
-        // Update the current settings and the settings menu
-        this.update(settings, { updateView: true });
-        // Set the flag to true to continue the boot sequence
-        this.firstSettingsFromDB = true;
-      }
-
+    return new Promise((resolve) => {
+      this.listenDB();
+      document.body.addEventListener('settings-updated-from-server', () => {
+        resolve();
+      }, {once: true})
     })
   }
 
@@ -222,6 +181,35 @@ class model {
   }
 
 
+  /**
+   * Listen for Firestore DB settings changes
+   * On change or update of the current settings
+   */
+  listenDB() {
+
+    // Create the document reference
+    const docRefSettings = doc(db, "users", `${auth.userId()}`, "settings", "current");
+
+    // Set the listener on the reference document
+    this.unsubscribe = onSnapshot(docRefSettings, (doc) => {
+
+      // Update only if remote changes
+      const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
+      if (source == "Server") {
+
+        // If the document does not exist (first connextion ?), create an empty settings
+        const settings = (doc.exists()) ? doc.data() : {};
+
+        // Update the current settings and the settings menu
+        this.update(settings, { updateView: true });
+
+        // Everytime settings are updated from DB, trigger the event
+        document.body.dispatchEvent(this.settingsUpdatedFromServer);
+      }
+    })
+  }
+
+
 }
 
-export default new model();
+export default new Model();

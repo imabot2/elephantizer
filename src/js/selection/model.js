@@ -28,7 +28,7 @@ class Model {
 
     // Get the list of meta data
     let list = this.selection.map(path => series.meta(path));
-    console.log('For trasking the bug', list);
+    
     // Sort the list
     list.sort(this.compare);
 

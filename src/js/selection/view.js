@@ -37,7 +37,6 @@ class View {
   
     // For each selected deck
     const list = model.orderedList();
-    console.log ('For tracking the bug', list);
     list.forEach((meta) => {
 
       // Prepare the data to populate the item template

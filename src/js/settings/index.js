@@ -3,6 +3,8 @@ import view from "./view.js";
 
 
 
+
+
 class Settings {
   /**
    * Constructor
@@ -19,9 +21,16 @@ class Settings {
 
 
   /**
-   * Listen for settings changes from the Firestore DB
+   * Start listening for update from the Firestore server
+   * @returns A promise resolved when the first update is received from the server
    */
-  listenDB() { return model.listenDB(); }
+  async startListeningDB() { return model.startListeningDB(); }
+
+  
+  /**
+   * Stop listening from the settings update from DB
+   */
+  stopListeningDB() { model.stopListeningDB(); }
 
 
   /**
@@ -35,6 +44,7 @@ class Settings {
    * Collapse the settings menu
    */
   collapse() { view.collapse(); }
+
 
   /**
    * Show the settings menu (Expand the collapse menu)
