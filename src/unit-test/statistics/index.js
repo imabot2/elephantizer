@@ -21,8 +21,12 @@ await selection.add('en/countries-on-the-map/europe');
 if (!auth.isLogged())
   notifications.warning('Error', "You are not logged in", 10000);
 else {
-  statistics.get('en/countries-on-the-map/europe', 'fr');
-  await statistics.save();
+  statistics.get('en/countries-on-the-map/europe', 'gb');
+  statistics.get('en/countries-on-the-map/europe', 'a8'); 
+
+  await statistics.save();  
+  console.log ('done');
+  
 }
 
 

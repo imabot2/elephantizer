@@ -24,23 +24,27 @@ await settings.init();
 bootloader.setSuccess(settingsId);
 
 
-console.log ("Load default deck");
+console.log("Load default deck");
 await selection.add('en/countries-on-the-map/europe');
-await selection.add('en/countries-on-the-map/africa');
+//await selection.add('en/countries-on-the-map/africa');
 
-/*
+
+
 // Wait for statistics
 const statisticsId = bootloader.log(translate.statistics);
 await statistics.init();
-
-
-statistics.get ('en/countries-on-the-map/africa', 'za');
 bootloader.setSuccess(statisticsId);
-statistics.save();
+
+
+setTimeout(() => {
+  statistics.get('en/countries-on-the-map/europe', 'a8');
+  
+
+  statistics.save();
+}, 1000);
 
 
 
-*/
 
 
 

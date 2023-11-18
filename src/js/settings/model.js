@@ -121,35 +121,6 @@ class Model extends ModelData {
 
 
   /**
-   * Load the current settings from the Firestore DB
-   * @param {boolean} options.updateView When true, update the view after downloading the settings
-   * @returns A promise resolved when the settings are loaded
-   */
-  load({ updateView = false }) {
-    // Return a promise
-    return new Promise((resolve, reject) => {
-
-      // If the user is not logged in, do not load settings
-      if (!auth.isLogged()) { resolve(); return; }
-
-      // Create the document reference for the current settings
-      const docRefSettings = doc(db, "users", `${auth.userId()}`, "settings", "current");
-
-      getDoc(docRefSettings)
-        .then((docSnap) => {
-          if (docSnap.exists()) this.update(docSnap.data(), { 'updateview': updateView });
-          resolve();
-        })
-        .catch((error) => {
-          notifications(translate.error5002, translate.error5002Message);
-          console.error(error);
-          reject(error);
-        })
-    })
-  }
-
-
-  /**
    * Start listening for update from the Firestore server
    * @returns A promise resolved when the first update is received from the server
    */

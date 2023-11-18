@@ -8,11 +8,13 @@ const translations = {
   en: {
     authentification: 'Authentification',
     settings: 'User settings',
+    statistics: 'User data', 
   },
 
   fr: {
     authentification: "Authentification.",
     settings: "Paramètres de l'utilisateurs",
+    statistics: 'Données utilisateurs', 
   },
 
 }

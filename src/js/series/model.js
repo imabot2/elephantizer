@@ -17,10 +17,13 @@ class Model {
 
   /**
    * Returns the list of UIDs for a given deck
+   * If the deck has not been loaded, returns an empty array
    * @param {string} path The path of the deck
    * @returns An array containing the UIDs
    */
   getUids(path) {
+
+    if (!this.series.hasOwnProperty(path)) return [];
     return Object.keys(this.series[path].cards);
   }
 

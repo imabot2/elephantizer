@@ -75,9 +75,6 @@ class Model {
       // The user is now logged
       this.isLoggedIn = true;
 
-      // The user is logged in, trigger the sign in event
-      document.body.dispatchEvent(this.signInEvent);
-
 
       // The user is logged, but the email is not verified, trigger the event
       if (user.emailVerified) {
@@ -89,6 +86,9 @@ class Model {
         verification.showModal(user.email);
         verification.pollingForEmailVerified();
       }
+
+      // The user is logged in, trigger the sign in event
+      document.body.dispatchEvent(this.signInEvent);
 
     }
 
@@ -106,7 +106,7 @@ class Model {
     return this.auth.currentUser.uid;
   }
 
-  
+
   /**
    * Return the current user email used for authentification
    * @returns The user email or undefined if the user is not logged in

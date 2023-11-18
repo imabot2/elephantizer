@@ -13,18 +13,21 @@ class Model {
 
 
   /**
-   * 
+   * Constructor
+   * - Create empty statistics
+   * - Prepare the events
    */
   constructor() {
     // Contains the user statistics for each questions
     this.data = {};
 
-
+    // Prepare the global events for the Firestore listener
+    this.statisticsUpdatedFromServer = new Event("statistics-updated-from-server");
   }
 
 
   /**
-   * Get the statistics of a given question
+   * Get the statistics for a given question
    * Create the deck statistics if the deck does not exist
    * Create the questions statistics if the statistics doex not exist
    * @param {string} path Path to the deck
@@ -32,95 +35,50 @@ class Model {
    * @returns {object} the statistics of the question
    */
   get(path, uid) {
-    if (!this.data.hasOwnProperty('path')) this.createDeck(path);
-    if (!this.data[path].stats.hasOwnProperty('uid')) this.createQuestion(path, uid);
+    if (!this.data.hasOwnProperty(path)) this.createDeck(path);
+    if (!this.data[path].stats.hasOwnProperty(uid)) this.createQuestion(path, uid);
     return this.data[path].stats[uid];
   }
 
+
   /**
    * Load settings from Firestore and update the settings menu
-   * @returns A promise resolved when the settings are up-to-date
+   * @returns A promise resolved when the statistics are ready (default or database if the user is logged)
    */
   init() {
     console.log('Init statistics from Firestore');
-
+    return this.startListeningDB();
   }
 
-
+  
   /**
-  * Listen for Firestore DB settings change 
-  * On change, update the current settings
-  */
-  listenDB() {
-
-
-    // If the user is not logged in, do not use the listener
-    if (!auth.isLogged()) return;
-
-    // If there is already a listener, running, don't start another one
-    if (this.unsubscribe != undefined) return;
-    
-    const queryStats = query(collection(db, "users", `${auth.userId()}`, "statistics"));
-
-    console.log ('LISTENING')
-
-    this.unsubscribe = onSnapshot(queryStats, (querySnapshot) => {
-      console.log ('callback');
-      querySnapshot.forEach((doc) => {
-        console.log (doc.data());
-      })
-      
-    })
-    /*
-    import { collection, query, where, onSnapshot } from "firebase/firestore";
-
-const q = query(collection(db, "cities"), where("state", "==", "CA"));
-const unsubscribe = onSnapshot(q, (querySnapshot) => {
-  const cities = [];
-  querySnapshot.forEach((doc) => {
-      cities.push(doc.data().name);
-  });
-  console.log("Current cities in CA: ", cities.join(", "));
-});
-*/
-
-
-    /*
-        
-        
-    
-        // Create the document reference
-        const docRefSettings = doc(db, "users", `${auth.userId()}`, "settings", "current");
-    
-        // Set the listener on the reference document
-        this.unsubscribe = onSnapshot(docRefSettings, (doc) => {
-          
-          // Update only if remote changes
-          const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
-          if (source == "Server") {
-            
-            // If the document does not exist (first connextion ?), create an empty settings
-            const settings = (doc.exists()) ? doc.data() : {};
-            // Update the current settings and the settings menu
-            this.update(settings, { updateView: true });
-            // Set the flag to true to continue the boot sequence
-            this.firstSettingsFromDB = true;
-          }
-    
-        })
-        */
-  }
-
-  /**
-   * Stop listening from the settings update from DB
+   * Create empty statistics for a question given by its path and UID
+   * @param {string} path Path to the deck
+   * @param {string} uid UID of the question
    */
-  stopListeningDB() {
-    if (this.unsubscribe !== undefined) {
-      this.unsubscribe();
-      this.unsubscribe = undefined;
+  createQuestion(path, uid) {
+    // Create empty stats for the new question
+    this.data[path].stats[uid] = {
+      count: 0,
+      score: 0,
+    }
+    // A new question is created, the deck is updated
+    this.data[path].updated = true;
+  }
+
+
+  /**
+   * Create the statistics for a given deck
+   * @param {string} path Path to the new deck
+   */
+  createDeck(path) {
+    // Crete the new entry
+    this.data[path] = {
+      counter: 0,
+      updated: false,
+      stats: {},
     }
   }
-
 
 
   /**
@@ -140,17 +98,23 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
       // If data is not updated, do not save on Firebase
       if (!this.data[path].updated) return;
 
+      // Sanitize the deck before saving. 
+      // Keep only existing questions in the series
+      this.sanitizeDeck(path);
+
       // Sanitize document name for Firestore
       let docName = path.replaceAll('/', '\\');
 
       // Document to write
       const docRef = doc(db, "users", `${auth.userId()}`, "statistics", docName);
 
+      // Increase the counter everytime data are updated on the server
+      this.data[path].counter++;
+
       // Add the document to the batch
       batch.set(docRef,
         {
-          counter: ++this.data[path].counter,
-          timestamp: serverTimestamp(),
+          counter: this.data[path].counter,
           stats: this.data[path].stats,
         })
     })
@@ -161,34 +125,106 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
 
 
   /**
-   * Create empty statistics for a question given by its path and UID
-   * @param {string} path Path to the deck
-   * @param {string} uid UID of the question
+   * Remove statistics that do not exist in series
+   * @param {string} path Path to the current deck
    */
-  createQuestion(path, uid) {
-    this.data[path].stats[uid] = {
-      count: 0,
-      score: 0,
+  sanitizeDeck(path) {
+
+    // Get the list of UID (the UIDs to keep)
+    const uidsReference = series.getUids(path);
+
+    // For each UID in the series
+    Object.keys(this.data[path].stats).forEach((uid) => {
+      
+      // If the UID is not in the series, remove the statistics from data
+      if (!uidsReference.includes(uid)) delete this.data[path].stats[uid];
+    })
+  }
+
+
+
+  /**
+   * Start listening for update from the Firestore server
+   * @returns A promise resolved when the first update is received from the server
+   */
+  startListeningDB() {
+
+    // If the user is not logged in, do not start the listener
+    if (!auth.isLogged()) return Promise.resolve();
+
+    // If there is already a listener, running, don't start another one
+    if (this.unsubscribe != undefined) return Promise.resolve();
+
+    return new Promise((resolve) => {
+      this.listenDB();
+      document.body.addEventListener('statistics-updated-from-server', () => {
+        resolve();
+      }, { once: true })
+    })
+  }
+
+
+  /**
+   * Stop listening from the statistics update from DB
+   */
+  stopListeningDB() {
+    if (this.unsubscribe !== undefined) {
+      this.unsubscribe();
+      this.unsubscribe = undefined;
     }
   }
 
 
   /**
-   * Create the statistics for a given deck
-   * @param {string} path Path to the new deck
+  * Listen for Firestore DB statistics change 
+  * On change, update the current statistics
+  */
+  listenDB() {
+    
+    // Prepare the query
+    // Listen to all the statistics
+    const queryAllStats = query(collection(db, "users", `${auth.userId()}`, "statistics"));
+
+    // Create the listener
+    this.unsubscribe = onSnapshot(queryAllStats, (querySnapshot) => {
+
+      // Update only if remote changes
+      const source = querySnapshot.metadata.hasPendingWrites ? "Local" : "Server";      
+      if (source == "Server") {
+        
+        // For each document
+        querySnapshot.forEach((doc) => {
+          
+          // Get path from document ID
+          let path = doc.id.replaceAll('\\', '/');
+
+          // Update the deck with data from the server
+          this.updateDeckFromDB(path, doc.data());
+        })
+
+        // When the documents are updated, trigger the event
+        document.body.dispatchEvent(this.statisticsUpdatedFromServer);
+      }
+    })
+  }
+
+
+  /**
+   * Perform a smart merge with data loaded from DB and local data
+   * @param {string} path Path to the deck
+   * @param {object} data Data to update from Forestore
    */
-  createDeck(path) {
+  updateDeckFromDB(path, data) {
+    
+    // If the deck do not exist in statistics, create the deck
+    if (!this.data.hasOwnProperty(path)) this.createDeck(path);
 
-    // Crete the new entry
-    this.data[path] = {
-      counter: 0,
-      updated: true,
-      stats: {},
-    }
+    // Update meta data
+    this.data[path].counter = data.counter;
+    this.data[path].updated = false;
 
-    // For each UID, create a new stat
-    const uids = series.getUids(path);
-    uids.forEach(uid => { this.createQuestion(path, uid); });
+    // Merge statistics
+    this.data[path].stats = {...this.data[path].stats, ...data.stats};    
   }
 
 }
