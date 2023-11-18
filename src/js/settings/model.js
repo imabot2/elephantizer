@@ -79,10 +79,10 @@ class Model extends ModelData {
    * @param {boolean} options.updateView Update the view after updating the settings when true
    * @param {boolean} options.save Save the settings on Firestore when true
    */
-  update(newSettings = {}, { updateView = false, save = false }) {
+  async update(newSettings = {}, { updateView = false, save = false }) {
 
-    // Update the selection 
-    selection.set(newSettings.selection ?? []);
+    // Update the selection
+    await selection.set(newSettings.selection ?? []);
 
     // Merge only the fields existing in the default settings
     Object.keys(this.default).forEach((key) => {
@@ -91,7 +91,6 @@ class Model extends ModelData {
     if (updateView) view.update();
     if (save) this.save();
   }
-
 
 
   /**
@@ -108,12 +107,19 @@ class Model extends ModelData {
       // Create the document reference for the current settings
       const docRefSettings = doc(db, "users", `${auth.userId()}`, "settings", "current");
 
+      // Add the current selection to the settings
+      let settingsToSave = this.current;
+      settingsToSave.selection = selection.current();
+
       // Overwrite the backend settings with the current settings
-      setDoc(docRefSettings, this.current)
+      setDoc(docRefSettings, settingsToSave)
         .then(() => {
+          // Success, update the last saved selection and resolve the promise
+          selection.setLastSavedSelection(selection.current());
           resolve();
         })
         .catch((error) => {
+          // An error occured, notify the user and reject the promise
           notifications(translate.error5000, translate.error5000Message);
           console.error(error);
           reject(error);
@@ -132,7 +138,7 @@ class Model extends ModelData {
 
     // If the user is not logged in, do not start the listener
     if (!auth.isLogged()) return Promise.resolve();
-    
+
     // If there is already a listener, running, don't start another one
     if (this.unsubscribe != undefined) return Promise.resolve();
 
@@ -140,7 +146,7 @@ class Model extends ModelData {
       this.listenDB();
       document.body.addEventListener('settings-updated-from-server', () => {
         resolve();
-      }, {once: true})
+      }, { once: true })
     })
   }
 
@@ -166,7 +172,7 @@ class Model extends ModelData {
     const docRefSettings = doc(db, "users", `${auth.userId()}`, "settings", "current");
 
     // Set the listener on the reference document
-    this.unsubscribe = onSnapshot(docRefSettings, (doc) => {
+    this.unsubscribe = onSnapshot(docRefSettings, async (doc) => {
 
       // Update only if remote changes
       const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
@@ -176,7 +182,10 @@ class Model extends ModelData {
         const settings = (doc.exists()) ? doc.data() : {};
 
         // Update the current settings and the settings menu
-        this.update(settings, { updateView: true });
+        await this.update(settings, { updateView: true });
+
+        // Keep track of the selection stored in the database
+        selection.setLastSavedSelection(selection.current());
 
         // Everytime settings are updated from DB, trigger the event
         document.body.dispatchEvent(this.settingsUpdatedFromServer);

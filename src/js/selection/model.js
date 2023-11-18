@@ -14,6 +14,7 @@ class Model {
    */
   constructor() {
     this.selection = [];
+    this.lastSavedSelection = [];
   }
 
   /**
@@ -65,6 +66,24 @@ class Model {
         .catch((error) => { reject(error); })
       });
     })    
+  }
+
+
+  /**
+   * Store the last selection saved in Firestore
+   * @param {array} selection Array of path saved in backend
+   */
+  setLastSavedSelection(selection) {
+    this.lastSavedSelection = structuredClone(selection);    
+  }
+
+  
+  /**
+   * Compare the current selection with the selection stored on server
+   * @return {boolean} Return true if the selection has changed, false otherwise
+   */
+  hasSelectionChanged() {
+    return (this.selection.sort().toString() !== this.lastSavedSelection.sort().toString());
   }
 
 
@@ -143,6 +162,7 @@ class Model {
     // Otherwise, add the element in the selection
     else return this.add(path);
   }
+
 
   /**
    * Add a new deck in the selection

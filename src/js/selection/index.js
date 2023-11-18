@@ -18,7 +18,26 @@ class Selection {
   async loadDefaultSelection() { return model.loadDefaultSelection(); }
 
 
+  /**
+   * Update the current selection with an array of new paths
+   * @param {array} newSelection An array containing the new selection
+   * @returns a promise resolved when the series are loaded, reject if no deck can't be loaded
+   */
   set(newSelection) { return model.set(newSelection); }
+
+
+  /**
+   * Store the last selection saved in Firestore
+   * @param {array} selection Array of path saved in backend
+   */
+  setLastSavedSelection(selection) { model.setLastSavedSelection(selection); }
+
+
+  /**
+   * Compare the current selection with the last selection stored on server   
+   * @return {boolean} Return true if the selection has changed, false otherwise
+   */
+  hasSelectionChanged() { return model.hasSelectionChanged(); }
 
 
   /**

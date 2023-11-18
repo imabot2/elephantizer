@@ -19,6 +19,13 @@ class Settings {
    */
   async init() { return model.init(); }
 
+  
+  /**
+   * Save the current settings in the database
+   * @returns A promise resolved when the settings are saved
+   */
+  save() { return model.save(); }
+
 
   /**
    * Start listening for update from the Firestore server
