@@ -10,6 +10,7 @@ const translations = {
     settings: 'User settings',
     statistics: 'User data', 
     defaultSeries: 'Load default deck',
+    core: 'Prepare first questions',
   },
 
   fr: {
@@ -17,6 +18,7 @@ const translations = {
     settings: "Paramètres de l'utilisateurs",
     statistics: 'Données utilisateurs', 
     defaultSeries: 'Charge le jeu de cartes',
+    core: 'Prépare les premières questions',
   },
 
 }

@@ -91,7 +91,6 @@ class Model {
     if (this.lastQuestionId !== undefined) {
       this.remaining.splice(this.remaining.indexOf(this.lastQuestionId), 1);
     }
-    console.log (this.remaining);
 
     // idNext is the index of the next question in this.questions
     let idNext = this.getNextUnaskedQuestionIndex();

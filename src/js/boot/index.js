@@ -7,7 +7,7 @@ import "Js/menu"; // For burger menu
 import settings from "Js/settings";
 import selection from "Js/selection";
 import statistics from "Js/statistics";
-import generator from "Js/generator";
+import core from "Js/core";
 
 // Log first message
 const versionId = bootloader.log('Elephantizer v2');
@@ -35,12 +35,10 @@ const statisticsId = bootloader.log(translate.statistics);
 await statistics.init();
 bootloader.setSuccess(statisticsId);
 
-generator.reset();
-console.log (generator.mode() );
-
-for (let i=0; i<10; i++) {
-  console.log (generator.getNextQuestion());
-}
+// Populate the interface for the first questions
+const coreId = bootloader.log(translate.core);
+core.reset();
+bootloader.setSuccess(coreId);
 
 
 setTimeout(() => {

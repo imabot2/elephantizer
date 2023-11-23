@@ -1,11 +1,11 @@
 import model from "./model.js";
 
-
+/**
+ * Generator module (used to generate the next question)
+ */
 class Generator  {
 
-  constructor() {
-
-  }
+  constructor() {}
 
 
   /**
@@ -15,6 +15,7 @@ class Generator  {
    * 3. Populare the list of remaining questions (= indexes of all the questions)
    */
   reset() { model.reset(); }
+
 
   /**
    * Return the current generator mode
