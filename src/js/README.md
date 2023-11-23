@@ -43,7 +43,11 @@ The answer bar manage the answer bar in typing mode.
 
 The [bootloader module](/src/js/bootloader/) manages the loading layer and the console. 
 
+ 
+ 
+ # /generator
 
+ Generate the next question in Series or Relevant mode
 
 
  # /series

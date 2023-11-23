@@ -3,7 +3,15 @@ import statistics from "Js/statistics";
 import settings from "Js/settings";
 import selection from "Js/selection";
 
+
+/**
+ * Model of the generator module
+ */
 class Model {
+
+  /**
+   * Constructor, initialize global variables
+   */
   constructor() {
     // the array containing the question in the series
     this.questions = [];
@@ -14,21 +22,24 @@ class Model {
   }
 
 
+  /**
+   * Reset the generator
+   * 1. Get current mode (series or relevant)
+   * 2. Populate the list of questions according to the current selection
+   * 3. Populare the list of remaining questions (= indexes of all the questions)
+   */
   reset() {
 
     // Fix the mode according to the settings 
     // - relevant mode will pick the most relevant question according to the statistics
     // - series mode will pick once each question of the series
     this.mode = (settings.get('timerMode') == 'series') ? 'series' : 'relevant';
-    console.log(this.mode);
 
+    // Populate the list of questions
     this.populate();
 
     // Prepare the list of remaining questions with all the questions indexes
     this.remaining = [...Array(this.questions.length).keys()];
-    console.log(this.remaining)
-
-
   }
 
 
@@ -68,7 +79,12 @@ class Model {
     }
   }
 
-
+  /**
+   * Compute the next question in relevant mode
+   * 1. Check if there are never asked questions
+   * 2. If all questions has been asked, return the most relevant question
+   * @returns The path and uid of the next questions
+   */
   getNextQuestionRelevant() {
 
     // Remove the last question if defined
@@ -101,12 +117,14 @@ class Model {
     }
   }
 
+
+
   getNextRelevantQuestionIndex() {
     console.log ('TO DO Get next question by probability');
     return 0;
   }
 
-  
+
   /**
    * Get the index of the next question that has never been asked
    * @returns The index of the next question that has never been asked or null if there is no unasked question
