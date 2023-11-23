@@ -10,6 +10,9 @@ class Generator  {
 
   reset() { model.reset(); }
 
+
+  mode() { return model.mode; }
+
   
   getNextQuestion() { return model.getNextQuestion(); }
 }

@@ -36,7 +36,9 @@ await statistics.init();
 bootloader.setSuccess(statisticsId);
 
 generator.reset();
-for (let i=0; i<6; i++) {
+console.log (generator.mode() );
+
+for (let i=0; i<10; i++) {
   console.log (generator.getNextQuestion());
 }
 
