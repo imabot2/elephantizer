@@ -7,7 +7,7 @@ import "Js/menu"; // For burger menu
 import settings from "Js/settings";
 import selection from "Js/selection";
 import statistics from "Js/statistics";
-import cardTyping from "Js/cardTyping";
+import generator from "Js/generator";
 
 // Log first message
 const versionId = bootloader.log('Elephantizer v2');
@@ -34,6 +34,12 @@ if (selection.current().length === 0) {
 const statisticsId = bootloader.log(translate.statistics);
 await statistics.init();
 bootloader.setSuccess(statisticsId);
+
+generator.reset();
+for (let i=0; i<6; i++) {
+  console.log (generator.getNextQuestion());
+}
+
 
 setTimeout(() => {
   bootloader.hide()

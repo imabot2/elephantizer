@@ -21,31 +21,37 @@ export var metaData = {
 export var cards = {
   "root": {
     image: startingPosition,
+    type: 'inner',
     prompt: "What is the best move?",
     answer: "e2e4"
   },
   "a2e4": {
     image: a2a4,
+    type: 'inner',
     prompt: "What is the best move?",
     answer: "g8f6"
   },
   "b1c3": {
     image: b1c3,
+    type: 'inner',
     prompt: "What is the best move?",
     answer: "d7d5"
   },
   "d2d4": {
     image: d2d4,
+    type: 'inner',
     prompt: "What is the best move?",
     answer: "g8f6"
   },
   "e2e4": {
     image: e2e4,
+    type: 'inner',
     prompt: "What is the best move?",
     answer: "e7e5"
   },
   "g1f3": {
     image: g1f3,
+    type: 'inner',
     prompt: "What is the best move?",
     answer: "e7e6"
   },

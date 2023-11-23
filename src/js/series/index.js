@@ -4,6 +4,17 @@ class Series {
   constructor() { }
 
   /**
+   * Get the series data
+   * - The full serie if path is not defined, 
+   * - The deck is path is defined and uid is not defined
+   * - The question if path and uid are defined
+   * @param {string} path The path to the requested deck 
+   * @param {string} uid The UID of the requested question
+   * @returns {object} The full serie, the deck or the question requested
+   */
+  get(path, uid) { return model.get(path, uid); }
+
+  /**
    * Return human readable data for a given path
    * @param {string} path The partial or full path
    * @returns An object containing the data (names, paths ...)

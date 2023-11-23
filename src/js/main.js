@@ -7,14 +7,12 @@ import "Js/boot/";
 import settings from "Js/settings";
 import statistics from "Js/statistics";
 import selection from "Js/selection";
+import cardTyping from "Js/cardTyping";
 
 
-
-document.body.addEventListener('auth-sign-in', async () => { 
-  
+document.body.addEventListener('auth-sign-in', async () => {   
   await settings.startListeningDB();
-  await statistics.startListeningDB();
-  
+  await statistics.startListeningDB();  
 });
 
 

@@ -13,13 +13,25 @@ class Settings {
     view.update();
   }
 
+
+  /**
+   * Return the requested settings parameter
+   * If name is define, returns the parameter name
+   * Otherwise, return all the settingd
+   * @param {string} key The setting name
+   * @returns The settings parameter if name is defined, an object with all the parameters otherwise
+   */
+  get(name) { return model.get(name); }
+
+
+
   /**
    * Load settings from Firestore and update the settings menu
    * @returns A promise resolved when the settings are up-to-date
    */
   async init() { return model.init(); }
 
-  
+
   /**
    * Save the current settings in the database
    * @returns A promise resolved when the settings are saved
@@ -33,7 +45,7 @@ class Settings {
    */
   async startListeningDB() { return model.startListeningDB(); }
 
-  
+
   /**
    * Stop listening from the settings update from DB
    */

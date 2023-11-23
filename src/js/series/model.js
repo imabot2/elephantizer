@@ -16,6 +16,33 @@ class Model {
   }
 
   /**
+   * Get the series data
+   * - The full serie if path is not defined, 
+   * - The deck is path is defined and uid is not defined
+   * - The question if path and uid are defined
+   * @param {string} path The path to the requested deck 
+   * @param {string} uid The UID of the requested question
+   * @returns {object} The full serie, the deck or the question requested
+   */
+  get(path = undefined, uid = undefined) {
+
+    // If the path is not defiend, returns the full series
+    if (path === undefined) return this.series;
+
+    // If the path does not exists, returns an empty object
+    if (!this.series.hasOwnProperty(path)) return {};
+
+    // Path is defined, but not uid, return the deck
+    if (uid === undefined) return this.series[path];
+
+    // If the uid does not exists, returns an empty object
+    if (!this.series[path].cards.hasOwnProperty(uid)) return {};
+
+    // Path and uid are defined, returns the requested question
+    return this.series[path].cards[uid];    
+  }
+
+  /**
    * Returns the list of UIDs for a given deck
    * If the deck has not been loaded, returns an empty array
    * @param {string} path The path of the deck

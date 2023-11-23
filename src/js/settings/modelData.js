@@ -32,6 +32,23 @@ export default class ModelData {
 
 
   /**
+   * Return the requested settings parameter
+   * If name is define, returns the parameter name
+   * Otherwise, return all the settingd
+   * @param {string} key The setting name
+   * @returns The settings parameter if name is defined, an object with all the parameters otherwise
+   */
+  get(name = undefined) {
+    
+    // If the key is not defined, returns all the settings
+    if (name === undefined) return this.current;
+
+    // Otherwise, returns the requested settings
+    return this.current[name];
+  }
+
+
+  /**
    * Update a single parameter of the settings
    * @param {string} key The field to update
    * @param {string} value The new value of the field key

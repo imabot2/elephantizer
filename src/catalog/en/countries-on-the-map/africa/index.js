@@ -72,324 +72,378 @@ export var cards = [
   {
     uid: "dz",
     image: algeria,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Algeria"
   },
   {
     uid: "ao",
     image: angola,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Angola"
   },
   {
     uid: "bj",
     image: benin,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Benin"
   },
   {
     uid: "bw",
     image: botswana,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Botswana"
   },
   {
     uid: "bf",
     image: burkinaFaso,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Burkina Faso"
   },
   {
     uid: "bi",
     image: burundi,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Burundi"
   },
   {
     uid: "cm",
     image: cameroon,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Cameroon"
   },
   {
     uid: "cv",
     image: capeVerde,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Cape Verde"
   },
   {
     uid: "cf",
     image: centralAfricanRepublic,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Central African Republic"
   },
   {
     uid: "td",
     image: chad,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Chad"
   },
   {
     uid: "km",
     image: comoros,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Comoros"
   },
   {
     uid: "cd",
     image: democraticRepublicOfTheCongo,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Democratic Republic of the Congo"
   },
   {
     uid: "dj",
     image: djibouti,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Djibouti"
   },
   {
     uid: "ci",
     image: ivoryCoast,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Ivory Coast "
   },
   {
     uid: "ke",
     image: kenya,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Kenya "
   },
   {
     uid: "ls",
     image: lesotho,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Lesotho "
   },
   {
     uid: "lr",
     image: liberia,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Liberia "
   },
   {
     uid: "ly",
     image: libya,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Libya "
   },
   {
     uid: "mg",
     image: madagascar,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Madagascar "
   },
   {
     uid: "mw",
     image: malawi,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Malawi "
   },
   {
     uid: "ml",
     image: mali,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Mali "
   },
   {
     uid: "mr",
     image: mauritania,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Mauritania "
   },
   {
     uid: "mu",
     image: mauritius,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Mauritius "
   },
   {
     uid: "ma",
     image: morocco,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Morocco "
   },
   {
     uid: "mz",
     image: mozambique,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Mozambique "
   },
   {
     uid: "na",
     image: namibia,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Namibia "
   },
   {
     uid: "ne",
     image: niger,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Niger "
   },
   {
     uid: "ng",
     image: nigeria,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Nigeria "
   },
   {
     uid: "cg",
     image: republicOfTheCongo,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Republic of the Congo"
   },
   {
     uid: "rw",
     image: rwanda,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Rwanda"
   },
   {
     uid: "st",
     image: saoTomeAndPrincipe,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Sao Tome and Principe"
   },
   {
     uid: "sn",
     image: senegal,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Senegal"
   },
   {
     uid: "sc",
     image: seychelles,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Seychelles"
   },
   {
     uid: "sl",
     image: sierraLeone,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Sierra Leone"
   },
   {
     uid: "so",
     image: somalia,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Somalia"
   },
   {
     uid: "za",
     image: southAfrica,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "South AFrica"
   },
   {
     uid: "ss",
     image: southSudan,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "South Sudan"
   },
   {
     uid: "sd",
     image: sudan,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Sudan"
   },
   {
     uid: "tz",
     image: tanzania,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Tanzania"
   },
   {
     uid: "tg",
     image: togo,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Togo"
   },
   {
     uid: "tn",
     image: tunisia,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Tunisia"
   },
   {
     uid: "ug",
     image: uganda,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Uganda"
   },
   {
     uid: "zm",
     image: zambia,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Zambia"
   },
   {
     uid: "zw",
     image: zimbabwe,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Zimbabwe"
   },
   {
     uid: "eg",
     image: egypt,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Egypt"
   },
   {
     uid: "gq",
     image: equatorialGuinea,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Equatorial Guinea"
   },
   {
     uid: "er",
     image: eritrea,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Eritrea"
   },
   {
     uid: "sz",
     image: eswatini,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Eswatini"
   },
   {
     uid: "et",
     image: ethiopia,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Ethiopia"
   },
   {
     uid: "ga",
     image: gabon,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Gabon"
   },
   {
     uid: "gm",
     image: gambia,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Gambia"
   },
   {
     uid: "gh",
     image: ghana,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Ghana"
   },
   {
     uid: "gn",
     image: guinea,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Guinea"
   },
   {
     uid: "gw",
     image: guineaBissau,
+    type: 'outer',
     prompt: "What country is this?",
     answer: "Guinea-Bissau"
   },
