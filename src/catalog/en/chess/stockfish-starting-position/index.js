@@ -53,6 +53,6 @@ export var cards = {
     image: g1f3,
     type: 'inner',
     prompt: "What is the best move?",
-    answer: "e7e6"
+    answer: "d7d5"
   },
 };

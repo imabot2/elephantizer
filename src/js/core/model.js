@@ -1,17 +1,36 @@
-import view from "./view.js";
-import generator from "Js/generator";
+import coreTyping from "Js/coreTyping";
+import settings from "Js/settings";
 
+
+/**
+ * Model of the core class
+ * Dispatch to the right core (typing or card mode)
+ */
 class Model {
 
-  constructor() {}
-
   /**
-   * Reset the memory test and prepare the first questions
+   * Constructor, set default typing mode
+   */
+  constructor() {
+
+    // Set default learning mode to typing 
+    this.core = coreTyping
+  }
+
+  
+  /**
+   * Get current learning mode and dispatch to coreCard or coreTyping
    */
   reset() {
-    generator.reset();
-    console.log (generator.getNextQuestion());
+    if (settings.get('learningMode') === 'typing')
+      this.core = coreTyping;
+    else
+      this.core = coreCards;
+
+    this.core.reset();
   }
+
+
 }
 
 

@@ -38,8 +38,8 @@ class Model {
     // If the uid does not exists, returns an empty object
     if (!this.series[path].cards.hasOwnProperty(uid)) return {};
 
-    // Path and uid are defined, returns the requested question
-    return this.series[path].cards[uid];    
+    // Path and uid are defined, returns the requested question merged with meta data
+    return { ...this.series[path].cards[uid], ...this.series[path].meta, ...{'path': path, 'uid': uid } };
   }
 
   /**

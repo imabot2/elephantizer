@@ -4,44 +4,166 @@ import str2dom from "doma";
 import answerBar from "Js/answerBar";
 
 
-import img0 from "Catalog/en/countries-on-the-map/europe/img/albania.png"
-import img1 from "Catalog/en/countries-on-the-map/europe/img/andorra.png"
-
-import img2 from "Catalog/en/chess/stockfish-starting-position/img/starting-position.png"
-
+/**
+ * View for the card typing module
+ */
 class View {
+
+  /**
+   * Constructor 
+   * - Get DOM elements
+   * - Add event listener on resize
+   */
   constructor() {
     // Append the button to the DOM
     this.containerEl = str2dom.one(htmlCard);
     document.body.append(this.containerEl);
 
-    this.imagesWide = [];
-    this.imagesWide[0] = this.containerEl.querySelector('.image-outer-0>img');
-    this.imagesWide[1] = this.containerEl.querySelector('.image-outer-1>img');
+    // Get outer images
+    this.outerImages = [];
+    this.outerImages[0] = this.containerEl.querySelector('.image-outer-0');
+    this.outerImages[1] = this.containerEl.querySelector('.image-outer-1');
 
-    this.imagesWide[0].src = img0;
-    this.imagesWide[1].src = img1;
+    // Get inner images
+    this.innerImages = [];
+    this.innerImages[0] = this.containerEl.querySelector('.image-inner-0');
+    this.innerImages[1] = this.containerEl.querySelector('.image-inner-1');
 
-    this.imagesSmall = [];
-    this.imagesSmall[0] = this.containerEl.querySelector('.image-inner-0>img');
-    this.imagesSmall[1] = this.containerEl.querySelector('.image-inner-1>img');
+    // Get text containers
+    this.texts = [];
+    this.texts[0] = this.containerEl.querySelector('.text-0');
+    this.texts[1] = this.containerEl.querySelector('.text-1');
 
-    this.imagesSmall[0].src = img2;
-    this.imagesSmall[1].src = img2;
+    /*
+    // Get badge and text for questions
+    this.badges = [];
+    this.badges[0] = this.texts[0].querySelector('div');
+    this.badges[1] = this.texts[1].querySelector('div');
+
+    // Get question text content
+    this.questions = [];
+    this.questions[0] = this.texts[0].querySelector('div:nth-child(2)');
+    this.questions[1] = this.texts[1].querySelector('div:nth-child(2)');
+*/
+    // Properties of the current question
+    this.current = {
+      type: undefined,
+      outerId: 0,
+      innerId: 0,
+      textId: 0,
+    }
 
 
+    // Populate answer bar
     let answerBarContainer = this.containerEl.querySelector('.answer-bar-container');
     answerBar.appendTo(answerBarContainer);
 
-
     // On resize, resize the main container     
     window.visualViewport.addEventListener('resize', () => { this.onResize(); });
-
 
     // Call the onResize function for first rendering
     this.onResize();
   }
 
+
+  /**
+   * Prepare the next question (set image and store data)
+   * @param {object} data Data of the next question
+  */
+  prepareNextQuestion(nextQuestion) {
+    this.nextQuestion = nextQuestion;
+    switch (this.nextQuestion.type) {
+      case 'outer': this.prepareNextOuterImage(); break;
+      case 'inner': this.prepareNextInnerImage(); break;
+      case 'text': this.prepareNextText(); break;
+    }
+  }
+
+  /**
+   * Hide the current question and show the next question
+   */
+  switchToNextQuestion() {
+    this.hideCurrentQuestion();
+    this.showNextQuestion();
+  }
+
+
+  /**
+   * Show the current question
+   */
+  showNextQuestion() {
+
+    // Dispatch according to the next question type
+    switch (this.nextQuestion.type) {
+
+      case 'outer':
+        this.current.outerId = 1 - this.current.outerId
+        this.outerImages[this.current.outerId].style.opacity = 1;
+        break;
+
+      case 'inner':
+        this.current.innerId = 1 - this.current.innerId
+        this.innerImages[this.current.innerId].style.opacity = 1;
+        break;
+
+      case 'text':
+        this.current.textId = 1 - this.current.textId;
+        this.texts[this.current.textId].style.opacity = 1;
+        break;
+    }
+
+    // Set the new type (outer, inner or text)
+    this.current.type = this.nextQuestion.type;
+  }
+
+  /**
+   * Hide the current question
+   */
+  hideCurrentQuestion() {
+    switch (this.current.type) {
+      case 'outer': this.outerImages[this.current.outerId].style.opacity = 0; break;
+      case 'inner': this.innerImages[this.current.innerId].style.opacity = 0; break;
+      case 'text': this.texts[this.current.textId].style.opacity = 0; break;
+    }
+  }
+
+
+  /**
+   * Prepare the next inner image in background for smooth transitions
+   */
+  prepareNextInnerImage() {
+    // Get the next index
+    const index = 1 - this.current.innerId;
+
+    // Set the next inner image
+    this.innerImages[index].querySelector('img').src = this.nextQuestion.image;
+  }
+
+
+  /**
+   * Prepare the next outer image in background for smooth transitions
+   */
+  prepareNextOuterImage() {
+    // Get the next index
+    const index = 1 - this.current.outerId;
+
+    // Set the next inner image
+    this.outerImages[index].querySelector('img').src = this.nextQuestion.image;
+  }
+
+  /**
+   * Prepare the next text in background for smooth transitions
+   */
+  prepareNextText() {
+    // Get the next index
+    const index = 1 - this.current.textId;
+
+    // Set the next inner image
+    this.texts[index].querySelector('div').innerHTML = this.nextQuestion.deck.name;
+    this.texts[index].querySelector('div:nth-child(2)').innerHTML = this.nextQuestion.question;
+
+    console.log (this.nextQuestion)
+  }
 
 
   /**

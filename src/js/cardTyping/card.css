@@ -1,6 +1,6 @@
 #card-typing {
 
-  --question-transition-delay: 3000ms;
+  --question-transition-delay: 250ms;
 
   position: relative;
   overflow: hidden;
