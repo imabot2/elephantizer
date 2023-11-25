@@ -67,6 +67,14 @@ class View {
 
 
   /**
+   * Clear the input field
+   */
+  clear() {
+    this.inputEl.innerHTML = '';
+  }
+
+  
+  /**
    * Disable the answer input (and the submit button)
    */
   disable() {

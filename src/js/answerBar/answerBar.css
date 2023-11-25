@@ -60,7 +60,6 @@
   max-height: 30vh;
 
   min-height: var(--answer-bar-height);
-  border: 1px solid green;
 
   flex: 2;
 
@@ -89,7 +88,6 @@
 #answer-bar .submit-button-container {
   height: var(--answer-bar-height);
   width: var(--answer-bar-height);
-  border: 1px solid blue;
   display: flex;
   justify-content: center;
   align-items: center;

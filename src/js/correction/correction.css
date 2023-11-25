@@ -1,0 +1,7 @@
+#correction {
+  border: 1px solid red;
+  min-width: 50%;
+  height: 20px;
+  display: flex;
+	justify-content: space-around;	
+}

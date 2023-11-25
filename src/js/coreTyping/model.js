@@ -20,6 +20,7 @@ class Model {
    * Reset the memory test and prepare the first questions
    */
   reset() {
+    
     // Reset the question generator
     generator.reset();
 
@@ -27,14 +28,10 @@ class Model {
     this.prepareNextQuestion();
     this.switchToNextQuestion();
     this.prepareNextQuestion();
-
+    
+    // Prepare the answer bar
+    answerBar.clear();
     answerBar.enable();
-
-    setInterval(() => {
-      this.prepareNextQuestion();
-      this.switchToNextQuestion();
-    }, 2000)
-
   }
 
   /**
@@ -71,6 +68,7 @@ class Model {
    */
   switchToNextQuestion() {
     view.switchToNextQuestion();
+    answerBar.setPrompt(this.nextQuestion.prompt);
     this.currentQuestion = this.nextQuestion;
   }
 

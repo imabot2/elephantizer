@@ -2,7 +2,7 @@ import "./card.css";
 import htmlCard from "./card.html";
 import str2dom from "doma";
 import answerBar from "Js/answerBar";
-
+import correction from "Js/correction";
 
 /**
  * View for the card typing module
@@ -43,9 +43,13 @@ class View {
     }
 
 
-    // Populate answer bar
+    // Populate answer bar container
     let answerBarContainer = this.containerEl.querySelector('.answer-bar-container');
     answerBar.appendTo(answerBarContainer);
+
+    // Populate correction container
+    let correctionContainer = this.containerEl.querySelector('.correction-container');
+    correction.appendTo(correctionContainer);
 
     // On resize, resize the main container     
     window.visualViewport.addEventListener('resize', () => { this.onResize(); });

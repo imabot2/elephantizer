@@ -14,6 +14,12 @@ class AnswerBar {
 
   
   /**
+   * Clear the input field
+   */
+  clear() { view.clear(); }
+
+
+  /**
    * Disable the answer input (and the submit button)
    */
   disable() { view.disable(); }

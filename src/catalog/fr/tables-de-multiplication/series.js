@@ -6,6 +6,10 @@ const series = {
     name: translate.tableDe0,
     shortName: translate.tableDe0Short,
   },
+  "table-de-1" : {
+    name: translate.tableDe1,
+    shortName: translate.tableDe1Short,
+  },
 };
 
 
