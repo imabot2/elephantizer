@@ -34,17 +34,6 @@ class View {
     this.texts[0] = this.containerEl.querySelector('.text-0');
     this.texts[1] = this.containerEl.querySelector('.text-1');
 
-    /*
-    // Get badge and text for questions
-    this.badges = [];
-    this.badges[0] = this.texts[0].querySelector('div');
-    this.badges[1] = this.texts[1].querySelector('div');
-
-    // Get question text content
-    this.questions = [];
-    this.questions[0] = this.texts[0].querySelector('div:nth-child(2)');
-    this.questions[1] = this.texts[1].querySelector('div:nth-child(2)');
-*/
     // Properties of the current question
     this.current = {
       type: undefined,
@@ -116,6 +105,7 @@ class View {
     this.current.type = this.nextQuestion.type;
   }
 
+  
   /**
    * Hide the current question
    */
@@ -151,6 +141,7 @@ class View {
     this.outerImages[index].querySelector('img').src = this.nextQuestion.image;
   }
 
+
   /**
    * Prepare the next text in background for smooth transitions
    */
@@ -158,11 +149,9 @@ class View {
     // Get the next index
     const index = 1 - this.current.textId;
 
-    // Set the next inner image
+    // Set the next badge and question text
     this.texts[index].querySelector('div').innerHTML = this.nextQuestion.deck.name;
     this.texts[index].querySelector('div:nth-child(2)').innerHTML = this.nextQuestion.question;
-
-    console.log (this.nextQuestion)
   }
 
 

@@ -1,5 +1,6 @@
 
 import translate from "./translate.js"; // Translation for boot process
+import "./view.js";
 import bootloader from "Js/bootloader/index.js"; // Page loader
 import auth from "Js/auth"; // Authentification module
 import "Js/signup"; // For user registration
@@ -8,6 +9,7 @@ import settings from "Js/settings";
 import selection from "Js/selection";
 import statistics from "Js/statistics";
 import core from "Js/core";
+
 
 // Log first message
 const versionId = bootloader.log('Elephantizer v2');

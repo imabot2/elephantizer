@@ -1,10 +1,20 @@
 import view from "./view.js";
 import generator from "Js/generator";
 import series from "Js/series";
+import answerBar from "Js/answerBar";
 
 class Model {
 
-  constructor() {}
+  constructor() {
+
+    // Set callback function when the answer input changed
+    answerBar.onInput((answer) => { this.onAnswerInputChanges(answer); });
+
+    // Set callback function when the user press enter in the answer bar
+    answerBar.onSubmit((answer) => { this.onSubmitAnswer(answer); });
+
+
+  }
 
   /**
    * Reset the memory test and prepare the first questions
@@ -17,6 +27,31 @@ class Model {
     this.prepareNextQuestion();
     this.switchToNextQuestion();
     this.prepareNextQuestion();
+
+    answerBar.enable();
+
+    setInterval(() => {
+      this.prepareNextQuestion();
+      this.switchToNextQuestion();
+    }, 2000)
+
+  }
+
+  /**
+   * Callback function called when the answer bar input changes
+   * @param {string} answer The current input in the answer bar
+   */
+  onAnswerInputChanges(answer) {
+    console.log('input', answer);
+  }
+
+
+  /**
+   * Callback function called when the user validate the answer
+   * @param {string} answer The current input in the answer bar
+   */
+  onSubmitAnswer(answer) {
+    console.log ('submit', answer);
   }
 
 
@@ -29,7 +64,7 @@ class Model {
     view.prepareNextQuestion(this.nextQuestion);
   }
 
-  
+
   /**
    * Switch to the next question 
    * Next question becomes current question
@@ -38,10 +73,6 @@ class Model {
     view.switchToNextQuestion();
     this.currentQuestion = this.nextQuestion;
   }
-  
-
-
-
 
 }
 
