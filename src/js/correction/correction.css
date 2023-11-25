@@ -1,7 +1,54 @@
+div:has(> #correction) {
+  perspective: 1000px;
+}
+
+
+
 #correction {
   border: 1px solid red;
-  min-width: 50%;
-  height: 20px;
+
+  width: 100%;
+  height: fit-content;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  font-size: calc(3vmin + 0.8em);
+}
+
+
+div:has(> #correction):hover #correction {
+  transform: rotateX(180deg);
+}
+
+
+
+
+
+#correction .front-container,
+#correction .back-container {
+  position: absolute;
+  width: 100%;
   display: flex;
-	justify-content: space-around;	
+  justify-content: space-around;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  opacity: 0.8;
+}
+
+#correction .back-container {
+  transform: rotateX(180deg);
+}
+
+#correction .front-container>div {
+  border-radius: var(--bs-border-radius);
+  background-color: white;  
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+
+#correction .back-container>div {
+  background-color: var(--main-blue);
+  color: white;
+  border-radius: var(--bs-border-radius);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }

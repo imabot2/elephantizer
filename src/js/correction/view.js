@@ -3,6 +3,10 @@ import htmlCorrection from "./correction.html";
 import str2dom from "doma";
 
 
+
+/**
+ * View for the Correction module
+ */
 class View {
   constructor() {
 
