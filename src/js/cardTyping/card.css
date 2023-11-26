@@ -46,16 +46,13 @@
 }
 
 
-#card-typing .image-inner-container {
+#card-typing .body-container {
   position: relative;
   flex: 1 1 auto;
-
   border: 1px solid green;
   border-radius: 25px;
   background-color: rgba(0, 255, 0, 0.01);
 }
-
-
 
 
 #card-typing .image-inner-0,
@@ -74,12 +71,14 @@
   background-color: rgba(0, 255, 255, 0.01);
 }
 
+
 #card-typing .image-inner-0>img,
 #card-typing .image-inner-1>img {
   
   max-height: 70%;
   max-width: 70%;
 }
+
 
 #card-typing .text-0,
 #card-typing .text-1 {
@@ -94,6 +93,7 @@
   flex-direction: column;
 }
 
+
 #card-typing .text-0>div,
 #card-typing .text-1>div {
   text-align: center;
@@ -103,6 +103,7 @@
   max-height: 80%;
   max-width: 80%;
 }
+
 
 #card-typing .text-0>div:first-child,
 #card-typing .text-1>div:first-child {  
@@ -117,25 +118,22 @@
   margin-bottom: 4vmin;  
 }
 
+
 #card-typing .text-0>div:not(:first-child),
 #card-typing .text-1>div:not(:first-child) {  
   color: #222;
 }
+
+
 #card-typing .text-0>div:not(:first-child)>em,
 #card-typing .text-1>div:not(:first-child)>em {  
   color: var(--main-red);
   font-style: normal;   
 }
 
-#card-typing .correction-container {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: fit-content;
-  border: 1px solid yellow;
-  border-radius: 30px;
-  background-color: rgba(255, 255, 0, 0.01);
-}
+
+
+
 
 #card-typing .answer-bar-container {
   display: flex;

@@ -48,8 +48,8 @@ class View {
     answerBar.appendTo(answerBarContainer);
 
     // Populate correction container
-    let correctionContainer = this.containerEl.querySelector('.correction-container');
-    correction.appendTo(correctionContainer);
+    let bodyContainerEl = this.containerEl.querySelector('.body-container');
+    correction.appendTo(bodyContainerEl);
 
     // On resize, resize the main container     
     window.visualViewport.addEventListener('resize', () => { this.onResize(); });
