@@ -22,7 +22,10 @@
 }
 
 
-#correction-container:hover .flip-card {
+/* 
+#correction-container:hover .flip-card 
+*/
+#correction-container .flip-card.flip {
   transform: rotateX(180deg);
 }
 

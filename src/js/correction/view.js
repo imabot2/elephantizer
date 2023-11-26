@@ -20,23 +20,37 @@ class View {
     this.correctionEl = this.containerEl.querySelector('.front-container>div');
 
     setTimeout(() => {
-      this.setCorrection('coucou ceci est un long texte qui va être sur plusieurs lignes')
+      this.setCorrection('Une correction');
+      this.showCorrection();
+      this.setRightAnswer('Une bonne réponse');
     }, 2000)
 
     setTimeout(() => {
-      this.hideCorrection()
-    }, 4000)
-
+      this.showRightAnswer();
+      
+    }, 3000)
     setTimeout(() => {
-      this.setCorrection('Une réponse')
-    }, 6000)
+      this.hideCorrection();
+      this.hideRightAnswer();
+    }, 5000)
+    setTimeout(() => {
+      this.showCorrection();
+    }, 5500)
+  }
+
+
+  hideRightAnswer() {
+    this.flipCardEl.classList.remove('flip');
+  }
+
+  showRightAnswer() {
+    this.flipCardEl.classList.add('flip');
   }
 
 
   setRightAnswer(rightAnswer) {
     this.rightAnswerEl.innerHTML = rightAnswer;
-    this.resizeContainer();
-    
+    this.onResize();
   }
 
 
@@ -44,17 +58,21 @@ class View {
     this.correctionEl.style.opacity = 0;
   }
 
+  showCorrection() {
+    this.flipCardEl.classList.remove('flip');    
+    this.correctionEl.style.opacity = 0.8;
+  }
+
   setCorrection(correction) {
     this.correctionEl.innerHTML = correction;
-    this.correctionEl.style.opacity = 0.8;
-    this.resizeContainer();
+    this.onResize();
   }
 
 
   /**
    * Resize the main container to adapt to the card content
    */
-  resizeContainer() {
+  onResize() {
     const height = Math.max(this.correctionEl.offsetHeight, this.rightAnswerEl.offsetHeight);
     this.flipCardEl.style.height = `${height}px`;
   }

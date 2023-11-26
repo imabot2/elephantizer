@@ -166,6 +166,7 @@ class View {
     window.scrollTo({ top: 0, behavior: 'instant' });
     this.containerEl.style.width = `${window.visualViewport.width}px`;
     this.containerEl.style.height = `${window.visualViewport.height}px`;
+    correction.onResize();
   }
 }
 
