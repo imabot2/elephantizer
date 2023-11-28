@@ -72,44 +72,58 @@ class View {
     }
   }
 
+
   /**
    * Hide the current question and show the next question
+   * @returns A promise when the transition is over
    */
   switchToNextQuestion() {
     this.hideCurrentQuestion();
-    this.showNextQuestion();
+    return this.showNextQuestion();
   }
 
 
   /**
    * Show the current question
+   * @returns A promise resolved whent the next question opacity is equal to 1
    */
   showNextQuestion() {
+    return new Promise((resolve) => {
+      let visibleElement;
 
-    // Dispatch according to the next question type
-    switch (this.nextQuestion.type) {
+      // Dispatch according to the next question type
+      switch (this.nextQuestion.type) {
 
-      case 'outer':
-        this.current.outerId = 1 - this.current.outerId
-        this.outerImages[this.current.outerId].style.opacity = 1;
-        break;
+        case 'outer':
+          this.current.outerId = 1 - this.current.outerId
+          visibleElement = this.outerImages[this.current.outerId];
+          visibleElement.style.opacity = 1;
+          break;
 
-      case 'inner':
-        this.current.innerId = 1 - this.current.innerId
-        this.innerImages[this.current.innerId].style.opacity = 1;
-        break;
+        case 'inner':
+          this.current.innerId = 1 - this.current.innerId
+          visibleElement = this.innerImages[this.current.innerId];
+          visibleElement.style.opacity = 1;
+          break;
 
-      case 'text':
-        this.current.textId = 1 - this.current.textId;
-        this.texts[this.current.textId].style.opacity = 1;
-        break;
-    }
+        case 'text':
+          this.current.textId = 1 - this.current.textId;
+          visibleElement = this.texts[this.current.textId];
+          visibleElement.style.opacity = 1;
+          break;
+      }
 
-    // Set the new type (outer, inner or text)
-    this.current.type = this.nextQuestion.type;
+      // Set the new type (outer, inner or text)
+      this.current.type = this.nextQuestion.type;
+
+      // When the transition is over, resolve the promise
+      visibleElement.addEventListener('transitionend', (event) => {        
+        if (event.propertyName == "opacity") { resolve(); }
+      })
+    })
   }
 
-  
+
   /**
    * Hide the current question
    */

@@ -41,20 +41,32 @@ class Model {
     // Reset the question generator
     generator.reset();
 
-    // Prepare the first and next questions
-    this.prepareNextQuestion();
-    this.switchToNextQuestion();
-    this.prepareNextQuestion();
-
     // Reset the stopwatch
     stopwatch.reset();
 
     // Reset the Levenshtein engine
     levenshtein.reset();
 
-    // Prepare the answer bar
-    answerBar.reset(true);
+    // Prepare the first and next questions
+    this.prepareNextQuestion();
+    view.switchToNextQuestion();
+/*
 
+    // The new current question is the old next one
+    this.currentQuestion = this.nextQuestion;
+
+    // Prepare the next question
+    this.prepareNextQuestion();
+
+    // Set the next prompt
+    answerBar.setPrompt(this.nextQuestion.prompt);
+
+    // Remove the correction
+    correction.setCorrectionHTML('');
+
+    // Reset the answer bar
+    answerBar.reset(true);
+*/
     // Memory test is ready
     this.status = "ready";
   }
@@ -84,10 +96,7 @@ class Model {
       if ((/*this.current.score >= 0.8 &&*/ levenshtein.sanitize(answer).length >= this.currentQuestion.answer.length) || distanceCheck == 0) {
 
         // Process the current question for statistics
-        //this.processQuestionOver(distanceCheck);
-
-        // The user press space, submit the answer
-        this.onSubmitAnswer(answer);
+        this.processQuestionOver(distanceCheck);
         return;
       }
     }
@@ -130,7 +139,6 @@ class Model {
     // Compute the Levenshtein distance of the truncated answer
     let len = Math.min(sanitized.length, this.currentQuestion.answer.length);
     let distance = levenshtein.distance(sanitized.slice(0, len), this.currentQuestion.answer.slice(0, len));
-    console.log (distance);
 
     console.log('TODO Keep max distance');
     //this.currentStats.maxDistance = Math.max(this.currentStats.maxDistance, distance);
@@ -161,6 +169,69 @@ class Model {
    */
   onSubmitAnswer(answer) {
     console.log('submit', answer);
+
+    // If the timer is on pause, start and display the timers
+    if (this.status === "ready") {
+      this.onStarted();
+      return;
+    }
+
+    // Compute the Levenshtein distance
+    let distance = levenshtein.distance(answer, this.currentQuestion.answer);
+
+    // Store the max distance
+    console.log('TODO Update max distance');
+    //this.currentStats.maxDistance = Math.max(this.currentStats.maxDistance, distance);
+
+    // Process the current question for statistics
+    this.processQuestionOver(distance);
+  }
+
+  /**
+   * Process the current question 
+  * Call every time a question is submited (success of failed) 
+  * - Update the statistics
+   
+   */
+  processQuestionOver(distance) {
+
+    console.log('TODO update the stats')
+
+    // Check if this is the right answer
+    if (distance == 0) {
+      // This is the right answer
+      this.switchToNextQuestion();
+    }
+    else {
+      this.wrongAnswer();
+
+    }
+  }
+
+  /**
+   * Function called when the answer is wrong
+   * - Display the right answer
+   */
+  wrongAnswer() {
+    // This is not the right answer, show the expected answer      
+    correction.setRightAnswer(this.currentQuestion.answer);
+
+    // Disable the answer bar
+    answerBar.disable();
+
+    // Display the answer during 2 seconds
+    setTimeout(() => {
+
+      // Hide the wrong answer
+      correction.hideRightAnswer();
+
+      // Go to the next question
+      this.switchToNextQuestion();
+
+      // Reset the answer bar
+      answerBar.reset();
+
+    }, 700)
   }
 
 
@@ -170,6 +241,8 @@ class Model {
   onTimeOver() {
     console.log('Time Over');
   }
+
+
 
 
   /**
@@ -187,9 +260,33 @@ class Model {
    * Next question becomes current question
    */
   switchToNextQuestion() {
-    view.switchToNextQuestion();
-    answerBar.setPrompt(this.nextQuestion.prompt);
+    
+    console.log ('switch');
+
+    // Update the view
+    view.switchToNextQuestion()
+      .then(() => {
+        // When the view is updated, prepare the next question
+        console.log ('prepare next')
+        this.prepareNextQuestion();
+      })
+
+    // The new current question is the old next one
     this.currentQuestion = this.nextQuestion;
+    console.log (this.currentQuestion.answer)
+
+    // Reset the answer bar
+    answerBar.reset(true);
+
+    // Set the next prompt
+    answerBar.setPrompt(this.currentQuestion.prompt);
+
+    // Remove the correction
+    correction.setCorrectionHTML('');
+
+
+
+
   }
 
 }

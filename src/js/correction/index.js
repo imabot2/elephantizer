@@ -4,10 +4,23 @@ class Correction {
   constructor() { }
 
   /**
-   * Display the correction or hide the correction bar if string is empty
+   * Set and display the correction or hide the correction bar if string is empty
    * @param {string} correction The correction to display
    */
   setCorrectionHTML(correction) { view.setCorrectionHTML(correction); }
+
+
+  /**
+   * Update and show the right answer
+   * @param {string} rightAnswer The right answer to display
+ */
+  setRightAnswer(rightAnswer) { view.setRightAnswer(rightAnswer); }
+
+
+  /**
+   * Hide the right answer (flip the right answer card)
+   */
+  hideRightAnswer() { view.hideRightAnswer(); }
 
 
   /**

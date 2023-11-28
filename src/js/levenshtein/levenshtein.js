@@ -48,7 +48,7 @@ export default class Levenshtein {
     // Store the string for the path() method
     this.from = from;
     this.to = to;
-    
+
     // OPERATIONS THAT MODIFY STRING LENGTH
 
     // Trim
@@ -62,7 +62,7 @@ export default class Levenshtein {
 
     if (this.options.appendSpaces && this.from.length < this.to.length) this.from += " ".repeat(this.to.length - this.from.length);
     if (this.options.appendSpaces && this.from.length > this.to.length) this.to += " ".repeat(this.from.length - this.to.length);
-      
+
 
 
     this.fromSanitized = this.from
@@ -82,7 +82,7 @@ export default class Levenshtein {
     if (this.options.ignoreAccents) this.from = this.from.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     if (this.options.ignoreAccents) this.to = this.to.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-    
+
 
     // Create the array and initialize with null
     this.D = Array(this.to.length + 1).fill(null).map(() => Array(this.from.length + 1).fill(null));
@@ -109,7 +109,7 @@ export default class Levenshtein {
     // Note that the matrix is transposed on display
     //this.D.forEach(v => console.log(...v));
 
-    
+
     // Return the Levenshtein distance (bottom right cell of the matrix)
     let d = this.D[this.to.length][this.from.length];
 
@@ -142,7 +142,7 @@ export default class Levenshtein {
           html += `<span class="keep">${op.to}</span>`;
           break;
 
-        case "substitute":          
+        case "substitute":
           html += `<span class="delete substitute">${op.from}</span>`;
           html += `<span class="insert substitute">${op.to}</span>`;
           break;

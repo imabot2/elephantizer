@@ -319,7 +319,7 @@ export var cards = [
     image: southAfrica,
     type: 'outer',
     prompt: "What country is this?",
-    answer: "South AFrica"
+    answer: "South Africa"
   },
   {
     uid: "ss",

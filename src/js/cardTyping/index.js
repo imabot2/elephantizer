@@ -12,8 +12,9 @@ class CardTyping {
 
   /**
    * Hide the current question and show the next question
+   * @returns A promise when the transition is over
    */
-  switchToNextQuestion() { view.switchToNextQuestion(); }
+  switchToNextQuestion() { return view.switchToNextQuestion(); }
 
 
   /**

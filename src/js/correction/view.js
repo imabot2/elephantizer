@@ -25,28 +25,47 @@ class View {
     this.correctionEl = this.containerEl.querySelector('.front-container>div');
   }
 
+  /**
+   * Update and show the right answer
+   * @param {string} rightAnswer The right answer to display
+   */
+  setRightAnswer(rightAnswer) {
+    this.rightAnswerEl.innerHTML = rightAnswer;
+    this.onResize();
+    this.showRightAnswer();
+  }
 
+
+  /**
+   * Hide the right answer (flip the right answer card)
+   */
   hideRightAnswer() {
     this.flipCardEl.classList.remove('flip');
   }
 
+
+  /**
+   * Show the right answer (unflip the right answer card)
+   */
   showRightAnswer() {
     this.flipCardEl.classList.add('flip');
   }
 
 
-  setRightAnswer(rightAnswer) {
-    this.rightAnswerEl.innerHTML = rightAnswer;
-    this.onResize();
-  }
 
 
-  hideCorrection() {    
+  /**
+   * Hide the correction with fade out effect
+   */
+  hideCorrection() {
     this.correctionEl.style.opacity = 0;
   }
 
+  /**
+   * Show the correction
+   */
   showCorrection() {
-    this.flipCardEl.classList.remove('flip');    
+    this.flipCardEl.classList.remove('flip');
     this.correctionEl.style.opacity = 0.8;
   }
 
