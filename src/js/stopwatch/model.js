@@ -1,0 +1,75 @@
+import view from "./view.js";
+import Timer from "Js/timer";
+import settings from "Js/settings";
+
+class Model {
+  constructor() {
+
+    this.timer = new Timer();
+    // Set the callback function to update the timer
+    this.timer.onUpdate((time) => this.onUpdate(time));
+
+    // Callback function when the timer is over
+    this.onTimeOverCallback = () => { }
+    this.timer.onTimerOver(() => { this.onTimeOverCallback(); });
+
+    // Reset the timer
+    this.reset();
+  }
+
+  /**
+   * Reset the stopwatch
+   * @param {integer} duration Initial time of the stopwatch in seconds
+   * @param {string} direction Direction of the stopwatch [ 'down' | 'up' ]
+   */
+  reset(duration, direction) {
+    this.timer.init(duration, direction);
+    this.refresh();
+  }
+
+
+
+  /**
+   * Start or restart the timer
+   */
+  start() {
+    console.log('start');
+    this.timer.start();
+  }
+
+
+
+  /**
+   * Refresh the timer in the view
+   * It time is not provided, get current time from the timer
+   * @param {object} time The time object with minutes, seconds ...
+   */
+  refresh(time) {
+
+    time = time ?? this.timer.getTime();
+    if (time.countDown)
+      view.setValue(time.sec, time.doz);
+    else
+      view.setValue(time.min, time.sec);
+  }
+
+  /**
+   * Callback function called when the timer must be updated
+   * @param {object} time The time object with minutes, seconds ...
+   */
+  onUpdate(time) {
+    this.refresh(time);
+  }
+
+
+  /**
+   * Set the callback function called when the timer is over
+   * @param {function} callback Callback function called when the timer is over
+   */
+  setTimeOverCallback(callback) {
+    this.onTimeOverCallback = callback;
+  }
+
+}
+
+export default new Model();
