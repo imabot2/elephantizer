@@ -17,10 +17,11 @@ const translations = {
     tableDe4: '4 Times Multiplication Table',
     tableDe4Short: '4 Times Table',
     tableDe5: '5 Times Multiplication Table',
-    tableDe5Short: '5 Times Table',
-    
+    tableDe5Short: '5 Times Table',    
   },
 
+
+  
   fr: {
     tableDe0: 'Table de multiplication de 0',
     tableDe0Short: 'Table de 0',
@@ -34,8 +35,6 @@ const translations = {
     tableDe4Short: 'Table de 4',
     tableDe5: 'Table de multiplication de 5',
     tableDe5Short: 'Table de 5',
-
-
   },
 }
 

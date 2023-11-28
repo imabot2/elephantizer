@@ -1,4 +1,4 @@
-import { app } from "Js/firebase/index.js";
+import { app } from "Js/firebase";
 import { getAuth, updateProfile } from "firebase/auth";
 import notifications from "Js/notifications";
 import translate from "./translate";

@@ -87,7 +87,7 @@ export class Model {
    * @returns  {object} An object with { min : minutes, sec : seconds, doz: dozen of ms, countDown: count down mode (bool) }
    */
   splitTime(ms) {
-
+    
     let time = {}
     time.raw = ms;
     
@@ -180,7 +180,6 @@ export class Model {
     // If countdown, initialize values for the animation and the time over
     // Calculate the time when the timer will finish
     this.timeOver = new Date().getTime() + this.remainingTime;
-
 
     // Store the starting time
     this.startingTime = new Date().getTime() - this.elapsedTime;
