@@ -39,19 +39,12 @@
 
   display: flex;
   flex-direction: column;
-
-  border: 1px solid red;
-  border-radius: 20px;
-  background-color: rgba(255, 0, 0, 0.01);
 }
 
 
 #card-typing .body-container {
   position: relative;
   flex: 1 1 auto;
-  border: 1px solid green;
-  border-radius: 25px;
-  background-color: rgba(0, 255, 0, 0.01);
 }
 
 
@@ -65,10 +58,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  border: 1px solid cyan;
-  border-radius: 35px;
-  background-color: rgba(0, 255, 255, 0.01);
 }
 
 
@@ -138,7 +127,4 @@
 #card-typing .answer-bar-container {
   display: flex;
   justify-content: center;
-  border: 1px solid blue;
-  border-radius: 25px;
-  background-color: rgba(0, 0, 255, 0.01);
 }

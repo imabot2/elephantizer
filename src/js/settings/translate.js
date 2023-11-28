@@ -35,6 +35,22 @@ const translations = {
     duration5min: "5min",
 
 
+    caseSensitive: "Case Sensitive",
+    caseSensitiveLabel: "When this mode is activated, the answers are case sensitive. When disabled, there is no difference between <strong>upper</strong> and <strong>lower case</strong>.",
+    caseSensitiveTrue: "On",
+    caseSensitiveFalse: "Off",
+
+    ignoreAccents: "Ignore Accents",
+    ignoreAccentsLabel: "When this mode is activated, accented letters (é, ê, ñ, ö ...) can be replaced by the same letter <strong>without accent</strong>.",
+    ignoreAccentsTrue: "On",
+    ignoreAccentsFalse: "Off",
+
+    ignoreHyphens: "Ignore Hyphens",
+    ignoreHyphensLabel: "When this mode is activated, <strong>hyphens</strong> are ignored and can be replaced by <strong>spaces</strong>.",
+    ignoreHyphensTrue: "On",
+    ignoreHyphensFalse: "Off",
+
+
     error5000: 'Error #5000',
     error5000Message: 'An unknow error occurred while saving your settings. Please check your internet connection or try again later.',
 
@@ -46,7 +62,7 @@ const translations = {
   },
 
 
-  
+
   fr: {
     title: "Paramètres",
 
@@ -75,6 +91,22 @@ const translations = {
     duration60s: "60s",
     duration2min: "2min",
     duration5min: "5min",
+
+
+    ignoreHyphens: "Traits d'union",
+    ignoreHyphensLabel: "Quand ce mode est activé, les <strong>traits d'union</strong> sont ignorés et peuvent être remplacés par des <strong>espaces</strong>.",
+    ignoreHyphensTrue: "On",
+    ignoreHyphensFalse: "Off",
+
+    caseSensitive: "Majuscule / minuscules",
+    caseSensitiveLabel: "Lorsque ce mode est activé, les réponses sont sensibles à la casse. Lorsqu'il est désactivé, il n'y a pas de différence entre les <strong>majuscules</strong> et les <strong>minuscules</strong>.",
+    caseSensitiveTrue: "On",
+    caseSensitiveFalse: "Off",
+
+    ignoreAccents: "Accents",
+    ignoreAccentsLabel: "Lorsque ce mode est activé, les lettres accentées (é, è, ê, à ...) peuvent être remplacées par la même lettre <strong>sans accent</strong>.",
+    ignoreAccentsTrue: "On",
+    ignoreAccentsFalse: "Off",
 
 
     error5000: 'Erreur 5000',

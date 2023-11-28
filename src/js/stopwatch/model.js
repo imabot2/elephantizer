@@ -17,13 +17,22 @@ class Model {
     this.reset();
   }
 
+
   /**
-   * Reset the stopwatch
-   * @param {integer} duration Initial time of the stopwatch in seconds
-   * @param {string} direction Direction of the stopwatch [ 'down' | 'up' ]
+   * Reset the stopwatch according to the current settings
    */
-  reset(duration, direction) {
-    this.timer.init(duration, direction);
+  reset() {
+    
+    // Hide the stopwatch
+    view.hide();
+
+    // Initialize the stopwatch with the settings
+    if (settings.get('timerMode') === 'down') 
+      this.timer.init(settings.get('duration'), 'down');
+    else 
+      this.timer.init(0, 'up');
+
+      // Force first refresh
     this.refresh();
   }
 

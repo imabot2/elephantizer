@@ -8,6 +8,11 @@ import str2dom from "doma";
  * View for the Correction module
  */
 class View {
+
+  /**
+   * Constructor
+   * - Prepare HTML elements
+   */
   constructor() {
 
     // Prepare the button element
@@ -18,24 +23,6 @@ class View {
     // Get the correction and answer element
     this.rightAnswerEl = this.containerEl.querySelector('.back-container>div');
     this.correctionEl = this.containerEl.querySelector('.front-container>div');
-
-    setTimeout(() => {
-      this.setCorrection('Une correction');
-      this.showCorrection();
-      this.setRightAnswer('Une bonne réponse');
-    }, 2000)
-
-    setTimeout(() => {
-      this.showRightAnswer();
-      
-    }, 3000)
-    setTimeout(() => {
-      this.hideCorrection();
-      this.hideRightAnswer();
-    }, 5000)
-    setTimeout(() => {
-      this.showCorrection();
-    }, 5500)
   }
 
 
@@ -63,8 +50,13 @@ class View {
     this.correctionEl.style.opacity = 0.8;
   }
 
-  setCorrection(correction) {
+  /**
+   * Display the correction or hide the correction bar if string is empty
+   * @param {string} correction The correction to display
+   */
+  setCorrectionHTML(correction) {
     this.correctionEl.innerHTML = correction;
+    if (correction.length === 0) this.hideCorrection(); else this.showCorrection();
     this.onResize();
   }
 

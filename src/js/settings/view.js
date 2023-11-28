@@ -39,7 +39,7 @@ class View {
     // Get the key and the value for update
     const key = element.getAttribute('data-key');
     const value = element.getAttribute('data-value');
-    model.updateField(key, value, {save:true, updateView:true});
+    model.updateField(key, value, { save: true, updateView: true });
 
   }
 
@@ -55,17 +55,25 @@ class View {
     this.settingsEl.querySelector(`#settings-timerMode-${model.current.timerMode}`).checked = true;
     // Update the test duration in the settings
     this.settingsEl.querySelector(`#settings-duration-${model.current.duration}`).checked = true;
-    
+
     // Disable / enable the sections
-    if (model.current.timerMode!='down') this.disable('.duration'); else this.enable('.duration');
+    if (model.current.timerMode != 'down') this.disable('.duration'); else this.enable('.duration');
+
+    // Update case sentive option
+    this.settingsEl.querySelector(`#settings-caseSensitive-${model.current.caseSensitive.toString()}`).checked = true;
+    // Update ignore accents option
+    this.settingsEl.querySelector(`#settings-ignoreAccents-${model.current.ignoreAccents.toString()}`).checked = true;
+    // Update ignore hyphens option
+    this.settingsEl.querySelector(`#settings-ignoreHyphens-${model.current.ignoreHyphens.toString()}`).checked = true;
+
   }
 
 
-  
+
   /**
    * Disable a section of the settings
    * @param {string} target The CSS selector of the section header to disable
-   */  
+   */
   disable(target) {
     // Disable the title
     const section = this.settingsEl.querySelector(target);
@@ -73,7 +81,7 @@ class View {
 
     // Disable the buttons
     const buttons = section.querySelectorAll("input");
-    [...buttons].forEach(button => button.disabled=true);
+    [...buttons].forEach(button => button.disabled = true);
   }
 
 
@@ -88,7 +96,7 @@ class View {
 
     // Enable the buttons
     const buttons = section.querySelectorAll("input");
-    [...buttons].forEach(button => button.disabled=false);
+    [...buttons].forEach(button => button.disabled = false);
   }
 
 
@@ -112,7 +120,7 @@ class View {
     this.settingsCollapse.hide();
   }
 
-  
+
   /**
    * Extend the collapse menu
    */

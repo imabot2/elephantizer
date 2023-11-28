@@ -24,6 +24,17 @@ export default class ModelData {
       timerMode: "down",
       // Timer duration [s]
       duration: 60,
+
+      // Case sensitive [ true | false ]
+      caseSensitive: false,
+
+      // Ignore accents [ true | false ]
+      ignoreAccents: true,
+
+      // Ignore hyphens [ true | false ]
+      ignoreHyphens: true,
+
+
     }
 
     // At startup, set the current settings as the default settings
@@ -39,7 +50,7 @@ export default class ModelData {
    * @returns The settings parameter if name is defined, an object with all the parameters otherwise
    */
   get(name = undefined) {
-    
+
     // If the key is not defined, returns all the settings
     if (name === undefined) return this.current;
 
@@ -60,6 +71,10 @@ export default class ModelData {
 
     // Check if the key exists
     if (!key in this.default) return false;
+
+    // Convert true / false string to booleans
+    if (value === "true") value = true;
+    if (value === "false") value = false;
 
     // Check if the value changed
     if (this.current[key] == value) return false;

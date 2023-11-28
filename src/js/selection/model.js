@@ -191,7 +191,7 @@ class Model {
         .catch((error) => {
           console.error(error);
           // If the deck can't be loaded, remove the path from the current selection
-          this.remove(path, updateView);
+          this.remove(path, updateView);          
           reject(false);
         })
 
@@ -234,7 +234,7 @@ class Model {
     this.add(path, updateView);
 
     // The selection is updated
-    if (updateView) this.onSelectionUpdated();
+    //if (updateView) this.onSelectionUpdated();
   }
 
 }

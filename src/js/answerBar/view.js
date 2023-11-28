@@ -6,7 +6,7 @@ import translate from "./translate.js";
 import str2dom from "doma";
 import specialCharacters from "Js/specialCharacters";
 import model from "./model.js";
-
+var mobile = require('is-mobile');
 
 /**
  * View for the ANSWER BAR module
@@ -57,12 +57,38 @@ class View {
 
 
   /**
+   * Reset the answer bar
+   * - Clear the input
+   * - Enable/disable if requested
+   * - Set focus on desktop devices
+   * @param {boolean} enable 
+   * When true, the answer bar is enable
+   * When false, the answer bar is disable
+   * When undefined, the answer bar keep its previous state (enable or disable)
+   */
+  reset(enable) {
+    this.clear();
+    if (enable === true) this.enable(); 
+    if (enable === false) this.disable();
+    if (!mobile()) this.focus();
+  }
+
+
+  /**
    * Set the prompt to the answer input
    * When the prompt is updated, focus on the answer bar
    * @param {string} prompt The prompt to display in the answer input
    */
   setPrompt(prompt) {
     this.inputEl.setAttribute("placeholder", prompt);
+  }
+
+
+  /**
+   * Set the focus on the answer bar
+   */
+  focus() {
+    this.inputEl.focus();
   }
 
 

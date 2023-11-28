@@ -25,6 +25,7 @@
     </div>
   </div>
 
+
   <div class="timerMode">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
@@ -55,6 +56,7 @@
     </div>
   </div>
 
+
   <div class="duration">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
@@ -64,7 +66,7 @@
         <%=durationLabel%>
       </div>
     </div>
-    <div class="btn-group d-flex" role="group">
+    <div class="btn-group d-flex pb-4" role="group">
 
       <input type="radio" class="btn-check" name="duration" id="settings-duration-30" autocomplete="off"
         data-type="settings" data-key="duration" data-value="30">
@@ -93,5 +95,82 @@
     </div>
   </div>
 
+
+  <div class="caseSensitive">
+    <div class="pb-2">
+      <div class="font-title fs-5 pe-2 mt-2">
+        <%=caseSensitive%>
+      </div>
+      <div class="small">
+        <%=caseSensitiveLabel%>
+      </div>
+    </div>
+    <div class="btn-group d-flex pb-4" role="group">
+
+      <input type="radio" class="btn-check " name="caseSensitive" id="settings-caseSensitive-true" autocomplete="off"
+        data-type="settings" data-key="caseSensitive" data-value="true">
+      <label class="btn btn-primary" for="settings-caseSensitive-true">
+        <%=caseSensitiveTrue%>
+      </label>
+
+      <input type="radio" class="btn-check" name="caseSensitive" id="settings-caseSensitive-false" autocomplete="off"
+        data-type="settings" data-key="caseSensitive" data-value="false">
+      <label class="btn btn-primary" for="settings-caseSensitive-false">
+        <%=caseSensitiveFalse%>
+      </label>
+    </div>
+  </div>
+
+
+  <div class="ignoreAccents">
+    <div class="pb-2">
+      <div class="font-title fs-5 pe-2 mt-2">
+        <%=ignoreAccents%>
+      </div>
+      <div class="small">
+        <%=ignoreAccentsLabel%>
+      </div>
+    </div>
+    <div class="btn-group d-flex pb-4" role="group">
+
+      <input type="radio" class="btn-check " name="ignoreAccents" id="settings-ignoreAccents-true" autocomplete="off"
+        data-type="settings" data-key="ignoreAccents" data-value="true">
+      <label class="btn btn-primary" for="settings-ignoreAccents-true">
+        <%=ignoreAccentsTrue%>
+      </label>
+
+      <input type="radio" class="btn-check" name="ignoreAccents" id="settings-ignoreAccents-false" autocomplete="off"
+        data-type="settings" data-key="ignoreAccents" data-value="false">
+      <label class="btn btn-primary" for="settings-ignoreAccents-false">
+        <%=ignoreAccentsFalse%>
+      </label>
+    </div>
+  </div>
+
+
+  <div class="ignoreHyphens">
+    <div class="pb-2">
+      <div class="font-title fs-5 pe-2 mt-2">
+        <%=ignoreHyphens%>
+      </div>
+      <div class="small">
+        <%=ignoreHyphensLabel%>
+      </div>
+    </div>
+    <div class="btn-group d-flex pb-4" role="group">
+
+      <input type="radio" class="btn-check " name="ignoreHyphens" id="settings-ignoreHyphens-true" autocomplete="off"
+        data-type="settings" data-key="ignoreHyphens" data-value="true">
+      <label class="btn btn-primary" for="settings-ignoreHyphens-true">
+        <%=ignoreHyphensTrue%>
+      </label>
+
+      <input type="radio" class="btn-check" name="ignoreHyphens" id="settings-ignoreHyphens-false" autocomplete="off"
+        data-type="settings" data-key="ignoreHyphens" data-value="false">
+      <label class="btn btn-primary" for="settings-ignoreHyphens-false">
+        <%=ignoreHyphensFalse%>
+      </label>
+    </div>
+  </div>
 
 </div>
