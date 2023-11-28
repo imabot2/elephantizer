@@ -118,6 +118,7 @@ class Model {
     this.questionTimer.start();
   }
 
+
   /**
    * Update the correction for the provided answer
    * @param {string} answer The answer typed by the user
@@ -213,15 +214,14 @@ class Model {
 
     // Display the answer during 2 seconds
     setTimeout(() => {
+      // Hide the correction before hidding the right answer
+      correction.hideCorrection();
 
       // Hide the wrong answer
       correction.hideRightAnswer();
 
       // Go to the next question
       this.switchToNextQuestion();
-
-      // Reset the answer bar
-      answerBar.reset();
 
     }, settings.get('rightAnswerDuration'))
   }
@@ -232,7 +232,15 @@ class Model {
    */
   onTestOver() {
     console.log('Test Over');
+
+    // Update status and disable input bar    
+    this.status = "over";
+
+    // Disable input bar
     answerBar.disable();
+
+    // Log test over analytics
+    analytics.log("Memory test over");
   }
 
 
@@ -261,6 +269,9 @@ class Model {
    */
   switchToNextQuestion() {
 
+    // If the test is over, do not switch to next question
+    if (this.status == 'over') return;
+
     // Check if this was the last question of the series
     if (this.currentQuestion.remaining == 0) {
       this.onTestOver();
@@ -276,7 +287,7 @@ class Model {
 
     // The new current question is the old next one
     this.currentQuestion = this.nextQuestion;
-    
+
 
     // Reset the answer bar
     answerBar.reset(true);

@@ -11,6 +11,12 @@ class Correction {
 
 
   /**
+   * Hide the correction with fade out effect
+   */
+  hideCorrection() { view.hideCorrection(); }
+
+
+  /**
    * Update and show the right answer
    * @param {string} rightAnswer The right answer to display
  */
