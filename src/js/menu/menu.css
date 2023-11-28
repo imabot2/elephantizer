@@ -24,10 +24,12 @@
   z-index: 2;
 }
 
+
 #menu-modal .font-title {
   font-family: var(--main-title-font);
   vertical-align: -0.2em!important;
 }
+
 
 #menu-modal .btn-responsive {
   font-size: clamp(1rem, 1.25rem, 5vw);

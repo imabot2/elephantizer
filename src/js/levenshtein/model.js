@@ -17,7 +17,7 @@ class Model {
       trim: true,
       removeExtraSpaces: true,
       ignoreHyphens: settings.get('ignoreHyphens'),
-      caseSensitive: settings.get('caseSensitive'),
+      caseSensitive: !settings.get('caseInsensitive'),
       ignoreAccents: settings.get('ignoreAccents'),
       appendSpaces: true,
     }

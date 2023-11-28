@@ -115,7 +115,7 @@ class View {
 
       // Set the new type (outer, inner or text)
       this.current.type = this.nextQuestion.type;
-
+      
       // When the transition is over, resolve the promise
       visibleElement.addEventListener('transitionend', (event) => {        
         if (event.propertyName == "opacity") { resolve(); }

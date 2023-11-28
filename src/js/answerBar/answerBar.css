@@ -31,12 +31,15 @@
 }
 
 /* Answer bar is disabled */
-#answer-bar .input.disabled {
+#answer-bar.disabled {
   background-color: var(--bs-secondary-bg);
-  color: var(--bs-gray-600);
-  caret-color: transparent;
-  border: 1px solid var(--bs-secondary-bg);
   box-shadow: none;
+}
+
+#answer-bar.disabled .input {
+  color: var(--bs-gray-600);
+  caret-color: transparent;  
+  
 }
 
 
@@ -102,12 +105,12 @@
   opacity: 0.9;
 }
 
-#answer-bar .submit-button-container:not(.disabled)>img:hover {
+#answer-bar:not(.disabled) .submit-button-container>img:hover {
   width: 88%;
   opacity: 1;
   cursor: pointer;
 }
 
-#answer-bar .submit-button-container.disabled>img {
+#answer-bar.disabled .submit-button-container>img {
   opacity: 0.5;
 }

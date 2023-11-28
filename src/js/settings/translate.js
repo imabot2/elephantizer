@@ -35,10 +35,10 @@ const translations = {
     duration5min: "5min",
 
 
-    caseSensitive: "Case Sensitive",
-    caseSensitiveLabel: "When this mode is activated, the answers are case sensitive. When disabled, there is no difference between <strong>upper</strong> and <strong>lower case</strong>.",
-    caseSensitiveTrue: "On",
-    caseSensitiveFalse: "Off",
+    caseInsensitive: "Case Sensitive",
+    caseInsensitiveLabel: "When this mode is activated, there is no difference between <strong>upper</strong> and <strong>lower case</strong>. When disabled, the answers are case sensitive.",
+    caseInsensitiveTrue: "On",
+    caseInsensitiveFalse: "Off",
 
     ignoreAccents: "Ignore Accents",
     ignoreAccentsLabel: "When this mode is activated, accented letters (é, ê, ñ, ö ...) can be replaced by the same letter <strong>without accent</strong>.",
@@ -49,6 +49,16 @@ const translations = {
     ignoreHyphensLabel: "When this mode is activated, <strong>hyphens</strong> are ignored and can be replaced by <strong>spaces</strong>.",
     ignoreHyphensTrue: "On",
     ignoreHyphensFalse: "Off",
+
+
+    rightAnswerDuration: "Right Answer Duration",
+    rightAnswerDurationLabel: "Select how long the correct answer is displayed.",
+    rightAnswerDuration500: "0.5s",
+    rightAnswerDuration1000: "1s",
+    rightAnswerDuration1500: "1.5s",
+    rightAnswerDuration2000: "2s",
+    rightAnswerDuration2500: "2.5s",
+    rightAnswerDuration3000: "3s",
 
 
     error5000: 'Error #5000',
@@ -93,22 +103,30 @@ const translations = {
     duration5min: "5min",
 
 
-    ignoreHyphens: "Traits d'union",
-    ignoreHyphensLabel: "Quand ce mode est activé, les <strong>traits d'union</strong> sont ignorés et peuvent être remplacés par des <strong>espaces</strong>.",
-    ignoreHyphensTrue: "On",
-    ignoreHyphensFalse: "Off",
+    caseInsensitive: "Sans majuscules",
+    caseInsensitiveLabel: "Lorsque ce mode est activé, il n'y a pas de différence entre les <strong>majuscules</strong> et les <strong>minuscules</strong>. Lorsqu'il est désactivé, les réponses sont sensibles à la casse.",
+    caseInsensitiveTrue: "On",
+    caseInsensitiveFalse: "Off",
 
-    caseSensitive: "Majuscule / minuscules",
-    caseSensitiveLabel: "Lorsque ce mode est activé, les réponses sont sensibles à la casse. Lorsqu'il est désactivé, il n'y a pas de différence entre les <strong>majuscules</strong> et les <strong>minuscules</strong>.",
-    caseSensitiveTrue: "On",
-    caseSensitiveFalse: "Off",
-
-    ignoreAccents: "Accents",
+    ignoreAccents: "Sans accents",
     ignoreAccentsLabel: "Lorsque ce mode est activé, les lettres accentées (é, è, ê, à ...) peuvent être remplacées par la même lettre <strong>sans accent</strong>.",
     ignoreAccentsTrue: "On",
     ignoreAccentsFalse: "Off",
 
+    ignoreHyphens: "Sans traits d'union",
+    ignoreHyphensLabel: "Quand ce mode est activé, les <strong>traits d'union</strong> sont ignorés et peuvent être remplacés par des <strong>espaces</strong>.",
+    ignoreHyphensTrue: "On",
+    ignoreHyphensFalse: "Off",
 
+    rightAnswerDuration: "Durée de la réponse",
+    rightAnswerDurationLabel: "Sélectionnez la durée d'affichage de la bonne réponse.",
+    rightAnswerDuration500: "0,5s",
+    rightAnswerDuration1000: "1s",
+    rightAnswerDuration1500: "1,5s",
+    rightAnswerDuration2000: "2s",
+    rightAnswerDuration2500: "2,5s",
+    rightAnswerDuration3000: "3s",
+    
     error5000: 'Erreur 5000',
     error5000Message: "Une erreur inconnue s'est produite lors de la sauvegarde de vos paramètres. Veuillez vérifier votre connexion internet ou réessayer plus tard.",
 

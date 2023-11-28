@@ -105,7 +105,7 @@ class View {
    */
   disable() {
     this.isDisabled = true;
-    this.inputEl.classList.add("disabled");
+    this.containerEl.classList.add("disabled");
     this.submitButtonContainerEl.classList.add("disabled");
     this.submitButtonTooltip.disable();
   }
@@ -116,7 +116,7 @@ class View {
    */
   enable() {
     this.isDisabled = false;
-    this.inputEl.classList.remove("disabled");
+    this.containerEl.classList.remove("disabled");
     this.submitButtonContainerEl.classList.remove("disabled");
     this.submitButtonTooltip.enable();
   }

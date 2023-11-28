@@ -8,6 +8,10 @@ import Timer from "Js/timer";
 import stopwatch from "Js/stopwatch";
 import levenshtein from "Js/levenshtein";
 import correction from "Js/correction";
+import settings from "Js/settings"
+
+
+
 
 /**
  * Model of the Core Typing module
@@ -23,7 +27,7 @@ class Model {
     answerBar.onSubmit((answer) => { this.onSubmitAnswer(answer); });
 
     // Set the callback function when the time is over
-    stopwatch.setTimeOverCallback(() => { this.onTimeOver(); });
+    stopwatch.setTimeOverCallback(() => { this.onTestOver(); });
 
     // Initialize the timer used for each question
     this.questionTimer = new Timer();
@@ -47,26 +51,13 @@ class Model {
     // Reset the Levenshtein engine
     levenshtein.reset();
 
+    // Populate the current question to prevent errors in switchToNexQuestion
+    this.currentQuestion = { remaining: 1 }
+
     // Prepare the first and next questions
     this.prepareNextQuestion();
-    view.switchToNextQuestion();
-/*
+    this.switchToNextQuestion();
 
-    // The new current question is the old next one
-    this.currentQuestion = this.nextQuestion;
-
-    // Prepare the next question
-    this.prepareNextQuestion();
-
-    // Set the next prompt
-    answerBar.setPrompt(this.nextQuestion.prompt);
-
-    // Remove the correction
-    correction.setCorrectionHTML('');
-
-    // Reset the answer bar
-    answerBar.reset(true);
-*/
     // Memory test is ready
     this.status = "ready";
   }
@@ -199,6 +190,7 @@ class Model {
 
     // Check if this is the right answer
     if (distance == 0) {
+
       // This is the right answer
       this.switchToNextQuestion();
     }
@@ -231,15 +223,16 @@ class Model {
       // Reset the answer bar
       answerBar.reset();
 
-    }, 700)
+    }, settings.get('rightAnswerDuration'))
   }
 
 
   /**
    * Callback function called when the test is over
    */
-  onTimeOver() {
-    console.log('Time Over');
+  onTestOver() {
+    console.log('Test Over');
+    answerBar.disable();
   }
 
 
@@ -249,8 +242,15 @@ class Model {
    * Get and prepare the next question
    */
   prepareNextQuestion() {
+    // Get the next question path and uid
     const next = generator.getNextQuestion();
+
+    // Get the question
     this.nextQuestion = series.get(next.path, next.uid);
+    // Append the remaining
+    this.nextQuestion.remaining = next.remaining;
+
+    // Prepare the next question in the DOM
     view.prepareNextQuestion(this.nextQuestion);
   }
 
@@ -260,20 +260,23 @@ class Model {
    * Next question becomes current question
    */
   switchToNextQuestion() {
-    
-    console.log ('switch');
+
+    // Check if this was the last question of the series
+    if (this.currentQuestion.remaining == 0) {
+      this.onTestOver();
+      return;
+    }
 
     // Update the view
     view.switchToNextQuestion()
       .then(() => {
         // When the view is updated, prepare the next question
-        console.log ('prepare next')
         this.prepareNextQuestion();
       })
 
     // The new current question is the old next one
     this.currentQuestion = this.nextQuestion;
-    console.log (this.currentQuestion.answer)
+    
 
     // Reset the answer bar
     answerBar.reset(true);
@@ -283,10 +286,6 @@ class Model {
 
     // Remove the correction
     correction.setCorrectionHTML('');
-
-
-
-
   }
 
 }

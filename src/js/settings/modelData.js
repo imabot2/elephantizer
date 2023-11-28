@@ -26,13 +26,16 @@ export default class ModelData {
       duration: 60,
 
       // Case sensitive [ true | false ]
-      caseSensitive: false,
+      caseInsensitive: true,
 
       // Ignore accents [ true | false ]
       ignoreAccents: true,
 
       // Ignore hyphens [ true | false ]
       ignoreHyphens: true,
+
+      // Duration of the right answer display
+      rightAnswerDuration: 1000,
 
 
     }

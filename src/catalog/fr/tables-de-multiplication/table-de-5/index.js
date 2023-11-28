@@ -30,6 +30,7 @@ export var cards = {
     prompt: "Quel est le résultat ?",
     answer: "10"
   },
+  /*
   "3": {    
     type: 'text',
     question: '5 x 3 = <em>?</em>',
@@ -78,4 +79,5 @@ export var cards = {
     prompt: "Quel est le résultat ?",
     answer: "50"
   },
+  */
 };

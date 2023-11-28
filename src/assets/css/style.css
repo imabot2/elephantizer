@@ -14,3 +14,22 @@
   --main-title-font: 'Luckiest Guy', cursive;
 }
 
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--main-light-grey);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-light-grey);
+  border-radius: 2px!important;
+  -webkit-transition: .125s;
+  transition: .125s;
+}
+
+::-webkit-scrollbar-track {
+  background: 0 0;
+}

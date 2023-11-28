@@ -60,12 +60,14 @@ class View {
     if (model.current.timerMode != 'down') this.disable('.duration'); else this.enable('.duration');
 
     // Update case sentive option
-    this.settingsEl.querySelector(`#settings-caseSensitive-${model.current.caseSensitive.toString()}`).checked = true;
+    this.settingsEl.querySelector(`#settings-caseInsensitive-${model.current.caseInsensitive.toString()}`).checked = true;
     // Update ignore accents option
     this.settingsEl.querySelector(`#settings-ignoreAccents-${model.current.ignoreAccents.toString()}`).checked = true;
     // Update ignore hyphens option
     this.settingsEl.querySelector(`#settings-ignoreHyphens-${model.current.ignoreHyphens.toString()}`).checked = true;
 
+    // Update the test duration in the settings
+    this.settingsEl.querySelector(`#settings-rightAnswerDuration-${model.current.rightAnswerDuration}`).checked = true;
   }
 
 

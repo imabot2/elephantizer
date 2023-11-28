@@ -62,11 +62,16 @@ class Model {
    * @returns {object} The next questions
    */
   getNextQuestionSeries() {
+
+    // If the list of question is empty, populate the list
+    if (this.remaining.length == 0) this.remaining = [...Array(this.questions.length).keys()];
+
     // Pick a random index in the remaining list
     const indexRemaining = Math.floor(Math.random() * this.remaining.length);
 
     // Get the next question index
     const index = this.remaining.splice(indexRemaining, 1)[0];
+    console.log (this.remaining)
 
     // Get path and uid of the next question
     const { path, uid } = this.questions[index];
@@ -113,6 +118,7 @@ class Model {
     return {
       'path': path,
       'uid': uid,
+      'remaining': this.questions.length,
     }
   }
 

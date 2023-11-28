@@ -30,7 +30,7 @@ class View {
    * @param {string} rightAnswer The right answer to display
    */
   setRightAnswer(rightAnswer) {
-    this.rightAnswerEl.innerHTML = rightAnswer;
+    this.rightAnswerEl.innerHTML = rightAnswer.replace(" ", "&nbsp;");;
     this.onResize();
     this.showRightAnswer();
   }
