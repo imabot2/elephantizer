@@ -228,7 +228,7 @@ class Model {
     view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))
       .then(() => {
         // The right answer is over, go to the next question is the test is still running
-        if (this.status=="running") this.switchToNextQuestion();
+        if (this.status == "running") this.switchToNextQuestion();
       })
   }
 
@@ -237,7 +237,6 @@ class Model {
    * Callback function called when the test is over
    */
   onTestOver() {
-    
 
     // Update status and disable input bar    
     this.status = "over";
@@ -245,13 +244,19 @@ class Model {
     // Disable input bar
     answerBar.disable();
 
-    view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))
-    .then(() => {
-      console.log('Test Over');
-    })
-
     // Log test over analytics
     analytics.log("Memory test over");
+
+    // Show the right answer for the last question
+    view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))
+      .then(() => {
+
+        // Hide the timer
+        stopwatch.hide();
+
+        console.log('Test Over');
+      })
+
   }
 
 
