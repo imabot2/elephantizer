@@ -94,7 +94,7 @@ class Model {
       if ((/*this.current.score >= 0.8 &&*/ levenshtein.sanitize(answer).length >= this.currentQuestion.answer.length) || distanceCheck == 0) {
 
         // Process the current question for statistics
-        this.processQuestionOver(distanceCheck);
+        this.processQuestionOver(answer, distanceCheck);
         return;
       }
     }
@@ -220,24 +220,16 @@ class Model {
    * - Display the right answer
    */
   wrongAnswer() {
-    // This is not the right answer, show the expected answer      
-    correction.setRightAnswer(this.currentQuestion.answer);
 
     // Disable the answer bar
     answerBar.disable();
 
-    // Display the answer during 2 seconds
-    setTimeout(() => {
-      // Hide the correction before hidding the right answer
-      correction.hideCorrection();
-
-      // Hide the wrong answer
-      correction.hideRightAnswer();
-
-      // Go to the next question
-      this.switchToNextQuestion();
-
-    }, settings.get('rightAnswerDuration'))
+    // Show the right answer 
+    view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))
+      .then(() => {
+        // The right answer is over, go to the next question is the test is still running
+        if (this.status=="running") this.switchToNextQuestion();
+      })
   }
 
 
@@ -245,13 +237,18 @@ class Model {
    * Callback function called when the test is over
    */
   onTestOver() {
-    console.log('Test Over');
+    
 
     // Update status and disable input bar    
     this.status = "over";
 
     // Disable input bar
     answerBar.disable();
+
+    view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))
+    .then(() => {
+      console.log('Test Over');
+    })
 
     // Log test over analytics
     analytics.log("Memory test over");

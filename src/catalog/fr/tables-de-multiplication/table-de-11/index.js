@@ -78,7 +78,4 @@ export var cards = {
     prompt: "Quel est le résultat ?",
     answer: "120"
   },
-  
- 
-  
 };
