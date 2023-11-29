@@ -53,6 +53,16 @@ class View {
 
 
 
+  /**
+   * Display the correction or hide the correction bar if string is empty
+   * @param {string} correction The correction to display
+   */
+  setCorrectionHTML(correction) {
+    this.correctionEl.innerHTML = correction;
+    if (correction.length === 0) this.hideCorrection(); else this.showCorrection();
+    this.onResize();
+  }
+  
 
   /**
    * Hide the correction with fade out effect
@@ -69,15 +79,6 @@ class View {
     this.correctionEl.style.opacity = 0.8;
   }
 
-  /**
-   * Display the correction or hide the correction bar if string is empty
-   * @param {string} correction The correction to display
-   */
-  setCorrectionHTML(correction) {
-    this.correctionEl.innerHTML = correction;
-    if (correction.length === 0) this.hideCorrection(); else this.showCorrection();
-    this.onResize();
-  }
 
 
   /**

@@ -8,8 +8,8 @@ import Timer from "Js/timer";
 import stopwatch from "Js/stopwatch";
 import levenshtein from "Js/levenshtein";
 import correction from "Js/correction";
-import settings from "Js/settings"
-
+import settings from "Js/settings";
+import memoryTest from "Js/memoryTest";
 
 
 
@@ -29,8 +29,9 @@ class Model {
     // Set the callback function when the time is over
     stopwatch.setTimeOverCallback(() => { this.onTestOver(); });
 
-    // Initialize the timer used for each question
+    // Initialize the timer used for each question (total time & wpm)
     this.questionTimer = new Timer();
+    this.wpmTimer = new Timer();
   }
 
 
@@ -44,6 +45,9 @@ class Model {
 
     // Reset the question generator
     generator.reset();
+
+    // Reset the memory test statistics
+    memoryTest.reset('typing');
 
     // Reset the stopwatch
     stopwatch.reset();
@@ -71,6 +75,9 @@ class Model {
 
     // If the timer is not running, start the timers
     if (this.status === "ready") this.onStarted();
+
+    // Start the WPM timer (only apply on first character)
+    this.wpmTimer.start();
 
     // Compute the Levenshtein distance for checking the answer
     // The distanceCheck must be calculated BEFORE the truncated distance 
@@ -114,8 +121,10 @@ class Model {
     stopwatch.show();
 
     // Starts question timer
+    this.wpmTimer.init(0, 'up');
     this.questionTimer.init(0, "up");
     this.questionTimer.start();
+
   }
 
 
@@ -132,8 +141,8 @@ class Model {
     let len = Math.min(sanitized.length, this.currentQuestion.answer.length);
     let distance = levenshtein.distance(sanitized.slice(0, len), this.currentQuestion.answer.slice(0, len));
 
-    console.log('TODO Keep max distance');
-    //this.currentStats.maxDistance = Math.max(this.currentStats.maxDistance, distance);
+    // Update max Leenshtein distance
+    memoryTest.updateMaxDistance(distance);
 
     // Set the correction if the distance is higher than zero or the user answer is longer than the expected answer
     // And the score is not higher than 0.8
@@ -160,7 +169,6 @@ class Model {
    * @param {string} answer The current input in the answer bar
    */
   onSubmitAnswer(answer) {
-    console.log('submit', answer);
 
     // If the timer is on pause, start and display the timers
     if (this.status === "ready") {
@@ -171,35 +179,41 @@ class Model {
     // Compute the Levenshtein distance
     let distance = levenshtein.distance(answer, this.currentQuestion.answer);
 
-    // Store the max distance
-    console.log('TODO Update max distance');
-    //this.currentStats.maxDistance = Math.max(this.currentStats.maxDistance, distance);
-
     // Process the current question for statistics
-    this.processQuestionOver(distance);
+    this.processQuestionOver(answer, distance);
   }
+
 
   /**
    * Process the current question 
-  * Call every time a question is submited (success of failed) 
-  * - Update the statistics
-   
+   * Call every time a question is submited (success of failed) 
+   * - Update the statistics   
    */
-  processQuestionOver(distance) {
+  processQuestionOver(answer, distance) {
 
-    console.log('TODO update the stats')
+    // Store the final data and compute question statistics    
+    memoryTest.updateMaxDistance(distance);
+    memoryTest.setFinalDistance(distance);
+    memoryTest.setFinalAnswer(answer);
+    memoryTest.setTypingTime(this.wpmTimer.getTime().raw);
+    memoryTest.setTime(this.questionTimer.getTime().raw);
+    memoryTest.process();
+
+    // Restart the timer
+    this.questionTimer.restart();
+    this.wpmTimer.reset();
 
     // Check if this is the right answer
     if (distance == 0) {
-
       // This is the right answer
       this.switchToNextQuestion();
     }
     else {
+      // This is a wrong answer
       this.wrongAnswer();
-
     }
   }
+
 
   /**
    * Function called when the answer is wrong
@@ -288,6 +302,8 @@ class Model {
     // The new current question is the old next one
     this.currentQuestion = this.nextQuestion;
 
+    // Create a new question in the memory test
+    memoryTest.createNewQuestion(this.currentQuestion.path, this.currentQuestion.uid);
 
     // Reset the answer bar
     answerBar.reset(true);

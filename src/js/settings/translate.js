@@ -35,7 +35,7 @@ const translations = {
     duration5min: "5min",
 
 
-    caseInsensitive: "Case Sensitive",
+    caseInsensitive: "Case Insensitive",
     caseInsensitiveLabel: "When this mode is activated, there is no difference between <strong>upper</strong> and <strong>lower case</strong>. When disabled, the answers are case sensitive.",
     caseInsensitiveTrue: "On",
     caseInsensitiveFalse: "Off",

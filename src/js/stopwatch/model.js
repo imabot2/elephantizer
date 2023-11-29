@@ -42,7 +42,6 @@ class Model {
    * Start or restart the timer
    */
   start() {
-    console.log('start');
     this.timer.start();
   }
 

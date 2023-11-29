@@ -23,8 +23,13 @@ export default class Timer {
   /**
    * Reset the timer to the last initial configuration
    */
-  reset() { this.model.init(); }
+  reset() { this.model.reset(); }
+
   
+  /**
+   * Reset and restart the timer
+   */
+  restart() { this.model.restart(); }
 
   /**
    *  Start or restart the timer

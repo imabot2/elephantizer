@@ -21,7 +21,7 @@ export class Model {
     this.direction = "down";
 
     // Stop the timer at intialization
-    this.duration = this.elapsedTime = 0;    
+    this.duration = this.elapsedTime = 0;
     this.isRunning = false;
 
     // Set the default value for the count down to zero seconds
@@ -63,12 +63,29 @@ export class Model {
     this.direction = direction ?? this.direction;
 
     // Keep the timer direction
-    this.countDown = (direction !== "up");
+    this.countDown = (this.direction !== "up");
 
     // Calculate and update remaining time
-    this.duration = seconds * 1000;
+    this.duration = this.seconds * 1000;
     this.elapsedTime = (this.countDown) ? 0 : this.duration;
     this.remainingTime = this.duration;
+  }
+
+
+  /**
+   * Reset and restart the timer
+   */
+  reset() {
+    this.init();
+  }
+
+
+  /**
+   * Reset and restart the timer
+   */
+  restart() {
+    this.init();
+    this.start();
   }
 
 
@@ -87,10 +104,10 @@ export class Model {
    * @returns  {object} An object with { min : minutes, sec : seconds, doz: dozen of ms, countDown: count down mode (bool) }
    */
   splitTime(ms) {
-    
+
     let time = {}
     time.raw = ms;
-    
+
 
     // Calculate seconds
     let s = Math.round(ms / 1000);
@@ -104,6 +121,7 @@ export class Model {
     // Return the timer object
     return time;
   }
+
 
   /**
    * Get the current time splitted in minutes, seconds dozens
@@ -128,7 +146,7 @@ export class Model {
     }
     // The timer is not running, get current remaining or elapsed time
     else {
-      time = (this.countDown) ? this.remainingTime : this.elapsedTime ;
+      time = (this.countDown) ? this.remainingTime : this.elapsedTime;
     }
 
     // Return the splitted time
@@ -301,7 +319,6 @@ export class Model {
     // Set time out for next call
     this.timeout = setTimeout(() => { this.nextCountUp(); }, nextCall);
   }
-
 
 }
 
