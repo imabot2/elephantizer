@@ -71,14 +71,17 @@ class Model {
     console.log(this.current());
   }
 
+
   /**
    * Compute the score for the current question
    */
   computeAnswerScore() {
     // Compute the weighted global score for this question
-    console.log ('revoir le calcul du score')
+    console.log ('TODO revoir le calcul du score avec le temps avant le premier caractère')
+    console.log (this.questions)
     //qStat.answerScore = 0.40 * qStat.ratioDistance + 0.40 * qStat.ratioMaxDistance + 0.2 * qStat.ratioWpm;
   }
+
 
   /**
    * Compute the maximum distance ratio
