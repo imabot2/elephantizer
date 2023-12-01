@@ -119,6 +119,7 @@ class View {
     this.containerEl.classList.remove("disabled");
     this.submitButtonContainerEl.classList.remove("disabled");
     this.submitButtonTooltip.enable();
+    this.inputEl.focus();
   }
 
 

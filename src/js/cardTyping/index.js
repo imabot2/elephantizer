@@ -8,7 +8,7 @@ import view from "./view.js";
  * - text questions
  */
 class CardTyping {
-  constructor() {}
+  constructor() { }
 
   /**
    * Hide the current question and show the next question
@@ -22,6 +22,25 @@ class CardTyping {
    * @param {object} data Data of the next question
    */
   prepareNextQuestion(nextQuestion) { view.prepareNextQuestion(nextQuestion); }
+
+
+  /**
+   * Hide the overlay
+   */
+  hideOverlay() { view.hideOverlay(); }
+
+
+  /**
+   * Show the overlay
+   */
+  showOverlay() { view.showOverlay(); }
+
+  
+  /**
+   * Set the callback function when the user click on the overlay or press a key
+   * @param {function} callback The function call when the user click or press a key
+   */
+  setOverlayEventCallback(callback) { view.setOverlayEventCallback(callback); }
 }
 
 

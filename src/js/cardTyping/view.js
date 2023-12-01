@@ -1,6 +1,8 @@
 import "./card.css";
 import htmlCard from "./card.html";
 import str2dom from "doma";
+import { parseEjs } from "Js/languages";
+import translate from "./translate.js";
 import answerBar from "Js/answerBar";
 import correction from "Js/correction";
 
@@ -15,9 +17,12 @@ class View {
    * - Add event listener on resize
    */
   constructor() {
-    // Append the button to the DOM
-    this.containerEl = str2dom.one(htmlCard);
+    // Append the button to the DOM    
+    this.containerEl = str2dom.one(parseEjs(htmlCard, translate));
     document.body.append(this.containerEl);
+
+    // Get the overlay
+    this.overlayEl = this.containerEl.querySelector('.overlay');
 
     // Get outer images
     this.outerImages = [];
@@ -50,6 +55,11 @@ class View {
     // Populate correction container
     let bodyContainerEl = this.containerEl.querySelector('.body-container');
     correction.appendTo(bodyContainerEl);
+
+    // When the user click in the overlay or press a key, trigger the event
+    this.overlayEventCallback = () => { };
+    this.overlayEl.addEventListener('click', () => { this.overlayEventCallback(); });
+    this.overlayEl.addEventListener('keydown', () => { this.overlayEventCallback(); });
 
     // On resize, resize the main container     
     window.visualViewport.addEventListener('resize', () => { this.onResize(); });
@@ -115,9 +125,9 @@ class View {
 
       // Set the new type (outer, inner or text)
       this.current.type = this.nextQuestion.type;
-      
+
       // When the transition is over, resolve the promise
-      visibleElement.addEventListener('transitionend', (event) => {        
+      visibleElement.addEventListener('transitionend', (event) => {
         if (event.propertyName == "opacity") { resolve(); }
       })
     })
@@ -170,6 +180,31 @@ class View {
     // Set the next badge and question text
     this.texts[index].querySelector('div').innerHTML = this.nextQuestion.deck.name;
     this.texts[index].querySelector('div:nth-child(2)').innerHTML = this.nextQuestion.question;
+  }
+
+
+  /**
+   * Hide the overlay
+   */
+  hideOverlay() {
+    this.overlayEl.classList.add('hide');
+  }
+
+
+  /**
+   * Show the overlay and set focus on the overlay
+   */
+  showOverlay() {
+    this.overlayEl.classList.remove('hide');
+    this.overlayEl.focus();
+  }
+
+  /**
+   * Set the callback function when the user click on the overlay or press a key
+   * @param {function} callback The function call when the user click or press a key
+   */
+  setOverlayEventCallback(callback) {
+    this.overlayEventCallback = callback;
   }
 
 

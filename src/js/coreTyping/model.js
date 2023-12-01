@@ -1,4 +1,5 @@
 import view from "./view.js";
+import auth from "Js/auth";
 import generator from "Js/generator";
 import series from "Js/series";
 import answerBar from "Js/answerBar";
@@ -10,7 +11,7 @@ import levenshtein from "Js/levenshtein";
 import correction from "Js/correction";
 import settings from "Js/settings";
 import memoryTest from "Js/memoryTest";
-
+import card from "Js/cardTyping";
 
 
 /**
@@ -28,6 +29,9 @@ class Model {
 
     // Set the callback function when the time is over
     stopwatch.setTimeOverCallback(() => { this.onTestOver(); });
+
+    // Start the test when the user click on the overlay or press a key
+    card.setOverlayEventCallback(() => { this.onStarted(); })
 
     // Initialize the timer used for each question (total time & wpm)
     this.questionTimer = new Timer();
@@ -61,6 +65,17 @@ class Model {
     // Prepare the first and next questions
     this.prepareNextQuestion();
     this.switchToNextQuestion();
+
+    if (auth.isLogged()) {
+      // If the user is logged, show the overlay to start the timer when the user start typing
+      card.showOverlay();
+      answerBar.disable();
+    }
+    else {
+      // User is not logged, do not show the overlay
+      card.hideOverlay();
+      answerBar.enable();
+    }
 
     // Memory test is ready
     this.status = "ready";
@@ -116,6 +131,8 @@ class Model {
     this.status = "running";
     analytics.log("Start memory test", Object.assign({}, selection.current()));
 
+
+
     // Starts and show the stopwatch
     stopwatch.start();
     stopwatch.show();
@@ -125,6 +142,11 @@ class Model {
     this.questionTimer.init(0, "up");
     this.questionTimer.start();
 
+    // Hide the overlay 
+    card.hideOverlay();
+
+    // Enable the answer bar
+    answerBar.enable();
   }
 
 
@@ -256,10 +278,7 @@ class Model {
 
         console.log('Test Over');
       })
-
   }
-
-
 
 
   /**

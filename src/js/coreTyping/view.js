@@ -70,6 +70,17 @@ class View {
   switchToNextQuestion() {
     return card.switchToNextQuestion();
   }
+
+  /**
+   * Hide the overlay
+   */
+  hideOverlay() { card.hideOverlay(); }
+
+
+  /**
+   * Show the overlay
+   */
+  showOverlay() { card.showOverlay(); }
 }
 
 export default new View();
