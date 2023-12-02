@@ -13,10 +13,28 @@ class View {
     this.overlayEl = str2dom.one(parseEjs(htmlOverlay, translate));
     document.body.append(this.overlayEl);
 
+    this.messageEl = this.overlayEl.querySelector('.message');
+
     // When the user click in the overlay or press a key, trigger the event
     this.onClickCallback = () => { };
     this.overlayEl.addEventListener('click', (event) => { this.onClickEvent(event); });
     this.overlayEl.addEventListener('keydown', (event) => { this.onClickEvent(event); });
+  }
+
+
+  /**
+   * change the overlay message for the invitation to start
+   */
+  setStartMessage() {
+    this.messageEl.innerHTML = translate.overlayMessageStart;
+  }
+
+
+  /**
+   * change the overlay message for the invitation to continue
+   */  
+  setContinueMessage() {
+    this.messageEl.innerHTML = translate.overlayMessageContinue;
   }
 
 

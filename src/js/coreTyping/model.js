@@ -72,6 +72,7 @@ class Model {
 
     // Reset the overlay timer
     overlay.resetTimer();
+    overlay.setStartMessage();
 
     if (auth.isLogged()) {
       // If the user is logged, show the overlay to start the timer when the user start typing
@@ -141,8 +142,6 @@ class Model {
     this.status = "running";
     analytics.log("Start memory test", Object.assign({}, selection.current()));
 
-
-
     // Starts and show the stopwatch
     stopwatch.start();
     stopwatch.show();
@@ -152,9 +151,10 @@ class Model {
     this.questionTimer.init(0, "up");
     this.questionTimer.start();
 
-    // Hide the overlay 
+    // Resart the overlay and change the message
     overlay.hide();
     overlay.restartTimer();
+    overlay.setContinueMessage();
 
     // Enable the answer bar
     answerBar.enable();
