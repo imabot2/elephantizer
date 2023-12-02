@@ -1,13 +1,18 @@
-import model from "./model.js";
-import settings from "Js/settings";
 import card from "Js/cardTyping";
 import correction from "Js/correction";
+import answerBar from "Js/answerBar";
+import overlay from "Js/overlay";
+
 
 /**
  * View for the Typing Core module
  */
 class View {
 
+  /**
+   * Constructor
+   * - Set the right answer flag and events
+   */
   constructor() {
     this.isRightAnswerVisible = false;
     this.rightAnswerOverEvent = new Event("right-answer-over-event");
@@ -29,14 +34,14 @@ class View {
 
       // If the right answer is already visible, return;
       if (this.isRightAnswerVisible) return;
-      
+
       // Set the flag
       this.isRightAnswerVisible = true;
 
       // Show the expected answer      
       correction.setRightAnswer(answer);
 
-      
+
       // Display the answer during the requested time
       setTimeout(() => {
 
@@ -52,7 +57,7 @@ class View {
       }, delay_ms);
     })
   }
-  
+
 
   /**
    * Prepare the next question in background
@@ -74,13 +79,28 @@ class View {
   /**
    * Hide the overlay
    */
-  hideOverlay() { card.hideOverlay(); }
+  hideOverlay() {
+    overlay.hide();
+    answerBar.enable();
+  }
 
 
   /**
    * Show the overlay
    */
-  showOverlay() { card.showOverlay(); }
+  showOverlay() {
+    overlay.show();
+    answerBar.disable();
+  }
+
+  /**
+   * Show or hide the overlay 
+   */
+  setOverlayVisible(visible) {
+    console.log (visible);
+    if (visible) this.showOverlay();
+    else this.hideOverlay();
+  }
 }
 
 export default new View();

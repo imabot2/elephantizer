@@ -79,16 +79,8 @@ class Model {
     overlay.resetTimer();
     overlay.setStartMessage();
 
-    if (auth.isLogged()) {
-      // If the user is logged, show the overlay to start the timer when the user start typing
-      overlay.show();
-      answerBar.disable();
-    }
-    else {
-      // User is not logged, do not show the overlay
-      overlay.hide();
-      answerBar.enable();
-    }
+    // Show the overlay at start up only if user is logged
+    view.setOverlayVisible(auth.isLogged()); 
 
     // Memory test is ready
     this.status = "ready";
@@ -103,8 +95,6 @@ class Model {
 
     // If the timer is not running, start the timers
     if (this.status === "ready") this.onStarted();
-
-
 
     // Start the WPM timer (only apply on first character)
     this.wpmTimer.start();
@@ -142,7 +132,7 @@ class Model {
    * - Starts the question timer
    */
   onStarted() {
-    console.log('on started');
+
     // Test is running
     this.status = "running";
     analytics.log("Start memory test", Object.assign({}, selection.current()));
@@ -157,12 +147,9 @@ class Model {
     this.questionTimer.start();
 
     // Restart the overlay and change the message
-    overlay.hide();
+    view.hideOverlay();
     overlay.restartTimer();
     overlay.setContinueMessage();
-
-    // Enable the answer bar
-    answerBar.enable();
   }
 
 
@@ -284,10 +271,7 @@ class Model {
 
     // Stop the overlay 
     overlay.stop();
-    overlay.hide();
-
-    // Disable input bar
-    answerBar.disable();
+    view.hideOverlay();
 
     // Log test over analytics
     analytics.log("Memory test over");
@@ -295,7 +279,6 @@ class Model {
     // Show the right answer for the last question
     view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))
       .then(() => {
-
         // Hide the timer
         stopwatch.hide();
       })
@@ -321,7 +304,7 @@ class Model {
 
   /**
    * Switch to the next question 
-   * Next question becomes current question
+   * Next question becomes current questionshowOverlay
    */
   switchToNextQuestion() {
 
@@ -357,6 +340,7 @@ class Model {
     correction.setCorrectionHTML('');
   }
 
+
   /**
    * Callback function called when the memory test enters in pause mode
    */
@@ -366,21 +350,21 @@ class Model {
     this.status = "paused";
 
     // Show the overlay
-    overlay.show();
+    view.showOverlay();
     overlay.resetTimer();
 
     // Pause the timer
     stopwatch.pause();
 
-    // Pause the timers
-    console.log(this.questionTimer.getTime())
-    console.log(this.wpmTimer.getTime())
+    // Pause the timers    
     this.wpmTimer.pause();
     this.questionTimer.pause();
   }
 
 
-
+  /**
+   * Callback function called when the memory test leave the pause mode
+   */
   onPauseOver() {
 
     // If the test is over, do nothing
@@ -393,7 +377,7 @@ class Model {
     stopwatch.start();
 
     // Restart the overlay
-    overlay.hide();
+    view.hideOverlay();
     overlay.restartTimer();
 
     // If the user already typed someting, restart the timer
@@ -401,9 +385,6 @@ class Model {
     
     // Restart the question timer
     this.questionTimer.start();
-
-    // Enable the answer bar
-    answerBar.enable();
 
     // Test was in pause, it is now running    
     this.status = "running";
