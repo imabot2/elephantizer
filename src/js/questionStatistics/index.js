@@ -3,29 +3,11 @@ import model from "./model.js";
 
 
 /**
- * Module managing the current memory test statistics
+ * Module managing the current question statistics
  */
-class MemoryTest {
+class QuestionStatistics {
+
   constructor() { }
-
-  /**
-   * Reset the memory test 
-   * - Empty the question list
-   * - Reset the current question
-   */
-  reset(mode) { model.reset(mode); }
-
-
-  /**
-   * Process the memory test data when the test is over
-   */
-  processTestOver() { model.processTestOver(); }
-
-
-  /**
-   * Process the last question
-   */
-  processQuestionOver() { model.processQuestionOver(); }
 
 
   /**
@@ -33,7 +15,15 @@ class MemoryTest {
    * @param {string} path Path of the next question
    * @param {string} uid UID of the next question
    */
-  createNewQuestion(path, uid) { model.createNewQuestion(path, uid); }
+  new(path, uid) { model.new(path, uid); }
+
+
+  /**
+   * Process the last question
+   */
+  process() { model.process(); }
+
+
 
 
   /**
@@ -82,15 +72,7 @@ class MemoryTest {
    */
   setTime(time_ms) { model.setTime(time_ms); }
 
-
-  /**
-   * Store the test duration in milliseconds
-   * @param {integer} time_ms The test duration in milliseconds
-   */
-  setTestDuration(time_ms) { model.setTestDuration(time_ms); }
-
-
 }
 
 
-export default new MemoryTest();
+export default new QuestionStatistics();

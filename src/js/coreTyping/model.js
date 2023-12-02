@@ -10,9 +10,9 @@ import stopwatch from "Js/stopwatch";
 import levenshtein from "Js/levenshtein";
 import correction from "Js/correction";
 import settings from "Js/settings";
-import memoryTest from "Js/memoryTest";
+import questionStatistics from "Js/questionStatistics";
 import overlay from "Js/overlay";
-
+import results from "Js/results";
 
 /**
  * Model of the Core Typing module
@@ -57,7 +57,7 @@ class Model {
     generator.reset();
 
     // Reset the memory test statistics
-    memoryTest.reset('typing');
+    results.reset('typing');
 
     // Reset the stopwatch
     stopwatch.reset();
@@ -167,7 +167,7 @@ class Model {
     let distance = levenshtein.distance(sanitized.slice(0, len), this.currentQuestion.answer.slice(0, len));
 
     // Update max Leenshtein distance
-    memoryTest.updateMaxDistance(distance);
+    questionStatistics.updateMaxDistance(distance);
 
     // Set the correction if the distance is higher than zero or the user answer is longer than the expected answer
     // And the score is not higher than 0.8
@@ -217,12 +217,12 @@ class Model {
   processQuestionOver(answer, distance) {
 
     // Store the final data and compute question statistics    
-    memoryTest.updateMaxDistance(distance);
-    memoryTest.setFinalDistance(distance);
-    memoryTest.setFinalAnswer(answer);
-    memoryTest.setTypingTime(this.wpmTimer.getTime().raw);
-    memoryTest.setTime(this.questionTimer.getTime().raw);
-    memoryTest.processQuestionOver();
+    questionStatistics.updateMaxDistance(distance);
+    questionStatistics.setFinalDistance(distance);
+    questionStatistics.setFinalAnswer(answer);
+    questionStatistics.setTypingTime(this.wpmTimer.getTime().raw);
+    questionStatistics.setTime(this.questionTimer.getTime().raw);
+    questionStatistics.process();
 
     // Restart the timer
     this.questionTimer.restart();
@@ -267,7 +267,7 @@ class Model {
     this.status = "over";
 
     // Store the test duration
-    memoryTest.setTestDuration(stopwatch.getElapsedTime());
+    results.setTestDuration(stopwatch.getElapsedTime());
 
     // Stop the stopwatch
     stopwatch.stop();
@@ -282,6 +282,7 @@ class Model {
     // Log test over analytics
     analytics.log("Memory test over");
 
+
     // Show the right answer for the last question
     view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))
       .then(() => {
@@ -289,7 +290,7 @@ class Model {
         stopwatch.hide();
 
         // Process the data
-        memoryTest.processTestOver();
+        results.show();
       })
   }
 
@@ -337,7 +338,7 @@ class Model {
     this.currentQuestion = this.nextQuestion;
 
     // Create a new question in the memory test
-    memoryTest.createNewQuestion(this.currentQuestion.path, this.currentQuestion.uid);
+    questionStatistics.new(this.currentQuestion.path, this.currentQuestion.uid);
 
     // Reset the answer bar
     answerBar.reset(true);

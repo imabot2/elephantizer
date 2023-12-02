@@ -1,0 +1,144 @@
+<div id="results-modal" class="modal modal-xl" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content mb-5">
+     
+
+      <div class="modal-header pb-0">
+        <div class="w-100 d-flex justify-content-center align-items-center">
+          <div class="logo text-center"><img src="/static/logo/logo.png"></div>
+          <div class="ps-3">Elephantizer</div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+
+
+      <div class="modal-body">
+        <div class="container-fluid">
+
+          <!--#region Scores and Progress results -->
+          <div class="row text-center">
+
+            <div class="score col-lg-4 pb-2 d-flex justify-content-between align-items-center flex-column">
+              <div class="title"><%=score%></div>
+              <div class="value"></div>
+              <div></div>
+            </div>
+
+            <div class="pie-memorization col-lg-4 pb-2">
+              <div class="title">Memory Score</div>              
+            </div>
+
+            <div id="results-progress"
+              class="col-lg-4 pb-2 d-flex justify-content-between align-items-center flex-column">
+              <div class="title">Progress</div>
+              <div><span class="value">TODO</span><span class="unit">%</span></div>
+              <div></div>
+            </div>
+          </div>
+          <!--#endregion Scores and Progress results -->
+          <hr>
+
+          <!--#region Pie charts -->
+          <div class="row text-center">
+
+            <div id="results-pie-correct" class="col-lg-4 py-2 pie-chart">
+              <div class="title">Right Answers</div>
+              <div class="d-flex justify-content-center pie-chart-container">
+                <canvas></canvas>
+                <div class="label">
+                  <div><span class="value">0</span><span class="unit">%</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div id="results-pie-accuracy" class="col-lg-4 py-2 pie-chart">
+              <div class="title">Accuracy</div>
+              <div class="d-flex justify-content-center pie-chart-container">
+                <canvas></canvas>
+                <div class="label">
+                  <div><span class="value">0</span><span class="unit">%</span></div>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="results-pie-wpm" class="col-lg-4 py-2 pie-chart">
+              <div class="title">Words Per Minute</div>
+              <div class="d-flex justify-content-center pie-chart-container">
+                <canvas></canvas>
+                <div class="label">
+                  <div><span class="value">0</span><span class="unit">wpm</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!--#endregion Pie charts -->
+          <hr>
+
+          <!--#region Answers cards -->
+          <div id="answer-cards" class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 g-4 mb-4">
+
+            <div id="answer-card-model" class="col d-none">
+              <div class="card h-100 position-relative mt-3">
+                <img src="#" class="card-img-top">
+                <div class="position-absolute top-0 start-50 translate-middle">
+                  <img src="#" class="flag">
+                </div>
+                <div class="position-absolute top-0 start-0 ms-1 mt-1">
+                  <span class="badge id-badge">#1</span>
+                </div>
+
+                <div class="card-body container pb-0">
+                  <div class="card-title text-center mb-0 ">
+                    <div class="score">98.2%</div>
+                    <span class="progression badge small">+1.2%</span>
+                  </div>
+                  <hr>
+                  <div class="row">
+
+                    <div class="col-6 text-end pe-1">Right answer:</div>
+                    <div class="col-6 ps-1 expected"></div>
+
+                    <div class="col-6 text-end pe-1">Your answer:</div>
+                    <div class="col-6 ps-1 user-answer"></div>
+
+                    <div class="col-6 text-end pe-1">Time:</div>
+                    <div class="col-6 ps-1 time"></div>
+
+                    <div class="col-6 text-end pe-1">Accuracy:</div>
+                    <div class="col-6 ps-1 accuracy"></div>
+
+                    <div class="col-6 text-end pe-1">Typing speed:</div>
+                    <div class="col-6 ps-1 wpm"></div>
+
+                    <div class="col-6 text-end pe-1">Answered:</div>
+                    <div class="col-6 ps-1 answered"></div>
+
+                  </div>
+                </div>
+                <div class="card-footer text-center">
+                  <img src="#" height="40">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!--#endregion Answers cards -->
+
+        </div>
+
+
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,39 @@
+
+.pie-chart {
+  position: relative;
+  height: clamp(150px, 20vh, 10vmin);
+  font-size: clamp(1rem, 30%, 2vmin);
+}
+
+.pie-chart canvas {  
+  z-index: 2;  
+}
+
+
+.pie-chart .label {
+  
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  padding-top: 1em;
+  transform: translate(-50%, -50%);    
+  line-height: 1.4em;
+  font-family: var(--main-title-font);
+}
+
+
+.pie-chart .title {
+  font-size: 1.2em;
+  margin-bottom: -1em;
+  
+}
+
+
+.pie-chart .label .value {
+  font-size: 1.4em;  
+}
+
+.pie-chart .label .unit {
+  padding-left: 0.2em;
+  font-size: 1.2em;  
+}

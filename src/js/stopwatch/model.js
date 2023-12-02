@@ -2,10 +2,20 @@ import view from "./view.js";
 import Timer from "Js/timer";
 import settings from "Js/settings";
 
+
+/**
+ * Model for the Stopwatch module
+ */
 class Model {
+
+  /**
+   * Constructor 
+   */
   constructor() {
 
+    // Create an instance of the timer
     this.timer = new Timer();
+
     // Set the callback function to update the timer
     this.timer.onUpdate((time) => this.onUpdate(time));
 

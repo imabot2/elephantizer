@@ -1,0 +1,35 @@
+#results-modal .modal-header {
+  background-color: var(--main-dark-grey);
+}
+#results-modal .modal-header > div  {
+  font-size: clamp(30px, 100px, 6vmin);
+  font-family: var(--main-title-font);
+  text-shadow: 0px 2px 2px black;
+  color: white;
+}
+
+#results-modal .modal-header .btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#results-modal .logo img {
+  height: clamp(50px, 100px, 4vmin);
+}
+
+#results-modal .title {
+  font-family: var(--main-title-font);
+  font-size: 1.2em;
+}
+
+#results-modal .score .value {
+  font-family: var(--main-title-font);
+  font-size: 4em;
+}
+
+/* The memorization score is bigger */
+#results-modal .pie-memorization .pie-chart {
+  height: clamp(170px, 30vh, 14vmin)!important;
+  font-size: 1.6em!important;
+}

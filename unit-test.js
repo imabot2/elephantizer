@@ -5,6 +5,7 @@ const unitTests = [
   { name: 'settings' },
   { name: 'statistics' },
   { name: 'series' },
+  { name: 'results' },
 ];
 
 module.exports = { unitTests };
