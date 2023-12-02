@@ -3,7 +3,9 @@ import series from "Js/series";
 import statistics from "Js/statistics";
 
 
-
+/**
+ * Model for the Memory Test module
+ */
 class Model {
   constructor() {
 
@@ -58,45 +60,64 @@ class Model {
   }
 
   /**
-   * Process the last question
+   * Process the memory test data when the test is over
    */
-  process() {
+  processTestOver() {
 
-    this.computeWpm();
-    this.computeRatioMaxDistance();
-    this.computeRatioFinalDistance();
-    this.computeRatioFinalDistance();
-    this.computeAnswerScore();
-    
-    console.log(this.current());
+    // Remove the last question if not answered
+    if (this.current().memorizationRatio === undefined) this.questions.pop();
+    console.log (this.questions);
+
   }
 
 
   /**
-   * Compute the score for the current question
+   * Process the last question
    */
-  computeAnswerScore() {
-    // Compute the weighted global score for this question
-    console.log ('TODO revoir le calcul du score avec le temps avant le premier caractère')
-    console.log (this.questions)
-    console.log (this.current().time-this.current().typingTime)
-    //qStat.answerScore = 0.40 * qStat.ratioDistance + 0.40 * qStat.ratioMaxDistance + 0.2 * qStat.ratioWpm;
+  processQuestionOver() {
+
+    this.computeWpm();
+    this.computeMaxDistanceRatio();
+    this.computeFinalDistanceRatio();
+    this.computeTimeToFirstKeyRatio();
+    this.computeMemorizationRatio();
+  }
+
+
+  /**
+   * Compute the global score ratio
+   */
+  computeMemorizationRatio() {
+    console.log (this.current())
+    this.current().memorizationRatio = this.current().timeToFirstKeyRatio * this.current().maxDistanceRatio * this.current().finalDistanceRatio;
+  }
+
+
+
+  /**
+   * Compute the memorization ratio
+   * Convert time to first key into ratio in the range [0; 1]
+   */
+  computeTimeToFirstKeyRatio() {
+    const timeToFirstKey_sec = (this.current().time-this.current().typingTime)/1000;
+    const ratio = 1.1-1/(1.1+Math.exp(-0.8*timeToFirstKey_sec + 4))
+    this.current().timeToFirstKeyRatio = Math.min(ratio, 1);
   }
 
 
   /**
    * Compute the maximum distance ratio
    */
-  computeRatioMaxDistance() {    
-    this.current().ratioMaxDistance = Math.max(1 - (this.current().maxDistance / this.current().rightAnswer.length), 0);
+  computeMaxDistanceRatio() {    
+    this.current().maxDistanceRatio = Math.max(1 - (this.current().maxDistance / this.current().rightAnswer.length), 0);
   }
 
 
   /**
    * Compute the final distance ratio
    */
-  computeRatioFinalDistance() {    
-    this.current().ratioFinalDistance = Math.max(1 - (this.current().finalDistance / this.current().rightAnswer.length), 0);
+  computeFinalDistanceRatio() {    
+    this.current().finalDistanceRatio = Math.max(1 - (this.current().finalDistance / this.current().rightAnswer.length), 0);
   }
 
 

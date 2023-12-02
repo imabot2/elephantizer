@@ -17,9 +17,15 @@ class MemoryTest {
 
 
   /**
+   * Process the memory test data when the test is over
+   */
+  processTestOver() { model.processTestOver(); }
+
+
+  /**
    * Process the last question
    */
-  process() { model.process(); }
+  processQuestionOver() { model.processQuestionOver(); }
 
 
   /**

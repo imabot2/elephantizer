@@ -33,10 +33,7 @@ class Model {
     answerBar.onSubmit((answer) => { this.onSubmitAnswer(answer); });
 
     // Set the callback function when the time is over
-    stopwatch.setTimeOverCallback(() => {
-      console.log('stopwatch');
-      this.onTestOver();
-    });
+    stopwatch.setTimeOverCallback(() => { this.onTestOver(); });
 
     // Set the overlay callback function (user click in the overlay or time is over)
     overlay.setClickEventCallback(() => { this.onPauseOver(); })
@@ -92,6 +89,9 @@ class Model {
    * @param {string} answer The current input in the answer bar
    */
   onAnswerInputChanges(answer) {
+
+    // Do nothing if the test is over
+    if (this.status === "over") return;
 
     // If the timer is not running, start the timers
     if (this.status === "ready") this.onStarted();
@@ -222,7 +222,7 @@ class Model {
     memoryTest.setFinalAnswer(answer);
     memoryTest.setTypingTime(this.wpmTimer.getTime().raw);
     memoryTest.setTime(this.questionTimer.getTime().raw);
-    memoryTest.process();
+    memoryTest.processQuestionOver();
 
     // Restart the timer
     this.questionTimer.restart();
@@ -273,6 +273,9 @@ class Model {
     overlay.stop();
     view.hideOverlay();
 
+    // Disable the answer bar
+    answerBar.disable();
+
     // Log test over analytics
     analytics.log("Memory test over");
 
@@ -280,7 +283,10 @@ class Model {
     view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))
       .then(() => {
         // Hide the timer
-        stopwatch.hide();
+        stopwatch.hide();        
+
+        // Process the data
+        memoryTest.processTestOver();
       })
   }
 

@@ -97,7 +97,6 @@ class View {
    * Show or hide the overlay 
    */
   setOverlayVisible(visible) {
-    console.log (visible);
     if (visible) this.showOverlay();
     else this.hideOverlay();
   }
