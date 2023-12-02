@@ -22,6 +22,21 @@ class View {
 
 
   /**
+   * Blink the timer
+   */
+  blink() {
+    this.stopwatchTextEl.classList.add('blink');
+  }
+
+
+  /**
+   * Stop blinking
+   */
+  unblink() {
+    this.stopwatchTextEl.classList.remove('blink');
+  }
+
+  /**
    * Set the time in the stopwatch
    * @param {integer} minutes minutes [0; 99]
    * @param {integer} seconds seconds [0; 59]

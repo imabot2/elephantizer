@@ -10,69 +10,8 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
-  /* transition: height 0.15s ease-out; */
-
 }
 
-
-#card-typing .overlay {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-  padding-bottom: 10%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-
-  cursor: default;
-
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);  
-}
-
-
-#card-typing .overlay:not(.hide) {
-  animation: overlayFadeIn 500ms linear forwards;
-}
-
-#card-typing .overlay.hide {
-  animation: overlayFadeOut 100ms linear forwards;
-}
-
-@keyframes overlayFadeOut {
-  0% {
-    opacity: 1;
-    height: 100vh;
-  }
-  99% { 
-    opacity: 0; 
-    height: 100vh;
-  }
-  100% {
-    opacity: 0;
-    height: 0;
-  }
-}
-
-@keyframes overlayFadeIn {
-  0% {
-    opacity: 0;
-    height: 0;
-  }
-  1% { 
-    opacity: 0; 
-    height: 100vh;
-  }
-  100% {
-    opacity: 1;
-    height: 100vh;
-  }
-}
 
 #card-typing .image-outer-0,
 #card-typing .image-outer-1 {
@@ -183,5 +122,5 @@
 #card-typing .answer-bar-container {
   display: flex;
   justify-content: center;
-  z-index: 2;
+
 }

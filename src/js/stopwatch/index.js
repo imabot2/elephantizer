@@ -24,6 +24,12 @@ class Stopwatch {
    * Start or restart the stopwatch
    */
   start() { model.start(); }
+
+
+  /**
+   * Pause the timer
+   */
+  pause() { model.pause(); }
   
 
   /**

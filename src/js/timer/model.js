@@ -8,17 +8,19 @@ export class Model {
 
 
   /**
-   * Constructor, initialise the timer
+   * Constructor, initialize the timer
+   * @param {integer} seconds Inital value of the timer in seconds
+   * @param {string} direction Direction of the timer [ "up" | "down" ]
    */
-  constructor() {
+  constructor(seconds, direction) {
 
     // Set default callback functions
     this.onTimerOverCallback = () => { };
     this.onUpdateCallback = () => { };
 
     // Store the default parameters
-    this.seconds = 60;
-    this.direction = "down";
+    this.seconds = seconds ?? 60;
+    this.direction = direction ?? "down";
 
     // Stop the timer at intialization
     this.duration = this.elapsedTime = 0;
@@ -26,6 +28,10 @@ export class Model {
 
     // Set the default value for the count down to zero seconds
     this.countDownThreshold = 0;
+
+    // If both parameters are set, initialize the timer    
+    if (seconds !== undefined && direction !== undefined) this.init(seconds, direction);
+    
   }
 
 
@@ -73,7 +79,7 @@ export class Model {
 
 
   /**
-   * Reset and restart the timer
+   * Reset the timer
    */
   reset() {
     this.init();

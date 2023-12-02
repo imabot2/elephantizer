@@ -7,9 +7,7 @@ export default class Timer {
   /**
    * Create a new timer object
    */
-  constructor() {
-    this.model = new Model();
-  }
+  constructor(seconds, direction) { this.model = new Model(seconds, direction); }
 
 
   /*

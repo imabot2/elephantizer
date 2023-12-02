@@ -30,7 +30,7 @@
 }
 
 
-.blink {
+#timer-container>span.blink {
   animation: keyframeBlink 1s infinite;
   animation-timing-function: ease-in-out;
   animation-fill-mode: both;

@@ -22,17 +22,17 @@ class Model {
    * Reset the stopwatch according to the current settings
    */
   reset() {
-    
+
     // Hide the stopwatch
     view.hide();
 
     // Initialize the stopwatch with the settings
-    if (settings.get('timerMode') === 'down') 
+    if (settings.get('timerMode') === 'down')
       this.timer.init(settings.get('duration'), 'down');
-    else 
+    else
       this.timer.init(0, 'up');
 
-      // Force first refresh
+    // Force first refresh
     this.refresh();
   }
 
@@ -43,9 +43,17 @@ class Model {
    */
   start() {
     this.timer.start();
+    view.unblink();
   }
 
 
+  /**
+   * Pause the timer
+   */
+  pause() {
+    this.timer.pause();
+    view.blink();
+  }
 
   /**
    * Refresh the timer in the view

@@ -11,8 +11,7 @@ import levenshtein from "Js/levenshtein";
 import correction from "Js/correction";
 import settings from "Js/settings";
 import memoryTest from "Js/memoryTest";
-import card from "Js/cardTyping";
-
+import overlay from "Js/overlay";
 
 /**
  * Model of the Core Typing module
@@ -30,12 +29,17 @@ class Model {
     // Set the callback function when the time is over
     stopwatch.setTimeOverCallback(() => { this.onTestOver(); });
 
-    // Start the test when the user click on the overlay or press a key
-    card.setOverlayEventCallback(() => { this.onStarted(); })
+    // Set the overlay callback function (user click in the overlay or time is over)
+    overlay.setClickEventCallback(() => { this.onStarted(); })
+    overlay.setTimeOverEventCallback(() =>  { this.onPause(); })
 
     // Initialize the timer used for each question (total time & wpm)
     this.questionTimer = new Timer();
     this.wpmTimer = new Timer();
+
+
+
+
   }
 
 
@@ -66,14 +70,17 @@ class Model {
     this.prepareNextQuestion();
     this.switchToNextQuestion();
 
+    // Reset the overlay timer
+    overlay.resetTimer();
+
     if (auth.isLogged()) {
       // If the user is logged, show the overlay to start the timer when the user start typing
-      card.showOverlay();
+      overlay.show();      
       answerBar.disable();
     }
     else {
       // User is not logged, do not show the overlay
-      card.hideOverlay();
+      overlay.hide();
       answerBar.enable();
     }
 
@@ -91,8 +98,11 @@ class Model {
     // If the timer is not running, start the timers
     if (this.status === "ready") this.onStarted();
 
+
+
     // Start the WPM timer (only apply on first character)
     this.wpmTimer.start();
+    overlay.restartTimer();
 
     // Compute the Levenshtein distance for checking the answer
     // The distanceCheck must be calculated BEFORE the truncated distance 
@@ -143,7 +153,8 @@ class Model {
     this.questionTimer.start();
 
     // Hide the overlay 
-    card.hideOverlay();
+    overlay.hide();
+    overlay.restartTimer();
 
     // Enable the answer bar
     answerBar.enable();
@@ -336,6 +347,15 @@ class Model {
     correction.setCorrectionHTML('');
   }
 
+  /**
+   * 
+   */
+  onPause() {
+    this.status = "paused";
+    overlay.show();
+    overlay.resetTimer();
+    stopwatch.pause();
+  }
 }
 
 
