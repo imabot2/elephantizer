@@ -25,6 +25,7 @@ export class Model {
     // Stop the timer at intialization
     this.duration = this.elapsedTime = 0;
     this.isRunning = false;
+    this.isStarted = false;
 
     // Set the default value for the count down to zero seconds
     this.countDownThreshold = 0;
@@ -34,6 +35,13 @@ export class Model {
     
   }
 
+  /**
+   * 
+   * @returns True if the timer has already been started
+   */
+  hasAlreadyStarted() {
+    return this.isStarted;
+  }
 
   /**
    * Set the callback function called when the timer is over
@@ -63,6 +71,7 @@ export class Model {
     // Stop current timeout
     clearTimeout(this.timeout);
     this.isRunning = false;
+    this.isStarted = false;
 
     // Store the new parameters
     this.seconds = seconds ?? this.seconds;
@@ -191,8 +200,9 @@ export class Model {
     // Dispatch to the real function acccording to timer direction
     if (this.countDown) this.startCountdown(); else this.startCountUp();
 
-    // The timer is now running
+    // The timer is now running and started
     this.isRunning = true;
+    this.isStarted = true;
   }
 
 

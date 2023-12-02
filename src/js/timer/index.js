@@ -3,7 +3,7 @@ import { Model } from "./model.js";
 
 
 export default class Timer {
-  
+
   /**
    * Create a new timer object
    */
@@ -23,7 +23,7 @@ export default class Timer {
    */
   reset() { this.model.reset(); }
 
-  
+
   /**
    * Reset and restart the timer
    */
@@ -39,7 +39,20 @@ export default class Timer {
    *  Pause the timer
    */
   pause() { this.model.pause(); }
+
+
+  /**
+   *  Pause the timer
+   */
+  stop() { this.model.reset(); }
+
   
+  /**
+   * 
+   * @returns True if the timer has already been started
+   */
+  hasAlreadyStarted() { this.model.hasAlreadyStarted(); }
+
 
   /**
    * Get the current time splitted in minutes, seconds dozens

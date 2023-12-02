@@ -4,7 +4,7 @@ class Model {
   constructor() {
 
     // Create and configure the timer for the overlay
-    this.overlayTimer = new Timer(10, 'down');
+    this.overlayTimer = new Timer(15, 'down');
 
     // Set the callback when the timer is over
     this.timeOverCallback = () => {};
@@ -25,6 +25,12 @@ class Model {
     this.overlayTimer.restart();
   }
 
+  /**
+   * Stop the overlay timer
+   */
+  stop() {
+    this.overlayTimer.stop();
+  }
 
   /**
    * Set the callback function called when the overlay timer is over

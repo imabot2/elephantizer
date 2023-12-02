@@ -56,6 +56,14 @@ class Model {
   }
 
   /**
+   * Stop the timer
+   */
+  stop() {
+    this.timer.stop();
+  }
+
+
+  /**
    * Refresh the timer in the view
    * It time is not provided, get current time from the timer
    * @param {object} time The time object with minutes, seconds ...

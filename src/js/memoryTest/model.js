@@ -79,6 +79,7 @@ class Model {
     // Compute the weighted global score for this question
     console.log ('TODO revoir le calcul du score avec le temps avant le premier caractère')
     console.log (this.questions)
+    console.log (this.current().time-this.current().typingTime)
     //qStat.answerScore = 0.40 * qStat.ratioDistance + 0.40 * qStat.ratioMaxDistance + 0.2 * qStat.ratioWpm;
   }
 

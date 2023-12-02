@@ -18,6 +18,11 @@ class Overlay {
    */
   restartTimer() { model.restartTimer(); }
 
+  /**
+   * Stop the overlay timer
+   */
+  stop() { model.stop(); }
+
 
   /**
    * Hide the overlay

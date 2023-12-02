@@ -30,6 +30,12 @@ class Stopwatch {
    * Pause the timer
    */
   pause() { model.pause(); }
+
+
+  /**
+   * Stop the timer
+   */
+  stop() { model.stop(); }
   
 
   /**

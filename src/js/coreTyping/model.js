@@ -13,11 +13,17 @@ import settings from "Js/settings";
 import memoryTest from "Js/memoryTest";
 import overlay from "Js/overlay";
 
+
 /**
  * Model of the Core Typing module
  */
 class Model {
 
+  /**
+   * Constructor
+   * - set the callback function
+   * - create the timers
+   */
   constructor() {
 
     // Set callback function when the answer input changed
@@ -27,19 +33,18 @@ class Model {
     answerBar.onSubmit((answer) => { this.onSubmitAnswer(answer); });
 
     // Set the callback function when the time is over
-    stopwatch.setTimeOverCallback(() => { this.onTestOver(); });
+    stopwatch.setTimeOverCallback(() => {
+      console.log('stopwatch');
+      this.onTestOver();
+    });
 
     // Set the overlay callback function (user click in the overlay or time is over)
-    overlay.setClickEventCallback(() => { this.onStarted(); })
-    overlay.setTimeOverEventCallback(() =>  { this.onPause(); })
+    overlay.setClickEventCallback(() => { this.onPauseOver(); })
+    overlay.setTimeOverEventCallback(() => { this.onPause(); })
 
     // Initialize the timer used for each question (total time & wpm)
     this.questionTimer = new Timer();
     this.wpmTimer = new Timer();
-
-
-
-
   }
 
 
@@ -76,7 +81,7 @@ class Model {
 
     if (auth.isLogged()) {
       // If the user is logged, show the overlay to start the timer when the user start typing
-      overlay.show();      
+      overlay.show();
       answerBar.disable();
     }
     else {
@@ -137,7 +142,7 @@ class Model {
    * - Starts the question timer
    */
   onStarted() {
-
+    console.log('on started');
     // Test is running
     this.status = "running";
     analytics.log("Start memory test", Object.assign({}, selection.current()));
@@ -151,7 +156,7 @@ class Model {
     this.questionTimer.init(0, "up");
     this.questionTimer.start();
 
-    // Resart the overlay and change the message
+    // Restart the overlay and change the message
     overlay.hide();
     overlay.restartTimer();
     overlay.setContinueMessage();
@@ -223,7 +228,7 @@ class Model {
    * - Update the statistics   
    */
   processQuestionOver(answer, distance) {
-
+    console.log('time over')
     // Store the final data and compute question statistics    
     memoryTest.updateMaxDistance(distance);
     memoryTest.setFinalDistance(distance);
@@ -274,6 +279,13 @@ class Model {
     // Update status and disable input bar    
     this.status = "over";
 
+    // Stop the stopwatch
+    stopwatch.stop();
+
+    // Stop the overlay 
+    overlay.stop();
+    overlay.hide();
+
     // Disable input bar
     answerBar.disable();
 
@@ -286,8 +298,6 @@ class Model {
 
         // Hide the timer
         stopwatch.hide();
-
-        console.log('Test Over');
       })
   }
 
@@ -348,13 +358,56 @@ class Model {
   }
 
   /**
-   * 
+   * Callback function called when the memory test enters in pause mode
    */
   onPause() {
+
+    // Pause the memory test
     this.status = "paused";
+
+    // Show the overlay
     overlay.show();
     overlay.resetTimer();
+
+    // Pause the timer
     stopwatch.pause();
+
+    // Pause the timers
+    console.log(this.questionTimer.getTime())
+    console.log(this.wpmTimer.getTime())
+    this.wpmTimer.pause();
+    this.questionTimer.pause();
+  }
+
+
+
+  onPauseOver() {
+
+    // If the test is over, do nothing
+    if (this.status === "over") return;
+
+    // If the memory test is not started, starts the memory test
+    if (this.status === "ready") { this.onStarted(); return; }
+
+    // Restarts and show the stopwatch
+    stopwatch.start();
+
+    // Restart the overlay
+    overlay.hide();
+    overlay.restartTimer();
+
+    // If the user already typed someting, restart the timer
+    if (this.wpmTimer.hasAlreadyStarted()) this.wpmTimer.start();
+    
+    // Restart the question timer
+    this.questionTimer.start();
+
+    // Enable the answer bar
+    answerBar.enable();
+
+    // Test was in pause, it is now running    
+    this.status = "running";
+
   }
 }
 
