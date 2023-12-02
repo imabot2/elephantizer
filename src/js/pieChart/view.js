@@ -1,9 +1,9 @@
 import "./pieChart.css";
 import htmlPieChart from "./pieChart.html";
-import * as bootstrap from "bootstrap";
 import str2dom from "doma";
 import Chart from 'chart.js/auto';
 import ease from "Js/ease";
+import settings from "Js/settings";
 
 export default class View {
 
@@ -30,7 +30,7 @@ export default class View {
     // Current ratio of the pie chart
     this.ratio = 0;
 
-
+    // Create the chart
     this.chart = new Chart(this.canvasEl, {
       type: 'doughnut',
       data: {
@@ -48,7 +48,7 @@ export default class View {
       options: {
         cutout: '70%',
         layout: { padding: 10 },
-        animation: { duration: 0, animateRotate: true, animateScale: false },
+        animation: { duration: 0, animateRotate: true, animateScale: false, easing: 'easeOutQuart' },
         plugins: {
           legend: { display: true },
           tooltip: {
@@ -61,13 +61,6 @@ export default class View {
         },
       }
     });
-
-    setTimeout(() => {
-      this.enableAnimation();
-      this.setTooltipLabels('first', 'second')
-      this.setRatio(0.75);
-    }, 500)
-
   }
 
 
@@ -80,9 +73,12 @@ export default class View {
     this.containerEl.querySelector('.unit').textContent = unit;
   }
 
+
   /**
    * Update the pie chart with the new ratio
-   * @param {float} ratio Ratio to display in the pie chart
+   * @param {number} ratio New ratio in range [0; 1]
+   * @param {number} from Initial value displayed in the label
+   * @param {number} to Final value displayed in the label
    */
   setRatio(ratio, from, to) {
 
@@ -101,11 +97,22 @@ export default class View {
     parent.append(this.containerEl);
   }
 
+  
+  /**
+   * // Set the colors of the pie chart
+   * @param {string} mainColor Color of the first data in the dataset
+   * @param {string} secondaryColor Color of the second data in the dataset
+   */
+  setColors(mainColor, secondaryColor) {
+    this.chart.data.datasets[0].backgroundColor = [mainColor, secondaryColor];
+    this.chart.data.datasets[0].hoverBackgroundColor = [mainColor, secondaryColor];
+    this.chart.update();
+  }
 
   /**
    * Set labels for the pie chart (for the tooltips)
    * @param {string} mainLabel Label of the first data in the dataset
-   * @param {*} secondaryLabel Label of the second data in the dataset
+   * @param {string} secondaryLabel Label of the second data in the dataset
    */
   setTooltipLabels(mainLabel, secondaryLabel) {
     this.labels = [mainLabel, secondaryLabel];
@@ -123,7 +130,7 @@ export default class View {
       this.valueText.innerText = Math.round(100 * this.ratio);
       return;
     }
-    ease.outQuadProgress(this.valueText, from, to);
+    ease.outQuartProgress(this.valueText, from, to);
   }
 
 
@@ -157,8 +164,13 @@ export default class View {
    * Enable animation in the pie chart
    */
   enableAnimation() {
+
+    // If the animation time is zero, do not enable animations
+    if (settings.get('resultAnimationDuration') === 0) { this.disableAnimation(); return; }
+
+    // Enable animations
     this.animation = true;
-    this.chart.options.animation.duration = 1000;
+    this.chart.options.animation.duration = settings.get('resultAnimationDuration');
     this.chart.update();
   }
 

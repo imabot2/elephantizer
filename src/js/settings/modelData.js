@@ -37,6 +37,9 @@ export default class ModelData {
       // Duration of the right answer display
       rightAnswerDuration: 1000,
 
+      // Duration of the animation when the results are shown
+      resultAnimationDuration: 500,
+
 
     }
 

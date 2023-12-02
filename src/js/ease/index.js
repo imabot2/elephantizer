@@ -13,7 +13,7 @@ class Ease {
    * @param {boolean} sign When true the sign is always displayed
    */
 
-  outQuadProgress(element, from, to, digits, sign) { return model.outQuadProgress(element, from, to, digits, sign); }
+  outQuartProgress(element, from, to, digits, sign) { return model.outQuartProgress(element, from, to, digits, sign); }
 }
 
 

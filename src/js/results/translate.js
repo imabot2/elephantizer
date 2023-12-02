@@ -6,13 +6,17 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    score: "Score",
-    
+    scoreTitle: "Score",
+    memorizationTitle: "Memorization",
+    memorizationPieChartMainTooltips: "Memorization Score",
+    memorizationPieChartRoomProgressTooltip: "Room For Progress",
   },
 
   fr: {
-    score: "Score",
-    
+    scoreTitle: "Score",
+    memorizationTitle: "Mémorisation",
+    memorizationPieChartMainTooltips: "Score de mémorisation",
+    memorizationPieChartRoomProgressTooltip: "Marge de progression",
   },
 
 }
