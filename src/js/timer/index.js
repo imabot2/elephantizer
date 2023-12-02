@@ -53,6 +53,12 @@ export default class Timer {
    */
   hasAlreadyStarted() { this.model.hasAlreadyStarted(); }
 
+  /**
+   * Return the elapsed time (pauses are not included)
+   * @returns {integer} The elapsed time in milliseconds
+   */
+  getElapsedTime() { return this.model.getElapsedTime(); }
+
 
   /**
    * Get the current time splitted in minutes, seconds dozens

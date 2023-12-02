@@ -77,7 +77,7 @@ class Model {
     overlay.setStartMessage();
 
     // Show the overlay at start up only if user is logged
-    view.setOverlayVisible(auth.isLogged()); 
+    view.setOverlayVisible(auth.isLogged());
 
     // Memory test is ready
     this.status = "ready";
@@ -215,7 +215,7 @@ class Model {
    * - Update the statistics   
    */
   processQuestionOver(answer, distance) {
-    console.log('time over')
+
     // Store the final data and compute question statistics    
     memoryTest.updateMaxDistance(distance);
     memoryTest.setFinalDistance(distance);
@@ -266,6 +266,9 @@ class Model {
     // Update status and disable input bar    
     this.status = "over";
 
+    // Store the test duration
+    memoryTest.setTestDuration(stopwatch.getElapsedTime());
+
     // Stop the stopwatch
     stopwatch.stop();
 
@@ -283,7 +286,7 @@ class Model {
     view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))
       .then(() => {
         // Hide the timer
-        stopwatch.hide();        
+        stopwatch.hide();
 
         // Process the data
         memoryTest.processTestOver();
@@ -388,7 +391,7 @@ class Model {
 
     // If the user already typed someting, restart the timer
     if (this.wpmTimer.hasAlreadyStarted()) this.wpmTimer.start();
-    
+
     // Restart the question timer
     this.questionTimer.start();
 

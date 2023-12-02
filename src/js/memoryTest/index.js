@@ -83,6 +83,11 @@ class MemoryTest {
   setTime(time_ms) { model.setTime(time_ms); }
 
 
+  /**
+   * Store the test duration in milliseconds
+   * @param {integer} time_ms The test duration in milliseconds
+   */
+  setTestDuration(time_ms) { model.setTestDuration(time_ms); }
 
 
 }

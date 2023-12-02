@@ -35,6 +35,9 @@ export class Model {
     
   }
 
+
+  
+
   /**
    * 
    * @returns True if the timer has already been started
@@ -170,7 +173,7 @@ export class Model {
 
 
   /**
-   * Return the elapsed time (pauses are considered)
+   * Return the elapsed time (pauses are not included)
    * @returns {integer} The elapsed time in milliseconds
    */
   getElapsedTime() {

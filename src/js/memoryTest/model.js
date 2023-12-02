@@ -12,6 +12,7 @@ class Model {
     // Initialize the memory test at startup
     this.meta = {};
     this.questions = [];
+    this.performances = {};
   }
 
 
@@ -27,7 +28,7 @@ class Model {
     // - current selection
     this.meta = {
       'mode': mode,
-      'selection': selection.current(),
+      'selection': selection.current(),                  
     }
 
     // Memory test is empty at startup
@@ -63,10 +64,27 @@ class Model {
    * Process the memory test data when the test is over
    */
   processTestOver() {
-
+    console.log (this.questions)
     // Remove the last question if not answered
     if (this.current().memorizationRatio === undefined) this.questions.pop();
-    console.log (this.questions);
+
+
+    let nbCharacters = 0;
+    let typingtime = 0;
+    let memorizationRatio = 0;
+    
+    this.questions.forEach((question) => {
+      console.log(question.memorizationRatio, question.wpm);
+      nbCharacters += this.current().finalAnswer.trim().length + 1;
+      memorizationRatio+= question.memorizationRatio;
+      typingtime+= question.typingTime;
+    })
+
+    this.performances.wpm =  12000 * (nbCharacters / typingtime);
+    this.performances.memorizationRatio = memorizationRatio / this.questions.length;
+
+    console.log (this.performances);
+    console.log (this.meta)
 
   }
 
@@ -85,10 +103,9 @@ class Model {
 
 
   /**
-   * Compute the global score ratio
+   * Compute the global memorization ratio 
    */
   computeMemorizationRatio() {
-    console.log (this.current())
     this.current().memorizationRatio = this.current().timeToFirstKeyRatio * this.current().maxDistanceRatio * this.current().finalDistanceRatio;
   }
 
@@ -181,6 +198,15 @@ class Model {
     this.current().time = time_ms;
   }
 
+
+  /**
+   * Store the test duration in milliseconds
+   * @param {integer} time_ms The test duration in milliseconds
+   */
+  setTestDuration(time_ms) {
+    this.meta.duration = time_ms;
+  }
+  
 
   /**
    * Get the last ans current question appended in the memory test

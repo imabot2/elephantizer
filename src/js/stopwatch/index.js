@@ -36,7 +36,14 @@ class Stopwatch {
    * Stop the timer
    */
   stop() { model.stop(); }
-  
+
+
+  /**
+   * Returns the elapsed time since the beginning  (pauses are not included)
+   * @returns The elapsed time since the beginning in milliseconds
+   */
+  getElapsedTime() { return model.getElapsedTime(); }
+
 
   /**
    * Show the stopwatch with the animation

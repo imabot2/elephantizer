@@ -64,6 +64,14 @@ class Model {
 
 
   /**
+   * Returns the elapsed time since the beginning  (pauses are not included)
+   * @returns The elapsed time since the beginning in milliseconds
+   */
+  getElapsedTime() {
+    return this.timer.getElapsedTime();
+  }
+
+  /**
    * Refresh the timer in the view
    * It time is not provided, get current time from the timer
    * @param {object} time The time object with minutes, seconds ...
@@ -76,6 +84,7 @@ class Model {
     else
       view.setValue(time.min, time.sec);
   }
+
 
   /**
    * Callback function called when the timer must be updated
