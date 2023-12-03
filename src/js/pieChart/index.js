@@ -1,7 +1,9 @@
 import View from "./view.js";
 
 
-
+/**
+ * Module for the Pie Charts
+ */
 export default class PieChart {
 
   constructor(parent, unit) { this.view = new View(parent, unit); }
@@ -36,7 +38,7 @@ export default class PieChart {
    * @param {number} from Initial value displayed in the label
    * @param {number} to Final value displayed in the label
    */
-  setRatio(ratio, from, to) { this.view.setRatio(ratio, from, to); }
+  setRatio(ratio, from, to, digit) { this.view.setRatio(ratio, from, to, digit); }
 
 
   /**

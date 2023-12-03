@@ -68,6 +68,9 @@ class View {
 
     // Update the test duration in the settings
     this.settingsEl.querySelector(`#settings-rightAnswerDuration-${model.current.rightAnswerDuration}`).checked = true;
+
+    // Update the results animation duration in the settings
+    this.settingsEl.querySelector(`#settings-resultsAnimationDuration-${model.current.resultsAnimationDuration}`).checked = true;
   }
 
 

@@ -18,14 +18,26 @@
   height: clamp(50px, 100px, 4vmin);
 }
 
+#results-modal .info-tooltip {
+  color: var(--main-blue);
+  font-size: 0.8em;
+}
+
+
 #results-modal .title {
   font-family: var(--main-title-font);
   font-size: 1.2em;
 }
 
+#results-modal .wpm .value,
 #results-modal .score .value {
   font-family: var(--main-title-font);
   font-size: 4em;
+}
+
+#results-modal .wpm .unit {
+  font-family: var(--main-title-font);
+  font-size: 2em;
 }
 
 /* The memorization score is bigger */

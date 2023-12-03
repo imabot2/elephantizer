@@ -27,8 +27,14 @@ class View {
     document.body.append(this.modalEl);
     this.modal = new bootstrap.Modal(this.modalEl);
 
+    // Enable the tooltips
+    const tooltipTriggerList = this.modalEl.querySelectorAll('[data-bs-toggle="tooltip"]');
+    [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, { html: true }));
+
     // Get the elements from DOM
     this.scoreEl = this.modalEl.querySelector('.score .value');
+    this.wpmEl = this.modalEl.querySelector('.wpm .value');
+
 
     // Set the callback function when the modal is shown
     this.modalEl.addEventListener('show.bs.modal', () => { this.onModalShow(); });
@@ -39,9 +45,18 @@ class View {
     this.pieMemorization = new PieChart(this.modalEl.querySelector('.pie-memorization'));
     this.pieMemorization.setUnit('%');
     this.pieMemorization.setColors(colors.red, colors.lightGrey);
-    this.pieMemorization.setTooltipLabels(translate.memorizationPieChartMainTooltips, translate.memorizationPieChartRoomProgressTooltip);
 
+    this.pieResponseTime = new PieChart(this.modalEl.querySelector('.pie-response-time'));
+    this.pieResponseTime.setUnit('s');
+    this.pieResponseTime.setColors(colors.blue, colors.lightGrey);
 
+    this.pieRightAnswers = new PieChart(this.modalEl.querySelector('.pie-right-answers'));
+    this.pieRightAnswers.setUnit('%');
+    this.pieRightAnswers.setColors(colors.green, colors.lightGrey);
+
+    this.pieAccuracy = new PieChart(this.modalEl.querySelector('.pie-accuracy'));
+    this.pieAccuracy.setUnit('%');
+    this.pieAccuracy.setColors(colors.orange, colors.lightGrey);
   }
 
 
@@ -70,24 +85,27 @@ class View {
   reset() {
     // Reset score and progress
     this.scoreEl.innerText = 0;
+    this.wpmEl.innerText = 0;
     //this.resultsProgressEl.innerText = 0;
 
 
     // Reset memory score pie chart
     this.pieMemorization.disableAnimation();
     this.pieMemorization.setRatio(0);
-    /*
+
+    // Reset response time pie chart
+    this.pieResponseTime.disableAnimation();
+    this.pieResponseTime.setRatio(0);
+
+
     // Reset right answers pie chart
-    this.pieCorrect.disableAnimation();
-    this.pieCorrect.setRatio(0);
-    
+    this.pieRightAnswers.disableAnimation();
+    this.pieRightAnswers.setRatio(0);
+
     // Reset accuracy pie chart
     this.pieAccuracy.disableAnimation();
     this.pieAccuracy.setRatio(0);
-    
-    // Reset wpm pie chart
-    this.pieWpm.disableAnimation();
-    this.pieWpm.setRatio(0);
+    /*
     
     // Populate cards
     this.populateCards();
@@ -101,26 +119,26 @@ class View {
   update() {
 
     // Update the score and progress
-    ease.outQuartProgress(this.scoreEl, 0, model.data.score)
+    ease.outQuartProgress(this.scoreEl, 0, model.data.score);
+    ease.outQuartProgress(this.wpmEl, 0, model.data.wpm);
     //ease.outQuartProgress(this.progressEl, 0, 100 * this.results.progress, (this.results.progress >= 0.1) ? 1 : 2, true)
 
     // Update memory score pie chart
     this.pieMemorization.enableAnimation();
     this.pieMemorization.setRatio(model.data.memorizationRatio);
-    /*
-          // Update right answers pie chart
-          this.pieCorrect.enableAnimation();
-          this.pieCorrect.setRatio(this.results.distance);
-    
-          // Update accuracy pie chart
-          this.pieAccuracy.enableAnimation();
-          this.pieAccuracy.setRatio(this.results.maxDistance);
-    
-          // Update wpm pie chart
-          this.pieWpm.enableAnimation();
-          this.pieWpm.setRatio(this.results.ratioWpm, 0, this.results.wpm);
-    
-          */
+
+    // Update right answers pie chart
+    this.pieResponseTime.enableAnimation();
+    this.pieResponseTime.setRatio(model.data.timeToFirstKeyRatio, 0, model.data.timeToFirstKey_sec, 1);
+
+    // Update right answers pie chart
+    this.pieRightAnswers.enableAnimation();
+    this.pieRightAnswers.setRatio(model.data.finalDistanceRatio);
+
+    // Update accuracy pie chart
+    this.pieAccuracy.enableAnimation();
+    this.pieAccuracy.setRatio(model.data.maxDistanceRatio);
+
 
   }
 
@@ -130,8 +148,7 @@ class View {
    */
   onModalShow() {
 
-
-    if (settings.get('resultAnimationDuration') === 0)
+    if (settings.get('resultsAnimationDuration') === 0)
       // If animation are disable in settings, do not animate
       this.update();
     else

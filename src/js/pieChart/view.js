@@ -30,6 +30,9 @@ export default class View {
     // Current ratio of the pie chart
     this.ratio = 0;
 
+    // No tooltip at startup
+    this.labels = ['', ''];
+
     // Create the chart
     this.chart = new Chart(this.canvasEl, {
       type: 'doughnut',
@@ -80,13 +83,13 @@ export default class View {
    * @param {number} from Initial value displayed in the label
    * @param {number} to Final value displayed in the label
    */
-  setRatio(ratio, from, to) {
+  setRatio(ratio, from, to, digit = 0) {
 
     let previousRatio = this.ratio;
     this.ratio = ratio;
     this.chart.data.datasets[0].data = [this.ratio, 1 - this.ratio];
     this.chart.update();
-    this.updateValue(from ?? 100 * previousRatio, to ?? 100 * this.ratio);
+    this.updateValue(from ?? 100 * previousRatio, to ?? 100 * this.ratio, digit);
   }
 
   /**
@@ -124,13 +127,13 @@ export default class View {
    * @param {float} from Initial value of the ratio
    * @param {float} to Final value of the ratio
    */
-  updateValue(from, to) {
+  updateValue(from, to, digit) {
     // If there is an animation, increase percentage in the label
     if (!this.animation) {
-      this.valueText.innerText = Math.round(100 * this.ratio);
+      this.valueText.innerText = (100 * this.ratio).toFixed(digit);
       return;
     }
-    ease.outQuartProgress(this.valueText, from, to);
+    ease.outQuartProgress(this.valueText, from, to, digit);
   }
 
 
@@ -166,11 +169,11 @@ export default class View {
   enableAnimation() {
 
     // If the animation time is zero, do not enable animations
-    if (settings.get('resultAnimationDuration') === 0) { this.disableAnimation(); return; }
+    if (settings.get('resultsAnimationDuration') === 0) { this.disableAnimation(); return; }
 
     // Enable animations
     this.animation = true;
-    this.chart.options.animation.duration = settings.get('resultAnimationDuration');
+    this.chart.options.animation.duration = settings.get('resultsAnimationDuration');
     this.chart.update();
   }
 

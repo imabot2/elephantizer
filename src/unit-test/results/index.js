@@ -5,8 +5,15 @@ import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap icons
 import bootloader from "Js/bootloader/index.js"; // Page loader
 import "Js/signup"; // For user registration
 import "Js/menu"; // For burger menu
+
+import auth from "Js/auth";
+import settings from "Js/settings";
 import results from "Js/results";
 
+
+
+await auth.waitForAuthCompleted();
+await settings.init();
 
 // Artificialy add data in the results model
 import resultsModel from "Js/results/model.js";

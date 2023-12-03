@@ -1,7 +1,7 @@
 <div id="results-modal" class="modal modal-xl" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content mb-5">
-     
+
 
       <div class="modal-header pb-0">
         <div class="w-100 d-flex justify-content-center align-items-center">
@@ -20,21 +20,36 @@
           <div class="row text-center">
 
             <div class="score col-lg-4 pb-2 d-flex justify-content-between align-items-center flex-column">
-              <div class="title"><%=scoreTitle%></div>
+              <div class="title">
+                <%=scoreTitle%>
+                  <i class="bi bi-info-circle ms-2 info-tooltip" data-bs-toggle="tooltip"
+                    data-bs-title="<%=scoreTitleTooltip%>"></i>
+              </div>
               <div class="value"></div>
               <div></div>
             </div>
 
             <div class="pie-memorization col-lg-4 pb-2">
-              <div class="title"><%=memorizationTitle%></div>              
+              <div class="title">
+                <%=memorizationTitle%>
+                <i class="bi bi-info-circle ms-2 info-tooltip" data-bs-toggle="tooltip" data-bs-title="<%=memorizationTitleTooltip%>"></i>
+              </div>
             </div>
 
-            <div id="results-progress"
-              class="col-lg-4 pb-2 d-flex justify-content-between align-items-center flex-column">
-              <div class="title">Progress</div>
-              <div><span class="value">TODO</span><span class="unit">%</span></div>
+            <div class="wpm col-lg-4 pb-2 d-flex justify-content-between align-items-center flex-column">
+              <div class="title">
+                <%=wpmTitle%>
+                  <i class="bi bi-info-circle ms-2 info-tooltip" data-bs-toggle="tooltip"
+                    data-bs-title="<%=wpmTitleTooltip%>"></i>
+              </div>
+              <div>
+                <span class="value"></span>
+                <span class="unit">wpm</span>
+              </div>
               <div></div>
             </div>
+
+            
           </div>
           <!--#endregion Scores and Progress results -->
           <hr>
@@ -42,36 +57,27 @@
           <!--#region Pie charts -->
           <div class="row text-center">
 
-            <div id="results-pie-correct" class="col-lg-4 py-2 pie-chart">
-              <div class="title">Right Answers</div>
-              <div class="d-flex justify-content-center pie-chart-container">
-                <canvas></canvas>
-                <div class="label">
-                  <div><span class="value">0</span><span class="unit">%</span></div>
-                </div>
+            <div class="pie-response-time col-lg-4 pb-2">
+              <div class="title">
+                <%=responseTimeTitle%>
+                <i class="bi bi-info-circle ms-2 info-tooltip" data-bs-toggle="tooltip" data-bs-title="<%=responseTimeTitleTooltip%>"></i>
               </div>
             </div>
 
-            <div id="results-pie-accuracy" class="col-lg-4 py-2 pie-chart">
-              <div class="title">Accuracy</div>
-              <div class="d-flex justify-content-center pie-chart-container">
-                <canvas></canvas>
-                <div class="label">
-                  <div><span class="value">0</span><span class="unit">%</span></div>
-                </div>
+            <div class="pie-right-answers col-lg-4 pb-2">
+              <div class="title">
+                <%=rightAnswersTitle%>
+                <i class="bi bi-info-circle ms-2 info-tooltip" data-bs-toggle="tooltip" data-bs-title="<%=rightAnswersTitleTooltip%>"></i>
               </div>
             </div>
 
-
-            <div id="results-pie-wpm" class="col-lg-4 py-2 pie-chart">
-              <div class="title">Words Per Minute</div>
-              <div class="d-flex justify-content-center pie-chart-container">
-                <canvas></canvas>
-                <div class="label">
-                  <div><span class="value">0</span><span class="unit">wpm</span></div>
-                </div>
+            <div class="pie-accuracy col-lg-4 pb-2">
+              <div class="title">
+                <%=accuracyTitle%>
+                <i class="bi bi-info-circle ms-2 info-tooltip" data-bs-toggle="tooltip" data-bs-title="<%=accuracyTitleTooltip%>"></i>
               </div>
             </div>
+
 
           </div>
           <!--#endregion Pie charts -->

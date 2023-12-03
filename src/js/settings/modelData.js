@@ -38,11 +38,9 @@ export default class ModelData {
       rightAnswerDuration: 1000,
 
       // Duration of the animation when the results are shown
-      resultAnimationDuration: 500,
-
-
+      resultsAnimationDuration: 750,
     }
-
+    
     // At startup, set the current settings as the default settings
     this.current = structuredClone(this.default);
   }

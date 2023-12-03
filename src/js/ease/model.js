@@ -19,7 +19,7 @@ class Model {
     let counter = 0;
     let delta = to - from;
 
-    const duration = settings.get('resultAnimationDuration');
+    const duration = settings.get('resultsAnimationDuration');
     const sampleTime = 20;
     const steps = Math.round(duration/sampleTime);
 

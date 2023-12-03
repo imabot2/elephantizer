@@ -61,6 +61,14 @@ const translations = {
     rightAnswerDuration3000: "3s",
 
 
+    resultsAnimationDuration: "Results Animation",
+    resultsAnimationDurationLabel: "Select animation duration when the results are shown.",
+    resultsAnimationDuration0ms: "Off",
+    resultsAnimationDuration500ms: "500ms",
+    resultsAnimationDuration750ms: "750ms",
+    resultsAnimationDuration1000ms: "1s",
+
+
     error5000: 'Error #5000',
     error5000Message: 'An unknow error occurred while saving your settings. Please check your internet connection or try again later.',
 
@@ -126,6 +134,13 @@ const translations = {
     rightAnswerDuration2000: "2s",
     rightAnswerDuration2500: "2,5s",
     rightAnswerDuration3000: "3s",
+
+    resultsAnimationDuration: "Animation des résulats",
+    resultsAnimationDurationLabel: "Sélectionnez la durée de l'animation lorsque les résultats sont affichés.",
+    resultsAnimationDuration0ms: "Off",
+    resultsAnimationDuration500ms: "500ms",
+    resultsAnimationDuration750ms: "750ms",
+    resultsAnimationDuration1000ms: "1s",
     
     error5000: 'Erreur 5000',
     error5000Message: "Une erreur inconnue s'est produite lors de la sauvegarde de vos paramètres. Veuillez vérifier votre connexion internet ou réessayer plus tard.",

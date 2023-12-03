@@ -116,9 +116,6 @@ class Model {
   }
 
 
-
-
-
   /**
    * Update the maximum distance for the current question
    * @param {integer} distance The current Levenshtein distance
