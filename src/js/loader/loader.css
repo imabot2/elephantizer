@@ -1,0 +1,73 @@
+#loader {
+  position: absolute;
+  top: 0;
+  left: 0; 
+
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  overflow: hidden;
+
+  /* background: rgb(64, 64, 64, 1); */
+  background-image: linear-gradient(rgba(128, 128, 128, 0.5), rgba(64, 64, 64, 0.5));
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+
+#loader:not(.hide) {
+  animation: overlayFadeIn 100ms linear forwards;
+  cursor: wait;
+}
+
+#loader.hide {
+  animation: overlayFadeOut 100ms linear forwards;
+}
+
+
+@keyframes overlayFadeOut {
+  0% {
+    opacity: 1;
+    height: 100vh;
+  }
+
+  99% {
+    opacity: 0;
+    height: 100vh;
+  }
+
+  100% {
+    opacity: 0;
+    height: 0;
+  }
+}
+
+@keyframes overlayFadeIn {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+
+  1% {
+    opacity: 0;
+    height: 100vh;
+  }
+
+  100% {
+    opacity: 1;
+    height: 100vh;
+  }
+}
+
+
+#loader > img {
+  height: 30vh;
+  max-height: 600px;
+  object-fit: contain;
+}
+

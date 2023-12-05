@@ -8,13 +8,13 @@ import settings from "Js/settings";
 import statistics from "Js/statistics";
 import selection from "Js/selection";
 import core from "Js/core";
-
+import menu from "Js/menu";
 
 
 // On sign in, load statistics
 document.body.addEventListener('auth-sign-in', async () => {
   await settings.startListeningDB();
-  await statistics.startListeningDB();
+  await statistics.startListeningDB();  
   core.reset();
 });
 
@@ -26,6 +26,12 @@ document.body.addEventListener('auth-sign-out', async () => {
   await selection.loadDefaultSelection();
   core.reset();
 });
+
+// Reset the memory test when the menu is hidden
+menu.onHidden(() => {
+  console.log ('before core reset');
+  core.reset();
+})
 
 
 

@@ -17,6 +17,8 @@ class Model {
   constructor() {
     this.selection = [];
     this.lastSavedSelection = [];
+
+    this.listPromisesAdd = [];
   }
 
   /**
@@ -180,15 +182,19 @@ class Model {
    * @returns A promise resolved when the deck is loaded
    */
   add(path, updateView = true) {
+    console.log ('add', path);
     return new Promise((resolve, reject) => {
 
+      
       // Add the path to the current selection
       this.selection.push(path);
-
+      console.log ('TODO remove the timeout')
+      setTimeout(() => {
       // Load the deck from server
       series.load(path)
         .then(() => {
           if (updateView) this.onSelectionUpdated();
+          console.log (path, 'added');
           resolve(true);
         })
         .catch((error) => {
@@ -197,7 +203,7 @@ class Model {
           this.remove(path, updateView);          
           reject(false);
         })
-
+      }, 1)
     })
   }
 

@@ -46,6 +46,7 @@ class Overlay {
    * change the overlay message for the invitation to continue
    */  
   setContinueMessage() { view.setContinueMessage(); }
+  
 
   /**
    * Set the callback function when the user click on the overlay or press a key
