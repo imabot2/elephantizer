@@ -18,11 +18,13 @@
   background: rgb(255, 255, 255, 0.3);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
+
+  --overlay-fade-in-duration: 1000ms;
 }
 
 
 #overlay:not(.hide) {
-  animation: overlayFadeIn 1000ms linear forwards;
+  animation: overlayFadeIn var(--overlay-fade-in-duration) linear forwards;
 }
 
 #overlay.hide {

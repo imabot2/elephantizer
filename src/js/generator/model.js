@@ -13,7 +13,7 @@ class Model {
    * Constructor, initialize global variables
    */
   constructor() {
-    // the array containing the question in the series
+    // Array containing the question in the series
     this.questions = [];
 
     // Store the last question ID to prevent asking the same question twice in a row
@@ -40,6 +40,9 @@ class Model {
 
     // Prepare the list of remaining questions with all the questions indexes
     this.remaining = [...Array(this.questions.length).keys()];
+
+    // Reset the last question
+    this.lastQuestionId = undefined;
   }
 
 

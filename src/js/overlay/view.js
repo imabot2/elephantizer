@@ -48,8 +48,10 @@ class View {
 
   /**
    * Show the overlay and set focus on the overlay
+   * @param {integer} ms Duration of the fade in effect in ms
    */
-  show() {
+  show(fadeIn_ms = 1000) {
+    this.overlayEl.style.setProperty('--overlay-fade-in-duration', `${fadeIn_ms}ms`);
     this.overlayEl.classList.remove('hide');
     this.overlayEl.focus();
   }

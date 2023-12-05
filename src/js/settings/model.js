@@ -157,8 +157,13 @@ class Model extends ModelData {
   stopListeningDB() {
     if (this.unsubscribe !== undefined) {
       this.unsubscribe();
-      this.unsubscribe = undefined;
+      this.unsubscribe = undefined;      
+      
+      // When stop listening DB, reset the current settings as the default settings
+      this.current = structuredClone(this.default);
     }
+
+
   }
 
 

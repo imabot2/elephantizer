@@ -8,6 +8,9 @@ import model from "../coreTyping/model.js";
  */
 class Core {
 
+  /**
+   * Constructor
+   */
   constructor() {}
 
   /**

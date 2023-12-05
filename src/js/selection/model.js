@@ -4,6 +4,8 @@ import menuSeries from "Js/menuSeries";
 import notifications from "Js/notifications";
 import translate from "./translate.js";
 import language from "Js/languages";
+
+
 /**
  * Model for the SELECTION module
  */
@@ -21,7 +23,7 @@ class Model {
    * Set the default selection according to the user language
    * @returns A promise resolved when the default deck is loaded
    */
-  loadDefaultSelection() {
+  async loadDefaultSelection() {
 
     // Empty the current selection
     this.selection = [];
@@ -147,6 +149,7 @@ class Model {
    * Callback function called when the selection is updated
    */
   onSelectionUpdated() {
+
     // Update the checkboxes and radio button in the Series menu
     menuSeries.updateSelection(this.selection);
 

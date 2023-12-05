@@ -22,7 +22,6 @@ class Model {
    * Get current learning mode and dispatch to coreCard or coreTyping
    */
   reset() {
-
     // Dispatch to the requested mode
     if (settings.get('learningMode') === 'typing')
       this.core = coreTyping;

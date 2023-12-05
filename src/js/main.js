@@ -7,18 +7,26 @@ import "Js/boot/";
 import settings from "Js/settings";
 import statistics from "Js/statistics";
 import selection from "Js/selection";
-import cardTyping from "Js/cardTyping";
+import core from "Js/core";
 
 
-document.body.addEventListener('auth-sign-in', async () => {   
+
+// On sign in, load statistics
+document.body.addEventListener('auth-sign-in', async () => {
   await settings.startListeningDB();
-  await statistics.startListeningDB();  
+  await statistics.startListeningDB();
+  core.reset();
 });
 
 
-
-document.body.addEventListener('auth-sign-out', async () => {   
+// On sign out, stop listening DB
+document.body.addEventListener('auth-sign-out', async () => {
   settings.stopListeningDB();
   statistics.stopListeningDB();
   await selection.loadDefaultSelection();
+  core.reset();
 });
+
+
+
+

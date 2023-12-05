@@ -88,16 +88,16 @@ class View {
   /**
    * Show the overlay
    */
-  showOverlay() {
-    overlay.show();
+  showOverlay(fadeIn_ms) {   
+    overlay.show(fadeIn_ms);
     answerBar.disable();
   }
 
   /**
    * Show or hide the overlay 
    */
-  setOverlayVisible(visible) {
-    if (visible) this.showOverlay();
+  setOverlayVisible(visible, fadeIn_ms) {
+    if (visible) this.showOverlay(fadeIn_ms);
     else this.hideOverlay();
   }
 }

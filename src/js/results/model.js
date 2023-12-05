@@ -14,7 +14,6 @@ class Model {
    * @param {string} mode The current typing mode [ 'typing' | 'card' ]
    */
   reset(mode) {
-    console.log (selection.current())
     
     // Store the meta data
     // - current mode (typing or cards)

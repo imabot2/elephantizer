@@ -31,9 +31,10 @@ class Overlay {
 
 
   /**
-   * Show the overlay
+   * Show the overlay and set focus on the overlay
+   * @param {integer} fadeIn_ms Duration of the fade in effect in ms
    */
-  show() { view.show(); }
+  show(fadeIn_ms) { view.show(fadeIn_ms); }
 
   /**
    * change the overlay message for the invitation to start
