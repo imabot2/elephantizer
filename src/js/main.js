@@ -29,6 +29,7 @@ document.body.addEventListener('auth-sign-out', async () => {
   core.reset();
 });
 
+
 // Reset the memory test when the menu is hidden
 menu.onHidden(async () => {
   // If there is series currently loading, show the loader
@@ -36,8 +37,7 @@ menu.onHidden(async () => {
     loader.show();
     await selection.onAllSeriesLoaded();
     console.log ('loader.hide')
-  }
-  
+  }  
   core.reset();
 })
 

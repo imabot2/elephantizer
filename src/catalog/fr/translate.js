@@ -8,13 +8,15 @@ const translations = {
   en: {
     countriesOnTheMap: 'Countries On The Map in French',
     countriesOnTheMapShort: 'Countries On The Map',
-    multiplicationTable: 'Multiplication tables',
+    multiplicationTableDe0a10: 'Multiplication tables from 0 to 10',
+    multiplicationTableDe11a20: 'Multiplication tables from 11 to 20',
   },
 
   fr: {
     countriesOnTheMap: 'Les pays sur la carte en Français',
     countriesOnTheMapShort: 'Les pays sur la carte',
-    multiplicationTable: 'Tables de multiplication',
+    multiplicationTableDe0a10: 'Tables de multiplication de 0 à 10',
+    multiplicationTableDe11a20: 'Tables de multiplication de 11 à 20',
   },
 }
 
