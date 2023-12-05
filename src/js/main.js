@@ -9,6 +9,8 @@ import statistics from "Js/statistics";
 import selection from "Js/selection";
 import core from "Js/core";
 import menu from "Js/menu";
+import loader from "Js/loader";
+
 
 
 // On sign in, load statistics
@@ -28,10 +30,19 @@ document.body.addEventListener('auth-sign-out', async () => {
 });
 
 // Reset the memory test when the menu is hidden
-menu.onHidden(() => {
-  console.log ('before core reset');
+menu.onHidden(async () => {
+  // If there is series currently loading, show the loader
+  if (selection.numberSeriesLoading()) {
+    loader.show();
+    await selection.onAllSeriesLoaded();
+    console.log ('loader.hide')
+  }
+  
   core.reset();
 })
+
+
+
 
 
 

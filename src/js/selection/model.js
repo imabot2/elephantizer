@@ -15,10 +15,17 @@ class Model {
    * - Create an empty selection
    */
   constructor() {
+    // Current selection
     this.selection = [];
+
+    // Last saved selectin
     this.lastSavedSelection = [];
 
-    this.listPromisesAdd = [];
+    // List of decks currently loading
+    this.deckListLoading = [];
+
+    // Event triggerd when all the series are loaded
+    this.allSeriesLoadedEvent = new Event("all-series-loaded");
   }
 
   /**
@@ -62,17 +69,17 @@ class Model {
       Promise.allSettled(promises).finally(() => {
 
         // If the selection is not empty, update the view and resolve the promise
-        if (this.selection.length) { 
-          this.onSelectionUpdated(); 
-          resolve(); 
-          return; 
+        if (this.selection.length) {
+          this.onSelectionUpdated();
+          resolve();
+          return;
         }
 
         // The selection is empty, load the default deck
         this.loadDefaultSelection()
-          .then(() => { 
+          .then(() => {
             this.onSelectionUpdated();
-            resolve(); 
+            resolve();
           })
           .catch((error) => { reject(error); })
       });
@@ -182,30 +189,84 @@ class Model {
    * @returns A promise resolved when the deck is loaded
    */
   add(path, updateView = true) {
-    console.log ('add', path);
+
     return new Promise((resolve, reject) => {
 
-      
+      // Check if the deck is already in the selection, do not add twice
+      if (path in this.selection) { resolve(false); return; }
+
       // Add the path to the current selection
       this.selection.push(path);
-      console.log ('TODO remove the timeout')
-      setTimeout(() => {
+
+      // Add the new deck in the pending list
+      this.deckListLoading.push(path);
+
+
       // Load the deck from server
       series.load(path)
         .then(() => {
           if (updateView) this.onSelectionUpdated();
-          console.log (path, 'added');
+          this.removeFromListLoading(path);
           resolve(true);
         })
         .catch((error) => {
           console.error(error);
-          // If the deck can't be loaded, remove the path from the current selection
-          this.remove(path, updateView);          
+
+          // If the deck can't be loaded, remove the path from the current selection and from the pending list
+          this.remove(path, updateView);
+          this.removeFromListLoading(path);
           reject(false);
         })
-      }, 1)
     })
   }
+
+
+  /**
+   * Remove a path from the loading pending list
+   * Trigger the all-series-loaded event when the list is empty
+   * @param {string} path The path to remove (loaded or rejected)
+   */
+  removeFromListLoading(path) {
+
+    // Get the index of the typing test
+    const index = this.deckListLoading.indexOf(path);
+
+    // Remove the test if exist, otherwise show an error message
+    if (index !== -1)
+      this.deckListLoading.splice(this.deckListLoading.indexOf(path), 1);
+    else
+      notifications.error(translate.error7000, translate.error7000Message);
+
+    // If the list is empty, trigger event all test loaded
+    if (this.deckListLoading.length === 0)
+      document.body.dispatchEvent(this.allSeriesLoadedEvent);
+  }
+
+
+  /**
+   * Count the number of series currently loading
+   * @returns The current number of series currently loading
+   */
+  numberSeriesLoading() {
+    return this.deckListLoading.length;
+  }
+
+
+  /**
+   * Resolve a promise when all the series are loaded
+   * @returns a promise resolved when all the series are loaded
+   */
+  async onAllSeriesLoaded() {
+    return new Promise((resolve) => {
+
+      // If there is no series loading, resolve the promise
+      if (this.deckListLoading.length === 0) { resolve(); return; }
+
+      // When the event is triggered, resolve the promise
+      document.body.addEventListener('all-series-loaded', () => { resolve(); })
+    })
+  }
+
 
   /**
    * Remove a deck from the current selection
@@ -245,6 +306,8 @@ class Model {
     // The selection is updated
     //if (updateView) this.onSelectionUpdated();
   }
+
+
 
 }
 

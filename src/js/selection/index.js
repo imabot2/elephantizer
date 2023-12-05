@@ -49,6 +49,19 @@ class Selection {
 
 
   /**
+   * Count the number of series currently loading
+   * @returns The current number of series currently loading
+   */
+  numberSeriesLoading() { model.numberSeriesLoading(); }
+
+
+  /**
+   * Resolve a promise when all the series are loaded
+   * @returns a promise resolved when all the series are loaded
+   */
+  async onAllSeriesLoaded() { return model.onAllSeriesLoaded(); }
+
+  /**
    * Toggle a deck given by its path
    * Remove the deck if it is in the selection, otherwise, add the deck
    * @param {string} path path to the deck , example: 'en/countries-on-the-map/europe'

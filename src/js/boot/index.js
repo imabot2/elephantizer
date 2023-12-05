@@ -45,10 +45,7 @@ bootloader.setSuccess(coreId);
 
 setTimeout(() => {
   bootloader.hide();
-  loader.show();
-
 }, 500)
-setTimeout(() => {
-  loader.hide();
 
-}, 3000)
+
+
