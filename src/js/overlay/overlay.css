@@ -15,7 +15,8 @@
   cursor: default;
   overflow: hidden;
 
-  background: rgb(255, 255, 255, 0.3);
+  /* background: rgb(255, 255, 255, 0.3); */
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(196, 196, 196, 0.1));
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
 
@@ -24,11 +25,11 @@
 
 
 #overlay:not(.hide) {
-  animation: overlayFadeIn var(--overlay-fade-in-duration) linear forwards;
+  animation: overlayFadeIn var(--overlay-fade-in-duration)  linear forwards;
 }
 
 #overlay.hide {
-  animation: overlayFadeOut 100ms linear forwards;
+  animation: overlayFadeOut 500ms linear forwards;
 }
 
 
@@ -36,11 +37,15 @@
   0% {
     opacity: 1;
     height: 100vh;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
   }
 
   99% {
     opacity: 0;
     height: 100vh;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
   }
 
   100% {
@@ -76,11 +81,11 @@
 #overlay .logo {
   height: 20vh;
   max-height: 400px;
-  opacity: 0.4;
+  opacity: 1;
 }
 
 #overlay .domain {
   font-size: clamp(1rem, 4vh, 3rem);
   font-family: var(--main-title-font);
-  opacity: 0.4;
+  opacity: 1;
 }

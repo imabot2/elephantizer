@@ -13,7 +13,6 @@
 
   overflow: hidden;
 
-  /* background: rgb(64, 64, 64, 1); */
   background-image: linear-gradient(rgba(128, 128, 128, 0.5), rgba(64, 64, 64, 0.5));
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
