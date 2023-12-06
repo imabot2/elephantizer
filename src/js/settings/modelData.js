@@ -39,6 +39,12 @@ export default class ModelData {
 
       // Duration of the animation when the results are shown
       resultsAnimationDuration: 750,
+
+      // The beta coeficient to pick relevant question
+      // -10 => always pick the best known question
+      // 0 => pick random question
+      // 10 => pick the less known questions
+      beta: 6,
     }
     
     // At startup, set the current settings as the default settings

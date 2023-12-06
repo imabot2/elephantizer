@@ -126,10 +126,68 @@ class Model {
   }
 
 
+  /**
+   * Compute the probability for each question
+   * @returns {object} An object containing the probabilities, path and uid
+   */
+  computeProbabilities() {
+    // Get beta coefficient
+    let beta = settings.get("beta");
 
+    // Prepare data
+    let stats = this.questions.map((q, i) => { 
+      return { 
+        'score': statistics.get(q.path, q.uid).score,
+        'index': i,
+      };
+    })
+
+    // Remove the previous question from the array
+    stats = stats.filter(q => q.index!=this.lastQuestionId);
+      
+    // ::: Normalize the score z(i) = 1-(score-min(score(i))) :::
+
+    // Get the lowest score
+    const min = Math.min(...stats.map(q => q.score))
+    
+    // Compute z and the exponential for each question
+    // z=1 - (score - min)
+    // exp = exp(beta * z)
+    stats.forEach((q) => { q.z = 1 - (q.score - min); q.exp = Math.exp(beta * q.z); });
+
+    
+    // Compute the sum for the deniminator sum = Σ(exp(beta*z));
+    const sum = stats.reduce((accumulator, q) => accumulator + Math.exp(beta * q.z), 0);
+
+    // Compute probabilities P(i) = exp(beta*z(i))/sum;
+    // And cumulated probability
+    let cumSum = 0;
+    stats.forEach((q) => { q.P = q.exp / sum; q.min = cumSum; cumSum = q.max = cumSum + q.P; });
+
+    // Returns the computed probabilities
+    return stats;
+  }
+
+
+  /**
+   * Pick the most relevant question
+   * @returns The index of the most relevant question picked
+   */
   getNextRelevantQuestionIndex() {
-    console.log ('TO DO Get next question by probability');
-    return 0;
+   
+    // Compute the statistics
+    const stats = this.computeProbabilities();
+
+    // Get the maximum probability (should be equal to 1)
+    const max = stats[stats.length-1].max;
+
+    // Pick a random number between 0 and max
+    const random = max * Math.random();
+
+    // Get the next question from the array
+    const next = stats.find(q => (random >= q.min && random < q.max));
+
+    return next.index;
   }
 
 

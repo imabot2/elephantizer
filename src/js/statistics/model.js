@@ -82,8 +82,6 @@ class Model {
   }
 
 
-
-
   /**
    * Update the statistics for a given question
    * @param {string} path The path to the deck
@@ -109,7 +107,7 @@ class Model {
     return { "previousScore": previousScore, "newScore": question.score };
   }
 
-  
+
   /**
    * Save the statistics on Firebase
    * Save only updated statistics
