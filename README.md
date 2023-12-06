@@ -12,4 +12,5 @@ Visit the app on [Elephantizer](https://elephantizer.com)
 * There is a bug when calculating the accuracy => enter Egypte when the expected answer is Egypt => accuracy = 100%
 * Delete non confirmed users
 * Fix the bug in the menu with collapse: https://github.com/twbs/bootstrap/issues/39385
+* Add { once: true} in the event listener when all series are loaded
 * ~~Add a parameter in the settings for choosing the results animation duration~~
