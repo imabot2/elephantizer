@@ -10,7 +10,7 @@ import selection from "Js/selection";
 import core from "Js/core";
 import menu from "Js/menu";
 import loader from "Js/loader";
-
+import results from "Js/results";
 
 
 // On sign in, load statistics
@@ -31,7 +31,8 @@ document.body.addEventListener('auth-sign-out', async () => {
 
 
 // Reset the memory test when the menu is hidden
-menu.onHidden(async () => {
+menu.onHide(async () => {
+
   // If there is series currently loading, show the loader
   if (selection.numberSeriesLoading()) {
     loader.show();
@@ -40,6 +41,12 @@ menu.onHidden(async () => {
   }  
   core.reset();
 })
+
+// When the results are closed, restart a new typing test
+results.onHide(() => {
+  core.reset();
+})
+
 
 
 

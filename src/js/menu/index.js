@@ -23,6 +23,7 @@ class Menu {
    */
   navigate(target) { model.navigate(target); }
 
+
   /**
    * Open the menu modal
    */
@@ -30,10 +31,10 @@ class Menu {
 
 
   /**
-   * Set the callback function called when the modal is hidden
+   * Set the callback function called when the modal is hide
    * @param {function} callback Callback function 
    */
-  onHidden(callback) { view.setOnModalHiddenCallback(callback); }
+  onHide(callback) { view.onHide(callback); }
 }
 
 export default new Menu();

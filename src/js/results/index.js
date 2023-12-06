@@ -15,7 +15,7 @@ class Results {
    */
   reset(mode) { model.reset(mode); }
 
-  
+
   /**
    * Add a new question in the results
    * @param {object} data The question data
@@ -34,6 +34,13 @@ class Results {
    * Show the result modal
    */
   show() { view.show(); }
+
+
+  /**
+   * Set the callback function called when the modal is hide
+   * @param {function} callback Callback function
+   */
+  onHide(callback) { view.onHide(callback); }
 
 }
 

@@ -263,7 +263,9 @@ class Model {
       if (this.deckListLoading.length === 0) { resolve(); return; }
 
       // When the event is triggered, resolve the promise
-      document.body.addEventListener('all-series-loaded', () => { resolve(); })
+      document.body.addEventListener('all-series-loaded', () => { 
+        resolve(); 
+      }, {once: true});
     })
   }
 

@@ -47,8 +47,8 @@ class View {
     this.populate();
 
     // Reset to the main menu when the modal is closed
-    //this.setOnModalHiddenCallback = () => {};
-    this.modalEl.addEventListener('hidden.bs.modal',() => { this.onModalHidden(); });
+    this.onModalHideCallback = () => {};
+    this.modalEl.addEventListener('hide.bs.modal',() => { this.onModalHide(); });
 
     // Set callback when the user click the back button
     this.backBtn = this.modalEl.querySelector(".back-btn");
@@ -126,17 +126,18 @@ class View {
 
 
   /**
-   * Set the callback function called when the modal is hidden
+   * Set the callback function called when the modal is hide
    * @param {function} callback Callback function 
    */
-  setOnModalHiddenCallback(callback) {
-    this.setOnModalHiddenCallback = callback;
+  onHide(callback) {
+    this.onModalHideCallback = callback;
   }
 
   /**
    * Callback function called when the modal is closed
    */
-  onModalHidden() {
+  onModalHide() {
+
     // Reset the menu for the next time
     model.navigate('main');
 
@@ -144,7 +145,7 @@ class View {
     if (selection.hasSelectionChanged()) settings.save();
 
     // Call the callback function
-    this.setOnModalHiddenCallback();
+    this.onModalHideCallback();
   }
 }
 

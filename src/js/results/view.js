@@ -40,6 +40,9 @@ class View {
     this.modalEl.addEventListener('show.bs.modal', () => { this.onModalShow(); });
     this.modalEl.addEventListener('shown.bs.modal', () => { this.onModalShown(); });
 
+    // Set the callback function when the modal is hide
+    this.onModalHideCallback = () => {};
+    this.modalEl.addEventListener('hide.bs.modal', () => { this.onModalHideCallback(); });
 
     // Create pie charts
     this.pieMemorization = new PieChart(this.modalEl.querySelector('.pie-memorization'));
@@ -166,6 +169,14 @@ class View {
     setTimeout(() => {
       this.update();
     }, 250);
+  }
+
+  /**
+   * Set the callback function called when the modal is hide
+   * @param {function} callback Callback function
+   */
+  onHide(callback) {
+    this.onModalHideCallback = callback;
   }
 
 
