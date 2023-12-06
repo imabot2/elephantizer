@@ -26,19 +26,6 @@ class Model {
   }
 
 
-  /**
-   * Get the statistics for a given question
-   * Create the deck statistics if the deck does not exist
-   * Create the questions statistics if the statistics doex not exist
-   * @param {string} path Path to the deck
-   * @param {string} uid UID of the requested question
-   * @returns {object} the statistics of the question
-   */
-  get(path, uid) {
-    if (!this.data.hasOwnProperty(path)) this.createDeck(path);
-    if (!this.data[path].stats.hasOwnProperty(uid)) this.createQuestion(path, uid);
-    return this.data[path].stats[uid];
-  }
 
 
   /**
@@ -49,7 +36,7 @@ class Model {
     return this.startListeningDB();
   }
 
-  
+
   /**
    * Create empty statistics for a question given by its path and UID
    * @param {string} path Path to the deck
@@ -80,6 +67,49 @@ class Model {
   }
 
 
+  /**
+   * Get the statistics for a given question
+   * Create the deck statistics if the deck does not exist
+   * Create the questions statistics if the statistics doex not exist
+   * @param {string} path Path to the deck
+   * @param {string} uid UID of the requested question
+   * @returns {object} the statistics of the question
+   */
+  get(path, uid) {
+    if (!this.data.hasOwnProperty(path)) this.createDeck(path);
+    if (!this.data[path].stats.hasOwnProperty(uid)) this.createQuestion(path, uid);
+    return this.data[path].stats[uid];
+  }
+
+
+
+
+  /**
+   * Update the statistics for a given question
+   * @param {string} path The path to the deck
+   * @param {string} uid The question UID
+   * @param {number} memorizationRatio The memorization ratio for this question
+   */
+  update(path, uid, score) {
+
+    // Get the statistics of the question to update
+    const question = this.data[path].stats[uid];
+
+    // Store the previous score (for computing the offset)
+    let previousScore = question.score;
+    question.score = (question.score * question.count + score) / (question.count + 1);
+
+    // Increase the counter for this question
+    question.count++;
+
+    // This deck has been updated
+    this.data[path].updated = true;
+
+    // Return the previous and the new score
+    return { "previousScore": previousScore, "newScore": question.score };
+  }
+
+  
   /**
    * Save the statistics on Firebase
    * Save only updated statistics
@@ -134,7 +164,7 @@ class Model {
 
     // For each UID in the series
     Object.keys(this.data[path].stats).forEach((uid) => {
-      
+
       // If the UID is not in the series, remove the statistics from data
       if (!uidsReference.includes(uid)) delete this.data[path].stats[uid];
     })
@@ -179,7 +209,7 @@ class Model {
   * On change, update the current statistics
   */
   listenDB() {
-    
+
     // Prepare the query
     // Listen to all the statistics
     const queryAllStats = query(collection(db, "users", `${auth.userId()}`, "statistics"));
@@ -188,12 +218,12 @@ class Model {
     this.unsubscribe = onSnapshot(queryAllStats, (querySnapshot) => {
 
       // Update only if remote changes
-      const source = querySnapshot.metadata.hasPendingWrites ? "Local" : "Server";      
+      const source = querySnapshot.metadata.hasPendingWrites ? "Local" : "Server";
       if (source == "Server") {
-        
+
         // For each document
         querySnapshot.forEach((doc) => {
-          
+
           // Get path from document ID
           let path = doc.id.replaceAll('\\', '/');
 
@@ -214,7 +244,7 @@ class Model {
    * @param {object} data Data to update from Forestore
    */
   updateDeckFromDB(path, data) {
-    
+
     // If the deck do not exist in statistics, create the deck
     if (!this.data.hasOwnProperty(path)) this.createDeck(path);
 
@@ -223,7 +253,7 @@ class Model {
     this.data[path].updated = false;
 
     // Merge statistics
-    this.data[path].stats = {...this.data[path].stats, ...data.stats};    
+    this.data[path].stats = { ...this.data[path].stats, ...data.stats };
   }
 
 }

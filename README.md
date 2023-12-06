@@ -8,5 +8,5 @@
 * Delete non confirmed users
 * Fix the bug in the menu with collapse: https://github.com/twbs/bootstrap/issues/39385
 * ~~Add a parameter in the settings for choosing the results animation duration~~
-* Add `{ once: true}` in the event listener when all series are loaded
+* ~~Add `{ once: true}` in the event listener when all series are loaded~~
 * Add a button to show the last results in the menu

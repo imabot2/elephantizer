@@ -11,8 +11,24 @@ class Statistics {
   async init() { return model.init(); }
 
 
+  /**
+   * Get the statistics for a given question
+   * Create the deck statistics if the deck does not exist
+   * Create the questions statistics if the statistics doex not exist
+   * @param {string} path Path to the deck
+   * @param {string} uid UID of the requested question
+   * @returns {object} the statistics of the question
+   */
   get(path, uid) { return model.get(path, uid); }
-
+  
+  
+  /**
+   * Update the statistics for a given question
+   * @param {string} path The path to the deck
+   * @param {string} uid The question UID
+   * @param {number} memorizationRatio The memorization ratio for this question
+   */
+  update(path, uid, memorizationRatio) { return model.update(path, uid, memorizationRatio); }
 
 
 

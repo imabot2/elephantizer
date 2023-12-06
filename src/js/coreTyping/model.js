@@ -13,7 +13,7 @@ import settings from "Js/settings";
 import questionStatistics from "Js/questionStatistics";
 import overlay from "Js/overlay";
 import results from "Js/results";
-
+import statistics from "Js/statistics";
 /**
  * Model of the Core Typing module
  */
@@ -268,7 +268,7 @@ class Model {
     this.status = "over";
 
     // Store the test duration
-    results.setTestDuration(stopwatch.getElapsedTime());
+    results.setTestDuration(stopwatch.getElapsedTime());    
 
     // Stop the stopwatch
     stopwatch.stop();
@@ -280,9 +280,8 @@ class Model {
     // Disable the answer bar
     answerBar.disable();
 
-    // Log test over analytics
-    analytics.log("Memory test over");
-
+    // Save the memory test statistics
+    statistics.save();
 
     // Show the right answer for the last question
     view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))

@@ -39,6 +39,7 @@ class Model {
     }
   }
 
+
   /**
    * Process the last question
    * - compute the ratio 
@@ -53,8 +54,13 @@ class Model {
     this.computeTimeToFirstKeyRatio();
     this.computeMemorizationRatio();
 
-    // Add the question in the results
-    results.addQuestion(this.data);
+    // Update the deck global statistics and get previous and new score
+    let { previousScore, newScore } = statistics.update(this.data.path, this.data.uid, this.data.memorizationRatio);
+    this.data.previousScore = previousScore;
+    this.data.newScore = newScore;
+
+    // Add the question in the results    
+    results.addQuestion(this.data);    
   }
 
 
