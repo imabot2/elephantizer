@@ -2,6 +2,17 @@
 <html lang="<%= htmlTag %>">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-61Z9FNXQZL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-61Z9FNXQZL');
+  </script>
+
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
 
@@ -81,14 +92,14 @@
     #bootloader .console::-webkit-scrollbar {
       display: none;
     }
-
-
   </style>
 </head>
 
 <body>
   <div id="bootloader">
-    <div class="resume"><%= resume %></div>
+    <div class="resume">
+      <%= resume %>
+    </div>
     <img class="image" src="<%= loaderImage %>">
     <div class="console"></div>
   </div>

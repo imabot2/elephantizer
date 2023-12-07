@@ -8,11 +8,15 @@ const translations = {
   en: {
     europe: 'European Countries in French',
     europeShort: 'Europe',
+    afrique: 'African Countries in French',
+    afriqueShort: 'Africa',
   },
 
   fr: {
     europe: 'Les pays européens',
     europeShort: "Europe",
+    afrique: "Les pays d'Afrique",
+    afriqueShort: 'Afrique',
   },
 }
 

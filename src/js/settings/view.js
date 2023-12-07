@@ -38,9 +38,8 @@ class View {
 
     // Get the key and the value for update
     const key = element.getAttribute('data-key');
-    const value = element.getAttribute('data-value');
+    const value = element.getAttribute('data-value') ?? element.value;
     model.updateField(key, value, { save: true, updateView: true });
-
   }
 
 
@@ -71,6 +70,9 @@ class View {
 
     // Update the results animation duration in the settings
     this.settingsEl.querySelector(`#settings-resultsAnimationDuration-${model.current.resultsAnimationDuration}`).checked = true;
+
+    // Update the results animation duration in the settings
+    this.settingsEl.querySelector('#settings-beta').value = model.current.beta;
   }
 
 

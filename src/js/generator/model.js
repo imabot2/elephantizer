@@ -74,7 +74,6 @@ class Model {
 
     // Get the next question index
     const index = this.remaining.splice(indexRemaining, 1)[0];
-    console.log (this.remaining)
 
     // Get path and uid of the next question
     const { path, uid } = this.questions[index];
@@ -94,7 +93,7 @@ class Model {
    * @returns The path and uid of the next questions
    */
   getNextQuestionRelevant() {
-
+    
     // Remove the last question if defined
     if (this.lastQuestionId !== undefined) {
       this.remaining.splice(this.remaining.indexOf(this.lastQuestionId), 1);
@@ -102,10 +101,11 @@ class Model {
 
     // idNext is the index of the next question in this.questions
     let idNext = this.getNextUnaskedQuestionIndex();
+    
 
     // If there is no unasked question, get next question by probalility
     if (idNext===null) idNext = this.getNextRelevantQuestionIndex();     
-
+    
 
     // The last question has been removed to avoid picking the same question twice    
     // Put back the last question back 
@@ -174,10 +174,10 @@ class Model {
    * @returns The index of the most relevant question picked
    */
   getNextRelevantQuestionIndex() {
-   
+
     // Compute the statistics
     const stats = this.computeProbabilities();
-
+    
     // Get the maximum probability (should be equal to 1)
     const max = stats[stats.length-1].max;
 
@@ -198,14 +198,14 @@ class Model {
   getNextUnaskedQuestionIndex() {
     // Get the list of questions never asked
     const neverAsked = this.getNeverAskedList();
-
+    
     // If there is no unasked questions, return null
     if (neverAsked.length === 0) return null;
 
     // There are unasked questions
     // Pick a random unasked questions
     let index = Math.floor(Math.random() * neverAsked.length);
-    return this.remaining[index];
+    return neverAsked[index];
   }
 
 

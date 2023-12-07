@@ -51,6 +51,13 @@ const translations = {
     ignoreHyphensFalse: "Off",
 
 
+    beta: "Question difficulty",
+    betaLabel: "This setting allows you to choose whether the questions you had the most difficulty with will be asked more or less frequently:<ul>" +
+      "<li>With a coefficient of <strong>-10</strong>, the <strong>easiest</strong> questions will be asked to you very often.</li>" +
+      "<li>With a coefficient of <strong>0</strong>, the questions are drawn randomly (<strong>equiprobable</strong>).</li>" +
+      "<li>With a coefficient of <strong>10</strong>, the <strong>most difficult</strong> questions will be asked very often.</li>"+
+      "</ul>",
+
     rightAnswerDuration: "Right Answer Duration",
     rightAnswerDurationLabel: "Select how long the correct answer is displayed.",
     rightAnswerDuration500: "0.5s",
@@ -125,6 +132,14 @@ const translations = {
     ignoreHyphensLabel: "Quand ce mode est activé, les <strong>traits d'union</strong> sont ignorés et peuvent être remplacés par des <strong>espaces</strong>.",
     ignoreHyphensTrue: "On",
     ignoreHyphensFalse: "Off",
+
+
+    beta: "Difficulté des questions ",
+    betaLabel: "Ce paramètre permet de choisir si les questions où vous avez eu le plus de difficulté vous seront posées plus ou moins fréquemment :<ul>" +
+      "<li>Avec un coefficient de <strong>-10</strong>, les questions les <strong>plus faciles</strong> vous seront très souvent posées.</li>" +
+      "<li>Avec un coefficient de <strong>0</strong>, les questions sont tirées au hasard (</strong>équiprobable</strong>).</li>" +
+      "<li>Avec un coefficient de <strong>10</strong>, les questions les <strong>plus difficiles</strong> seront très souvent posées.</li>"+
+      "</ul>",
 
     rightAnswerDuration: "Durée de la réponse",
     rightAnswerDurationLabel: "Sélectionnez la durée d'affichage de la bonne réponse.",

@@ -1,6 +1,32 @@
 <div id="settings-menu" class="collapse">
 
-  <div class="learningMode">
+  <div class="beta pb-4">
+    <div>
+      <div class="font-title fs-5 pe-2 mt-2">
+        <%=beta%>
+      </div>
+      <div class="small">
+        <%=betaLabel%>
+      </div>
+    </div>
+    <div class="beta-legend d-flex justify-content-between">
+      <div>-10</div>
+      <div>-8</div>
+      <div>-6</div>
+      <div>-4</div>
+      <div>-2</div>
+      <div>0</div>
+      <div>2</div>
+      <div>4</div>
+      <div>6</div>
+      <div>8</div>      
+      <div>10</div>
+    </div>
+    <input type="range" class="form-range" min="-10" max="10" step="2" id="settings-beta" data-type="settings" data-key="beta">
+
+  </div>
+
+  <div class="learningMode pb-4">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
         <%=learningMode%>
@@ -9,7 +35,7 @@
         <%=learningModeLabel%>
       </div>
     </div>
-    <div class="btn-group d-flex pb-4" role="group">
+    <div class="btn-group d-flex" role="group">
 
       <input type="radio" class="btn-check " name="testMode" id="settings-learningMode-typing" autocomplete="off"
         data-type="settings" data-key="learningMode" data-value="typing">
@@ -26,7 +52,7 @@
   </div>
 
 
-  <div class="timerMode">
+  <div class="timerMode pb-4">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
         <%=timerMode%>
@@ -35,7 +61,7 @@
         <%=timerModeLabel%>
       </div>
     </div>
-    <div class="btn-group d-flex pb-4" role="group">
+    <div class="btn-group d-flex" role="group">
       <input type="radio" class="btn-check" name="timerMode" id="settings-timerMode-down" autocomplete="off"
         data-type="settings" data-key="timerMode" data-value="down">
       <label class="btn btn-primary" for="settings-timerMode-down">
@@ -57,7 +83,7 @@
   </div>
 
 
-  <div class="duration">
+  <div class="duration pb-4">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
         <%=duration%>
@@ -66,7 +92,7 @@
         <%=durationLabel%>
       </div>
     </div>
-    <div class="btn-group d-flex pb-4" role="group">
+    <div class="btn-group d-flex" role="group">
 
       <input type="radio" class="btn-check" name="duration" id="settings-duration-30" autocomplete="off"
         data-type="settings" data-key="duration" data-value="30">
@@ -96,7 +122,7 @@
   </div>
 
 
-  <div class="caseInsensitive">
+  <div class="caseInsensitive pb-4">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
         <%=caseInsensitive%>
@@ -105,7 +131,7 @@
         <%=caseInsensitiveLabel%>
       </div>
     </div>
-    <div class="btn-group d-flex pb-4" role="group">
+    <div class="btn-group d-flex" role="group">
 
       <input type="radio" class="btn-check " name="caseInsensitive" id="settings-caseInsensitive-true"
         autocomplete="off" data-type="settings" data-key="caseInsensitive" data-value="true">
@@ -122,7 +148,7 @@
   </div>
 
 
-  <div class="ignoreAccents">
+  <div class="ignoreAccents pb-4">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
         <%=ignoreAccents%>
@@ -131,7 +157,7 @@
         <%=ignoreAccentsLabel%>
       </div>
     </div>
-    <div class="btn-group d-flex pb-4" role="group">
+    <div class="btn-group d-flex" role="group">
 
       <input type="radio" class="btn-check " name="ignoreAccents" id="settings-ignoreAccents-true" autocomplete="off"
         data-type="settings" data-key="ignoreAccents" data-value="true">
@@ -148,7 +174,7 @@
   </div>
 
 
-  <div class="ignoreHyphens">
+  <div class="ignoreHyphens pb-4">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
         <%=ignoreHyphens%>
@@ -157,7 +183,7 @@
         <%=ignoreHyphensLabel%>
       </div>
     </div>
-    <div class="btn-group d-flex pb-4" role="group">
+    <div class="btn-group d-flex" role="group">
 
       <input type="radio" class="btn-check " name="ignoreHyphens" id="settings-ignoreHyphens-true" autocomplete="off"
         data-type="settings" data-key="ignoreHyphens" data-value="true">
@@ -173,7 +199,7 @@
     </div>
   </div>
 
-  <div class="rightAnswerDuration">
+  <div class="rightAnswerDuration pb-4">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
         <%=rightAnswerDuration%>
@@ -182,7 +208,7 @@
         <%=rightAnswerDurationLabel%>
       </div>
     </div>
-    <div class="btn-group d-flex pb-4" role="group">
+    <div class="btn-group d-flex" role="group">
 
       <input type="radio" class="btn-check" name="rightAnswerDuration" id="settings-rightAnswerDuration-500"
         autocomplete="off" data-type="settings" data-key="rightAnswerDuration" data-value="500">
@@ -222,7 +248,7 @@
     </div>
   </div>
 
-  <div class="resultsAnimationDuration">
+  <div class="resultsAnimationDuration pb-4">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
         <%=resultsAnimationDuration%>
@@ -231,7 +257,7 @@
         <%=resultsAnimationDurationLabel%>
       </div>
     </div>
-    <div class="btn-group d-flex pb-4" role="group">
+    <div class="btn-group d-flex" role="group">
 
       <input type="radio" class="btn-check" name="resultsAnimationDuration" id="settings-resultsAnimationDuration-0" autocomplete="off"
         data-type="settings" data-key="resultsAnimationDuration" data-value="0">

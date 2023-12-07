@@ -1,3 +1,19 @@
 #settings-menu .disabled {
   opacity: 0.25;
 }
+
+
+#settings-menu .beta input {
+  padding-left: clamp(0.5ch, 2.2%, 2.2%);
+  padding-right: clamp(0.5ch, 2.2%, 2.2%);  
+}
+
+#settings-menu .beta-legend {
+  margin-bottom: -3px;
+}
+
+#settings-menu .beta-legend > div  {
+  width: 8%;
+  max-width: 5ch;
+  text-align: center;
+}
