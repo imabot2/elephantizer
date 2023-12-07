@@ -7,7 +7,8 @@
 * Fix the bug in the menu with collapse: https://github.com/twbs/bootstrap/issues/39385
 * Add a button to show the last results in the menu
 * Fix bug when the user don't answer to any question
-
+* Fix bug when animation results is equal to 0
+* Fix bug: two times the same question shouldn't happen
 
 
 ## Done

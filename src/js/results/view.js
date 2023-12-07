@@ -84,6 +84,7 @@ class View {
    * Reset the modal to restart a new animation
    */
   reset() {
+    
     // Reset score and progress
     this.scoreEl.innerText = 0;
     this.wpmEl.innerText = 0;
@@ -118,7 +119,7 @@ class View {
    * Update the modal with the model data
    */
   update() {
-
+    console.log ()
     // Update the score and progress
     ease.outQuartProgress(this.scoreEl, 0, model.data.score);
     ease.outQuartProgress(this.wpmEl, 0, model.data.wpm);
