@@ -53,9 +53,6 @@ class Model {
     // Current status of the memory test during reset
     this.status = "reset";
 
-    // Show the overlay at start up only if user is logged
-    view.setOverlayVisible(auth.isLogged(), 100);
-
     // Reset the question generator
     generator.reset();
 
@@ -78,7 +75,9 @@ class Model {
     // Reset the overlay timer
     overlay.resetTimer();
     overlay.setStartMessage();
-
+    
+    // Show the overlay at start up only if user is logged
+    view.setOverlayVisible(auth.isLogged(), 100);
 
     // Memory test is ready
     this.status = "ready";

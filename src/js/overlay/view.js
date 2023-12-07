@@ -18,7 +18,7 @@ class View {
     // When the user click in the overlay or press a key, trigger the event
     this.onClickCallback = () => { };
     this.overlayEl.addEventListener('click', (event) => { this.onClickEvent(event); });
-    this.overlayEl.addEventListener('keydown', (event) => { this.onClickEvent(event); });
+    this.overlayEl.addEventListener('keydown', (event) => { console.log (event); this.onClickEvent(event); });
   }
 
 
@@ -53,7 +53,9 @@ class View {
   show(fadeIn_ms = 1000) {
     this.overlayEl.style.setProperty('--overlay-fade-in-duration', `${fadeIn_ms}ms`);
     this.overlayEl.classList.remove('hide');
-    this.overlayEl.focus();
+    
+    // Set a timeout to prevent rejecting the focus during transition
+    setTimeout(() => { this.overlayEl.focus(); }, 100)
   }
 
 

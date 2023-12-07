@@ -74,8 +74,6 @@ class View {
     // Compute the statitics
     model.process();
 
-    // Populate the modal
-    this.update();
 
     // Show the modal
     this.modal.show();
@@ -141,8 +139,6 @@ class View {
     // Update accuracy pie chart
     this.pieAccuracy.enableAnimation();
     this.pieAccuracy.setRatio(model.data.maxDistanceRatio);
-
-
   }
 
 
@@ -166,9 +162,8 @@ class View {
    * Lauch the animation
    */
   onModalShown() {
-    setTimeout(() => {
-      this.update();
-    }, 250);
+    if (settings.get('resultsAnimationDuration') !== 0) 
+      setTimeout(() => { this.update(); }, 250);
   }
 
   /**
