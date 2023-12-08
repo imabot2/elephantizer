@@ -191,6 +191,7 @@ class Model {
     // Return the deck meta data
     return {
       key: keys[2],
+      nativeName : catalog[keys[0]].category[keys[1]].series[keys[2]].nativeName,
       name: catalog[keys[0]].category[keys[1]].series[keys[2]].name,
       shortName: catalog[keys[0]].category[keys[1]].series[keys[2]].shortName,
     }

@@ -10,6 +10,8 @@ const translations = {
     countriesOnTheMapShort: 'Countries On The Map',
     chess: 'Chess',
     chessShort: 'Chess',
+    radiotelephony: "Radiotelephony",
+    radiotelephonyShort: "Radiotelephony",
   },
 
   fr: {
@@ -17,6 +19,8 @@ const translations = {
     countriesOnTheMapShort: 'Les pays sur la carte',
     chess: 'Échecs',
     chessShort: 'Échecs',
+    radiotelephony: "Radiotelephonie",
+    radiotelephonyShort: "Radiotelephonie",
   },
 }
 

@@ -6,11 +6,13 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
+    nativeName: "Länder auf der Karte",
     europe: 'European Countries in German',
     europeShort: 'Europe',
   },
 
   fr: {
+    nativeName: "Länder auf der Karte",
     europe: "Les pays d'Europe en allemand",
     europeShort: "Europe",
   },

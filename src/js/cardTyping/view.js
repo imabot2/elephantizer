@@ -168,7 +168,7 @@ class View {
     const index = 1 - this.current.textId;
 
     // Set the next badge and question text
-    this.texts[index].querySelector('div').innerHTML = this.nextQuestion.deck.name;
+    this.texts[index].querySelector('div').innerHTML = this.nextQuestion.deck.nativeName;
     this.texts[index].querySelector('div:nth-child(2)').innerHTML = this.nextQuestion.question;
   }
 

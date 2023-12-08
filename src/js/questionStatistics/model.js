@@ -69,7 +69,7 @@ class Model {
    */
   computeMemorizationRatio() {
     this.data.memorizationRatio = this.data.timeToFirstKeyRatio * this.data.maxDistanceRatio * this.data.finalDistanceRatio;
-    this.data.memorizationRatioUser = Math.min(1, 1.1*this.data.timeToFirstKeyRatio) * this.data.maxDistanceRatio * this.data.finalDistanceRatio;
+    this.data.memorizationRatioUser = Math.min(1, 1.05*this.data.timeToFirstKeyRatio) * this.data.maxDistanceRatio * this.data.finalDistanceRatio;
   }
 
 
