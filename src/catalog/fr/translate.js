@@ -6,6 +6,8 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
+    alphabetGrec: 'Greek Alphabet in French',
+    alphabetGrecShort: 'Greek Alphabet',
     countriesOnTheMap: 'Countries On The Map in French',
     countriesOnTheMapShort: 'Countries On The Map',
     multiplicationTableDe0a10: 'Multiplication tables from 0 to 10',
@@ -15,6 +17,8 @@ const translations = {
   },
 
   fr: {
+    alphabetGrec: 'Alphabet grec en français',
+    alphabetGrecShort: 'Alphabet grec',
     countriesOnTheMap: 'Les pays sur la carte en Français',
     countriesOnTheMapShort: 'Les pays sur la carte',
     multiplicationTableDe0a10: 'Tables de multiplication de 0 à 10',

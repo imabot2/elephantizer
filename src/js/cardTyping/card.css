@@ -124,3 +124,12 @@
   justify-content: center;
 
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
+
+#card-typing .greek {
+  font-family: 'Vollkorn', serif;
+  font-weight: normal; 
+  font-size: 20vh;
+}
