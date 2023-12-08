@@ -9,7 +9,7 @@
 * Fix bug when the user don't answer to any question
 * Fix bug when animation duration for the results is equal to 0
 * Fix bug: two times the same question shouldn't happen
-
+* Add the stop button in the timer in infinite mode
 
 ## Done
 

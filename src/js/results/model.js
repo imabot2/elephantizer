@@ -51,7 +51,7 @@ class Model {
     // Compute sum for each question
     this.data.questions.forEach((question) => {
       nbCharacters += question.finalAnswer.trim().length + 1;
-      memorizationRatio+= question.memorizationRatio;
+      memorizationRatio+= question.memorizationRatioUser;
       typingtime+= question.typingTime;
       finalDistance += question.finalDistanceRatio;
       maxDistance += question.maxDistanceRatio;
