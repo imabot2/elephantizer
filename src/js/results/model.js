@@ -1,3 +1,4 @@
+import view from "./view.js";
 import selection from "Js/selection";
 
 
@@ -6,8 +7,14 @@ import selection from "Js/selection";
  */
 class Model {
   constructor() {
+    
+    // Results data (questions + statistics)
     this.data = {};
+
+    // True when the results have been processed at least once
+    this.isProcessed = false;
   }
+
 
   /**
    * Reset the results for the next memory test
@@ -15,6 +22,9 @@ class Model {
    */
   reset(mode) {
     
+    // Reset data
+    this.data = {};
+
     // Store the meta data
     // - current mode (typing or cards)
     // - current selection
@@ -62,6 +72,8 @@ class Model {
     // Compute global score
     this.data.score = this.data.wpm * this.data.memorizationRatio * 100;
 
+    // Update data in the view
+    view.setData(this.data);
     console.log (this.data)
   }
 

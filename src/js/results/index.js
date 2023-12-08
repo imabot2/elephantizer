@@ -29,6 +29,19 @@ class Results {
    */
   setTestDuration(time_ms) { model.setTestDuration(time_ms); }
 
+  
+  /**
+   * Process data for the last memory test
+   */
+  process() { model.process(); }
+
+
+  /**
+   * Get results status, true when the modal is ready to show results
+   * @returns True when the modal is ready to show results
+   */
+  isReady() { return view.isReady; }
+
 
   /**
    * Show the result modal

@@ -4,7 +4,7 @@ import auth from "Js/auth";
 import notifications from "Js/notifications";
 import selection from "Js/selection";
 import { db } from "Js/firebase";
-import { doc, setDoc, getDoc, onSnapshot } from "firebase/firestore";
+import { doc, setDoc, onSnapshot } from "firebase/firestore";
 
 
 

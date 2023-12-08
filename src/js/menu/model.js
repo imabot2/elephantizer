@@ -1,9 +1,11 @@
-import menu from "./view.js";
+import view from "./view.js";
 import settings from "Js/settings";
 import menuLanguages from "Js/menuLanguages";
 import menuCategories from "Js/menuCategories";
 import menuSeries from "Js/menuSeries";
 import selection from "Js/selection";
+import results from "Js/results";
+
 
 class Model {
 
@@ -21,7 +23,7 @@ class Model {
   onBackBtnClicked() {
 
     switch (this.currentMenu) {
-      case 'main': menu.close(); break;
+      case 'main': view.close(); break;
       case 'settings': this.navigate('main'); break;
       case 'languages': this.navigate('main'); break;
       case 'categories': this.navigate('languages'); break;
@@ -38,7 +40,7 @@ class Model {
 
     // Collapse all menus
     /*
-    menu.collapse();
+    view.collapse();
     settings.collapse();
     menuLanguages.collapse();
     menuCategories.collapse();
@@ -48,7 +50,7 @@ class Model {
     // Expand the requested menu
     switch (target) {
       case 'main': 
-        menu.expand(); 
+        view.expand(); 
         selection.collapse(500);
         break;
       case 'settings': 
@@ -66,6 +68,10 @@ class Model {
       case 'series':
         menuSeries.expand(path);
         selection.expand(500);
+        break;
+      case 'show-last-results': 
+        view.close();
+        results.show();
         break;
     }
 

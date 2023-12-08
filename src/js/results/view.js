@@ -35,9 +35,12 @@ class View {
     this.scoreEl = this.modalEl.querySelector('.score .value');
     this.wpmEl = this.modalEl.querySelector('.wpm .value');
 
+    // Keep of a copy of data shown in the result modal
+    this.data = {};
+    // True when the modal has data to display
+    this.isReady = false;
 
     // Set the callback function when the modal is shown
-    this.modalEl.addEventListener('show.bs.modal', () => { this.onModalShow(); });
     this.modalEl.addEventListener('shown.bs.modal', () => { this.onModalShown(); });
 
     // Set the callback function when the modal is hide
@@ -60,20 +63,31 @@ class View {
     this.pieAccuracy = new PieChart(this.modalEl.querySelector('.pie-accuracy'));
     this.pieAccuracy.setUnit('%');
     this.pieAccuracy.setColors(colors.orange, colors.lightGrey);
+
+    
   }
 
 
+  /**
+   * Set the statistics data for displaying in the modal
+   * @param {object} data The statistics data
+   */
+  setData(data) {
+    // Deep copy of the data
+    this.data = structuredClone(data);
 
+    // Modal is ready to show results
+    this.isReady = true;
+  }
 
 
   /**
    * Show the result modal
    */
   show() {
-
-    // Compute the statitics
-    model.process();
-
+    
+    // Prepare the modal for the animations
+    this.beforeModalShow();
 
     // Show the modal
     this.modal.show();
@@ -84,13 +98,11 @@ class View {
    * Reset the modal to restart a new animation
    */
   reset() {
-    
+
     // Reset score and progress
     this.scoreEl.innerText = 0;
     this.wpmEl.innerText = 0;
-    //this.resultsProgressEl.innerText = 0;
-
-
+    
     // Reset memory score pie chart
     this.pieMemorization.disableAnimation();
     this.pieMemorization.setRatio(0);
@@ -107,8 +119,10 @@ class View {
     // Reset accuracy pie chart
     this.pieAccuracy.disableAnimation();
     this.pieAccuracy.setRatio(0);
-    /*
-    
+
+    //this.resultsProgressEl.innerText = 0;
+
+    /*    
     // Populate cards
     this.populateCards();
     */
@@ -119,38 +133,38 @@ class View {
    * Update the modal with the model data
    */
   update() {
-    console.log ()
+
     // Update the score and progress
-    ease.outQuartProgress(this.scoreEl, 0, model.data.score);
-    ease.outQuartProgress(this.wpmEl, 0, model.data.wpm);
-    //ease.outQuartProgress(this.progressEl, 0, 100 * this.results.progress, (this.results.progress >= 0.1) ? 1 : 2, true)
+    ease.outQuartProgress(this.scoreEl, 0, this.data.score);
+    ease.outQuartProgress(this.wpmEl, 0, this.data.wpm);
 
     // Update memory score pie chart
     this.pieMemorization.enableAnimation();
-    this.pieMemorization.setRatio(model.data.memorizationRatio);
+    this.pieMemorization.setRatio(this.data.memorizationRatio);
 
     // Update right answers pie chart
     this.pieResponseTime.enableAnimation();
-    this.pieResponseTime.setRatio(model.data.timeToFirstKeyRatio, 0, model.data.timeToFirstKey_sec, 1);
+    this.pieResponseTime.setRatio(this.data.timeToFirstKeyRatio, 0, this.data.timeToFirstKey_sec, 1);
 
     // Update right answers pie chart
     this.pieRightAnswers.enableAnimation();
-    this.pieRightAnswers.setRatio(model.data.finalDistanceRatio);
+    this.pieRightAnswers.setRatio(this.data.finalDistanceRatio);
 
     // Update accuracy pie chart
     this.pieAccuracy.enableAnimation();
-    this.pieAccuracy.setRatio(model.data.maxDistanceRatio);
+    this.pieAccuracy.setRatio(this.data.maxDistanceRatio);
+
+    //ease.outQuartProgress(this.progressEl, 0, 100 * this.results.progress, (this.results.progress >= 0.1) ? 1 : 2, true)
   }
 
 
   /**
    * When the show instance is called, reset the modal content to run the animations
    */
-  onModalShow() {
-
-    if (settings.get('resultsAnimationDuration') === 0)
-      // If animation are disable in settings, do not animate
-      this.update();
+  beforeModalShow() {
+    if (settings.get('resultsAnimationDuration') === 0) 
+      // If animation are disable in settings, show the results before the modal is shown
+      this.update();    
     else
       // If animation are enable in settings, start animations at zero
       this.reset();

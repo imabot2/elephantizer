@@ -63,12 +63,28 @@ export default class ModelData {
 
     // If the key is not defined, returns all the settings
     if (name === undefined) return this.current;
-
-    // Otherwise, returns the requested settings
-    return this.current[name];
+    
+    // Otherwise, returns the requested settings converted to the best type
+    return this.convertToNumber(this.current[name]);
   }
 
 
+  /**
+   * Try to convert a string into integer of float 
+   * @param {string} string The string to convert
+   * @returns The integer value ?? the float value ?? the string
+   */
+  convertToNumber(string) {
+    let converted;
+    // Try to convert to int
+    if (!isNaN(converted = parseInt(string))) return converted;
+    // Try to convert to float
+    if (!isNaN(converted = parseInt(string))) return converted;
+    // Not converted, return the string
+    return string;
+  }
+
+  
   /**
    * Update a single parameter of the settings
    * @param {string} key The field to update

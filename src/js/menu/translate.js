@@ -10,6 +10,7 @@ const translations = {
     title: "Menu",
     selectMemoryTest: "Select Memory Test",
     settings: '<i class="bi bi-gear-fill me-2"></i> Settings',
+    showLastResults: '<i class="bi bi-bar-chart-fill me-2"></i> Last Results',
     about: "About",
   },
 
@@ -18,6 +19,7 @@ const translations = {
     title: "Menu",
     selectMemoryTest: "Sélection des questions",
     settings: '<i class="bi bi-gear-fill me-2"></i> Paramètres',
+    showLastResults: '<i class="bi bi-bar-chart-fill me-2"></i> Derniers résultats',
     about: "À propos",
   },
 

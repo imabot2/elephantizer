@@ -18,7 +18,7 @@ class View {
     // When the user click in the overlay or press a key, trigger the event
     this.onClickCallback = () => { };
     this.overlayEl.addEventListener('click', (event) => { this.onClickEvent(event); });
-    this.overlayEl.addEventListener('keydown', (event) => { console.log (event); this.onClickEvent(event); });
+    this.overlayEl.addEventListener('keydown', (event) => { this.onClickEvent(event); });
   }
 
 

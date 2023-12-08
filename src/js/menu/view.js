@@ -12,7 +12,7 @@ import menuLanguages from "Js/menuLanguages";
 import menuCategories from "Js/menuCategories";
 import menuSeries from "Js/menuSeries";
 import selection from "Js/selection";
-
+import results from "Js/results";
 
 class View {
 
@@ -40,15 +40,19 @@ class View {
     this.mainMenuEl = this.containerEl.querySelector(".main-menu");
     this.mainMenuCollapse = new bootstrap.Collapse(this.mainMenuEl, { toggle: false, parent: this.containerEl });
 
+    // Get the button show last results
+    this.showLastResultsBtn = this.containerEl.querySelector('.show-results-btn');
+
     // Set the main menu title
     this.setTitle(translate.title);
-        
+
     // Populate the menu with submenus
     this.populate();
 
     // Reset to the main menu when the modal is closed
-    this.onModalHideCallback = () => {};
-    this.modalEl.addEventListener('hide.bs.modal',() => { this.onModalHide(); });
+    this.onModalHideCallback = () => { };
+    this.modalEl.addEventListener('hide.bs.modal', () => { this.onModalHide(); });
+    this.modalEl.addEventListener('show.bs.modal', () => { this.onModalShow(); });
 
     // Set callback when the user click the back button
     this.backBtn = this.modalEl.querySelector(".back-btn");
@@ -105,7 +109,13 @@ class View {
    * Extend the collapse menu
    */
   expand() {
+    // Set main title
     this.setTitle(translate.title);
+
+    // If the results are ready to display, enable the button
+    if (results.isReady()) this.showLastResultsBtn.classList.remove('disabled');
+
+    // Expand the menu
     this.mainMenuCollapse.show();
   }
 
@@ -124,6 +134,14 @@ class View {
     this.modal.show();
   }
 
+
+  /**
+   * Callback function called when the modal is closed
+   */
+  onModalShow() {
+    // If the results are ready to display, enable the button
+    if (results.isReady()) this.showLastResultsBtn.classList.remove('disabled');
+  }
 
   /**
    * Set the callback function called when the modal is hide

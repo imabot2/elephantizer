@@ -289,6 +289,7 @@ class Model {
         stopwatch.hide();
 
         // Process the data
+        results.process();
         results.show();
       })
   }
