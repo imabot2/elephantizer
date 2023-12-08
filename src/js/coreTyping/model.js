@@ -251,12 +251,23 @@ class Model {
 
     // Disable the answer bar
     answerBar.disable();
+    // Pause the timer
+    stopwatch.pause(false);
+
+    // Stop the overlay to prevent opening while showing the right answer
+    overlay.stop();
 
     // Show the right answer 
     view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))
       .then(() => {
-        // The right answer is over, go to the next question is the test is still running
-        if (this.status == "running") this.switchToNextQuestion();
+        // The right answer is over, go to the next question if the test is still running
+        if (this.status == "running") {
+          this.switchToNextQuestion();
+          // Restart the timer
+          stopwatch.start();
+          // Restart the overlay timer
+          overlay.restartTimer();          
+        }
       })
   }
 

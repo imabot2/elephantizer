@@ -29,7 +29,7 @@ class Stopwatch {
   /**
    * Pause the timer
    */
-  pause() { model.pause(); }
+  pause(blink) { model.pause(blink); }
 
 
   /**

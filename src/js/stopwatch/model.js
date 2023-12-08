@@ -60,9 +60,9 @@ class Model {
   /**
    * Pause the timer
    */
-  pause() {
+  pause(blink = true) {
     this.timer.pause();
-    view.blink();
+    if (blink) view.blink();
   }
 
   /**
