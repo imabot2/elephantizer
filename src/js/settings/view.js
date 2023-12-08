@@ -57,6 +57,7 @@ class View {
 
     // Disable / enable the sections
     if (model.current.timerMode != 'down') this.disable('.duration'); else this.enable('.duration');
+    if (model.current.timerMode === 'series') this.disable('.beta'); else this.enable('.beta');
 
     // Update case sentive option
     this.settingsEl.querySelector(`#settings-caseInsensitive-${model.current.caseInsensitive.toString()}`).checked = true;

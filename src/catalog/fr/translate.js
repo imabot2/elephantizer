@@ -10,6 +10,8 @@ const translations = {
     countriesOnTheMapShort: 'Countries On The Map',
     multiplicationTableDe0a10: 'Multiplication tables from 0 to 10',
     multiplicationTableDe11a20: 'Multiplication tables from 11 to 20',
+    radiotelephonie: 'Radiotéléphony',
+    radiotelephonieShort: 'Radiotéléphony',
   },
 
   fr: {
@@ -17,6 +19,8 @@ const translations = {
     countriesOnTheMapShort: 'Les pays sur la carte',
     multiplicationTableDe0a10: 'Tables de multiplication de 0 à 10',
     multiplicationTableDe11a20: 'Tables de multiplication de 11 à 20',
+    radiotelephonie: "Radiotéléphonie",
+    radiotelephonieShort: "Radiotéléphonie",
   },
 }
 

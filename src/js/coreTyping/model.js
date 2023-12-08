@@ -1,4 +1,6 @@
 import view from "./view.js";
+import translate from "./translate.js";
+import notifications from "Js/notifications";
 import auth from "Js/auth";
 import generator from "Js/generator";
 import series from "Js/series";
@@ -14,6 +16,7 @@ import questionStatistics from "Js/questionStatistics";
 import overlay from "Js/overlay";
 import results from "Js/results";
 import statistics from "Js/statistics";
+
 /**
  * Model of the Core Typing module
  */
@@ -289,8 +292,13 @@ class Model {
         stopwatch.hide();
 
         // Process the data
-        results.process();
-        results.show();
+        if (results.process()) 
+          results.show(); 
+        else {
+          this.reset();
+          notifications.info(translate.noQuestionAnsweredTitle, translate.noQuestionAnsweredMessage, 5000);
+        }
+        
       })
   }
 

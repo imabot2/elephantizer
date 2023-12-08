@@ -6,13 +6,15 @@
 * Delete non confirmed users
 * Fix the bug in the menu with collapse: https://github.com/twbs/bootstrap/issues/39385
 * Add a button to show the last results in the menu
-* Fix bug when the user don't answer to any question
+
 * Fix bug when animation duration for the results is equal to 0
 * Fix bug: two times the same question shouldn't happen
 * Add the stop button in the timer in infinite mode
+* Display  Elephantizer when user login with Google
 
 ## Done
 
+* ~~* Fix bug when the user don't answer to any question~~
 * ~~Fix bug on key press when exiting the menu or results the focus is not set on the overlay~~
 * ~~⚠ Once the user is logged, download settings and statistics ⚠~~
 * ~~Add a parameter in the settings for choosing the results animation duration~~

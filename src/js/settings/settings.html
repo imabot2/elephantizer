@@ -1,32 +1,6 @@
 <div id="settings-menu" class="collapse">
 
-  <div class="beta pb-4">
-    <div>
-      <div class="font-title fs-5 pe-2 mt-2">
-        <%=beta%>
-      </div>
-      <div class="small">
-        <%=betaLabel%>
-      </div>
-    </div>
-    <div class="beta-legend d-flex justify-content-between">
-      <div>-10</div>
-      <div>-8</div>
-      <div>-6</div>
-      <div>-4</div>
-      <div>-2</div>
-      <div>0</div>
-      <div>2</div>
-      <div>4</div>
-      <div>6</div>
-      <div>8</div>      
-      <div>10</div>
-    </div>
-    <input type="range" class="form-range" min="-10" max="10" step="2" id="settings-beta" data-type="settings" data-key="beta">
-
-  </div>
-
-  <div class="learningMode pb-4">
+  <div class="learningMode pb-4 d-none">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
         <%=learningMode%>
@@ -122,6 +96,32 @@
   </div>
 
 
+  <div class="beta pb-4">
+    <div>
+      <div class="font-title fs-5 pe-2 mt-2">
+        <%=beta%>
+      </div>
+      <div class="small">
+        <%=betaLabel%>
+      </div>
+    </div>
+    <div class="beta-legend d-flex justify-content-between">
+      <div>-10</div>
+      <div>-8</div>
+      <div>-6</div>
+      <div>-4</div>
+      <div>-2</div>
+      <div>0</div>
+      <div>2</div>
+      <div>4</div>
+      <div>6</div>
+      <div>8</div>
+      <div>10</div>
+    </div>
+    <input type="range" class="form-range" min="-10" max="10" step="2" id="settings-beta" data-type="settings"
+      data-key="beta">
+  </div>
+
   <div class="caseInsensitive pb-4">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
@@ -199,6 +199,7 @@
     </div>
   </div>
 
+
   <div class="rightAnswerDuration pb-4">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
@@ -248,6 +249,7 @@
     </div>
   </div>
 
+
   <div class="resultsAnimationDuration pb-4">
     <div class="pb-2">
       <div class="font-title fs-5 pe-2 mt-2">
@@ -259,30 +261,31 @@
     </div>
     <div class="btn-group d-flex" role="group">
 
-      <input type="radio" class="btn-check" name="resultsAnimationDuration" id="settings-resultsAnimationDuration-0" autocomplete="off"
-        data-type="settings" data-key="resultsAnimationDuration" data-value="0">
+      <input type="radio" class="btn-check" name="resultsAnimationDuration" id="settings-resultsAnimationDuration-0"
+        autocomplete="off" data-type="settings" data-key="resultsAnimationDuration" data-value="0">
       <label class="btn btn-primary" for="settings-resultsAnimationDuration-0">
         <%=resultsAnimationDuration0ms%>
       </label>
 
-      <input type="radio" class="btn-check" name="resultsAnimationDuration" id="settings-resultsAnimationDuration-500" autocomplete="off"
-        data-type="settings" data-key="resultsAnimationDuration" data-value="500">
+      <input type="radio" class="btn-check" name="resultsAnimationDuration" id="settings-resultsAnimationDuration-500"
+        autocomplete="off" data-type="settings" data-key="resultsAnimationDuration" data-value="500">
       <label class="btn btn-primary" for="settings-resultsAnimationDuration-500">
         <%=resultsAnimationDuration500ms%>
       </label>
 
-      <input type="radio" class="btn-check" name="resultsAnimationDuration" id="settings-resultsAnimationDuration-750" autocomplete="off"
-        data-type="settings" data-key="resultsAnimationDuration" data-value="750">
+      <input type="radio" class="btn-check" name="resultsAnimationDuration" id="settings-resultsAnimationDuration-750"
+        autocomplete="off" data-type="settings" data-key="resultsAnimationDuration" data-value="750">
       <label class="btn btn-primary" for="settings-resultsAnimationDuration-750">
         <%=resultsAnimationDuration750ms%>
       </label>
 
-      <input type="radio" class="btn-check" name="resultsAnimationDuration" id="settings-resultsAnimationDuration-1000" autocomplete="off"
-        data-type="settings" data-key="resultsAnimationDuration" data-value="1000">
+      <input type="radio" class="btn-check" name="resultsAnimationDuration" id="settings-resultsAnimationDuration-1000"
+        autocomplete="off" data-type="settings" data-key="resultsAnimationDuration" data-value="1000">
       <label class="btn btn-primary" for="settings-resultsAnimationDuration-1000">
         <%=resultsAnimationDuration1000ms%>
       </label>
 
     </div>
   </div>
+
 </div>

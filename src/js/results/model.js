@@ -37,8 +37,11 @@ class Model {
    * Process data when the test is over
    * - Compute global WPM
    * - Compute global memorization ratio
+   * @returns False if the user hasn't answered any questions.
    */
   process() {
+
+    if (this.data.questions.length === 0) return false;
 
     // Prepare sums for average calculation
     let nbCharacters = 0;
@@ -75,6 +78,8 @@ class Model {
     // Update data in the view
     view.setData(this.data);
     console.log (this.data)
+
+    return true;
   }
 
 

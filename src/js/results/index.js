@@ -31,9 +31,12 @@ class Results {
 
   
   /**
-   * Process data for the last memory test
+   * Process data when the test is over
+   * - Compute global WPM
+   * - Compute global memorization ratio
+   * @returns False if the user hasn't answered any questions.
    */
-  process() { model.process(); }
+  process() { return model.process(); }
 
 
   /**

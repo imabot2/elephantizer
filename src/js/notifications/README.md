@@ -37,7 +37,7 @@ notifications.message("Message", "This a message", 5000);
 
 The above example stack the Toast as on the following image:
 
-![Alt text](image.png)
+![Alt text](notifications.png)
 
 ## Unit Test
 
