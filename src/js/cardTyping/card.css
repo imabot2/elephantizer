@@ -122,14 +122,15 @@
 #card-typing .answer-bar-container {
   display: flex;
   justify-content: center;
-
 }
 
 
-@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
 
 #card-typing .greek {
-  font-family: 'Vollkorn', serif;
-  font-weight: normal; 
-  font-size: 20vh;
+  font-family: 'Noto Serif', serif;
+  font-weight: 300; 
+  font-size: 16vh;
 }

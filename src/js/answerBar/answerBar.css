@@ -37,7 +37,7 @@
 }
 
 #answer-bar.disabled .input {
-  color: var(--bs-gray-600);
+  color: var(--bs-gray-500);
   caret-color: transparent;  
   
 }
