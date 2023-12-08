@@ -69,7 +69,7 @@ class Model {
    */
   computeMemorizationRatio() {
     this.data.memorizationRatio = this.data.timeToFirstKeyRatio * this.data.maxDistanceRatio * this.data.finalDistanceRatio;
-    this.data.memorizationRatioUser = Math.min(1, 1.05*this.data.timeToFirstKeyRatio) * this.data.maxDistanceRatio * this.data.finalDistanceRatio;
+    this.data.memorizationRatioUser = this.data.timeToFirstKeyRatioUser * this.data.maxDistanceRatio * this.data.finalDistanceRatio;
   }
 
 
@@ -81,7 +81,8 @@ class Model {
   computeTimeToFirstKeyRatio() {
     const timeToFirstKey_sec = (this.data.time-this.data.typingTime)/1000;
     const ratio = 1-1/(1+Math.exp(-0.8*timeToFirstKey_sec + 4))
-    this.data.timeToFirstKeyRatio = Math.min(ratio, 1);
+    this.data.timeToFirstKeyRatio = ratio;
+    this.data.timeToFirstKeyRatioUser = Math.min(1.0907*ratio, 1);
   }
 
 

@@ -140,11 +140,11 @@ class View {
 
     // Update memory score pie chart
     this.pieMemorization.enableAnimation();
-    this.pieMemorization.setRatio(this.data.memorizationRatio);
+    this.pieMemorization.setRatio(this.data.memorizationRatioUser);
 
     // Update right answers pie chart
     this.pieResponseTime.enableAnimation();
-    this.pieResponseTime.setRatio(this.data.timeToFirstKeyRatio, 0, this.data.timeToFirstKey_sec, 1);
+    this.pieResponseTime.setRatio(this.data.timeToFirstKeyRatioUser, 0, this.data.timeToFirstKey_sec, 1);
 
     // Update right answers pie chart
     this.pieRightAnswers.enableAnimation();
