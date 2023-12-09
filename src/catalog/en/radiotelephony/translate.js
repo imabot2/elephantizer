@@ -6,13 +6,13 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    alphabetPhoneticDeLOtan: 'NATO Phonetic Alphabet',
-    alphabetPhoneticDeLOtanShort: 'NATO Phonetic Alphabet',
+    natoPhoneticAlphabet: 'NATO Phonetic Alphabet',
+    natoPhoneticAlphabetShort: 'NATO Phonetic Alphabet',
   },
 
   fr: {
-    alphabetPhoneticDeLOtan: "Alphabet phonétique de l'OTAN",
-    alphabetPhoneticDeLOtanShort: "Alphabet phonétique de l'OTAN",
+    natoPhoneticAlphabet: "Alphabet phonétique de l'OTAN",
+    natoPhoneticAlphabetShort: "Alphabet phonétique de l'OTAN",
   },
 }
 

@@ -5,24 +5,28 @@
 * There is a bug when calculating the accuracy => enter Egypte when the expected answer is Egypt => accuracy = 100%
 * Delete non confirmed users
 * Fix the bug in the menu with collapse: https://github.com/twbs/bootstrap/issues/39385
-* Fix bug: two times the same question shouldn't happen
 * Add the stop button in the timer in infinite mode
 * Display  Elephantizer when user login with Google
-* Add Greek uppercase alphabet
-* Add Greek alphabet in English
 * Fix bug when a second client load a new deck
-* Remove answer displayed when mode is series
-* Automaticaly create pages for each typing tests in production mode
 * Create a site map for SEO
 * Add parameters in the settings to choose if the answer is shown and when
+* Automaticaly create pages for each typing tests in production mode
 * Add special characters
-* On Firefox, caret is not centered
-* On Firefox, space do not always submit the answer
 * Add the side card right / wrong
+* Add a button to remove deck in the selection
+* Add the number of remaining questions in series mode (10/50)
+* Show the cards in the results
 
 
 ## Done
 
+* ~~Add Greek alphabet in English~~
+* ~~Add Greek uppercase alphabet~~
+* ~~Fix bug: two times the same question shouldn't happen~~
+* ~~Remove answer displayed when mode is series~~
+* ~~On Firefox transition between questions are flickering~~
+* ~~On Firefox, caret is not centered~~
+* ~~On Firefox, space do not always submit the answer~~
 * ~~When user is not logged, focus is not set when the menu is closed~~
 * ~~⚠ When user is not logged results are not displayed ⚠~~
 * ~~⚠ When user is not logged focus is not set in the answer bar ⚠~~
