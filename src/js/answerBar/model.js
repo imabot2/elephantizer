@@ -43,6 +43,7 @@ class Model {
   * Add the event listener when input changes
   */
   onInputEvent(event) {
+
     // Do not process if this is a composition
     if (event.isComposing) return;
 

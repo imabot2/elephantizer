@@ -26,8 +26,11 @@ class View {
 
     // Initialize button tooltip
     this.submitButtonContainerEl = this.containerEl.querySelector('.submit-button-container');
+    this.placeHolderEl = this.containerEl.querySelector('.place-holder');
+    this.placeHolderContentEl = this.placeHolderEl.querySelector('div');
     this.submitButtonEl = this.submitButtonContainerEl.querySelector('img');
     this.submitButtonTooltip = new bootstrap.Tooltip(this.submitButtonEl);
+    
 
     // Append the special characters button
     let specialCharacterButtonContainerEl = this.containerEl.querySelector('.special-characters-button-container');
@@ -43,7 +46,7 @@ class View {
     this.inputEl.addEventListener('paste', event => { event.preventDefault(); });
 
     // Trigger model event when the answer input has changed    
-    this.inputEl.addEventListener("input", (event) => { model.onInputEvent(event); });
+    this.inputEl.addEventListener("input", (event) => { this.onInputEvent(event); });
 
     // Trigger model event on composition end, run the callback event
     this.inputEl.addEventListener("compositionend", () => { model.onCompositionEndEvent(); });
@@ -80,7 +83,7 @@ class View {
    * @param {string} prompt The prompt to display in the answer input
    */
   setPrompt(prompt) {
-    this.inputEl.setAttribute("placeholder", prompt);
+    this.placeHolderContentEl.innerHTML = prompt;
   }
 
 
@@ -96,7 +99,8 @@ class View {
    * Clear the input field
    */
   clear() {
-    this.inputEl.innerHTML = '';
+    this.inputEl.innerHTML = '<br>';
+    this.placeHolderEl.classList.remove('hide');
   }
 
   
@@ -128,7 +132,7 @@ class View {
    * @returns The current text in the answer input
    */
   getAnswerText() {
-    return this.inputEl.innerText;
+    return this.inputEl.textContent;
   }
 
 
@@ -139,6 +143,12 @@ class View {
   appendTo(parent) {
     // Append the element to the parent
     parent.append(this.containerEl);
+  }
+
+
+  onInputEvent(event) {
+    if (this.inputEl.textContent == '') this.placeHolderEl.classList.remove('hide'); else this.placeHolderEl.classList.add('hide');
+    model.onInputEvent(event);
   }
 
 }

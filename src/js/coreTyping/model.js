@@ -109,6 +109,7 @@ class Model {
     // Because the Levenstein class is reused with getHTML
     let distanceCheck = levenshtein.distance(answer, this.currentQuestion.answer);
 
+
     // Check the answer (user pressed space at the end of the right answer)
     if (answer[answer.length - 1] === " ") {
 
