@@ -35,6 +35,12 @@ class AnswerBar {
 
 
   /**
+   * Set the focus on the answer bar
+   */
+  focus() { view.focus(); }
+
+  
+  /**
    * Disable the answer input (and the submit button)
    */
   disable() { view.disable(); }

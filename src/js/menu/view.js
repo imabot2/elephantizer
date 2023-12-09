@@ -51,7 +51,9 @@ class View {
 
     // Reset to the main menu when the modal is closed
     this.onModalHideCallback = () => { };
+    this.onModalHiddenCallback = () => { };
     this.modalEl.addEventListener('hide.bs.modal', () => { this.onModalHide(); });
+    this.modalEl.addEventListener('hidden.bs.modal', () => { this.onModalHiddenCallback(); });
     this.modalEl.addEventListener('show.bs.modal', () => { this.onModalShow(); });
 
     // Set callback when the user click the back button
@@ -149,6 +151,15 @@ class View {
    */
   onHide(callback) {
     this.onModalHideCallback = callback;
+  }
+
+
+  /**
+   * Set the callback function called when the modal is hidden
+   * @param {function} callback Callback function 
+   */
+  onHidden(callback) {
+    this.onModalHiddenCallback = callback;
   }
 
   /**

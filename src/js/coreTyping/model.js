@@ -81,6 +81,7 @@ class Model {
 
     // Show the overlay at start up only if user is logged
     view.setOverlayVisible(auth.isLogged(), 100);
+    answerBar.enable();
 
     // Memory test is ready
     this.status = "ready";

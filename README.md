@@ -15,13 +15,15 @@
 * Automaticaly create pages for each typing tests in production mode
 * Create a site map for SEO
 * Add parameters in the settings to choose if the answer is shown and when
-* ⚠ When user is not logged results are not displayed ⚠
-* ⚠ When user is not logged focus is not set in the answer bar ⚠
+* Add special characters
 
 
 
 ## Done
 
+* ~~ * When user is not logged, focus is not set when the menu is closed ~~
+* ~~⚠ When user is not logged results are not displayed ⚠~~
+* ~~⚠ When user is not logged focus is not set in the answer bar ⚠~~
 * ~~ Fix bug when animation duration for the results is equal to 0~~
 * ~~Add a button to show the last results in the menu~~
 * ~~* Fix bug when the user don't answer to any question~~

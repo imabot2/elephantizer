@@ -37,6 +37,14 @@ class View {
     this.messageEl.innerHTML = translate.overlayMessageContinue;
   }
 
+  
+  /**
+   * Set the focus on the overlay
+   */
+  focus() {
+    this.overlayEl.focus();
+  }
+
 
   /**
    * Hide the overlay
@@ -55,7 +63,9 @@ class View {
     this.overlayEl.classList.remove('hide');
     
     // Set a timeout to prevent rejecting the focus during transition
-    setTimeout(() => { this.overlayEl.focus(); }, 100)
+    setTimeout(() => { 
+      this.focus();
+     }, 100)
   }
 
 

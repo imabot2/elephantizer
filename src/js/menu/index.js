@@ -35,6 +35,13 @@ class Menu {
    * @param {function} callback Callback function 
    */
   onHide(callback) { view.onHide(callback); }
+
+
+  /**
+   * Set the callback function called when the modal is hidden
+   * @param {function} callback Callback function 
+   */
+  onHidden(callback) { view.onHidden(callback); }
 }
 
 export default new Menu();

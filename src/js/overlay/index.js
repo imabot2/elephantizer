@@ -24,6 +24,13 @@ class Overlay {
   stop() { model.stop(); }
 
 
+
+  /**
+   * Set the focus on the overlay
+   */
+  focus() { view.focus(); }
+
+
   /**
    * Hide the overlay
    */

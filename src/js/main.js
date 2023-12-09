@@ -11,6 +11,9 @@ import core from "Js/core";
 import menu from "Js/menu";
 import loader from "Js/loader";
 import results from "Js/results";
+import auth from "Js/auth";
+import answerBar from "./answerBar";
+import overlay from "./overlay";
 
 
 // On sign in, load statistics
@@ -42,13 +45,23 @@ menu.onHide(async () => {
   core.reset();
 })
 
+// When the menu modal is closed, set the focus to the overlay or answer bar
+// Needed because Bootstrap modals set focus to the body when closed
+menu.onHidden(() => {
+  if (auth.isLogged()) overlay.focus(); else answerBar.focus();
+})
+
+
 // When the results are closed, restart a new typing test
 results.onHide(() => {
   core.reset();
 })
 
-
-
+// When the results modal is closed,  set the focus to the overlay or answer bar
+// Needed because Bootstrap modals set focus to the body when closed
+results.onHidden(() => {
+  if (auth.isLogged()) overlay.focus(); else answerBar.focus();
+})
 
 
 

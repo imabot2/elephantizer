@@ -29,7 +29,7 @@ class Results {
    */
   setTestDuration(time_ms) { model.setTestDuration(time_ms); }
 
-  
+
   /**
    * Process data when the test is over
    * - Compute global WPM
@@ -46,6 +46,7 @@ class Results {
   isReady() { return view.isReady; }
 
 
+
   /**
    * Show the result modal
    */
@@ -58,6 +59,12 @@ class Results {
    */
   onHide(callback) { view.onHide(callback); }
 
+
+  /**
+   * Set the callback function called when the modal is hidden
+   * @param {function} callback Callback function
+   */
+  onHidden(callback) { view.onHidden(callback); }
 }
 
 

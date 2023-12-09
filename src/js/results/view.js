@@ -44,8 +44,10 @@ class View {
     this.modalEl.addEventListener('shown.bs.modal', () => { this.onModalShown(); });
 
     // Set the callback function when the modal is hide
-    this.onModalHideCallback = () => {};
+    this.onModalHideCallback = () => { };
+    this.onModalHiddenCallback = () => { };
     this.modalEl.addEventListener('hide.bs.modal', () => { this.onModalHideCallback(); });
+    this.modalEl.addEventListener('hidden.bs.modal', () => { this.onModalHiddenCallback(); });
 
     // Create pie charts
     this.pieMemorization = new PieChart(this.modalEl.querySelector('.pie-memorization'));
@@ -64,7 +66,7 @@ class View {
     this.pieAccuracy.setUnit('%');
     this.pieAccuracy.setColors(colors.orange, colors.lightGrey);
 
-    
+
   }
 
 
@@ -85,7 +87,7 @@ class View {
    * Show the result modal
    */
   show() {
-    
+
     // Prepare the modal for the animations
     this.beforeModalShow();
 
@@ -102,7 +104,7 @@ class View {
     // Reset score and progress
     this.scoreEl.innerText = 0;
     this.wpmEl.innerText = 0;
-    
+
     // Reset memory score pie chart
     this.pieMemorization.disableAnimation();
     this.pieMemorization.setRatio(0);
@@ -162,9 +164,9 @@ class View {
    * When the show instance is called, reset the modal content to run the animations
    */
   beforeModalShow() {
-    if (settings.get('resultsAnimationDuration') === 0) 
+    if (settings.get('resultsAnimationDuration') === 0)
       // If animation are disable in settings, show the results before the modal is shown
-      this.update();    
+      this.update();
     else
       // If animation are enable in settings, start animations at zero
       this.reset();
@@ -177,9 +179,10 @@ class View {
    * Lauch the animation
    */
   onModalShown() {
-    if (settings.get('resultsAnimationDuration') !== 0) 
+    if (settings.get('resultsAnimationDuration') !== 0)
       setTimeout(() => { this.update(); }, 250);
   }
+
 
   /**
    * Set the callback function called when the modal is hide
@@ -189,6 +192,14 @@ class View {
     this.onModalHideCallback = callback;
   }
 
+
+  /**
+   * Set the callback function called when the modal is hidden
+   * @param {function} callback Callback function
+   */
+  onHidden(callback) {
+    this.onModalHiddenCallback = callback;
+  }
 
 }
 
