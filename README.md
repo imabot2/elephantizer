@@ -16,7 +16,9 @@
 * Create a site map for SEO
 * Add parameters in the settings to choose if the answer is shown and when
 * Add special characters
-
+* On Firefox, caret is not centered
+* On Firefox, space do not always submit the answer
+* Add the side card right / wrong
 
 
 ## Done
