@@ -4,7 +4,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const { translations } = require("./translations.js");
 const { unitTests } = require("./unit-test.js");
-
+//const { catalog } = require("./catalog.js");
+//console.log ('---------------------------->', catalog);
 
 
 module.exports = (env) => {

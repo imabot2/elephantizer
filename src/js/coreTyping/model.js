@@ -52,7 +52,7 @@ class Model {
    * Reset the memory test and prepare the first questions
    */
   reset() {
-    
+
     // Current status of the memory test during reset
     this.status = "reset";
 
@@ -78,7 +78,7 @@ class Model {
     // Reset the overlay timer
     overlay.resetTimer();
     overlay.setStartMessage();
-    
+
     // Show the overlay at start up only if user is logged
     view.setOverlayVisible(auth.isLogged(), 100);
 
@@ -258,7 +258,7 @@ class Model {
     overlay.stop();
 
     // Show the right answer 
-    view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))
+    view.showRightAnswer(this.currentQuestion.answer)
       .then(() => {
         // The right answer is over, go to the next question if the test is still running
         if (this.status == "running") {
@@ -266,7 +266,7 @@ class Model {
           // Restart the timer
           stopwatch.start();
           // Restart the overlay timer
-          overlay.restartTimer();          
+          overlay.restartTimer();
         }
       })
   }
@@ -281,7 +281,7 @@ class Model {
     this.status = "over";
 
     // Store the test duration
-    results.setTestDuration(stopwatch.getElapsedTime());    
+    results.setTestDuration(stopwatch.getElapsedTime());
 
     // Stop the stopwatch
     stopwatch.stop();
@@ -293,24 +293,30 @@ class Model {
     // Disable the answer bar
     answerBar.disable();
 
-    // Save the memory test statistics
+    // Save the memory test statistics    
     statistics.save();
+    
+    // Show the last answer and show the results
+    view.showLastAnswer(this.currentQuestion.answer)
+      .then(() => { this.showResults(); })
+  }
 
-    // Show the right answer for the last question
-    view.showRightAnswer(this.currentQuestion.answer, settings.get('rightAnswerDuration'))
-      .then(() => {
-        // Hide the timer
-        stopwatch.hide();
 
-        // Process the data
-        if (results.process()) 
-          results.show(); 
-        else {
-          this.reset();
-          notifications.info(translate.noQuestionAnsweredTitle, translate.noQuestionAnsweredMessage, 5000);
-        }
-        
-      })
+  /**
+   * Show final results if the user answered at least one question
+   */
+  showResults() {
+    
+    // Hide the stopwatch
+    stopwatch.hide();
+
+    // Process the data
+    if (results.process())
+      results.show();
+    else {
+      this.reset();
+      notifications.info(translate.noQuestionAnsweredTitle, translate.noQuestionAnsweredMessage, 5000);
+    }
   }
 
 

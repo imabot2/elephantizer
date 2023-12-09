@@ -2,7 +2,7 @@ import card from "Js/cardTyping";
 import correction from "Js/correction";
 import answerBar from "Js/answerBar";
 import overlay from "Js/overlay";
-
+import settings from "Js/settings";
 
 /**
  * View for the Typing Core module
@@ -19,16 +19,16 @@ class View {
   }
 
   /**
-   * Show the right answer during delay_ms milliseconds
+   * Show the right answer
    * @param {string} answer The right answer to display
    * @returns A promise resolved when the 
    */
-  showRightAnswer(answer, delay_ms) {
+  showRightAnswer(answer) {
     return new Promise((resolve) => {
 
       // Resolve the promise when the right answer is over
       document.body.addEventListener("right-answer-over-event", () => {
-        this.isRightAnswerVisible = false
+        this.isRightAnswerVisible = false;
         resolve();
       }, { once: true });
 
@@ -54,7 +54,19 @@ class View {
         // Trigger the event to resolve the promise
         document.body.dispatchEvent(this.rightAnswerOverEvent);
 
-      }, delay_ms);
+      }, settings.get('rightAnswerDuration'));
+    })
+  }
+
+
+  /**
+   * Show the last answer of the quizz
+   * @returns Return a promise when the last answer is shown
+  */
+  showLastAnswer(answer) {
+    return new Promise((resolve) => {
+      if (settings.get('timerMode') !== 'down') { resolve(); return; }
+      this.showRightAnswer(answer).then (() => { resolve(); })
     })
   }
 
@@ -88,7 +100,7 @@ class View {
   /**
    * Show the overlay
    */
-  showOverlay(fadeIn_ms) {   
+  showOverlay(fadeIn_ms) {
     overlay.show(fadeIn_ms);
     answerBar.disable();
   }

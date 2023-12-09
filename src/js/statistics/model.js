@@ -1,8 +1,9 @@
+import translate from "./translate.js";
 import series from "Js/series";
 import auth from "Js/auth";
 import notifications from "Js/notifications";
 import { db } from "Js/firebase";
-import { doc, collection, query, onSnapshot, serverTimestamp, writeBatch } from "firebase/firestore";
+import { doc, collection, query, onSnapshot, writeBatch } from "firebase/firestore";
 
 
 
@@ -115,39 +116,56 @@ class Model {
    */
   save() {
 
-    // Get a new write batch
-    const batch = writeBatch(db);
 
-    // For each deck
-    const paths = Object.keys(this.data);
-    paths.forEach(path => {
+    return new Promise((resolve, reject) => {
+    
+      // If the user is not logged, do not save to database
+      if (!auth.isLogged()) { resolve(); return; }
+    
+    
+      // Get a new write batch
+      const batch = writeBatch(db);
 
-      // If data is not updated, do not save on Firebase
-      if (!this.data[path].updated) return;
+      // For each deck
+      const paths = Object.keys(this.data);
+      paths.forEach(path => {
 
-      // Sanitize the deck before saving. 
-      // Keep only existing questions in the series
-      this.sanitizeDeck(path);
+        // If data is not updated, do not save on Firebase
+        if (!this.data[path].updated) return;
 
-      // Sanitize document name for Firestore
-      let docName = path.replaceAll('/', '\\');
+        // Sanitize the deck before saving. 
+        // Keep only existing questions in the series
+        this.sanitizeDeck(path);
 
-      // Document to write
-      const docRef = doc(db, "users", `${auth.userId()}`, "statistics", docName);
+        // Sanitize document name for Firestore
+        let docName = path.replaceAll('/', '\\');
 
-      // Increase the counter everytime data are updated on the server
-      this.data[path].counter++;
+        // Document to write
+        const docRef = doc(db, "users", `${auth.userId()}`, "statistics", docName);
 
-      // Add the document to the batch
-      batch.set(docRef,
-        {
-          counter: this.data[path].counter,
-          stats: this.data[path].stats,
+        // Increase the counter everytime data are updated on the server
+        this.data[path].counter++;
+
+        // Add the document to the batch
+        batch.set(docRef,
+          {
+            counter: this.data[path].counter,
+            stats: this.data[path].stats,
+          })
+      })
+
+      // Return the promise
+      batch.commit()
+        .then(() => { resolve(); })
+        .catch((error) => {
+          console.error(error);
+          notifications.error(translate.error8000, translate.error8000Message);
+          reject(error);
+
         })
-    })
 
-    // Return the promise
-    return batch.commit();
+
+    })
   }
 
 

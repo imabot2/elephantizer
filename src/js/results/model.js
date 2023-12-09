@@ -41,7 +41,6 @@ class Model {
    * @returns False if the user hasn't answered any questions.
    */
   process() {
-
     if (this.data.questions.length === 0) return false;
 
     // Prepare sums for average calculation

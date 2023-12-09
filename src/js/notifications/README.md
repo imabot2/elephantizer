@@ -56,7 +56,8 @@ Error codes are classified in categories (1000 error code for each module):
 |  [4000 : 4999]     | Error during sign in | [sign](/src/js/sign) |
 |  [5000 : 5999]     | Error during settings operations | [settings](/src/js/settings) |
 |  [6000 : 6999]     | Error during series operations | [series](/src/js/series) |
-|  [7000 : 7999]     | Error in selection module | [selection](/src/js/selection) |
+|  [7000 : 7999]     | Error in the selection module | [selection](/src/js/selection) |
+|  [8000 : 8999]     | Error in the statistics module | [statistics](/src/js/statisctics) |
 
 
 
@@ -77,5 +78,6 @@ Error codes are classified in categories (1000 error code for each module):
 | 5002  | Error while downloading current settings | [/src/js/settings/model.js](/src/js/settings/model.js)  |
 | 6000  | Error while downloading a deck | [/src/js/series/model.js](/src/js/series/model.js)  |
 | 7000  | Error while removing non loading deck | [/src/js/selection/model.js](/src/js/selection/model.js)  |
+| 8000  | Error while saving statistics on Firestore | [/src/js/statisctics/model.js](/src/js/statisctics/model.js)  |
 
 Shortcut to preview Markdown in VSCode : Ctrl+K V

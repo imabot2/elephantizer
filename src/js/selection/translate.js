@@ -19,7 +19,7 @@ const translations = {
     atLeastOneDeck: "Selection vide",
     atLeastOneDeckMessage: "Vous devez sélectionner au moins une série.",
 
-    error7000: 'Error #7000',
+    error7000: 'Erreur #7000',
     error7000Message: "Erreur lors du chargement d'un test.",
   },
 

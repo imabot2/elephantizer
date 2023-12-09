@@ -23,7 +23,7 @@ export default class ModelData {
       // Timer mode [ 'series' | 'up' | 'down' ]
       timerMode: "down",
       // Timer duration [s]
-      duration: 60,
+      duration: 5,
 
       // Case sensitive [ true | false ]
       caseInsensitive: true,
