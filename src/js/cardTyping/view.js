@@ -36,7 +36,7 @@ class View {
 
     // Properties of the current question
     this.current = {
-      type: undefined,
+      type: 'outer',
       outerId: 0,
       innerId: 0,
       textId: 0,
@@ -75,11 +75,10 @@ class View {
 
   /**
    * Hide the current question and show the next question
-   * @returns A promise when the transition is over
+   * @returns A promise when the transition is over for both (shown and hidden)
    */
   switchToNextQuestion() {
-    this.hideCurrentQuestion();
-    return this.showNextQuestion();
+    return Promise.all([this.hideCurrentQuestion(), this.showNextQuestion()]);    
   }
 
 
@@ -88,6 +87,7 @@ class View {
    * @returns A promise resolved whent the next question opacity is equal to 1
    */
   showNextQuestion() {
+
     return new Promise((resolve) => {
       let visibleElement;
 
@@ -117,22 +117,33 @@ class View {
       this.current.type = this.nextQuestion.type;
 
       // When the transition is over, resolve the promise
-      visibleElement.addEventListener('transitionend', (event) => {
-        if (event.propertyName == "opacity") { resolve(); }
-      })
+      visibleElement.addEventListener('transitionend', () => { resolve(); }, { once: true });
     })
   }
 
 
   /**
    * Hide the current question
+   * @returns A promise when the transition is over (element is hidden)
    */
   hideCurrentQuestion() {
-    switch (this.current.type) {
-      case 'outer': this.outerImages[this.current.outerId].style.opacity = 0; break;
-      case 'inner': this.innerImages[this.current.innerId].style.opacity = 0; break;
-      case 'text': this.texts[this.current.textId].style.opacity = 0; break;
-    }
+    return new Promise((resolve) => {
+
+      // Select the element to hide (current one)
+      let hiddenElement;
+      switch (this.current.type) {
+        // Set opacity to 0.001 to prevent flickering on Firefox
+        case 'outer': hiddenElement = this.outerImages[this.current.outerId]; break;
+        case 'inner': hiddenElement = this.innerImages[this.current.innerId]; break;
+        case 'text': hiddenElement = this.texts[this.current.textId]; break;
+      }
+
+      // Hide the element
+      hiddenElement.style.opacity = 0.001;
+
+      // Resolve when transition is over
+      hiddenElement.addEventListener('transitionend', () => { resolve(); }, { once: true });
+    })
   }
 
 
