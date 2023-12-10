@@ -9,7 +9,7 @@ import "Js/menu"; // For burger menu
 import auth from "Js/auth";
 import settings from "Js/settings";
 import results from "Js/results";
-
+import series from "Js/series";
 
 
 await auth.waitForAuthCompleted();
@@ -125,11 +125,16 @@ resultsModel.data = {
   "memorizationRatio": 0.7965764412049797
 };
 
+//await series.load ('fr/alphabet-grec/majuscule');
+//await series.load ('fr/pays-sur-la-carte/afrique');
+await series.load ('fr/pays-sur-la-carte/europe');
+//await series.load ('en/country-outline/europe');
 
 // Hide the bootloader
 bootloader.hide()
 
 // Show the results
+results.process();
 results.show();
 
 

@@ -9,6 +9,7 @@ import PieChart from "Js/pieChart";
 import ease from "Js/ease";
 import settings from "Js/settings";
 import colors from "Js/cssColors";
+import ResultCard from "Js/resultCard";
 
 /**
  * View for the results module
@@ -34,6 +35,7 @@ class View {
     // Get the elements from DOM
     this.scoreEl = this.modalEl.querySelector('.score .value');
     this.wpmEl = this.modalEl.querySelector('.wpm .value');
+    this.answerCardsContainerEl = this.modalEl.querySelector('.answer-cards-container');
 
     // Keep of a copy of data shown in the result modal
     this.data = {};
@@ -80,6 +82,7 @@ class View {
 
     // Modal is ready to show results
     this.isReady = true;
+
   }
 
 
@@ -124,10 +127,9 @@ class View {
 
     //this.resultsProgressEl.innerText = 0;
 
-    /*    
+
     // Populate cards
     this.populateCards();
-    */
   }
 
 
@@ -157,8 +159,20 @@ class View {
     this.pieAccuracy.setRatio(this.data.maxDistanceRatio);
 
     //ease.outQuartProgress(this.progressEl, 0, 100 * this.results.progress, (this.results.progress >= 0.1) ? 1 : 2, true)
+
+    
   }
 
+
+  populateCards() {
+    this.answerCardsContainerEl.innerHTML = [];
+    console.log (this.data)
+    this.data.questions.forEach((question) => {
+      const cardText = new ResultCard();
+      cardText.populate(question);
+      cardText.appendTo(this.answerCardsContainerEl);
+    })
+  }
 
   /**
    * When the show instance is called, reset the modal content to run the animations
