@@ -55,11 +55,29 @@ const translations = {
     betaLabel: "This setting allows you to choose whether the questions you had the most difficulty with will be asked more or less frequently:<ul>" +
       "<li>With a coefficient of <strong>-10</strong>, the <strong>easiest</strong> questions will be asked to you very often.</li>" +
       "<li>With a coefficient of <strong>0</strong>, the questions are drawn randomly (<strong>equiprobable</strong>).</li>" +
-      "<li>With a coefficient of <strong>10</strong>, the <strong>most difficult</strong> questions will be asked very often.</li>"+
+      "<li>With a coefficient of <strong>10</strong>, the <strong>most difficult</strong> questions will be asked very often.</li>" +
       "</ul>",
 
-    rightAnswerDuration: "Right Answer Duration",
-    rightAnswerDurationLabel: "Select how long the correct answer is displayed.",
+      correctionThreshold: "Correction Threshold",
+      correctionThresholdLabel: "Select the <strong>memory threshold</strong> above which corrections will no longer be displayed.<ul>"+
+      "<li>With a threshold of <strong>0%</strong>, the correction will <strong>never</strong> be displayed.</li>"+    
+      "<li>With a threshold of <strong>100%</strong>, the correction will <strong>always</strong> be displayed.</li>"+
+      "<li>With a threshold of <strong>50%</strong>, the correction will only be displayed if your memorization score is <strong>below 50%</strong>.</li>"+
+      "</ul>",
+
+
+    correctionDelay: "Correction Delay",
+    correctionDelayLabel: "You can delay <strong>the display of help</strong>. This delay is the time between a mistyped letter and the correction being displayed.",
+    correctionDelay0: "0s",
+    correctionDelay1000: "1s",
+    correctionDelay2000: "2s",
+    correctionDelay5000: "5s",
+    correctionDelay10000: "10s",
+
+
+  
+    rightAnswerDuration: "Final Answer",
+    rightAnswerDurationLabel: "Select how long the <strong>expected response</strong> is displayed when you have submitted a wrong answer.",
     rightAnswerDuration500: "0.5s",
     rightAnswerDuration1000: "1s",
     rightAnswerDuration1500: "1.5s",
@@ -138,11 +156,28 @@ const translations = {
     betaLabel: "Ce paramètre permet de choisir si les questions où vous avez eu le plus de difficulté vous seront posées plus ou moins fréquemment :<ul>" +
       "<li>Avec un coefficient de <strong>-10</strong>, les questions les <strong>plus faciles</strong> vous seront très souvent posées.</li>" +
       "<li>Avec un coefficient de <strong>0</strong>, les questions sont tirées au hasard (</strong>équiprobable</strong>).</li>" +
-      "<li>Avec un coefficient de <strong>10</strong>, les questions les <strong>plus difficiles</strong> seront très souvent posées.</li>"+
+      "<li>Avec un coefficient de <strong>10</strong>, les questions les <strong>plus difficiles</strong> seront très souvent posées.</li>" +
       "</ul>",
 
-    rightAnswerDuration: "Durée de la réponse",
-    rightAnswerDurationLabel: "Sélectionnez la durée d'affichage de la bonne réponse.",
+
+    correctionThreshold: "Seuil de correction",
+    correctionThresholdLabel: "Sélectionnez le <strong>seuil de mémorisation</strong> à partir duquel les corrections ne s'afficheront plus.<ul>"+
+    "<li>Avec un seuil de <strong>0%</strong>, la correction ne s'affichera <strong>jamais</strong>.</li>"+    
+    "<li>Avec un seuil de <strong>100%</strong>, la correction s'affichera <strong>toujours</strong>.</li>"+
+    "<li>Avec un seuil de <strong>50%</strong>, la correction ne s'affichera que si votre score de mémorisation est <strong>inférieur à 50%</strong>.</li>"+
+    "</ul>",
+
+    correctionDelay: "Délai avant correction",
+    correctionDelayLabel: "Vous pouvez retarder <strong>l'affichage de l'aide</strong>. Ce délai correspond à la durée entre la saisie d'une lettre erronée et l'affichage de la correction.",
+    correctionDelay0: "0s",
+    correctionDelay1000: "1s",
+    correctionDelay2000: "2s",
+    correctionDelay5000: "5s",
+    correctionDelay10000: "10s",
+
+
+    rightAnswerDuration: "Réponse finale",
+    rightAnswerDurationLabel: "Sélectionnez la durée d'affichage de la <strong>solution attendue</strong> lorsque vous avez soumis une réponse erronée.",
     rightAnswerDuration500: "0,5s",
     rightAnswerDuration1000: "1s",
     rightAnswerDuration1500: "1,5s",
@@ -150,13 +185,14 @@ const translations = {
     rightAnswerDuration2500: "2,5s",
     rightAnswerDuration3000: "3s",
 
+
     resultsAnimationDuration: "Animation des résulats",
     resultsAnimationDurationLabel: "Sélectionnez la durée de l'animation lorsque les résultats sont affichés.",
     resultsAnimationDuration0ms: "Off",
     resultsAnimationDuration500ms: "500ms",
     resultsAnimationDuration750ms: "750ms",
     resultsAnimationDuration1000ms: "1s",
-    
+
     error5000: 'Erreur 5000',
     error5000Message: "Une erreur inconnue s'est produite lors de la sauvegarde de vos paramètres. Veuillez vérifier votre connexion internet ou réessayer plus tard.",
 

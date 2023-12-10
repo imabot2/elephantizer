@@ -13,6 +13,9 @@ import menuCategories from "Js/menuCategories";
 import menuSeries from "Js/menuSeries";
 import selection from "Js/selection";
 import results from "Js/results";
+import stopwatch from "Js/stopwatch";
+
+
 
 class View {
 
@@ -141,6 +144,10 @@ class View {
    * Callback function called when the modal is closed
    */
   onModalShow() {
+    
+    // Pause the timer when the menu is open
+    stopwatch.pause(false);
+
     // If the results are ready to display, enable the button
     if (results.isReady()) this.showLastResultsBtn.classList.remove('disabled');
   }

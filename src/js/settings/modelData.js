@@ -34,6 +34,12 @@ export default class ModelData {
       // Ignore hyphens [ true | false ]
       ignoreHyphens: true,
 
+      // Correction Threeshold
+      correctionThreshold: 1,
+
+      // Delay before showing the correction
+      correctionDelay: 0,
+
       // Duration of the right answer display
       rightAnswerDuration: 1000,
 

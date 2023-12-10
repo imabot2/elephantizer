@@ -71,13 +71,6 @@
     </div>
     <div class="btn-group d-flex" role="group">
 
-      <!--
-      <input type="radio" class="btn-check" name="duration" id="settings-duration-5" autocomplete="off"
-        data-type="settings" data-key="duration" data-value="5">
-      <label class="btn btn-primary" for="settings-duration-5">
-        <%=duration5s%>
-      </label>
--->
       <input type="radio" class="btn-check" name="duration" id="settings-duration-30" autocomplete="off"
         data-type="settings" data-key="duration" data-value="30">
       <label class="btn btn-primary" for="settings-duration-30">
@@ -214,6 +207,74 @@
     </div>
   </div>
   <!--#endregion Ignore Hyphens -->
+
+  <!--#region Correction Threshold -->
+  <div class="correction-threshold pb-4">
+    <div>
+      <div class="font-title fs-5 pe-2 mt-2">
+        <%=correctionThreshold%>
+      </div>
+      <div class="small">
+        <%=correctionThresholdLabel%>
+      </div>
+    </div>
+    <div class="correction-threshold-legend d-flex justify-content-between">
+      <div>0%</div>
+      <div>20%</div>
+      <div>40%</div>
+      <div>60%</div>
+      <div>80%</div>
+      <div>100%</div>
+    </div>
+    <input type="range" class="form-range" min="0" max="1" step="0.05" id="settings-correctionThreshold"
+      data-type="settings" data-key="correctionThreshold">
+  </div>
+  <!--#endregion Correction Threshold -->
+
+  <!--#region Correction Delay -->
+  <div class="correctionDelay pb-4">
+    <div class="pb-2">
+      <div class="font-title fs-5 pe-2 mt-2">
+        <%=correctionDelay%>
+      </div>
+      <div class="small">
+        <%=correctionDelayLabel%>
+      </div>
+    </div>
+    <div class="btn-group d-flex" role="group">
+
+      <input type="radio" class="btn-check" name="correctionDelay" id="settings-correctionDelay-0" autocomplete="off"
+        data-type="settings" data-key="correctionDelay" data-value="0">
+      <label class="btn btn-primary" for="settings-correctionDelay-0">
+        <%=correctionDelay0%>
+      </label>
+
+      <input type="radio" class="btn-check" name="correctionDelay" id="settings-correctionDelay-1000" autocomplete="off"
+        data-type="settings" data-key="correctionDelay" data-value="1000">
+      <label class="btn btn-primary" for="settings-correctionDelay-1000">
+        <%=correctionDelay1000%>
+      </label>
+
+      <input type="radio" class="btn-check" name="correctionDelay" id="settings-correctionDelay-2000" autocomplete="off"
+        data-type="settings" data-key="correctionDelay" data-value="2000">
+      <label class="btn btn-primary" for="settings-correctionDelay-2000">
+        <%=correctionDelay2000%>
+      </label>
+
+      <input type="radio" class="btn-check" name="correctionDelay" id="settings-correctionDelay-5000" autocomplete="off"
+        data-type="settings" data-key="correctionDelay" data-value="5000">
+      <label class="btn btn-primary" for="settings-correctionDelay-5000">
+        <%=correctionDelay5000%>
+      </label>
+
+      <input type="radio" class="btn-check" name="correctionDelay" id="settings-correctionDelay-10000"
+        autocomplete="off" data-type="settings" data-key="correctionDelay" data-value="10000">
+      <label class="btn btn-primary" for="settings-correctionDelay-10000">
+        <%=correctionDelay10000%>
+      </label>
+    </div>
+  </div>
+  <!--#endregion Correction Delay -->
 
   <!--#region Right Answer Duration -->
   <div class="rightAnswerDuration pb-4">

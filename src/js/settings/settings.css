@@ -8,12 +8,27 @@
   padding-right: clamp(0.5ch, 2.2%, 2.2%);  
 }
 
+#settings-menu .correction-threshold-legend,
 #settings-menu .beta-legend {
   margin-bottom: -3px;
 }
 
+
 #settings-menu .beta-legend > div  {
   width: 8%;
+  max-width: 5ch;
+  text-align: center;
+}
+
+
+#settings-menu .correction-threshold input {
+  padding-left: clamp(1.3ch, 2.5%, 2.5%);
+  padding-right: clamp(1.8ch, 2.5%, 2.5%);  
+}
+
+
+#settings-menu .correction-threshold-legend > div {
+  width: 15%;
   max-width: 5ch;
   text-align: center;
 }

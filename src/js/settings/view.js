@@ -52,12 +52,8 @@ class View {
     this.settingsEl.querySelector(`#settings-learningMode-${model.current.learningMode}`).checked = true;
     // Update the timer mode
     this.settingsEl.querySelector(`#settings-timerMode-${model.current.timerMode}`).checked = true;
-    // Update the test duration in the settings
+    // Update the test duration in the menu
     this.settingsEl.querySelector(`#settings-duration-${model.current.duration}`).checked = true;
-
-    // Disable / enable the sections
-    if (model.current.timerMode != 'down') this.disable('.duration'); else this.enable('.duration');
-    if (model.current.timerMode === 'series') this.disable('.beta'); else this.enable('.beta');
 
     // Update case sentive option
     this.settingsEl.querySelector(`#settings-caseInsensitive-${model.current.caseInsensitive.toString()}`).checked = true;
@@ -66,25 +62,39 @@ class View {
     // Update ignore hyphens option
     this.settingsEl.querySelector(`#settings-ignoreHyphens-${model.current.ignoreHyphens.toString()}`).checked = true;
 
-    // Update the test duration in the settings
+    // Update the correction threshold in the menu
+    this.settingsEl.querySelector('#settings-correctionThreshold').value = model.current.correctionThreshold;
+
+    // Update the correction delay in the menu
+    this.settingsEl.querySelector(`#settings-correctionDelay-${model.current.correctionDelay}`).checked = true;
+
+
+    // Update the right answer duration in the menu
     this.settingsEl.querySelector(`#settings-rightAnswerDuration-${model.current.rightAnswerDuration}`).checked = true;
 
-    // Update the results animation duration in the settings
+    // Update the results animation duration in the menu
     this.settingsEl.querySelector(`#settings-resultsAnimationDuration-${model.current.resultsAnimationDuration}`).checked = true;
 
-    // Update the results animation duration in the settings
+    // Update the results animation duration in the menu
     this.settingsEl.querySelector('#settings-beta').value = model.current.beta;
+
+
+    // Disable / enable the sections
+    if (model.current.timerMode != 'down') this.disable('.duration'); else this.enable('.duration');
+    if (model.current.timerMode === 'series') this.disable('.beta'); else this.enable('.beta');
+    if (model.current.correctionThreshold == 0) this.disable('.correctionDelay'); else this.enable('.correctionDelay');
   }
 
 
 
   /**
    * Disable a section of the settings
-   * @param {string} target The CSS selector of the section header to disable
+   * @param {string} targetSelector The CSS selector of the section header to disable
    */
-  disable(target) {
+  disable(targetSelector) {
+
     // Disable the title
-    const section = this.settingsEl.querySelector(target);
+    const section = this.settingsEl.querySelector(targetSelector);
     section.classList.add('disabled');
 
     // Disable the buttons
