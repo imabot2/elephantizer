@@ -8,37 +8,18 @@ import "Js/menu"; // For burger menu
 
 import auth from "Js/auth";
 import settings from "Js/settings";
-import results from "Js/results";
+import series from "Js/series";
 
 
 
 await auth.waitForAuthCompleted();
 await settings.init();
 
-let qText = {
-    "path": "fr/alphabet-grec/majuscule",
-    "uid": "Zeta",
-    "count": 2,
-    "previousScore": 0.4813724566865325,
-    "maxDistance": 0,
-    "rightAnswer": "Zêta",
-    "finalDistance": 0,
-    "finalAnswer": "Zêta ",
-    "typingTime": 1341,
-    "time": 2391,
-    "wpm": 44.742729306487696,
-    "maxDistanceRatio": 1,
-    "finalDistanceRatio": 1,
-    "timeToFirstKeyRatio": 0.9593009464285335,
-    "timeToFirstKeyRatioUser": 1,
-    "memorizationRatio": 0.9593009464285335,
-    "memorizationRatioUser": 1,
-    "newScore": 0.6406819532671996
-};
+
 
 let qOuter = {
-    "path": "fr/pays-sur-la-carte/afrique",
-    "uid": "51",
+    "path": "fr/pays-sur-la-carte/europe",
+    "uid": "ru",
     "count": 0,
     "previousScore": 0,
     "maxDistance": 0,
@@ -57,6 +38,48 @@ let qOuter = {
     "newScore": 0.8915236704633315
 };
 
+let qInner = {
+    "path": "en/country-outline/europe",
+    "uid": "be",
+    "count": 3,
+    "previousScore": 0.7586938079282821,
+    "maxDistance": 1,
+    "rightAnswer": "Belgium",
+    "finalDistance": 0,
+    "finalAnswer": "Belgium ",
+    "typingTime": 3110,
+    "time": 4930,
+    "wpm": 30.868167202572348,
+    "maxDistanceRatio": 0.8571428571428572,
+    "finalDistanceRatio": 1,
+    "timeToFirstKeyRatio": 0.9271693937650729,
+    "timeToFirstKeyRatioUser": 1,
+    "memorizationRatio": 0.7947166232272054,
+    "memorizationRatioUser": 0.8571428571428572,
+    "newScore": 0.692699511753013
+};
+
+let qText = {
+    "path": "fr/alphabet-grec/majuscule",
+    "uid": "Zeta",
+    "count": 2,
+    "previousScore": 0.4813724566865325,
+    "maxDistance": 0,
+    "rightAnswer": "Zêta",
+    "finalDistance": 2,
+    "finalAnswer": "Zêta ",
+    "typingTime": 1341,
+    "time": 2391,
+    "wpm": 44.742729306487696,
+    "maxDistanceRatio": 1,
+    "finalDistanceRatio": 1,
+    "timeToFirstKeyRatio": 0.9593009464285335,
+    "timeToFirstKeyRatioUser": 1,
+    "memorizationRatio": 0.9593009464285335,
+    "memorizationRatioUser": 1,
+    "newScore": 0.6406819532671996
+};
+
 
 // Hide the bootloader
 bootloader.hide()
@@ -73,6 +96,10 @@ container.classList.add('p-5');
 //container.classList.add('bg-secondary');
 document.body.append(container);
 
+await series.load ('fr/alphabet-grec/majuscule');
+await series.load ('fr/pays-sur-la-carte/afrique');
+await series.load ('fr/pays-sur-la-carte/europe');
+await series.load ('en/country-outline/europe');
 
 
 import ResultCard from "Js/resultCard";
@@ -85,3 +112,6 @@ let cardOuter = new ResultCard();
 cardOuter.populate(qOuter);
 cardOuter.appendTo(container);
 
+let cardInner = new ResultCard();
+cardInner.populate(qInner);
+cardInner.appendTo(container);

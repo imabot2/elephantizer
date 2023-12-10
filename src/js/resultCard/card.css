@@ -1,18 +1,85 @@
-.results-question-card  {
+.results-question-card {
   font-size: 0.98em;
 }
 
-.results-question-card  .card-img-top {
+
+.results-question-card .card-header {
+  height: 175px;
+  background-color: var(--main-light-grey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+
+.results-question-card .card-header>div {
+  transform: scale(1);
+  transition: transform 5s;
+  font-size: 2em;
+}
+.results-question-card .card-header:hover>div {
+  transform: scale(5);
+}
+.results-question-card .card-header .greek {
+  font-family: 'Noto Serif', serif;
+  font-weight: 300;   
+}
+
+
+
+.results-question-card .card-img-container {
+  overflow: hidden;
+  border-top-left-radius: var(--bs-card-inner-border-radius);
+  border-top-right-radius: var(--bs-card-inner-border-radius);
   background-color: var(--main-light-grey);
 }
 
-.results-question-card  .id-badge {
+.results-question-card .card-img-top {  
+  height: 175px;
+}
+
+.results-question-card .card-img-top.outer {
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 5s;
+}
+
+.results-question-card .card-img-top.outer:hover {
+  transform: scale(4);
+}
+
+.results-question-card .card-img-top.inner {
+  transform: scale(0.8);
+  transition: transform 5s;
+}
+
+.results-question-card .card-img-top.inner:hover {
+  transform: scale(1);
+}
+
+.results-question-card.failed .card-body {
+  background-color: var(--main-red);
+  color: white;
+}
+
+
+.results-question-card .id-badge {
   background-color: var(--main-blue);
   color: white;
   opacity: 0.7;
 }
 
-.results-question-card  .score {
+
+.results-question-card .right-answer {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 1.2em;
+  margin-bottom: -0.5em;
+}
+
+
+
+.results-question-card .score {
   font-family: 'Luckiest Guy', cursive;
   font-size: 1.6em;
   margin-bottom: -0.5em;
@@ -24,11 +91,11 @@
   color: white;
 }
 
-.results-question-card  .flag {
+.results-question-card .flag {
   height: 40px;
 }
 
 
-.results-question-card  .row>.col-6:nth-child(2n+1) {
+.results-question-card .row>.col-6:nth-child(2n+1) {
   font-weight: bold;
 }
