@@ -8,7 +8,7 @@ const series = {
     shortName: translate.tableDe0a5Short,
   },
   "table-de-6-a-10" : {
-    nativeName: "Lzq tables de multiplication de 6 à 10",
+    nativeName: "Les tables de multiplication de 6 à 10",
     name: translate.tableDe6a10,
     shortName: translate.tableDe6a10Short,
   },
@@ -18,7 +18,7 @@ const series = {
     shortName: translate.tableDe11a15Short,
   },
   "table-de-16-a-20" : {
-    nativeName: "La table de multiplication de 16 à 20",
+    nativeName: "Les tables de multiplication de 16 à 20",
     name: translate.tableDe16a20,
     shortName: translate.tableDe16a20Short,
   },

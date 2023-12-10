@@ -1,5 +1,6 @@
 import translate from "./translate.js"
 import countriesOnTheMap from "./countries-on-the-map/series.js";
+import countryOutline from "./country-outline/series.js";
 import greekAlphabet from "./greek-alphabet/series.js";
 import multiplicationTables from "./multiplication-tables/series.js";
 import radiotelephony from "./radiotelephony/series.js";
@@ -9,6 +10,11 @@ const categories = {
     name: translate.countriesOnTheMap,
     shortName: translate.countriesOnTheMapShort,
     series: countriesOnTheMap
+  },
+  "country-outline": {
+    name: translate.countryOutline,
+    shortName: translate.countryOutlineShort,
+    series: countryOutline
   },
   "greek-alphabet": {
     name: translate.greekAlphabet,

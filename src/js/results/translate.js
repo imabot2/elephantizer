@@ -23,6 +23,8 @@ const translations = {
 
     accuracyTitle: "Accuracy",
     accuracyTitleTooltip: "This percentage represents the <strong>accuracy of your answers</strong>.<br>A percentage of 100% means you've typed all the answers without ever mistyping. ",
+
+    closeBtn: "Close",
   },
 
   fr: {
@@ -44,6 +46,8 @@ const translations = {
 
     accuracyTitle: "Précision",
     accuracyTitleTooltip: "Ce pourcentage représente la <strong>précision de vos réponses</strong>.<br>Un pourcentage de 100% signifie que vous avez tapé toutes les réponses sans jamais faire une seule erreur de frappe.",
+
+    closeBtn: "Fermer",
   },
 
 }

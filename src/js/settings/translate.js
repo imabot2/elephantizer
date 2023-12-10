@@ -135,7 +135,7 @@ const translations = {
     caseInsensitiveFalse: "Off",
 
     ignoreAccents: "Sans accents",
-    ignoreAccentsLabel: "Lorsque ce mode est activé, les lettres accentées (é, è, ê, à ...) peuvent être remplacées par la même lettre <strong>sans accent</strong>.",
+    ignoreAccentsLabel: "Lorsque ce mode est activé, les lettres accentuées (é, è, ê, à ...) peuvent être remplacées par la même lettre <strong>sans accent</strong>.",
     ignoreAccentsTrue: "On",
     ignoreAccentsFalse: "Off",
 

@@ -11,8 +11,8 @@ const translations = {
     countriesOnTheMap: 'Countries On The Map in French',
     countriesOnTheMapShort: 'Countries On The Map',
     tableDeMultiplication: 'Multiplication tables',
-    radiotelephonie: 'Radiotéléphony',
-    radiotelephonieShort: 'Radiotéléphony',
+    radiotelephonie: 'Radiotelephony',
+    radiotelephonieShort: 'Radiotelephony',
   },
 
   fr: {

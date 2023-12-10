@@ -17,6 +17,7 @@
 * Add the number of remaining questions in series mode (10/50)
 * Show the cards in the results
 * Add the flag in the answer bar
+* Add Jersey, Guernesey and Sercq in countries
 
 ## Done
 
