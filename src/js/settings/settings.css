@@ -22,7 +22,7 @@
 
 
 #settings-menu .correction-threshold input {
-  padding-left: clamp(1.3ch, 2.5%, 2.5%);
+  padding-left: clamp(1.4ch, 2.5%, 2.5%);
   padding-right: clamp(1.8ch, 2.5%, 2.5%);  
 }
 

@@ -24,6 +24,11 @@ class QuestionStatistics {
   process() { model.process(); }
 
 
+  /**
+   * Return the current memorization ratio
+   * @returns The current memorization ratio
+   */
+  getScore() { return model.getScore(); }
 
 
   /**

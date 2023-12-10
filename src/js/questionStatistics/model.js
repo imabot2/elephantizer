@@ -34,6 +34,7 @@ class Model {
       'path': path,
       'uid': uid,
       'count': stats.count,
+      'previousScore': stats.score,
       'maxDistance': 0,
       'rightAnswer': question.answer,
     }
@@ -55,10 +56,8 @@ class Model {
     this.computeMemorizationRatio();
 
     // Update the deck global statistics and get previous and new score
-    let { previousScore, newScore } = statistics.update(this.data.path, this.data.uid, this.data.memorizationRatio);
-    this.data.previousScore = previousScore;
-    this.data.newScore = newScore;
-    
+    this.data.newScore = statistics.update(this.data.path, this.data.uid, this.data.memorizationRatio);
+    console.log (this.data.previousScore, this.data.newScore)
     // Add the question in the results    
     results.addQuestion(this.data);    
   }
@@ -114,6 +113,14 @@ class Model {
     this.data.wpm = 12000 * (this.data.finalAnswer.trim().length + 1) / this.data.typingTime;
   }
 
+
+  /**
+   * Return the current memorization ratio
+   * @returns The current memorization ratio
+   */
+  getScore() {
+    return this.data?.newScore ?? this.data?.previousScore ?? 0;
+  }
 
   /**
    * Store the typing time

@@ -105,7 +105,7 @@ class Model {
     this.data[path].updated = true;
 
     // Return the previous and the new score
-    return { "previousScore": previousScore, "newScore": question.score };
+    return question.score;
   }
 
 

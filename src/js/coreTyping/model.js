@@ -113,11 +113,8 @@ class Model {
     // Check the answer (user pressed space at the end of the right answer)
     if (answer[answer.length - 1] === " ") {
 
-      // If this is the right answer 
-      // or if f the current score if less than 0.8 and the answer is higher than the answer
-      // process the answer
-      console.log('TODO Add score checking');
-      if ((/*this.current.score >= 0.8 &&*/ levenshtein.sanitize(answer).length >= this.currentQuestion.answer.length) || distanceCheck == 0) {
+      // If this is the right answer or the answer is longer than the expected answer process the answer
+      if ((levenshtein.sanitize(answer).length >= this.currentQuestion.answer.length) || distanceCheck == 0) {
 
         // Process the current question for statistics
         this.processQuestionOver(answer, distanceCheck);
@@ -176,8 +173,7 @@ class Model {
 
     // Set the correction if the distance is higher than zero or the user answer is longer than the expected answer
     // And the score is not higher than 0.8
-    console.log('TODO add score checking');
-    if ((distance || sanitized.length > this.currentQuestion.answer.length) /*&& (this.current.score < 0.8 || this.questionTimer.getTime().raw > 10000)*/) {
+    if ((distance || sanitized.length > this.currentQuestion.answer.length) && (questionStatistics.getScore() < settings.get('correctionThreshold') )) {
 
       // Show the correction if the Levenshtein distance is not null
       let html = levenshtein.getHTML();

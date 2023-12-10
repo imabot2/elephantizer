@@ -65,10 +65,6 @@ class View {
     // Update the correction threshold in the menu
     this.settingsEl.querySelector('#settings-correctionThreshold').value = model.current.correctionThreshold;
 
-    // Update the correction delay in the menu
-    this.settingsEl.querySelector(`#settings-correctionDelay-${model.current.correctionDelay}`).checked = true;
-
-
     // Update the right answer duration in the menu
     this.settingsEl.querySelector(`#settings-rightAnswerDuration-${model.current.rightAnswerDuration}`).checked = true;
 
@@ -81,8 +77,7 @@ class View {
 
     // Disable / enable the sections
     if (model.current.timerMode != 'down') this.disable('.duration'); else this.enable('.duration');
-    if (model.current.timerMode === 'series') this.disable('.beta'); else this.enable('.beta');
-    if (model.current.correctionThreshold == 0) this.disable('.correctionDelay'); else this.enable('.correctionDelay');
+    if (model.current.timerMode === 'series') this.disable('.beta'); else this.enable('.beta');    
   }
 
 

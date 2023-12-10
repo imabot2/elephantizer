@@ -58,24 +58,17 @@ const translations = {
       "<li>With a coefficient of <strong>10</strong>, the <strong>most difficult</strong> questions will be asked very often.</li>" +
       "</ul>",
 
-      correctionThreshold: "Correction Threshold",
-      correctionThresholdLabel: "Select the <strong>memory threshold</strong> above which corrections will no longer be displayed.<ul>"+
-      "<li>With a threshold of <strong>0%</strong>, the correction will <strong>never</strong> be displayed.</li>"+    
-      "<li>With a threshold of <strong>100%</strong>, the correction will <strong>always</strong> be displayed.</li>"+
-      "<li>With a threshold of <strong>50%</strong>, the correction will only be displayed if your memorization score is <strong>below 50%</strong>.</li>"+
+    correctionThreshold: "Correction Threshold",
+    correctionThresholdLabel: "Select the <strong>memory threshold</strong> above which corrections will no longer be displayed.<ul>" +
+      "<li>With a threshold of <strong>0%</strong>, the correction will <strong>never</strong> be displayed.</li>" +
+      "<li>With a threshold of <strong>100%</strong>, the correction will <strong>always</strong> be displayed.</li>" +
+      "<li>With a threshold of <strong>50%</strong>, the correction will only be displayed if your memorization score is <strong>below 50%</strong>.</li>" +
       "</ul>",
 
 
-    correctionDelay: "Correction Delay",
-    correctionDelayLabel: "You can delay <strong>the display of help</strong>. This delay is the time between a mistyped letter and the correction being displayed.",
-    correctionDelay0: "0s",
-    correctionDelay1000: "1s",
-    correctionDelay2000: "2s",
-    correctionDelay5000: "5s",
-    correctionDelay10000: "10s",
 
 
-  
+
     rightAnswerDuration: "Final Answer",
     rightAnswerDurationLabel: "Select how long the <strong>expected response</strong> is displayed when you have submitted a wrong answer.",
     rightAnswerDuration500: "0.5s",
@@ -161,19 +154,12 @@ const translations = {
 
 
     correctionThreshold: "Seuil de correction",
-    correctionThresholdLabel: "Sélectionnez le <strong>seuil de mémorisation</strong> à partir duquel les corrections ne s'afficheront plus.<ul>"+
-    "<li>Avec un seuil de <strong>0%</strong>, la correction ne s'affichera <strong>jamais</strong>.</li>"+    
-    "<li>Avec un seuil de <strong>100%</strong>, la correction s'affichera <strong>toujours</strong>.</li>"+
-    "<li>Avec un seuil de <strong>50%</strong>, la correction ne s'affichera que si votre score de mémorisation est <strong>inférieur à 50%</strong>.</li>"+
-    "</ul>",
+    correctionThresholdLabel: "Sélectionnez le <strong>seuil de mémorisation</strong> à partir duquel les corrections ne s'afficheront plus.<ul>" +
+      "<li>Avec un seuil de <strong>0%</strong>, la correction ne s'affichera <strong>jamais</strong>.</li>" +
+      "<li>Avec un seuil de <strong>100%</strong>, la correction s'affichera <strong>toujours</strong>.</li>" +
+      "<li>Avec un seuil de <strong>50%</strong>, la correction ne s'affichera que si votre score de mémorisation est <strong>inférieur à 50%</strong>.</li>" +
+      "</ul>",
 
-    correctionDelay: "Délai avant correction",
-    correctionDelayLabel: "Vous pouvez retarder <strong>l'affichage de l'aide</strong>. Ce délai correspond à la durée entre la saisie d'une lettre erronée et l'affichage de la correction.",
-    correctionDelay0: "0s",
-    correctionDelay1000: "1s",
-    correctionDelay2000: "2s",
-    correctionDelay5000: "5s",
-    correctionDelay10000: "10s",
 
 
     rightAnswerDuration: "Réponse finale",
