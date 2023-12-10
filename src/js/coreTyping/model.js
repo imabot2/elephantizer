@@ -160,7 +160,7 @@ class Model {
    * @param {string} answer The answer typed by the user
    */
   updateCorrection(answer) {
-
+    
     // Sanitize the user answer, and preserve the last space
     const sanitized = levenshtein.sanitize(answer, true);
 
@@ -173,6 +173,9 @@ class Model {
 
     // Set the correction if the distance is higher than zero or the user answer is longer than the expected answer
     // And the score is not higher than 0.8
+    console.log (questionStatistics.getScore(), settings.get('correctionThreshold'));
+
+    
     if ((distance || sanitized.length > this.currentQuestion.answer.length) && (questionStatistics.getScore() < settings.get('correctionThreshold') )) {
 
       // Show the correction if the Levenshtein distance is not null

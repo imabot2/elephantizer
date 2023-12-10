@@ -79,10 +79,8 @@ export default class ModelData {
    */
   convertToNumber(string) {
     let converted;
-    // Try to convert to int
-    if (!isNaN(converted = parseInt(string))) return converted;
-    // Try to convert to float
-    if (!isNaN(converted = parseInt(string))) return converted;
+    // Try to convert to number
+    if (!isNaN(converted = parseFloat(string))) return converted;
     // Not converted, return the string
     return string;
   }
