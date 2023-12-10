@@ -74,7 +74,7 @@ export default class View {
     this.cardEl.querySelector('.right-answer').textContent = stats.rightAnswer;
 
     // Populate Score
-    this.cardEl.querySelector('.score').textContent = `${parseFloat((100 * stats.memorizationRatioUser).toFixed(1))}%`;
+    this.cardEl.querySelector('.score').textContent = `${parseFloat((100 * stats.memorizationRatio).toFixed(1))}%`;
 
     // Prepare progression badge
     let progress = 100 * (stats.newScore - stats.previousScore);

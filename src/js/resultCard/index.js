@@ -16,7 +16,7 @@ export default class ResultCard {
    * Populate the card with the data for a given question
    * @param {object} stats Question data statistics
    */
-  populate(stats) { this.view.populate(stats); }
+  populate(stats, index) { this.view.populate(stats, index); }
 
 
   /**

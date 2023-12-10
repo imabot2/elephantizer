@@ -167,9 +167,9 @@ class View {
   populateCards() {
     this.answerCardsContainerEl.innerHTML = [];
     console.log (this.data)
-    this.data.questions.forEach((question) => {
+    this.data.questions.forEach((question, index) => {
       const cardText = new ResultCard();
-      cardText.populate(question);
+      cardText.populate(question, index);
       cardText.appendTo(this.answerCardsContainerEl);
     })
   }

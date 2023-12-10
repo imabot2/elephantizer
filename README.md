@@ -15,12 +15,16 @@
 * Add the side card right / wrong
 * Add a button to remove deck in the selection
 * Add the number of remaining questions in series mode (10/50)
-* Show the cards in the results
 * Add the flag in the answer bar
 * Add Jersey, Guernesey and Sercq in countries
+* Add aditional statistics in the result modal
+* Translte the results cards
+* Remove the hashtag in the results cards for translation
+* Revise final score calculation to reflect actual WPM
 
 ## Done
 
+* ~~Show the cards in the results~~
 * ~~Add Greek alphabet in English~~
 * ~~Add Greek uppercase alphabet~~
 * ~~Fix bug: two times the same question shouldn't happen~~
