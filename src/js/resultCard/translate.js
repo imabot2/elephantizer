@@ -6,13 +6,31 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    title: "",
+    badgePrefix: "#",
+    yourAnswer: "Answered:",
+    score: "Score:",
+    searchTime: "Search:",
+    totalTime: "Time:",
+    accuracy: "Accuracy:",
+    typingSpeed: "Typing speed:",
+    answered: "Counter:",
+    time: "time",
+    times: "times",
   },
 
 
 
   fr: {
-    title: "",
+    badgePrefix: "",
+    yourAnswer: "Répondu :",
+    score: "Score :",
+    searchTime: "Recherche :",
+    totalTime: "Temps :",
+    accuracy: "Précision :",
+    typingSpeed: "Vitesse :",
+    answered: "Compteur :",
+    time: "fois",
+    times: "fois",
   },
 
 }

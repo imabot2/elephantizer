@@ -27,10 +27,10 @@ export default class View {
    * Populate the card with the data for a given question
    * @param {object} stats Question statistics
    */
-  populate(stats, idCard=0) {
+  populate(stats, idCard = 0) {
 
     // Set the question number
-    this.cardEl.querySelector(".id-badge").innerText = `#${idCard}`;
+    this.cardEl.querySelector(".id-badge").innerText = `${translate.badgePrefix}${idCard+1}`;
 
     // Get question data
     const question = series.get(stats.path, stats.uid);
@@ -58,50 +58,13 @@ export default class View {
 
     // Set the body data
     this.cardEl.querySelector('.user-answer').textContent = stats.finalAnswer;
+    this.cardEl.querySelector('.memorization-ratio').textContent = `${parseFloat(((100 * stats.memorizationRatioUser).toFixed(1)))}%`;
     let searchTime = stats.time - stats.typingTime;
     this.cardEl.querySelector(".search-time").innerText = `${(searchTime / 1000).toFixed((searchTime < 12000) ? 1 : 0)}s`;
     this.cardEl.querySelector(".time").innerText = `${(stats.time / 1000).toFixed((stats.time < 12000) ? 1 : 0)}s`;
     this.cardEl.querySelector(".accuracy").innerText = `${parseFloat(((100 * stats.maxDistanceRatio).toFixed(1)))}%`;
     this.cardEl.querySelector(".wpm").innerText = `${(stats.wpm).toFixed(0)}wpm`;
-    this.cardEl.querySelector(".answered").innerText = `${stats.count + 1} ${(stats.count) ? 'times' : 'time'}`;
-  }
-
-
-  /**
-   * Interpolate the chart pie color
-   * @param {float} value The ratio value
-   * @returns {object} An object containing the RGB components [r,g,b]
-   */
-  interpolateColor(value) {
-
-    // Colors and values
-    const colorStops = [
-      { value: 0, color: { r: 232, g: 60, b: 75 } },    // Red
-      { value: 1/3, color: { r: 240, g: 135, b: 0 } },   // Orange
-      { value: 2/3, color: { r: 187, g: 219, b: 6 } },   // Yellow
-      { value: 1, color: { r: 12, g: 202, b: 74 } }      // Green
-    ];
-
-    // Compute beginning and end of the range
-    let startColor, endColor;
-    for (let i = 0; i < colorStops.length - 1; i++) {
-      if (value >= colorStops[i].value && value <= colorStops[i + 1].value) {
-        startColor = colorStops[i];
-        endColor = colorStops[i + 1];
-        break;
-      }
-    }
-
-    // CVompute the factor
-    const factor = (value - startColor.value) / (endColor.value - startColor.value);
-
-    // Compute RGB components
-    const r = Math.round(startColor.color.r + factor * (endColor.color.r - startColor.color.r));
-    const g = Math.round(startColor.color.g + factor * (endColor.color.g - startColor.color.g));
-    const b = Math.round(startColor.color.b + factor * (endColor.color.b - startColor.color.b));
-    
-    // Returns the color
-    return {r,g,b};
+    this.cardEl.querySelector(".answered").innerText = `${stats.count + 1} ${(stats.count) ? translate.times : translate.time}`;
   }
 
 
@@ -116,11 +79,11 @@ export default class View {
 
     // Create the chart
     const pie = new PieChart(this.cardEl.querySelector('.memorization-pie'), '%');
-    
+
     // Update score pie chart
     pie.disableAnimation();
-    pie.setUnit('%');    
-    const {r, g, b} = this.interpolateColor(stats.newScore);
+    pie.setUnit('%');
+    const { r, g, b } = this.interpolateColor(stats.newScore);
     pie.setColors(`rgb(${r}, ${g}, ${b})`, colors.lightGrey);
     pie.setRatio(stats.newScore, 0, stats.newScore, 1);
 
@@ -192,7 +155,7 @@ export default class View {
     else {
       this.cardEl.querySelector('.card-footer > img').src = "/static/icons/error.png";
       this.cardEl.classList.add("failed");
-    }    
+    }
   }
 
 
@@ -203,5 +166,43 @@ export default class View {
   appendTo(parent) {
     // Append the element to the parent
     parent.append(this.cardEl);
+  }
+
+
+  /**
+   * Interpolate the chart pie color
+   * @param {float} value The ratio value
+   * @returns {object} An object containing the RGB components [r,g,b]
+   */
+  interpolateColor(value) {
+
+    // Colors and values
+    const colorStops = [
+      { value: 0, color: { r: 232, g: 60, b: 75 } },    // Red
+      { value: 1 / 3, color: { r: 240, g: 135, b: 0 } },   // Orange
+      { value: 2 / 3, color: { r: 187, g: 219, b: 6 } },   // Yellow
+      { value: 1, color: { r: 12, g: 202, b: 74 } }      // Green
+    ];
+
+    // Compute beginning and end of the range
+    let startColor, endColor;
+    for (let i = 0; i < colorStops.length - 1; i++) {
+      if (value >= colorStops[i].value && value <= colorStops[i + 1].value) {
+        startColor = colorStops[i];
+        endColor = colorStops[i + 1];
+        break;
+      }
+    }
+
+    // CVompute the factor
+    const factor = (value - startColor.value) / (endColor.value - startColor.value);
+
+    // Compute RGB components
+    const r = Math.round(startColor.color.r + factor * (endColor.color.r - startColor.color.r));
+    const g = Math.round(startColor.color.g + factor * (endColor.color.g - startColor.color.g));
+    const b = Math.round(startColor.color.b + factor * (endColor.color.b - startColor.color.b));
+
+    // Returns the color
+    return { r, g, b };
   }
 }

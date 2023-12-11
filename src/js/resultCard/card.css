@@ -98,7 +98,11 @@
   height: 40px;
 }
 
+.results-question-card .row {
+  font-size: 0.88rem;
+}
 
-.results-question-card .row>.col-6:nth-child(2n+1) {
+
+.results-question-card .row>div:nth-child(2n+1) {
   font-weight: bold;
 }
