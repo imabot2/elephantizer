@@ -28,6 +28,7 @@
 .results-question-card .card-header:hover>div {
   transform: scale(5);
 }
+
 .results-question-card .card-header .greek {
   font-family: 'Noto Serif', serif;
   font-weight: 300;   
@@ -65,9 +66,9 @@
   transform: scale(1);
 }
 
+
 .results-question-card.failed .card-body {
-  background-color: var(--main-red);
-  color: white;
+  background-color: #fbdcde;
 }
 
 
@@ -92,11 +93,6 @@
   margin-bottom: -0.5em;
 }
 
-
-.results-question-card .failed .card-body {
-  background-color: var(--main-red);
-  color: white;
-}
 
 .results-question-card .flag {
   height: 40px;

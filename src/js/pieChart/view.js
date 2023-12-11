@@ -5,13 +5,15 @@ import Chart from 'chart.js/auto';
 import ease from "Js/ease";
 import settings from "Js/settings";
 
+
+
 export default class View {
 
   /**
    * Create the pie chart element
    * @param {object} unit The parent element in the DOM
    */
-  constructor(parent, unit) {
+  constructor(parent) {
     // Create and initialize the pie chart
     this.containerEl = str2dom.one(htmlPieChart);
 

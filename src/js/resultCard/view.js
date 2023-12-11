@@ -4,6 +4,10 @@ import { parseEjs } from "Js/languages";
 import translate from "./translate.js";
 import htmlCard from "./card.html";
 import series from "Js/series";
+import PieChart from "Js/pieChart";
+import colors from "Js/cssColors";
+
+
 
 /**
  * View for the Result Card module
@@ -43,7 +47,6 @@ export default class View {
     this.populateHeader(stats);
     this.populateBody(stats);
     this.populateSuccessFailBadge(stats.finalDistance === 0);
-
   }
 
 
@@ -65,6 +68,44 @@ export default class View {
 
 
   /**
+   * Interpolate the chart pie color
+   * @param {float} value The ratio value
+   * @returns {object} An object containing the RGB components [r,g,b]
+   */
+  interpolateColor(value) {
+
+    // Colors and values
+    const colorStops = [
+      { value: 0, color: { r: 232, g: 60, b: 75 } },    // Red
+      { value: 1/3, color: { r: 240, g: 135, b: 0 } },   // Orange
+      { value: 2/3, color: { r: 187, g: 219, b: 6 } },   // Yellow
+      { value: 1, color: { r: 12, g: 202, b: 74 } }      // Green
+    ];
+
+    // Compute beginning and end of the range
+    let startColor, endColor;
+    for (let i = 0; i < colorStops.length - 1; i++) {
+      if (value >= colorStops[i].value && value <= colorStops[i + 1].value) {
+        startColor = colorStops[i];
+        endColor = colorStops[i + 1];
+        break;
+      }
+    }
+
+    // CVompute the factor
+    const factor = (value - startColor.value) / (endColor.value - startColor.value);
+
+    // Compute RGB components
+    const r = Math.round(startColor.color.r + factor * (endColor.color.r - startColor.color.r));
+    const g = Math.round(startColor.color.g + factor * (endColor.color.g - startColor.color.g));
+    const b = Math.round(startColor.color.b + factor * (endColor.color.b - startColor.color.b));
+    
+    // Returns the color
+    return {r,g,b};
+  }
+
+
+  /**
    * Populate the card header
    * @param {object} stats Question statistics
    */
@@ -73,8 +114,16 @@ export default class View {
     //  Populate the right answer
     this.cardEl.querySelector('.right-answer').textContent = stats.rightAnswer;
 
-    // Populate Score
-    this.cardEl.querySelector('.score').textContent = `${parseFloat((100 * stats.memorizationRatio).toFixed(1))}%`;
+    // Create the chart
+    const pie = new PieChart(this.cardEl.querySelector('.memorization-pie'), '%');
+    
+    // Update score pie chart
+    pie.disableAnimation();
+    pie.setUnit('%');    
+    const {r, g, b} = this.interpolateColor(stats.newScore);
+    pie.setColors(`rgb(${r}, ${g}, ${b})`, colors.lightGrey);
+    pie.setRatio(stats.newScore, 0, stats.newScore, 1);
+
 
     // Prepare progression badge
     let progress = 100 * (stats.newScore - stats.previousScore);
@@ -93,7 +142,6 @@ export default class View {
   }
 
 
-
   /**
    * Add the flag on top of the card
    * @param {string} flagImg The path to the image flag
@@ -101,6 +149,7 @@ export default class View {
   populateFlag(flagImg) {
     this.cardEl.querySelector('.flag').src = flagImg;
   }
+
 
   /**
    * Display an outer image in the top of the card
@@ -124,11 +173,20 @@ export default class View {
   }
 
 
-  populateText(question) {
-    this.cardEl.querySelector('.card-header > div').innerHTML = question;
+  /**
+   * Display the question text in the top of the card
+   * @param {string} questionText The question to display
+   */
+  populateText(questionText) {
+    this.cardEl.querySelector('.card-header > div').innerHTML = questionText;
     this.cardEl.querySelector('.card-header').classList.remove('d-none');
   }
 
+
+  /**
+   * Set the footer badge (success or failed)
+   * @param {boolean} success True if the final answer is correct, false otherwhise
+   */
   populateSuccessFailBadge(success) {
     if (success) this.cardEl.querySelector('.card-footer > img').src = "/static/icons/success.png";
     else {
@@ -136,6 +194,8 @@ export default class View {
       this.cardEl.classList.add("failed");
     }    
   }
+
+
   /**
    * Append the card to the provided parent
    * @param {object} parent Parent element

@@ -18,7 +18,7 @@
 * Add the flag in the answer bar
 * Add Jersey, Guernesey and Sercq in countries
 * Add aditional statistics in the result modal
-* Translte the results cards
+* Translate the results cards
 * Remove the hashtag in the results cards for translation
 * Revise final score calculation to reflect actual WPM
 

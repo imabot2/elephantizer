@@ -12,7 +12,7 @@ import colors from "Js/cssColors";
 import ResultCard from "Js/resultCard";
 
 /**
- * View for the results module
+ * View for the Rscoreesults module
  */
 class View {
 
@@ -169,8 +169,9 @@ class View {
     console.log (this.data)
     this.data.questions.forEach((question, index) => {
       const cardText = new ResultCard();
-      cardText.populate(question, index);
       cardText.appendTo(this.answerCardsContainerEl);
+      cardText.populate(question, index);
+      
     })
   }
 

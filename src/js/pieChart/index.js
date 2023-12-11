@@ -6,7 +6,7 @@ import View from "./view.js";
  */
 export default class PieChart {
 
-  constructor(parent, unit) { this.view = new View(parent, unit); }
+  constructor(parent) { this.view = new View(parent); }
 
 
   /**
