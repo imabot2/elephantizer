@@ -1,4 +1,3 @@
-
 import albania from "Catalog/en/country-outline/europe/img/al.svg";
 import andorra from "Catalog/en/country-outline/europe/img/ad.svg";
 import austria from "Catalog/en/country-outline/europe/img/at.svg";
@@ -53,11 +52,11 @@ import ukraine from "Catalog/en/country-outline/europe/img/ua.svg";
 export var metaData = {
 
   // Quiz flag
-  flag: "/static/circle-flags/gb.svg",
-
+  flag: "/static/circle-flags/fr.svg",
 
   // Special characters for this test
-  specialCharacters: [],
+  specialCharacters: ['é', 'à', 'è', 'ê', 'ô', 'û', 'â', 'î', 'ü', 'ù', 'ë', 'œ', 'ç', 'ï', 'É', 'À', 'È', 'Ê', 'Ô', 'Û', 'Â', 'Î', 'Ü', 'Ù', 'Ë', 'Œ', 'Ç', 'Ï'],
+
 }
 
 
@@ -67,79 +66,79 @@ export var cards = {
     image: albania,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Albania"
+    answer: "Albanie"
   },
   "ad": {
     image: andorra,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Andorra"
+    answer: "Andorre"
   },
   "at": {
     image: austria,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Austria"
+    answer: "Autriche"
   },
   "by": {
     image: belarus,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Belarus"
+    answer: "Biélorussie"
   },
   "be": {
     image: belgium,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Belgium"
+    answer: "Belgique"
   },
   "ba": {
     image: bosniaAndHerzegovina,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Bosnia And Herzegovina"
+    answer: "Bosnie-Herzégovine"
   },
   "bg": {
     image: bulgaria,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Bulgaria"
+    answer: "Bulgarie"
   },  
   "hr": {
     image: croatia,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Croatia"
+    answer: "Croatie"
   },
   "cz": {
     image: czechia,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Czechia"
+    answer: "Tchéquie"
   },
   "cy": {
     image: cyprus,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Cyprus"
+    answer: "Chypre"
   },
   "dk": {
     image: denmark,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Denmark"
+    answer: "Danemark"
   },
   "ee": {
     image: estonia,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Estonia"
+    answer: "Estonie"
   },
   "fi": {
     image: finland,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Finland"
+    answer: "Finlande"
   },
   "fr": {
     image: france,
@@ -151,37 +150,37 @@ export var cards = {
     image: germany,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Germany"
+    answer: "Allemagne"
   },
   "gr": {
     image: greece,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Greece"
+    answer: "Grèce"
   },
   "hu": {
     image: hungary,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Hungary"
+    answer: "Hongrie"
   },
   "is": {
     image: iceland,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Iceland"
+    answer: "Islande"
   },  
   "ie": {
     image: ireland,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Ireland"
+    answer: "Irlande"
   },
   "it": {
     image: italy,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Italy"
+    answer: "Italie"
   },
   "xk": {
     image: kosovo,
@@ -193,7 +192,7 @@ export var cards = {
     image: latvia,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Latvia"
+    answer: "Lettonie"
   },
   "li": {
     image: liechtenstein,
@@ -205,7 +204,7 @@ export var cards = {
     image: lithuania,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Lithuania"
+    answer: "Lituanie"
   },
   "lu": {
     image: luxembourg,
@@ -217,13 +216,13 @@ export var cards = {
     image: malta,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Malta"
+    answer: "Malte"
   },
   "md": {
     image: moldova,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Moldova"
+    answer: "Moldavie"
   },
   "mc": {
     image: monaco,
@@ -235,31 +234,31 @@ export var cards = {
     image: montenegro,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Montenegro"
+    answer: "Monténégro"
   },  
   "nl": {
     image: netherlands,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Netherlands"
+    answer: "Pays-Bas"
   },
   "mk": {
     image: northMacedonia,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "North Macedonia"
+    answer: "Macédoine du Nord"
   },
   "no": {
     image: norway,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Norway"
+    answer: "Norvège"
   },
   "pl": {
     image: poland,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Poland"
+    answer: "Pologne"
   },
   "pt": {
     image: portugal,
@@ -271,67 +270,67 @@ export var cards = {
     image: romania,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Romania"
+    answer: "Roumanie"
   },  
   "ru": {
     image: russia,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Russia"
+    answer: "Russie"
   },
   "sm": {
     image: sanMarino,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "San Marino"
+    answer: "Saint-Marin"
   },
   "rs": {
     image: serbia,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Serbia"
+    answer: "Serbie"
   },  
   "sk": {
     image: slovakia,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Slovakia"
+    answer: "Slovaquie"
   },
   "si": {
     image: slovenia,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Slovenia"
+    answer: "Slovénie"
   },
   "es": {
     image: spain,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Spain"
+    answer: "Espagne"
   },  
   "se": {
     image: sweden,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Sweden"
+    answer: "Suède"
   },
   "ch": {
     image: switzerland,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Switzerland"
+    answer: "Suisse"
   },
   "gb": {
     image: unitedKingdom,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "United Kingdom"
+    answer: "Royaume-Uni"
   },  
   "va": {
     image: vaticanCity,
     type: 'inner',
     prompt: "What country is this?",
-    answer: "Vatican City"
+    answer: "Vatican"
   },
   "ua": {
     image: ukraine,

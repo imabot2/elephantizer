@@ -8,6 +8,8 @@ const translations = {
   en: {
     alphabetGrec: 'Greek Alphabet in French',
     alphabetGrecShort: 'Greek Alphabet',
+    countryOutline: 'Country Outline in French',
+    countryOutlineShort: 'Country Outline',
     countriesOnTheMap: 'Countries On The Map in French',
     countriesOnTheMapShort: 'Countries On The Map',
     tableDeMultiplication: 'Multiplication tables',
@@ -18,6 +20,8 @@ const translations = {
   fr: {
     alphabetGrec: 'Alphabet grec en français',
     alphabetGrecShort: 'Alphabet grec',
+    countryOutline: 'Les contours des pays',
+    countryOutlineShort: 'Les contours des pays',
     countriesOnTheMap: 'Les pays sur la carte en Français',
     countriesOnTheMapShort: 'Les pays sur la carte',
     tableDeMultiplication: 'Tables de multiplication',

@@ -18,12 +18,12 @@
 * Add the flag in the answer bar
 * Add Jersey, Guernesey and Sercq in countries
 * Add aditional statistics in the result modal
-* Translate the results cards
-* Remove the hashtag in the results cards for translation
 * Revise final score calculation to reflect actual WPM
 
 ## Done
 
+* ~~Translate the result cards~~
+* ~~Remove the hashtag in the results cards for translation~~
 * ~~Show the cards in the results~~
 * ~~Add Greek alphabet in English~~
 * ~~Add Greek uppercase alphabet~~

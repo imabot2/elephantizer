@@ -21,7 +21,7 @@ const translations = {
   fr: {
     countriesOnTheMap: 'Les pays sur la carte en anglais',
     countriesOnTheMapShort: 'Les pays sur la carte',
-    countryOutline: 'Les contours des pays',
+    countryOutline: 'Les contours des pays en anglais',
     countryOutlineShort: 'Les contours des pays',
     greekAlphabet: "L'alphabet grec en anglais",
     greekAlphabetShort: "L'alphabet grec",
