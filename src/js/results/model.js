@@ -49,9 +49,14 @@ class Model {
     let memorizationRatioUser = 0;
     let memorizationRatio = 0;
     let finalDistance = 0;
+    let finalDistanceRatio = 0;
     let maxDistance = 0;
+    let maxDistanceRatio = 0;
     let timeToFirstKey = 0;
     let timeToFirstKeyRatioUser = 0;
+    let rightAnswersRaw = 0;
+    let rightAnswers = 0;
+
     
     // Compute sum for each question
     this.data.questions.forEach((question) => {
@@ -59,21 +64,31 @@ class Model {
       memorizationRatioUser+= question.memorizationRatioUser;
       memorizationRatio+= question.memorizationRatio;
       typingtime+= question.typingTime;
-      finalDistance += question.finalDistanceRatio;
-      maxDistance += question.maxDistanceRatio;
+      finalDistance += question.finalDistance;
+      finalDistanceRatio += question.finalDistanceRatio;
+      maxDistance += question.maxDistance;
+      maxDistanceRatio += question.maxDistanceRatio;
       timeToFirstKey += question.time - question.typingTime;
       timeToFirstKeyRatioUser += question.timeToFirstKeyRatioUser;
+      rightAnswers += (question.finalDistance == 0);
+      rightAnswersRaw += (question.maxDistance == 0);
     })
 
     // Compute average
     const N = this.data.questions.length;
+    this.data.nbCharacters = nbCharacters;
     this.data.wpm =  12000 * (nbCharacters / typingtime);
+    this.data.wpmRaw =  12000 * (nbCharacters / this.data.duration);
     this.data.memorizationRatioUser = memorizationRatioUser / N;
     this.data.memorizationRatio = memorizationRatio / N;
-    this.data.finalDistanceRatio = finalDistance / N;
-    this.data.maxDistanceRatio = maxDistance / N;
+    this.data.finalDistance = finalDistance;
+    this.data.finalDistanceRatio = finalDistanceRatio / N;
+    this.data.maxDistance = maxDistance;
+    this.data.maxDistanceRatio = maxDistanceRatio / N;
     this.data.timeToFirstKey_sec = (timeToFirstKey / N)/1000;
     this.data.timeToFirstKeyRatioUser = timeToFirstKeyRatioUser / N;
+    this.data.rightAnswers = rightAnswers;
+    this.data.rightAnswersRaw = rightAnswersRaw;
 
     // Compute global score
     this.data.score = this.data.wpm * this.data.memorizationRatio * 100;

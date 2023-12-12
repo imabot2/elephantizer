@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+
+.memory-test-question em,
+.result-card-question em {
+  color: var(--main-red);
+  font-style: normal;
+}

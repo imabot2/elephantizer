@@ -12,7 +12,6 @@
   overflow: hidden;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
 
 .results-question-card .card-header>div {
   transform: scale(1);
@@ -20,19 +19,12 @@
   font-size: 2em;
 }
 
-.results-question-card .card-header>div em {
-  color: var(--main-red);
-  font-style: normal;
-}
 
 .results-question-card .card-header:hover>div {
   transform: scale(5);
 }
 
-.results-question-card .card-header .greek {
-  font-family: 'Noto Serif', serif;
-  font-weight: 300;   
-}
+
 
 
 

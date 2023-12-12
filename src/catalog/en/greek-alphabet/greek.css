@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+
+.memory-test-question greek,
+.result-card-question greek {
+  font-family: 'Noto Serif', serif;
+  font-weight: 300;
+}
+
+.memory-test-question greek {
+  font-size: 16vh;
+}
+
+
+.result-card-question greek {
+  font-size: 1.6em;
+}

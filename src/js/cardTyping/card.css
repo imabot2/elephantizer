@@ -112,25 +112,7 @@
 }
 
 
-#card-typing .text-0>div:not(:first-child)>em,
-#card-typing .text-1>div:not(:first-child)>em {
-  color: var(--main-red);
-  font-style: normal;
-}
-
-
 #card-typing .answer-bar-container {
   display: flex;
   justify-content: center;
-}
-
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
-
-#card-typing .greek {
-  font-family: 'Noto Serif', serif;
-  font-weight: 300; 
-  font-size: 16vh;
 }

@@ -128,8 +128,10 @@ class View {
     //this.resultsProgressEl.innerText = 0;
 
 
-    // Populate cards
+    // Populate stats and cards
+    this.populateStats();
     this.populateCards();
+    
   }
 
 
@@ -159,11 +161,32 @@ class View {
     this.pieAccuracy.setRatio(this.data.maxDistanceRatio);
 
     //ease.outQuartProgress(this.progressEl, 0, 100 * this.results.progress, (this.results.progress >= 0.1) ? 1 : 2, true)
-
-    
+   
   }
 
 
+  populateStats() {
+    this.modalEl.querySelector('.data-card.time .value').textContent  = Math.round(this.data.duration/1000);
+    this.modalEl.querySelector('.data-card.wpm-raw .value').textContent  = Math.round(this.data.wpmRaw);
+
+    const countRightAnswersRaw = this.data.rightAnswersRaw;
+    const countRightAnswers = this.data.rightAnswers;
+    const countQuestions = this.data.questions.length;
+    this.modalEl.querySelector('.data-card.answers .value').textContent  = `${countRightAnswersRaw} / ${countRightAnswers} / ${countQuestions}`;
+
+    const timeRaw = (this.data.duration/countRightAnswersRaw/1000).toFixed(1);
+    const timeRight = (this.data.duration/countRightAnswers/1000).toFixed(1);
+    const timeAll = (this.data.duration/countQuestions/1000).toFixed(1);
+    
+    this.modalEl.querySelector('.data-card.time-per-question .value').textContent  = `${timeRaw} / ${timeRight} / ${timeAll}`;
+
+    this.modalEl.querySelector('.data-card.mystiped .value').textContent  = `${this.data.maxDistance} / ${this.data.finalDistance} / ${this.data.nbCharacters}`;
+  }
+
+
+  /**
+   * Populate a card for each answer
+   */
   populateCards() {
     this.answerCardsContainerEl.innerHTML = [];
     console.log (this.data)

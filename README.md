@@ -19,9 +19,14 @@
 * Add Jersey, Guernesey and Sercq in countries
 * Add aditional statistics in the result modal
 * Revise final score calculation to reflect actual WPM
+* Add irregular verbs
+* Add bottom button in the menu
+
+
 
 ## Done
 
+* ~~Move css in catalog~~
 * ~~Translate the result cards~~
 * ~~Remove the hashtag in the results cards for translation~~
 * ~~Show the cards in the results~~

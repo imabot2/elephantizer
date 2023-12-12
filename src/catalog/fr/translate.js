@@ -18,11 +18,11 @@ const translations = {
   },
 
   fr: {
-    alphabetGrec: 'Alphabet grec en français',
+    alphabetGrec: 'Alphabet grec',
     alphabetGrecShort: 'Alphabet grec',
     countryOutline: 'Les contours des pays',
     countryOutlineShort: 'Les contours des pays',
-    countriesOnTheMap: 'Les pays sur la carte en Français',
+    countriesOnTheMap: 'Les pays sur la carte',
     countriesOnTheMapShort: 'Les pays sur la carte',
     tableDeMultiplication: 'Tables de multiplication',
     radiotelephonie: "Radiotéléphonie",

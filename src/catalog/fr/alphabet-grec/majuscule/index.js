@@ -1,3 +1,6 @@
+import 'Catalog/en/greek-alphabet/greek.css';
+
+
 // Target language of the test
 export var metaData = {
 
@@ -15,145 +18,145 @@ export var metaData = {
 export var cards = {
   "Alpha": {
     type: 'text',
-    question: '<div class="greek">Α</div>',
+    question: '<greek>Α</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Alpha"
   },
   "Beta": {
     type: 'text',
-    question: '<div class="greek">Β</div>',
+    question: '<greek>Β</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Bêta"
   },
   "Gamma": {
     type: 'text',
-    question: '<div class="greek">Γ</div>',
+    question: '<greek>Γ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Gamma"
   },
   "Delta": {
     type: 'text',
-    question: '<div class="greek">Δ</div>',
+    question: '<greek>Δ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Delta"
   },
   "Epsilon": {
     type: 'text',
-    question: '<div class="greek">Ε</div>',
+    question: '<greek>Ε</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Epsilon"
   },
   "Zeta": {
     type: 'text',
-    question: '<div class="greek">Ζ</div>',
+    question: '<greek>Ζ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Zêta"
   },
   "Eta": {
     type: 'text',
-    question: '<div class="greek">Η</div>',
+    question: '<greek>Η</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Êta"
   },
   "Theta": {
     type: 'text',
-    question: '<div class="greek">Θ</div>',
+    question: '<greek>Θ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Thêta"
   },
   "Iota": {
     type: 'text',
-    question: '<div class="greek">Ι</div>',
+    question: '<greek>Ι</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Iota"
   },
   "Kappa": {
     type: 'text',
-    question: '<div class="greek">Κ</div>',
+    question: '<greek>Κ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Kappa"
   },
   "Lambda": {
     type: 'text',
-    question: '<div class="greek">Λ</div>',
+    question: '<greek>Λ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Lambda"
   },
   "Mu": {
     type: 'text',
-    question: '<div class="greek">Μ</div>',
+    question: '<greek>Μ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Mu"
   },
   "Nu": {
     type: 'text',
-    question: '<div class="greek">Ν</div>',
+    question: '<greek>Ν</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Nu"
   },
   "Xi": {
     type: 'text',
-    question: '<div class="greek">Ξ</div>',
+    question: '<greek>Ξ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Xi"
   },
   "Omicron": {
     type: 'text',
-    question: '<div class="greek">Ο</div>',
+    question: '<greek>Ο</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Omicron"
   },
   "Pi": {
     type: 'text',
-    question: '<div class="greek">Π</div>',
+    question: '<greek>Π</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Pi"
   },
   "Rho": {
     type: 'text',
-    question: '<div class="greek">Ρ</div>',
+    question: '<greek>Ρ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Rhô"
   },
   "Sigma": {
     type: 'text',
-    question: '<div class="greek">Σ</div>',
+    question: '<greek>Σ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Sigma"
   },
   "Tau": {
     type: 'text',
-    question: '<div class="greek">Τ</div>',
+    question: '<greek>Τ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Tau"
   },
   "Upsilon": {
     type: 'text',
-    question: '<div class="greek">Υ</div>',
+    question: '<greek>Υ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Upsilon"
   },
   "Phi": {
     type: 'text',
-    question: '<div class="greek">Φ</div>',
+    question: '<greek>Φ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Phi"
   },
   "Chi": {
     type: 'text',
-    question: '<div class="greek">Χ</div>',
+    question: '<greek>Χ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Chi"
   },
   "Psi": {
     type: 'text',
-    question: '<div class="greek">Ψ</div>',
+    question: '<greek>Ψ</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Psi"
   },
   "Omega": {
     type: 'text',
-    question: '<div class="greek">Ω</div>',
+    question: '<greek>Ω</greek>',
     prompt: "Nom de cette lettre ?",
     answer: "Oméga"
   }

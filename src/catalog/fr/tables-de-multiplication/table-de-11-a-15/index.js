@@ -1,3 +1,6 @@
+import "Catalog/catalog.css";
+
+
 // Target language of the test
 export var metaData = {
 

@@ -19,14 +19,19 @@
 }
 
 #results-modal .info-tooltip {
-  color: var(--main-blue);
   font-size: 0.8em;
 }
 
 
 #results-modal .title {
-  font-family: var(--main-title-font);
-  font-size: 1.2em;
+  width: fit-content;
+  color: var(--main-darker-grey);
+  font-weight: 900;
+  font-size: 1.1em;
+  margin-bottom: -5px;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
 
 #results-modal .wpm .value,
@@ -44,4 +49,18 @@
 #results-modal .pie-memorization .pie-chart {
   height: clamp(170px, 30vh, 14vmin)!important;
   font-size: 1.6em!important;
+}
+
+#results-modal .data-card div:nth-child(1) {
+  color: var(--main-darker-grey);
+  font-weight: 900;
+}
+
+#results-modal .data-card div:nth-child(2) {
+  font-family: var(--main-title-font);  
+  font-size: 1.6em;
+}
+
+#results-modal .data-card div:nth-child(2) .unit {  
+  font-size: 0.6em;
 }

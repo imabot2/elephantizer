@@ -2,7 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content mb-5">
 
-
+      <!--#region header -->
       <div class="modal-header pb-0">
         <div class="w-100 d-flex justify-content-center align-items-center">
           <div class="logo text-center"><img src="/static/logo/logo.png"></div>
@@ -10,7 +10,7 @@
         </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-
+      <!--#endregion header -->
 
 
       <div class="modal-body">
@@ -20,27 +20,25 @@
           <div class="row text-center">
 
             <div class="score col-lg-4 pb-2 d-flex justify-content-between align-items-center flex-column">
-              <div class="title">
+              <div class="title" data-bs-toggle="tooltip" data-bs-title="<%=scoreTitleTooltip%>">
                 <%=scoreTitle%>
-                  <i class="bi bi-info-circle ms-2 info-tooltip" data-bs-toggle="tooltip"
-                    data-bs-title="<%=scoreTitleTooltip%>"></i>
+                  <i class="bi bi-info-circle info-tooltip"></i>
               </div>
               <div class="value"></div>
               <div></div>
             </div>
 
             <div class="pie-memorization col-lg-4 pb-2">
-              <div class="title">
+              <div class="title" data-bs-toggle="tooltip" data-bs-title="<%=memorizationTitleTooltip%>">
                 <%=memorizationTitle%>
-                <i class="bi bi-info-circle ms-2 info-tooltip" data-bs-toggle="tooltip" data-bs-title="<%=memorizationTitleTooltip%>"></i>
+                  <i class="bi bi-info-circle info-tooltip"></i>
               </div>
             </div>
 
             <div class="wpm col-lg-4 pb-2 d-flex justify-content-between align-items-center flex-column">
-              <div class="title">
+              <div class="title" data-bs-toggle="tooltip" data-bs-title="<%=wpmTitleTooltip%>">
                 <%=wpmTitle%>
-                  <i class="bi bi-info-circle ms-2 info-tooltip" data-bs-toggle="tooltip"
-                    data-bs-title="<%=wpmTitleTooltip%>"></i>
+                  <i class="bi bi-info-circle info-tooltip"></i>
               </div>
               <div>
                 <span class="value"></span><span class="unit">wpm</span>
@@ -48,7 +46,7 @@
               <div></div>
             </div>
 
-            
+
           </div>
           <!--#endregion Scores and Progress results -->
           <hr>
@@ -57,23 +55,23 @@
           <div class="row text-center">
 
             <div class="pie-response-time col-lg-4 pb-2">
-              <div class="title">
+              <div class="title" data-bs-toggle="tooltip" data-bs-title="<%=responseTimeTitleTooltip%>">
                 <%=responseTimeTitle%>
-                <i class="bi bi-info-circle ms-2 info-tooltip" data-bs-toggle="tooltip" data-bs-title="<%=responseTimeTitleTooltip%>"></i>
+                  <i class="bi bi-info-circle info-tooltip"></i>
               </div>
             </div>
 
             <div class="pie-right-answers col-lg-4 pb-2">
-              <div class="title">
+              <div class="title" data-bs-toggle="tooltip" data-bs-title="<%=rightAnswersTitleTooltip%>">
                 <%=rightAnswersTitle%>
-                <i class="bi bi-info-circle ms-2 info-tooltip" data-bs-toggle="tooltip" data-bs-title="<%=rightAnswersTitleTooltip%>"></i>
+                  <i class="bi bi-info-circle info-tooltip"></i>
               </div>
             </div>
 
             <div class="pie-accuracy col-lg-4 pb-2">
-              <div class="title">
+              <div class="title" data-bs-toggle="tooltip" data-bs-title="<%=accuracyTitleTooltip%>">
                 <%=accuracyTitle%>
-                <i class="bi bi-info-circle ms-2 info-tooltip" data-bs-toggle="tooltip" data-bs-title="<%=accuracyTitleTooltip%>"></i>
+                  <i class="bi bi-info-circle info-tooltip"></i>
               </div>
             </div>
 
@@ -82,6 +80,47 @@
           <!--#endregion Pie charts -->
           <hr>
 
+          <!--#region Statistics-->
+          <div class="row text-center">
+
+            <div class="col data-card time">
+              <div>Time</div>
+              <div>
+                <span class="value">30</span><span class="unit">s</span>
+              </div>
+            </div>
+
+            <div class="col data-card wpm-raw">
+              <div>WPM</div>
+              <div>
+                <span class="value">20</span><span class="unit"></span>
+              </div>
+            </div>
+
+            <div class="col data-card answers">
+              <div>Answers</div>
+              <div>
+                <span class="value">7 / 7</span><span class="unit"></span>
+              </div>
+            </div>
+
+            <div class="col data-card time-per-question">
+              <div>Per Question</div>
+              <div>
+                <span class="value">7</span><span class="unit">s</span>
+              </div>
+            </div>
+
+            <div class="col data-card mystiped">
+              <div>Mistyped</div>
+              <div>
+                <span class="value">7</span><span class="unit"></span>
+              </div>
+            </div>
+          </div>
+          <!--#endregion Statistics-->
+
+          <hr>
           <!--#region Answers cards -->
           <div class="answer-cards-container row row-cols-1 row-cols-lg-2 row-cols-xl-4 g-4 mb-4">
           </div>
@@ -93,10 +132,14 @@
 
       </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-dark" data-bs-dismiss="modal"><%=closeBtn%></button>
-      </div>
 
+      <!--#region Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">
+          <%=closeBtn%>
+        </button>
+      </div>
+      <!--#endregion Footer -->
 
     </div>
 
