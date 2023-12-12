@@ -56,6 +56,9 @@ class Model {
     let timeToFirstKeyRatioUser = 0;
     let rightAnswersRaw = 0;
     let rightAnswers = 0;
+    let progress = 0;
+    let previousScore = 0;
+    let newScore = 0;
 
     
     // Compute sum for each question
@@ -72,6 +75,9 @@ class Model {
       timeToFirstKeyRatioUser += question.timeToFirstKeyRatioUser;
       rightAnswers += (question.finalDistance == 0);
       rightAnswersRaw += (question.maxDistance == 0);
+      progress += (question.previousScore == 0) ? question.newScore : question.newScore/question.previousScore;
+      previousScore += question.previousScore;
+      newScore += question.newScore;
     })
 
     // Compute average
@@ -89,9 +95,13 @@ class Model {
     this.data.timeToFirstKeyRatioUser = timeToFirstKeyRatioUser / N;
     this.data.rightAnswers = rightAnswers;
     this.data.rightAnswersRaw = rightAnswersRaw;
+    this.data.progress = progress/N;
+    this.data.previousScore = previousScore; 
+    this.data.newScore = newScore;
+    this.data.progress = (newScore - previousScore) / N
 
     // Compute global score
-    this.data.score = this.data.wpm * this.data.memorizationRatio * 100;
+    this.data.score = this.data.wpmRaw * this.data.memorizationRatio * 100;
 
     // Update data in the view
     view.setData(this.data);

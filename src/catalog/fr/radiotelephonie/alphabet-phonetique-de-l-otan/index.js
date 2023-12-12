@@ -1,4 +1,5 @@
 import "Catalog/catalog.css";
+import "Catalog/en/radiotelephony/nato-phonetic-alphabet/style.css";
 
 // Target language of the test
 export var metaData = {

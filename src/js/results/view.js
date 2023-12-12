@@ -10,6 +10,7 @@ import ease from "Js/ease";
 import settings from "Js/settings";
 import colors from "Js/cssColors";
 import ResultCard from "Js/resultCard";
+import format from "format-duration";
 
 /**
  * View for the Rscoreesults module
@@ -131,7 +132,7 @@ class View {
     // Populate stats and cards
     this.populateStats();
     this.populateCards();
-    
+
   }
 
 
@@ -161,26 +162,42 @@ class View {
     this.pieAccuracy.setRatio(this.data.maxDistanceRatio);
 
     //ease.outQuartProgress(this.progressEl, 0, 100 * this.results.progress, (this.results.progress >= 0.1) ? 1 : 2, true)
-   
+
   }
 
 
   populateStats() {
-    this.modalEl.querySelector('.data-card.time .value').textContent  = Math.round(this.data.duration/1000);
-    this.modalEl.querySelector('.data-card.wpm-raw .value').textContent  = Math.round(this.data.wpmRaw);
 
+    // Memory test duration
+    let duration = Math.round(this.data.duration / 1000);
+    if (this.data.duration>60000) duration = format(this.data.duration);
+    this.modalEl.querySelector('.data-card.time .value').textContent = duration;
+
+    // Progress
+    let progress = 100*this.data.progress;
+    this.modalEl.querySelector('.data-card.progress-percent .value').textContent = `${(progress > 0) ? '+' : ''}${progress.toFixed(1)}`;
+    if (progress > 0)
+      this.modalEl.querySelector('.data-card.progress-percent .value').parentElement.style.color = "var(--main-green)";
+    if (progress < 0)
+      this.modalEl.querySelector('.data-card.progress-percent .value').parentElement.style.color = "var(--main-red)";
+
+    // WPM
+    this.modalEl.querySelector('.data-card.wpm-raw .value').textContent = Math.round(this.data.wpmRaw);
+
+    // Incorrect / correct / answers count
     const countRightAnswersRaw = this.data.rightAnswersRaw;
     const countRightAnswers = this.data.rightAnswers;
     const countQuestions = this.data.questions.length;
-    this.modalEl.querySelector('.data-card.answers .value').textContent  = `${countRightAnswersRaw} / ${countRightAnswers} / ${countQuestions}`;
+    this.modalEl.querySelector('.data-card.answers .value').textContent = `${countRightAnswersRaw} / ${countRightAnswers} / ${countQuestions}`;
 
-    const timeRaw = (this.data.duration/countRightAnswersRaw/1000).toFixed(1);
-    const timeRight = (this.data.duration/countRightAnswers/1000).toFixed(1);
-    const timeAll = (this.data.duration/countQuestions/1000).toFixed(1);
-    
-    this.modalEl.querySelector('.data-card.time-per-question .value').textContent  = `${timeRaw} / ${timeRight} / ${timeAll}`;
+    // Incorrect / correct / answers time
+    const timeRaw = (this.data.duration / countRightAnswersRaw / 1000).toFixed(1);
+    const timeRight = (this.data.duration / countRightAnswers / 1000).toFixed(1);
+    const timeAll = (this.data.duration / countQuestions / 1000).toFixed(1);
+    this.modalEl.querySelector('.data-card.time-per-question .value').textContent = `${timeRaw} / ${timeRight} / ${timeAll}`;
 
-    this.modalEl.querySelector('.data-card.mystiped .value').textContent  = `${this.data.maxDistance} / ${this.data.finalDistance} / ${this.data.nbCharacters}`;
+    // Characters count
+    this.modalEl.querySelector('.data-card.mistyped .value').textContent = `${this.data.maxDistance} / ${this.data.finalDistance} / ${this.data.nbCharacters}`;
   }
 
 
@@ -189,12 +206,12 @@ class View {
    */
   populateCards() {
     this.answerCardsContainerEl.innerHTML = [];
-    console.log (this.data)
+    console.log(this.data)
     this.data.questions.forEach((question, index) => {
       const cardText = new ResultCard();
       cardText.appendTo(this.answerCardsContainerEl);
       cardText.populate(question, index);
-      
+
     })
   }
 

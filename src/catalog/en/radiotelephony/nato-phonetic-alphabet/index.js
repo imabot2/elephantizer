@@ -1,10 +1,11 @@
 import "Catalog/catalog.css";
+import "Catalog/en/radiotelephony/nato-phonetic-alphabet/style.css";
 
 // Target language of the test
 export var metaData = {
   
   // Quiz flag
-  flag: "/static/circle-flags/en.svg",
+  flag: "/static/circle-flags/gb.svg",
 
   // Special characters for this test
   specialCharacters: [],

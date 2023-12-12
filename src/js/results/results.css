@@ -1,7 +1,8 @@
 #results-modal .modal-header {
   background-color: var(--main-dark-grey);
 }
-#results-modal .modal-header > div  {
+
+#results-modal .modal-header>div {
   font-size: clamp(30px, 100px, 6vmin);
   font-family: var(--main-title-font);
   text-shadow: 0px 2px 2px black;
@@ -31,7 +32,7 @@
   margin-bottom: -5px;
   margin-left: auto;
   margin-right: auto;
-  
+
 }
 
 #results-modal .wpm .value,
@@ -47,20 +48,32 @@
 
 /* The memorization score is bigger */
 #results-modal .pie-memorization .pie-chart {
-  height: clamp(170px, 30vh, 14vmin)!important;
-  font-size: 1.6em!important;
+  height: clamp(170px, 30vh, 14vmin) !important;
+  font-size: 1.6em !important;
 }
+
+#results-modal .data-card {
+  min-width: 150px;
+}
+
 
 #results-modal .data-card div:nth-child(1) {
   color: var(--main-darker-grey);
   font-weight: 900;
+  margin-bottom: 0.4em;
 }
 
 #results-modal .data-card div:nth-child(2) {
-  font-family: var(--main-title-font);  
+  font-family: var(--main-title-font);
   font-size: 1.6em;
 }
 
-#results-modal .data-card div:nth-child(2) .unit {  
+
+
+#results-modal .data-card .value {
+  text-wrap: nowrap;
+}
+
+#results-modal .data-card .unit {
   font-size: 0.6em;
 }

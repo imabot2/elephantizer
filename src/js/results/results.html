@@ -83,36 +83,44 @@
           <!--#region Statistics-->
           <div class="row text-center">
 
-            <div class="col data-card time">
-              <div>Time</div>
+            <div class="col-12 col-lg-4 col-xl-2 data-card lg-3 mb-md-0 time" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="<%=timeTooltip%>">
+              <div><%=timeTitle%></div>
               <div>
                 <span class="value">30</span><span class="unit">s</span>
               </div>
             </div>
 
-            <div class="col data-card wpm-raw">
-              <div>WPM</div>
+            <div class="col-12 col-lg-4 col-xl-2 data-card lg-3 mb-md-0 progress-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="<%=progressTooltip%>">
+              <div><%=progressTitle%></div>
+              <div>
+                <span class="value">20</span><span class="unit">%</span>
+              </div>
+            </div>
+
+
+            <div class="col-12 col-lg-4 col-xl-2 data-card lg-3 mb-md-0 wpm-raw" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="<%=wpmRawTooltip%>">
+              <div><%=wpmRawTitle%></div>
               <div>
                 <span class="value">20</span><span class="unit"></span>
               </div>
             </div>
 
-            <div class="col data-card answers">
-              <div>Answers</div>
+            <div class="col-12 col-lg-4 col-xl-2 data-card lg-3 mb-md-0 answers" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="<%=answersTooltip%>">
+              <div><%=answersTitle%></div>
               <div>
                 <span class="value">7 / 7</span><span class="unit"></span>
               </div>
             </div>
 
-            <div class="col data-card time-per-question">
-              <div>Per Question</div>
+            <div class="col-12 col-lg-4 col-xl-2 data-card lg-3 mb-md-0 time-per-question" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="<%=timePerQuestionTooltip%>">
+              <div><%=timePerQuestionTitle%></div>
               <div>
                 <span class="value">7</span><span class="unit">s</span>
               </div>
             </div>
 
-            <div class="col data-card mystiped">
-              <div>Mistyped</div>
+            <div class="col-12 col-lg-4 col-xl-2 data-card lg-3 mb-md-0 mistyped" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="<%=charactersTooltip%>">
+              <div><%=charactersTitle%></div>
               <div>
                 <span class="value">7</span><span class="unit"></span>
               </div>

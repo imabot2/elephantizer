@@ -58,7 +58,7 @@ export default class View {
 
     // Set the body data
     this.cardEl.querySelector('.user-answer').textContent = stats.finalAnswer;
-    this.cardEl.querySelector('.memorization-ratio').textContent = `${parseFloat(((100 * stats.memorizationRatioUser).toFixed(1)))}%`;
+    this.cardEl.querySelector('.memorization-ratio').textContent = `${parseFloat(((100 * stats.memorizationRatioUser).toFixed(1)))}%`;    
     let searchTime = stats.time - stats.typingTime;
     this.cardEl.querySelector(".search-time").innerText = `${(searchTime / 1000).toFixed((searchTime < 12000) ? 1 : 0)}s`;
     this.cardEl.querySelector(".time").innerText = `${(stats.time / 1000).toFixed((stats.time < 12000) ? 1 : 0)}s`;

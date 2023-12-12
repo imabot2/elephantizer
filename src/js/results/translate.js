@@ -24,6 +24,20 @@ const translations = {
     accuracyTitle: "Accuracy",
     accuracyTitleTooltip: "This percentage represents the <strong>accuracy of your answers</strong>.<br>A percentage of 100% means you've typed all the answers without ever mistyping. ",
 
+    
+    timeTitle: 'Time',
+    timeTooltip: "Memory test duration.",
+    progressTitle: "Progress",
+    progressTooltip: "This percentage reflects your progress on the test.",
+    wpmRawTitle: "Words per Minute",
+    wpmRawTooltip: "Raw typing speed. This speed is the cumulative number of characters divided by the test duration.",
+    answersTitle: "Answers",
+    answersTooltip: "Number of correct answers without typing errors.<hr>Total number of correct answers.<hr>Number of questions.",
+    timePerQuestionTitle: "Time per Question",
+    timePerQuestionTooltip: "Time per correct answer without any typing errors.<hr>Time per valid final answer with or without typing errors.<hr>Time per question.",
+    charactersTitle: "Characters",
+    charactersTooltip: "Total number of incorrectly typed characters.<hr>Number of incorrect characters in final responses.<hr>Total number of characters.",
+
     closeBtn: "Close",
   },
 
@@ -46,6 +60,20 @@ const translations = {
 
     accuracyTitle: "Précision",
     accuracyTitleTooltip: "Ce pourcentage représente la <strong>précision de vos réponses</strong>.<br>Un pourcentage de 100% signifie que vous avez tapé toutes les réponses sans jamais faire une seule erreur de frappe.",
+
+
+    timeTitle: 'Temps',
+    timeTooltip: "Temps total du test de mémorisation.",
+    progressTitle: "Progression",
+    progressTooltip: "Ce pourcentage reflète votre progression sur ce test.",
+    wpmRawTitle: "Mots par minute",
+    wpmRawTooltip: "Vitesse de frappe brute. Cette vitesse correspond au nombre cumulé de caractères divisé par le temps.",
+    answersTitle: "Réponses",
+    answersTooltip: "Nombre de réponses correctes sans erreurs de frappe.<hr>Nombre total de réponses correctes.<hr>Nombre de questions.",
+    timePerQuestionTitle: "Temps par question",
+    timePerQuestionTooltip: "Temps par réponse correcte sans aucune erreur de frappe.<hr>Temps par réponse finale valide avec ou sans erreur de frappe.<hr>Temps par question.",
+    charactersTitle: "Caractères",
+    charactersTooltip: "Nombre total de caractères mal tapés.<hr>Nombre de caractères erronés dans les réponses finales.<hr>Nombre total de caractères.",
 
     closeBtn: "Fermer",
   },
