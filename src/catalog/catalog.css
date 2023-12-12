@@ -5,3 +5,33 @@
   color: var(--main-red);
   font-style: normal;
 }
+
+
+
+.memory-test-question .text-sm {
+  font-size: clamp(1rem, 6vmin, 10rem);
+}
+.result-card-question .text-sm {
+  font-size: 1.6rem;
+}
+
+.memory-test-question .text-md {
+  font-size: clamp(1rem, 5vmin, 8rem);
+}
+.result-card-question .text-md {
+  font-size: 1rem;
+}
+
+.memory-test-question .text-lg {
+  font-size: clamp(1rem, 4vmin, 6rem);
+}
+.result-card-question .text-lg {
+  font-size: 0.8em;
+}
+
+.memory-test-question .text-xl {
+  font-size: clamp(1rem, 3vmin, 5rem);
+}
+.result-card-question .text-xl {
+  font-size: 0.4em;
+}

@@ -1,6 +1,7 @@
 import translate from "./translate.js";
 import alphabetGrec from "./alphabet-grec/series.js";
 import countryOutline from "./contour-des-pays/series.js";
+import figuresDeStyle from "./figures-de-style/series.js";
 import paysSurLaCarte from "./pays-sur-la-carte/series.js";
 import tablesDeMultiplication from "./tables-de-multiplication/series.js";
 import radiotelephonie from "./radiotelephonie/series.js";
@@ -17,6 +18,11 @@ const categories = {
     name: translate.countryOutline,
     shortName: translate.countryOutlineShort,
     series: countryOutline
+  },
+  "figures-de-style" : {
+    name: translate.figuresDeStyle,
+    shortName: translate.figuresDeStyleShort,
+    series: figuresDeStyle
   },
   "pays-sur-la-carte" : {
     name: translate.countriesOnTheMap,

@@ -12,6 +12,8 @@ const translations = {
     settings: '<i class="bi bi-gear-fill me-2"></i> Settings',
     showLastResults: '<i class="bi bi-bar-chart-fill me-2"></i> Last Results',
     about: "About",
+    automatiSaveMessage: "Changes are automatically saved.",
+    closeBtn: "Close",
   },
 
   fr: {
@@ -21,6 +23,8 @@ const translations = {
     settings: '<i class="bi bi-gear-fill me-2"></i> Paramètres',
     showLastResults: '<i class="bi bi-bar-chart-fill me-2"></i> Derniers résultats',
     about: "À propos",
+    automatiSaveMessage: "Les changements sont automatiquement enregistrés.",
+    closeBtn: "Fermer",
   },
 
 }

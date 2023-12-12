@@ -21,7 +21,8 @@
 * Revise final score calculation to reflect actual WPM
 * Add irregular verbs
 * Add bottom button in the menu
-
+* Add a chart in the results to display progress
+* Do a test with oxymorons, synonyms, etc. by definition
 
 
 ## Done
