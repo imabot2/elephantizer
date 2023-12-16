@@ -32,17 +32,17 @@ class View {
    * @param {array} selection An array containing the paths of the current selection
    */
   updateSelection(selection) {
-    
+
     // Get the buttons to update
     const buttons = this.parentEl.querySelectorAll('[data-path]');
 
     // For each button
     buttons.forEach((button) => {
-      
+
       // Get the type (radio or checkbox) and the path
       const type = button.getAttribute('type');
       const path = button.getAttribute('data-path');
-      
+
       // The radio buttons are checked only if there is one deck in the selection
       if (type == 'radio') button.checked = selection.includes(path) && (selection.length == 1);
       // Otherwise, this is a checkbox, check if in selection
@@ -108,16 +108,22 @@ class View {
 
     // Get data for populating the breadcrumb
     const data = series.pathToObject(path);
-
+console.log (data)
     // Populate the language button
-    let categoryEl = this.containerEl.querySelector('.breadcrumb-category');
-    categoryEl.innerText = data.language;
-    categoryEl.setAttribute('navigation-path', data.languagePath);
+    let languageEl = this.containerEl.querySelector('.breadcrumb-language');
+    languageEl.innerText = data.language;
+    languageEl.setAttribute('navigation-path', data.languagePath);
 
     // Populate the category button
-    let seriesEl = this.containerEl.querySelector('.breadcrumb-series');
-    seriesEl.innerText = data.category;
-    seriesEl.setAttribute('navigation-path', data.categoryPath);
+    let categoryEl = this.containerEl.querySelector('.breadcrumb-category');
+    categoryEl.innerText = data.category;
+    categoryEl.setAttribute('navigation-path', data.categoryPath);
+
+    // Populate the theme button
+    let themeEl = this.containerEl.querySelector('.breadcrumb-theme');
+    themeEl.innerText = data.theme;
+    themeEl.setAttribute('navigation-path', data.themePath);
+
   }
 
 
@@ -141,14 +147,14 @@ class View {
     this.containerCollapse.hide();
   }
 
-  
+
   /**
    * Extend the collapse menu
    */
   expand(path) {
     if (path) {
       this.populateBreadcrumb(path);
-      this.populate(path);    
+      this.populate(path);
     }
     this.updateSelection(selection.current());
     menu.setTitle(translate.title);

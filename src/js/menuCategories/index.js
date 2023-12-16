@@ -1,7 +1,7 @@
 import view from "./view.js";
 import model from "./model.js";
 
-class MenuMemoryTests {
+class MenuCategories {
   constructor() { }
 
 
@@ -24,4 +24,4 @@ class MenuMemoryTests {
 }
 
 
-export default new MenuMemoryTests();
+export default new MenuCategories();

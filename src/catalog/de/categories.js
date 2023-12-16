@@ -1,11 +1,11 @@
 import translate from "./translate.js"
-import landerAufDerKarte from "./lander-auf-der-karte/series.js";
+import geografie from "./geografie/themes.js";
 
 const categories = {
-  "lander-auf-der-karte" : {
-    name: translate.countriesOnTheMap,
-    shortName: translate.countriesOnTheMapShort,
-    series: landerAufDerKarte
+  "geografie" : {
+    name: translate.geografie,
+    shortName: translate.geografieShort,
+    theme: geografie
   },
 };
 

@@ -18,15 +18,15 @@
 * Add the flag in the answer bar
 * Add Jersey, Guernesey and Sercq in countries
 * Add aditional statistics in the result modal
-* Revise final score calculation to reflect actual WPM
 * Add irregular verbs
 * Add bottom button in the menu
 * Add a chart in the results to display progress
-* Do a test with oxymorons, synonyms, etc. by definition
-
+* Finalize the test with oxymorons, synonyms, etc. by definition
+* Add categories Math, Language, Foreign, languages ...
 
 ## Done
 
+* ~~Revise final score calculation to reflect actual WPM~~
 * ~~Move css in catalog~~
 * ~~Translate the result cards~~
 * ~~Remove the hashtag in the results cards for translation~~

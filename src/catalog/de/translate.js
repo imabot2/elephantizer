@@ -6,15 +6,14 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    countriesOnTheMap: 'Countries On The Map in German',
-    countriesOnTheMapShort: 'Countries On The Map',
+    geografie: 'Geography in German',
+    geografieShort: 'Geography',
   },
 
   fr: {
-    countriesOnTheMap: 'Les pays sur la carte en Allemand',
-    countriesOnTheMapShort: 'Les pays sur la carte',
+    geografie: 'Géographie en allemand',
+    geografieShort: 'Géographie',
   },
 }
 
 export default translations[languages.current()];
-

@@ -52,9 +52,9 @@ class View {
     const data = series.pathToObject(path);
 
     // Populate the language button
-    let categoryEl = this.containerEl.querySelector('.breadcrumb-category');
-    categoryEl.innerText = data.language;
-    categoryEl.setAttribute('navigation-path', data.languagePath);
+    let languageEl = this.containerEl.querySelector('.breadcrumb-language');
+    languageEl.innerText = data.language;
+    languageEl.setAttribute('navigation-path', data.languagePath);
   }
 
 

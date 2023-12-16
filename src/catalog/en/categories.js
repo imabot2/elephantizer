@@ -1,35 +1,30 @@
 import translate from "./translate.js"
-import countriesOnTheMap from "./countries-on-the-map/series.js";
-import countryOutline from "./country-outline/series.js";
-import greekAlphabet from "./greek-alphabet/series.js";
-import multiplicationTables from "./multiplication-tables/series.js";
-import radiotelephony from "./radiotelephony/series.js";
+import foreignLanguages from "./foreign-languages/themes.js";
+import geography from "./geography/themes.js";
+import mathematics from "./mathematics/themes.js";
+import telecommunications from "./telecommunications/themes.js";
 
 const categories = {
-  "countries-on-the-map": {
-    name: translate.countriesOnTheMap,
-    shortName: translate.countriesOnTheMapShort,
-    series: countriesOnTheMap
+
+  "foreign-languages": {
+    name: translate.foreignLanguages,
+    shortName: translate.foreignLanguagesShort,
+    theme: foreignLanguages,
   },
-  "country-outline": {
-    name: translate.countryOutline,
-    shortName: translate.countryOutlineShort,
-    series: countryOutline
+  "geography": {
+    name: translate.geography,
+    shortName: translate.geographyShort,
+    theme: geography,
   },
-  "greek-alphabet": {
-    name: translate.greekAlphabet,
-    shortName: translate.greekAlphabetShort,
-    series: greekAlphabet
+  "mathematics": {
+    name: translate.mathematics,
+    shortName: translate.mathematicsShort,
+    theme: mathematics
   },
-  "multiplication-tables": {
-    name: translate.multiplicationTables,
-    shortName: translate.multiplicationTablesShort,
-    series: multiplicationTables
-  },
-  "radiotelephony": {
-    name: translate.radiotelephony,
-    shortName: translate.radiotelephonyShort,
-    series: radiotelephony
+  "telecommunications": {
+    name: translate.telecommunications,
+    shortName: translate.telecommunications,
+    theme: telecommunications
   },
 
 };

@@ -37,15 +37,18 @@ class View {
   
     // For each selected deck
     const list = model.orderedList();
+
     list.forEach((meta) => {
 
       // Prepare the data to populate the item template
       const data = {
-        language: meta.language.name,
+        language: meta.language.shortName,
         category: meta.category.shortName,
         categoryPath: meta.language.key,
+        theme: meta.theme.shortName,
+        themePath: `${meta.language.key}/${meta.category.key}`,
         deck: meta.deck.shortName,
-        deckPath: `${meta.language.key}/${meta.category.key}`,
+        deckPath: `${meta.language.key}/${meta.category.key}/${meta.theme.key}`,
       }
 
       // Populate the template and append to the list

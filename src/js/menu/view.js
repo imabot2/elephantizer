@@ -10,6 +10,7 @@ import model from "./model.js";
 import settings from "Js/settings";
 import menuLanguages from "Js/menuLanguages";
 import menuCategories from "Js/menuCategories";
+import menuThemes from "Js/menuThemes";
 import menuSeries from "Js/menuSeries";
 import selection from "Js/selection";
 import results from "Js/results";
@@ -75,6 +76,7 @@ class View {
     settings.appendTo(this.containerEl);
     menuLanguages.appendTo(this.containerEl);
     menuCategories.appendTo(this.containerEl);
+    menuThemes.appendTo(this.containerEl);
     menuSeries.appendTo(this.containerEl);
     selection.appendTo(this.bodyEl);
   }

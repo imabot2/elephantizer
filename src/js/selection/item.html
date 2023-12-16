@@ -1,18 +1,22 @@
 <li class="list-group-item">
 
-  <button type="button" class="btn btn-link p-0" navigation-target="languages">
+  <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="languages">
     <i class="bi bi-house-door"></i>
   </button>
   /
-  <button type="button" class="btn btn-link p-0" navigation-target="categories" navigation-path="<%=categoryPath%>">
+  <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="categories" navigation-path="<%=categoryPath%>">
     <%=language%>
   </button>
   /
-  <button type="button" class="btn btn-link p-0" navigation-target="series" navigation-path="<%=deckPath%>">
+  <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="themes" navigation-path="<%=themePath%>">
     <%=category%>
   </button>
   /
-  <button type="button" class="btn btn-link p-0 disabled" navigation-target="series" navigation-path="<%=deckPath%>">
+  <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="series" navigation-path="<%=deckPath%>">
+    <%=theme%>
+  </button>
+  /
+  <button type="button" class="btn btn-link p-0 text-decoration-none disabled" navigation-target="series" navigation-path="<%=deckPath%>">
     <%=deck%>
   </button>
 

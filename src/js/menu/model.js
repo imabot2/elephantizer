@@ -2,6 +2,7 @@ import view from "./view.js";
 import settings from "Js/settings";
 import menuLanguages from "Js/menuLanguages";
 import menuCategories from "Js/menuCategories";
+import menuThemes from "Js/menuThemes";
 import menuSeries from "Js/menuSeries";
 import selection from "Js/selection";
 import results from "Js/results";
@@ -27,7 +28,8 @@ class Model {
       case 'settings': this.navigate('main'); break;
       case 'languages': this.navigate('main'); break;
       case 'categories': this.navigate('languages'); break;
-      case 'series': this.navigate('categories'); break;
+      case 'themes': this.navigate('categories'); break;
+      case 'series': this.navigate('themes'); break;
     }
   }
 
@@ -37,15 +39,8 @@ class Model {
    * @param {string} target Name of the target menu
    */
   navigate(target, path = '') {
-
+    
     // Collapse all menus
-    /*
-    view.collapse();
-    settings.collapse();
-    menuLanguages.collapse();
-    menuCategories.collapse();
-    menuSeries.collapse();
-    */
 
     // Expand the requested menu
     switch (target) {
@@ -63,6 +58,10 @@ class Model {
         break;
       case 'categories':
         menuCategories.expand(path);
+        selection.expand(500);
+        break;
+      case 'themes':
+        menuThemes.expand(path);
         selection.expand(500);
         break;
       case 'series':

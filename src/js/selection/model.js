@@ -39,9 +39,9 @@ class Model {
 
     // According to the user language, load the default deck
     switch (language.current()) {
-      case 'fr': return this.add('fr/pays-sur-la-carte/europe');
-      case 'de': return this.add('de/lander-auf-der-karte/europa');
-      default: return this.add('en/countries-on-the-map/europe');
+      case 'fr': return this.add('fr/geographie/pays-sur-la-carte/europe');
+      case 'de': return this.add('de/geografie/lander-auf-der-karte/europa');
+      default: return this.add('en/geography/countries-on-the-map/europe');
     }
   }
 
@@ -143,6 +143,10 @@ class Model {
     // Then order by category name
     if (A.category.shortName.toLowerCase() < B.category.shortName.toLowerCase()) return -1;
     if (A.category.shortName.toLowerCase() > B.category.shortName.toLowerCase()) return 1;
+
+    // Then order by themes name
+    if (A.theme.shortName.toLowerCase() < B.theme.shortName.toLowerCase()) return -1;
+    if (A.theme.shortName.toLowerCase() > B.theme.shortName.toLowerCase()) return 1;
 
     // The Order by deck name
     if (A.deck.shortName.toLowerCase() < B.deck.shortName.toLowerCase()) return -1;

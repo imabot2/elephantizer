@@ -9,7 +9,7 @@ import settings from "Js/settings";
 import selection from "Js/selection";
 import statistics from "Js/statistics";
 import core from "Js/core";
-import loader from "Js/loader";
+
 
 // Log first message
 const versionId = bootloader.log('Elephantizer v2');

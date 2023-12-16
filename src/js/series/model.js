@@ -39,7 +39,7 @@ class Model {
     if (!this.series[path].cards.hasOwnProperty(uid)) return {};
 
     // Path and uid are defined, returns the requested question merged with meta data
-    return { ...this.series[path].cards[uid], ...this.series[path].meta, ...{'path': path, 'uid': uid } };
+    return { ...this.series[path].cards[uid], ...this.series[path].meta, ...{ 'path': path, 'uid': uid } };
   }
 
   /**
@@ -68,7 +68,7 @@ class Model {
 
     // Set language if key is in the path
     if (keys[0] == undefined) return obj;
-    obj.language = catalog[keys[0]].name;
+    obj.language = catalog[keys[0]].shortName;
     obj.languagePath = keys[0];
 
     // Set category if key is in the path
@@ -78,8 +78,13 @@ class Model {
 
     // Set series if key is in the path
     if (keys[2] == undefined) return obj;
-    obj.deck = catalog[keys[0]].category[keys[1]].series[keys[2]].shortName;
-    obj.deckPath = `${keys[0]}/${keys[1]}/${keys[2]}`;
+    obj.theme = catalog[keys[0]].category[keys[1]].theme[keys[2]].shortName;
+    obj.themePath = `${keys[0]}/${keys[1]}/${keys[2]}`;
+
+    // Set series if key is in the path
+    if (keys[3] == undefined) return obj;
+    obj.deck = catalog[keys[0]].category[keys[1]].theme[keys[2]].series[keys[3]].shortName;
+    obj.deckPath = `${keys[0]}/${keys[1]}/${keys[2]}/${keys[3]}`;
 
     // Return the object
     return obj;
@@ -120,6 +125,7 @@ class Model {
           // Add meta data related to language, category and deck
           deck.metaData.language = this.getLanguageMetaData(path);
           deck.metaData.category = this.getCategoryMetaData(path);
+          deck.metaData.theme = this.getThemeMetaData(path);
           deck.metaData.deck = this.getDeckMetaData(path);
 
           // Append the object in the list          
@@ -156,7 +162,8 @@ class Model {
     // Return the language meta data
     return {
       key: keys[0],
-      name: catalog[keys[0]].name
+      name: catalog[keys[0]].name,
+      shortName: catalog[keys[0]].shortName
     }
   }
 
@@ -180,6 +187,23 @@ class Model {
 
 
   /**
+   * Return the meta data related to the theme for a given path
+   * @param {string} path The path to process
+   * @returns A object containing the meta data (key, name, shortname)
+   */
+  getThemeMetaData(path) {
+    // Split the path to get the keys
+    const keys = path.split('/');
+
+    // Return the category meta data
+    return {
+      key: keys[2],
+      name: catalog[keys[0]].category[keys[1]].theme[keys[2]].name,
+      shortName: catalog[keys[0]].category[keys[1]].theme[keys[2]].shortName,
+    }
+  }
+
+  /**
    * Return the meta data related to the deck for a given path
    * @param {string} path The path to process
    * @returns A object containing the meta data (key, name, shortname)
@@ -190,10 +214,10 @@ class Model {
 
     // Return the deck meta data
     return {
-      key: keys[2],
-      nativeName : catalog[keys[0]].category[keys[1]].series[keys[2]].nativeName,
-      name: catalog[keys[0]].category[keys[1]].series[keys[2]].name,
-      shortName: catalog[keys[0]].category[keys[1]].series[keys[2]].shortName,
+      key: keys[3],
+      nativeName: catalog[keys[0]].category[keys[1]].theme[keys[2]].series[keys[3]].nativeName,
+      name: catalog[keys[0]].category[keys[1]].theme[keys[2]].series[keys[3]].name,
+      shortName: catalog[keys[0]].category[keys[1]].theme[keys[2]].series[keys[3]].shortName,
     }
   }
 

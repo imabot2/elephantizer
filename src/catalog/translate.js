@@ -6,16 +6,22 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    english: "English",
-    french: "French",
-    german: "German",
+    english: "🇬🇧 English",
+    englishShort: "🇬🇧",
+    french: "🇨🇵 French",
+    frenchShort: "🇨🇵",
+    german: "🇩🇪 German",
+    germanShort: "🇩🇪",
     iso: "ISO Norm",
   },
 
   fr: {
-    english: "Anglais",
-    french: "Français",
-    german: "Allemand",
+    english: "🇬🇧 Anglais",
+    englishShort: "🇬🇧",
+    french: "🇨🇵 Français",
+    frenchShort: "🇨🇵",
+    german: "🇩🇪 Allemand",
+    germanShort: "🇩🇪",
     iso: "Norme ISO",
   },
 }

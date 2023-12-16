@@ -20,11 +20,11 @@ class Model {
    */
   series(path) {
     // Split the path
-    let language, category;
-    [language, category] = path.split('/');
+    let language, category, theme;
+    [language, category, theme] = path.split('/');
 
     // Isolate the category
-    let series = catalog[language].category[category].series;
+    let series = catalog[language].category[category].theme[theme].series;
 
     // Isolate the name and the path
     let list = Object.keys(series).map((key) => {
@@ -32,7 +32,7 @@ class Model {
       // Return the object containing the categories (name and path)
       return {
         name: series[key].name,
-        path: `${language}/${category}/${key}`,
+        path: `${language}/${category}/${theme}/${key}`,
       };
     })
     // Return the list of name and path

@@ -1,45 +1,38 @@
 import translate from "./translate.js";
-import alphabetGrec from "./alphabet-grec/series.js";
-import countryOutline from "./contour-des-pays/series.js";
-import figuresDeStyle from "./figures-de-style/series.js";
-import paysSurLaCarte from "./pays-sur-la-carte/series.js";
-import tablesDeMultiplication from "./tables-de-multiplication/series.js";
-import radiotelephonie from "./radiotelephonie/series.js";
+import geographie from "./geographie/themes.js";
+import langueFrancaise from "./langue-francaise/themes.js";
+import languesEtrangeres from "./langues-etrangeres/themes.js";
+import mathematiques from "./mathematiques/themes.js";
+import telecommunications from "./telecommunications/themes.js";
 
 
 const categories = {
 
-  "alphabet-grec" : {
-    name: translate.alphabetGrec,
-    shortName: translate.alphabetGrecShort,
-    series: alphabetGrec
+  "geographie" : {
+    name: translate.geographie,
+    shortName: translate.geographieShort,
+    theme: geographie
   },
-  "contour-des-pays" : {
-    name: translate.countryOutline,
-    shortName: translate.countryOutlineShort,
-    series: countryOutline
+  "langue-francaise" : {
+    name: translate.langueFrancaise,
+    shortName: translate.langueFrancaiseShort,
+    theme: langueFrancaise
   },
-  "figures-de-style" : {
-    name: translate.figuresDeStyle,
-    shortName: translate.figuresDeStyleShort,
-    series: figuresDeStyle
+  "langues-etrangeres" : {
+    name: translate.languesEtrangeres,
+    shortName: translate.languesEtrangeresShort,
+    theme: languesEtrangeres
   },
-  "pays-sur-la-carte" : {
-    name: translate.countriesOnTheMap,
-    shortName: translate.countriesOnTheMapShort,
-    series: paysSurLaCarte
+  "mathematiques" : {
+    name: translate.mathematiques,
+    shortName: translate.mathematiquesShort,
+    theme: mathematiques
   },
-  "radiotelephonie" : {
-    name: translate.radiotelephonie,
-    shortName: translate.radiotelephonieShort,
-    series: radiotelephonie,
+  "telecommunications" : {
+    name: translate.telecommunications,
+    shortName: translate.telecommunicationsShort,
+    theme: telecommunications
   },
-  "tables-de-multiplication" : {
-    name: translate.tableDeMultiplication,
-    shortName: translate.tableDeMultiplication,
-    series: tablesDeMultiplication,
-  },
-
 };
 
 export default categories;
