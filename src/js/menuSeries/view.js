@@ -108,7 +108,7 @@ class View {
 
     // Get data for populating the breadcrumb
     const data = series.pathToObject(path);
-console.log (data)
+
     // Populate the language button
     let languageEl = this.containerEl.querySelector('.breadcrumb-language');
     languageEl.innerText = data.language;

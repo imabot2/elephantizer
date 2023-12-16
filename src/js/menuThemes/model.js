@@ -1,5 +1,6 @@
 import catalog from "Catalog/catalog.js";
-console.log(catalog)
+
+
 
 /**
  * Model for th menuLanguage module

@@ -1,5 +1,5 @@
 import view from "./view.js";
-
+import specialCharacters from "Js/specialCharacters";
 
 /**
  * Model for the answer bar module
@@ -45,7 +45,7 @@ class Model {
   onInputEvent(event) {
 
     // Do not process if this is a composition
-    if (event.isComposing) return;
+    if (event?.isComposing) return;
 
     // Run the callback function
     this.onInputCallback(view.getAnswerText());
@@ -79,10 +79,8 @@ class Model {
 
     // On Tab key, open the special characters modal 
     if (event.key === "Tab") {
-      event.preventDefault();
-
-      console.log('TO DO open the special character modal')
-      //specialCharacters.showModal(true);
+      event.preventDefault();      
+      specialCharacters.open();
     }
 
     // If the user presses the "Enter" key on the keyboard

@@ -3,6 +3,9 @@ import correction from "Js/correction";
 import answerBar from "Js/answerBar";
 import overlay from "Js/overlay";
 import settings from "Js/settings";
+import specialCharacters from "Js/specialCharacters";
+
+
 
 /**
  * View for the Typing Core module

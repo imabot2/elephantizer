@@ -16,6 +16,7 @@ import questionStatistics from "Js/questionStatistics";
 import overlay from "Js/overlay";
 import results from "Js/results";
 import statistics from "Js/statistics";
+import specialCharacters from "../specialCharacters/index.js";
 
 /**
  * Model of the Core Typing module
@@ -41,6 +42,10 @@ class Model {
     // Set the overlay callback function (user click in the overlay or time is over)
     overlay.setClickEventCallback(() => { this.onPauseOver(); })
     overlay.setTimeOverEventCallback(() => { this.onPause(); })
+
+    // Pause the timers when the special characters modal is open
+    specialCharacters.setShowModalCallback(() => { this.onPauseSpecialCharacters(); })
+    specialCharacters.setHiddenModalCallback(() => { this.onPauseOverSpecialCharacters(); })
 
     // Initialize the timer used for each question (total time & wpm)
     this.questionTimer = new Timer();
@@ -173,9 +178,6 @@ class Model {
 
     // Set the correction if the distance is higher than zero or the user answer is longer than the expected answer
     // And the score is not higher than 0.8
-    console.log (questionStatistics.getScore(), settings.get('correctionThreshold'));
-
-    
     if ((distance || sanitized.length > this.currentQuestion.answer.length) && (questionStatistics.getScore() < settings.get('correctionThreshold') )) {
 
       // Show the correction if the Levenshtein distance is not null
@@ -294,6 +296,9 @@ class Model {
     // Disable the answer bar
     answerBar.disable();
 
+    // Close the special characters modal
+    specialCharacters.close();
+
     // Save the memory test statistics    
     statistics.save();
     
@@ -353,6 +358,7 @@ class Model {
       return;
     }
 
+
     // Update the view
     view.switchToNextQuestion()
       .then(() => {
@@ -366,6 +372,9 @@ class Model {
     // Create a new question in the memory test
     questionStatistics.new(this.currentQuestion.path, this.currentQuestion.uid);
 
+    // Set the special characters
+    specialCharacters.populate(this.currentQuestion.specialCharacters);
+
     // Reset the answer bar
     answerBar.reset(true);
 
@@ -375,6 +384,7 @@ class Model {
     // Remove the correction
     correction.setCorrectionHTML('');
   }
+
 
 
   /**
@@ -414,6 +424,52 @@ class Model {
 
     // Restart the overlay
     view.hideOverlay();
+    overlay.restartTimer();
+
+    // If the user already typed someting, restart the timer
+    if (this.wpmTimer.hasAlreadyStarted()) this.wpmTimer.start();
+
+    // Restart the question timer
+    this.questionTimer.start();
+
+    // Test was in pause, it is now running    
+    this.status = "running";
+
+  }
+
+
+  /**
+   * Callback function called when the special characters modal is opened
+   */
+  onPauseSpecialCharacters() {
+
+    // Reset the overlay
+    overlay.resetTimer();
+
+    // Pause the timer
+    stopwatch.pause();
+
+    // Pause the timers    
+    this.wpmTimer.pause();
+    this.questionTimer.pause();
+  }
+
+
+  /**
+   * Callback function called when the memory test leave the pause mode
+   */
+  onPauseOverSpecialCharacters() {
+
+    // If the test is over, do nothing
+    if (this.status === "over") return;
+
+    // If the memory test is not started, starts the memory test
+    if (this.status === "ready") { this.onStarted(); return; }
+
+    // Restarts and show the stopwatch
+    stopwatch.start();
+
+    // Restart the overlay timer
     overlay.restartTimer();
 
     // If the user already typed someting, restart the timer

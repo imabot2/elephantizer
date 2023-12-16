@@ -64,6 +64,7 @@ class View {
    * @param {object} data Data of the next question
   */
   prepareNextQuestion(nextQuestion) {
+
     this.nextQuestion = nextQuestion;
     switch (this.nextQuestion.type) {
       case 'outer': this.prepareNextOuterImage(); break;
@@ -127,6 +128,7 @@ class View {
    * @returns A promise when the transition is over (element is hidden)
    */
   hideCurrentQuestion() {
+
     return new Promise((resolve) => {
 
       // Select the element to hide (current one)
@@ -151,6 +153,7 @@ class View {
    * Prepare the next inner image in background for smooth transitions
    */
   prepareNextInnerImage() {
+    
     // Get the next index
     const index = 1 - this.current.innerId;
 

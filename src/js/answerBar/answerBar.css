@@ -43,7 +43,6 @@
 #answer-bar .special-characters-button-container {
   height: var(--answer-bar-height);
   width: var(--answer-bar-height);
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: center;

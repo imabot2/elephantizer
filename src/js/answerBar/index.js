@@ -21,6 +21,13 @@ class AnswerBar {
 
 
   /**
+   * Insert a text at the caret position (or selection)
+   * @param {string} text The text to insert
+   */
+  insertAtCaret(text) { view.insertAtCaret(text); }
+
+
+  /**
    * Set the prompt to the answer input
    * When the prompt is updated, focus on the answer bar
    * @param {string} prompt The prompt to display in the answer input

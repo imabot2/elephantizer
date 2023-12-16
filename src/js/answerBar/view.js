@@ -60,6 +60,33 @@ class View {
 
 
   /**
+   * Insert a text at the caret
+   * @param {string} text The text to insert
+   */
+  insertAtCaret(text) {
+    
+    // Set focus on the answer bar
+    this.focus();
+
+    // Get and delete the current selection
+    var sel, range;
+    sel = window.getSelection();
+    range = sel.getRangeAt(0);
+    range.deleteContents();
+
+    // Insert the new text
+    var textNode = document.createTextNode(text);
+    range.insertNode(textNode);
+    range.setStartAfter(textNode);
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    // Trigger the input event
+    this.onInputEvent();    
+  }
+
+
+  /**
    * Reset the answer bar
    * - Clear the input
    * - Enable/disable if requested

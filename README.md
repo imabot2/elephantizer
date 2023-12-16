@@ -17,15 +17,16 @@
 * Add the number of remaining questions in series mode (10/50)
 * Add the flag in the answer bar
 * Add Jersey, Guernesey and Sercq in countries
-* Add aditional statistics in the result modal
 * Add irregular verbs
-* Add bottom button in the menu
-* Add a chart in the results to display progress
+* Add a line chart in the results to display progress
 * Finalize the test with oxymorons, synonyms, etc. by definition
-* Add categories Math, Language, Foreign, languages ...
+
 
 ## Done
 
+* ~~Add aditional statistics in the result modal~~
+* ~~Add bottom button in the menu~~
+* ~~Add categories Math, Language, Foreign, languages ...~~
 * ~~Revise final score calculation to reflect actual WPM~~
 * ~~Move css in catalog~~
 * ~~Translate the result cards~~
