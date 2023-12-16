@@ -15,6 +15,9 @@ import core from "Js/core";
 const versionId = bootloader.log('Elephantizer v2');
 bootloader.setSuccess(versionId);
 
+
+
+
 // Wait for authentification
 const authId = bootloader.log(translate.authentification);
 await auth.waitForAuthCompleted();
@@ -25,8 +28,17 @@ const settingsId = bootloader.log(translate.settings);
 await settings.init();
 bootloader.setSuccess(settingsId);
 
-// Load default selection if user is not logged
-if (selection.current().length === 0) {  
+
+// Load selection from URL
+const fromUrl = await selection.getFromUrl();
+if (fromUrl.length) {
+  const loadFromUrlId = bootloader.log(translate.loadFromUrl.replace('<%=n%>', fromUrl.length));
+  await selection.set(fromUrl);
+  bootloader.setSuccess(loadFromUrlId);
+}
+
+// Load default selection if user is not logged and no valid URL query is provided
+if (selection.current().length === 0) {
   const defaultSeriesId = bootloader.log(translate.defaultSeries);
   const loaded = await selection.loadDefaultSelection()
   if (loaded) bootloader.setSuccess(defaultSeriesId); else bootloader.setError(defaultSeriesId);

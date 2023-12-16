@@ -9,7 +9,7 @@
 * Display  Elephantizer when user login with Google
 * Fix bug when a second client load a new deck
 * Create a site map for SEO
-* Automaticaly create pages for each typing tests in production mode
+* Load selection from url query, for example: https://elephantizer.com/?selection=en/geography/countries-on-the-map/africa___en/geography/countries-on-the-map/europe
 * Add the side card right / wrong
 * Add a button to remove deck in the selection
 * Add the number of remaining questions in series mode (10/50)
@@ -22,6 +22,7 @@
 
 ## Done
 
+* ~~Switch the radio and checkbox in the memory test selection menu~~
 * ~~Add special characters~~
 * ~~Add aditional statistics in the result modal~~
 * ~~Add bottom button in the menu~~

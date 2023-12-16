@@ -37,8 +37,9 @@ class View {
   
     // For each selected deck
     const list = model.orderedList();
-
     list.forEach((meta) => {
+      // If the test is not loaded yet, return
+      if (meta===undefined) return;
 
       // Prepare the data to populate the item template
       const data = {

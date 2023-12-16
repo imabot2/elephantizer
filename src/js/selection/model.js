@@ -4,6 +4,7 @@ import menuSeries from "Js/menuSeries";
 import notifications from "Js/notifications";
 import translate from "./translate.js";
 import language from "Js/languages";
+import catalog from "Catalog/catalog.js";
 
 
 /**
@@ -27,6 +28,40 @@ class Model {
     // Event triggerd when all the series are loaded
     this.allSeriesLoadedEvent = new Event("all-series-loaded");
   }
+
+
+  /**
+   * Get the selection from the URL
+   * @returns {array} The new selection not loaded
+   */
+  async getFromUrl() {
+
+    // Get the string from the URL query
+    const selectionString = new URLSearchParams(window.location.search).get('selection');
+    const toLoad = selectionString.split('___');
+
+    // Filter the invalid path
+    return toLoad.filter(path => this.checkPath(path));
+  }
+
+
+  /**
+   * Check if a given path exists in the catalog
+   * @param {string} path The path to check
+   * @returns True if the path exists, false otherwise
+   */
+  checkPath(path) {
+
+    // Get each element of the path
+    const [language, category, theme, series] = path.split('/');
+
+    // Check if the path exists    
+    if (catalog[language]?.category[category]?.theme[theme]?.series.hasOwnProperty(series)) return true;
+
+    // The path does not exist, return false
+    return false;
+  }
+
 
   /**
    * Set the default selection according to the user language
@@ -71,7 +106,7 @@ class Model {
         // If the selection is not empty, update the view and resolve the promise
         if (this.selection.length) {
           this.onSelectionUpdated();
-          resolve();
+          resolve(this.selection.length);
           return;
         }
 
@@ -79,7 +114,7 @@ class Model {
         this.loadDefaultSelection()
           .then(() => {
             this.onSelectionUpdated();
-            resolve();
+            resolve(this.selection.length);
           })
           .catch((error) => { reject(error); })
       });
@@ -267,9 +302,9 @@ class Model {
       if (this.deckListLoading.length === 0) { resolve(); return; }
 
       // When the event is triggered, resolve the promise
-      document.body.addEventListener('all-series-loaded', () => { 
-        resolve(); 
-      }, {once: true});
+      document.body.addEventListener('all-series-loaded', () => {
+        resolve();
+      }, { once: true });
     })
   }
 

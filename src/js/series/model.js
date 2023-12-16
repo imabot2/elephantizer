@@ -42,6 +42,7 @@ class Model {
     return { ...this.series[path].cards[uid], ...this.series[path].meta, ...{ 'path': path, 'uid': uid } };
   }
 
+
   /**
    * Returns the list of UIDs for a given deck
    * If the deck has not been loaded, returns an empty array

@@ -12,6 +12,14 @@ class Selection {
 
 
   /**
+   * Get the selection from the URL
+   * @returns {array} The new selection not loaded
+   */
+  async getFromUrl() { return model.getFromUrl(); }
+
+
+
+  /**
    * Set the default selection according to the user language
    * @returns A promise resolved when the default deck is loaded
    */
