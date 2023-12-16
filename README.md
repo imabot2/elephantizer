@@ -9,9 +9,7 @@
 * Display  Elephantizer when user login with Google
 * Fix bug when a second client load a new deck
 * Create a site map for SEO
-* Add parameters in the settings to choose if the answer is shown and when
 * Automaticaly create pages for each typing tests in production mode
-* Add special characters
 * Add the side card right / wrong
 * Add a button to remove deck in the selection
 * Add the number of remaining questions in series mode (10/50)
@@ -20,10 +18,11 @@
 * Add irregular verbs
 * Add a line chart in the results to display progress
 * Finalize the test with oxymorons, synonyms, etc. by definition
-
+* Add contact page in the menu
 
 ## Done
 
+* ~~Add special characters~~
 * ~~Add aditional statistics in the result modal~~
 * ~~Add bottom button in the menu~~
 * ~~Add categories Math, Language, Foreign, languages ...~~
