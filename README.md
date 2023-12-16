@@ -9,7 +9,6 @@
 * Display  Elephantizer when user login with Google
 * Fix bug when a second client load a new deck
 * Create a site map for SEO
-* Load selection from url query, for example: https://elephantizer.com/?selection=en/geography/countries-on-the-map/africa___en/geography/countries-on-the-map/europe
 * Add the side card right / wrong
 * Add a button to remove deck in the selection
 * Add the number of remaining questions in series mode (10/50)
@@ -22,6 +21,7 @@
 
 ## Done
 
+* ~~Load selection from url query, for example: https://elephantizer.com/?selection=en/geography/countries-on-the-map/africa___en/geography/countries-on-the-map/europe~~
 * ~~Switch the radio and checkbox in the memory test selection menu~~
 * ~~Add special characters~~
 * ~~Add aditional statistics in the result modal~~

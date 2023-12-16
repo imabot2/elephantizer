@@ -56,16 +56,17 @@ class View {
    * @param {object} event The enven that triggered the function call
    */
   onBtnClicked(event) {
-
+console.log (event)
     // Check if this is a checkbox or radio button
     const target = event.target.closest('[data-type]');
     if (target == null) return;
+    console.log (target)
 
     // Get the button type and path
     const type = target.getAttribute('data-type');
     const path = target.getAttribute('data-path');
-    if (type == "toggle-deck") selection.toggleDeck(path);
-    if (type == "select-deck") selection.selectDeck(path);
+    if (type === "toggle-deck") selection.toggleDeck(path);
+    if (type === "select-deck") selection.selectDeck(path);
   }
 
 
