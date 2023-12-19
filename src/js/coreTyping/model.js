@@ -69,6 +69,7 @@ class Model {
 
     // Reset the stopwatch
     stopwatch.reset();
+    stopwatch.setCounter(results.countQuestions(), generator.countQuestions());
 
     // Reset the Levenshtein engine
     levenshtein.reset();
@@ -383,6 +384,9 @@ class Model {
 
     // Remove the correction
     correction.setCorrectionHTML('');
+
+    // Update the question counter in the stopwatch
+    stopwatch.setCounter(results.countQuestions(), generator.countQuestions());
   }
 
 

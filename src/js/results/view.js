@@ -206,7 +206,7 @@ class View {
    */
   populateCards() {
     this.answerCardsContainerEl.innerHTML = [];
-    console.log(this.data)
+
     this.data.questions.forEach((question, index) => {
       const cardText = new ResultCard();
       cardText.appendTo(this.answerCardsContainerEl);

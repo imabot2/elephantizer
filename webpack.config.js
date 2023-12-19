@@ -4,8 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const { translations } = require("./translations.js");
 const { unitTests } = require("./unit-test.js");
-//const { catalog } = require("./catalog.js");
-//console.log ('---------------------------->', catalog);
+const { sitemap } = require("./sitemap.js");
 
 
 module.exports = (env) => {
@@ -118,6 +117,7 @@ module.exports = (env) => {
         filename: `404.html`,
       }),
 
+
       ...translations.map((page) => {
 
         return new HtmlWebpackPlugin({
@@ -128,6 +128,15 @@ module.exports = (env) => {
           templateParameters: page.templateParameters,
         });
 
+      }),
+
+
+      new HtmlWebpackPlugin({
+        title: 'sitemap',
+        chunks: ['sitemap'],
+        template: './sitemap.ejs',
+        filename: `sitemap.xml`,
+        templateParameters: {date: sitemap.date, selection: sitemap.selection},
       }),
 
 

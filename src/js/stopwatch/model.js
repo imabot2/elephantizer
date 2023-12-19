@@ -42,6 +42,12 @@ class Model {
     else
       this.timer.init(0, 'up');
 
+    // Initialize the counter with the settings
+    if (settings.get('timerMode') === 'series')
+      view.showCounter();
+    else
+      view.hideCounter()
+
     // Force first refresh
     this.refresh();
   }

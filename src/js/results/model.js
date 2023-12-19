@@ -7,7 +7,7 @@ import selection from "Js/selection";
  */
 class Model {
   constructor() {
-    
+
     // Results data (questions + statistics)
     this.data = {};
 
@@ -21,7 +21,7 @@ class Model {
    * @param {string} mode The current typing mode [ 'typing' | 'card' ]
    */
   reset(mode) {
-    
+
     // Reset data
     this.data = {};
 
@@ -31,6 +31,15 @@ class Model {
     this.data.mode = mode;
     this.data.selection = selection.current();
     this.data.questions = [];
+  }
+
+
+  /**
+   * Count the number of questions answered
+   * @returns The number of questions answered
+   */
+  countQuestions() { 
+    return this.data.questions.length; 
   }
 
 
@@ -60,13 +69,13 @@ class Model {
     let previousScore = 0;
     let newScore = 0;
 
-    
+
     // Compute sum for each question
     this.data.questions.forEach((question) => {
       nbCharacters += question.finalAnswer.trim().length + 1;
-      memorizationRatioUser+= question.memorizationRatioUser;
-      memorizationRatio+= question.memorizationRatio;
-      typingtime+= question.typingTime;
+      memorizationRatioUser += question.memorizationRatioUser;
+      memorizationRatio += question.memorizationRatio;
+      typingtime += question.typingTime;
       finalDistance += question.finalDistance;
       finalDistanceRatio += question.finalDistanceRatio;
       maxDistance += question.maxDistance;
@@ -75,7 +84,7 @@ class Model {
       timeToFirstKeyRatioUser += question.timeToFirstKeyRatioUser;
       rightAnswers += (question.finalDistance == 0);
       rightAnswersRaw += (question.maxDistance == 0);
-      progress += (question.previousScore == 0) ? question.newScore : question.newScore/question.previousScore;
+      progress += (question.previousScore == 0) ? question.newScore : question.newScore / question.previousScore;
       previousScore += question.previousScore;
       newScore += question.newScore;
     })
@@ -83,20 +92,20 @@ class Model {
     // Compute average
     const N = this.data.questions.length;
     this.data.nbCharacters = nbCharacters;
-    this.data.wpm =  12000 * (nbCharacters / typingtime);
-    this.data.wpmRaw =  12000 * (nbCharacters / this.data.duration);
+    this.data.wpm = 12000 * (nbCharacters / typingtime);
+    this.data.wpmRaw = 12000 * (nbCharacters / this.data.duration);
     this.data.memorizationRatioUser = memorizationRatioUser / N;
     this.data.memorizationRatio = memorizationRatio / N;
     this.data.finalDistance = finalDistance;
     this.data.finalDistanceRatio = finalDistanceRatio / N;
     this.data.maxDistance = maxDistance;
     this.data.maxDistanceRatio = maxDistanceRatio / N;
-    this.data.timeToFirstKey_sec = (timeToFirstKey / N)/1000;
+    this.data.timeToFirstKey_sec = (timeToFirstKey / N) / 1000;
     this.data.timeToFirstKeyRatioUser = timeToFirstKeyRatioUser / N;
     this.data.rightAnswers = rightAnswers;
     this.data.rightAnswersRaw = rightAnswersRaw;
-    this.data.progress = progress/N;
-    this.data.previousScore = previousScore; 
+    this.data.progress = progress / N;
+    this.data.previousScore = previousScore;
     this.data.newScore = newScore;
     this.data.progress = (newScore - previousScore) / N
 
@@ -105,7 +114,6 @@ class Model {
 
     // Update data in the view
     view.setData(this.data);
-    console.log (this.data)
 
     return true;
   }

@@ -17,6 +17,13 @@ class Results {
 
 
   /**
+   * Count the number of questions answered
+   * @returns The number of questions answered
+   */
+  countQuestions() { return model.countQuestions(); }
+  
+  
+  /**
    * Add a new question in the results
    * @param {object} data The question data
   */

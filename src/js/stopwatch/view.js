@@ -3,6 +3,7 @@ import model from "./model.js";
 import str2dom from "doma";
 import { parseEjs } from "Js/languages/";
 import htmlStopwatch from "./stopwatch.html";
+import settings from "Js/settings";
 
 class View {
 
@@ -17,7 +18,8 @@ class View {
     document.body.append(this.stopwatchContainerEl);
 
     // Get the text of the timer
-    this.stopwatchTextEl = this.stopwatchContainerEl.querySelector("span");
+    this.stopwatchTextEl = this.stopwatchContainerEl.querySelector(".stopwatch");
+    this.stopwatchCounterEl = this.stopwatchContainerEl.querySelector(".counter");
   }
 
 
@@ -36,6 +38,7 @@ class View {
     this.stopwatchTextEl.classList.remove('blink');
   }
 
+
   /**
    * Set the time in the stopwatch
    * @param {integer} minutes minutes [0; 99]
@@ -44,6 +47,33 @@ class View {
   setValue(minutes, seconds) {
     this.stopwatchTextEl.innerText = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   }
+
+
+  /**
+   * Set the counter values
+   * @param {integer} current number of questions answered
+   * @param {integer} total Total number of questions in the memory test
+   */
+  setCounter(current, total) {
+    this.stopwatchCounterEl.innerText = `${current}/${total}`;
+  }
+
+
+  /**
+   * Show the question counter
+   */
+  showCounter() {
+    this.stopwatchCounterEl.classList.remove('d-none');
+  }
+
+
+  /**
+   * Show the question counter
+   */
+  hideCounter() {
+    this.stopwatchCounterEl.classList.add('d-none');
+  }
+
 
   /**
    * Show the stopwatch with the animation
@@ -57,7 +87,7 @@ class View {
   */
   hide() {
     let h = this.stopwatchContainerEl.offsetHeight;
-    this.stopwatchContainerEl.style.top = `-${1.6 * h}px`;
+    this.stopwatchContainerEl.style.top = `${-h-50}px`;
   }
 }
 

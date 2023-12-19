@@ -6,13 +6,17 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    greek: 'Greek',
-    greekShort: 'Greek',
+    french: '🇫🇷 French',
+    frenchShort: '🇫🇷',
+    greek: '🇬🇷 Greek',
+    greekShort: '🇬🇷',
   },
 
   fr: {
-    greek: 'Grec',
-    greekShort: 'Grec',
+    french: '🇫🇷 Français',
+    frenchShort: '🇫🇷',
+    greek: '🇬🇷 Grec',
+    greekShort: '🇬🇷',
   },
 }
 

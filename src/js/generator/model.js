@@ -46,6 +46,8 @@ class Model {
   }
 
 
+
+
   /**
    * Return the next question according to the current mode
    */
@@ -54,6 +56,23 @@ class Model {
       return this.getNextQuestionSeries();
     else
       return this.getNextQuestionRelevant();
+  }
+
+
+  /**
+   * Count the number of remaining questions in the series
+   * @returns The number of remaining questions in the series
+   */
+  countRemaining() {
+    return this.remaining.length;
+  }
+
+  /**
+   * Count the total number of questions in the series
+   * @returns The total number of questions in the series
+   */
+  countQuestions() {
+    return this.questions.length;
   }
 
 
@@ -93,7 +112,7 @@ class Model {
    * @returns The path and uid of the next questions
    */
   getNextQuestionRelevant() {
-    
+
     // Remove the last question if defined
     if (this.lastQuestionId !== undefined) {
       this.remaining.splice(this.remaining.indexOf(this.lastQuestionId), 1);
@@ -101,16 +120,16 @@ class Model {
 
     // idNext is the index of the next question in this.questions
     let idNext = this.getNextUnaskedQuestionIndex();
-    
+
 
     // If there is no unasked question, get next question by probalility
-    if (idNext===null) idNext = this.getNextRelevantQuestionIndex();     
-    
+    if (idNext === null) idNext = this.getNextRelevantQuestionIndex();
+
 
     // The last question has been removed to avoid picking the same question twice    
     // Put back the last question back 
     if (this.lastQuestionId != undefined) this.remaining.push(this.lastQuestionId);
-    
+
     // Update the last question with the new one
     this.lastQuestionId = idNext;
 
@@ -135,27 +154,27 @@ class Model {
     let beta = settings.get("beta");
 
     // Prepare data
-    let stats = this.questions.map((q, i) => { 
-      return { 
+    let stats = this.questions.map((q, i) => {
+      return {
         'score': statistics.get(q.path, q.uid).score,
         'index': i,
       };
     })
 
     // Remove the previous question from the array
-    stats = stats.filter(q => q.index!=this.lastQuestionId);
-      
+    stats = stats.filter(q => q.index != this.lastQuestionId);
+
     // ::: Normalize the score z(i) = 1-(score-min(score(i))) :::
 
     // Get the lowest score
     const min = Math.min(...stats.map(q => q.score))
-    
+
     // Compute z and the exponential for each question
     // z=1 - (score - min)
     // exp = exp(beta * z)
     stats.forEach((q) => { q.z = 1 - (q.score - min); q.exp = Math.exp(beta * q.z); });
 
-    
+
     // Compute the sum for the deniminator sum = Σ(exp(beta*z));
     const sum = stats.reduce((accumulator, q) => accumulator + Math.exp(beta * q.z), 0);
 
@@ -177,9 +196,9 @@ class Model {
 
     // Compute the statistics
     const stats = this.computeProbabilities();
-    
+
     // Get the maximum probability (should be equal to 1)
-    const max = stats[stats.length-1].max;
+    const max = stats[stats.length - 1].max;
 
     // Pick a random number between 0 and max
     const random = max * Math.random();
@@ -198,7 +217,7 @@ class Model {
   getNextUnaskedQuestionIndex() {
     // Get the list of questions never asked
     const neverAsked = this.getNeverAskedList();
-    
+
     // If there is no unasked questions, return null
     if (neverAsked.length === 0) return null;
 

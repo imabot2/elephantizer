@@ -20,6 +20,7 @@ class Stopwatch {
    */
   reset(duration, direction) { model.reset(duration, direction); }
 
+
   /**
    * Start or restart the stopwatch
    */
@@ -36,6 +37,13 @@ class Stopwatch {
    * Stop the timer
    */
   stop() { model.stop(); }
+
+  /**
+   * Set the counter values
+   * @param {integer} current number of questions answered
+   * @param {integer} total Total number of questions in the memory test
+   */
+  setCounter(current, total) { view.setCounter(current, total); }
 
 
   /**

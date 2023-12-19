@@ -16,8 +16,8 @@ const translations = {
 
   fr: {
     authentification: "Authentification",
-    settings: "Paramètres de l'utilisateurs",
-    statistics: 'Données utilisateurs', 
+    settings: "Paramètres de l'utilisateur",
+    statistics: 'Données utilisateur', 
     loadFromUrl: "Charge <%=n%> jeu(x) de cartes depuis l'URL",
     defaultSeries: 'Charge le jeu de cartes',
     core: 'Prépare les premières questions',

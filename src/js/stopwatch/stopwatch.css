@@ -7,7 +7,7 @@
   
   color: #ddd;
   z-index:3;
-  top: -15vmin;
+  top: -30vmin;
   
   left: 50%;
   padding-top: 10px;
@@ -20,17 +20,22 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4), 0 10px 10px rgba(0, 0, 0, 0.4);
 }
 
-#timer-container>span {
+#timer-container  {
   font-size: calc(0.8em + 1.2vmin);
   letter-spacing: .1rem;
   font-family: 'Chivo Mono', monospace;
   padding-left: 1ch;
-  padding-right: 1ch;
-  
+  padding-right: 1ch;  
+  text-align: center;
+}
+
+#timer-container .counter {  
+  border-top: 2px solid grey;
+  font-size: 0.8em;
 }
 
 
-#timer-container>span.blink {
+#timer-container .stopwatch.blink {
   animation: keyframeBlink 1s infinite;
   animation-timing-function: ease-in-out;
   animation-fill-mode: both;

@@ -38,6 +38,11 @@ class Model {
 
     // Get the string from the URL query
     const selectionString = new URLSearchParams(window.location.search).get('selection');
+    
+    // If there is no selection in the URL query, return an empty array
+    if (selectionString === null) return [];
+
+    
     const toLoad = selectionString.split('___');
 
     // Filter the invalid path

@@ -47,7 +47,7 @@ class View {
    * @param {string} path The path to the current series
    */
   populateBreadcrumb(path) {
-    console.log (path)
+    
     // Get data for populating the breadcrumb
     const data = series.pathToObject(path);
 

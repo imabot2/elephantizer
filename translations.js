@@ -1,4 +1,6 @@
 const translations = [
+
+  // Root page
   {
     iso: 'en',
     path: '',
@@ -20,6 +22,8 @@ const translations = [
       loaderImage : '/static/loader/loader-en.png',
     }
   },
+
+  // English page
   {
     iso: 'en',
     path: 'en/',
@@ -42,6 +46,7 @@ const translations = [
     }
   },
 
+  // French page
   {
     iso: 'fr',
     path: 'fr/',

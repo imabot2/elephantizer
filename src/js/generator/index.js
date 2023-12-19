@@ -3,9 +3,9 @@ import model from "./model.js";
 /**
  * Generator module (used to generate the next question)
  */
-class Generator  {
+class Generator {
 
-  constructor() {}
+  constructor() { }
 
 
   /**
@@ -18,6 +18,20 @@ class Generator  {
 
 
   /**
+   * Count the number of remaining questions in the series
+   * @returns The number of remaining questions in the series
+   */
+  countRemaining() { return model.countRemaining(); }
+
+
+  /**
+   * Count the total number of questions in the series
+   * @returns The total number of questions in the series
+   */
+  countQuestions() { return model.countQuestions(); }
+
+
+  /**
    * Return the current generator mode
    * @returns The current mode ['series' | 'relevant']
    */
@@ -27,7 +41,7 @@ class Generator  {
   /**
    * Return the next question according to the current mode
    */
-  getNextQuestion()  { return model.getNextQuestion(); }
+  getNextQuestion() { return model.getNextQuestion(); }
 }
 
 

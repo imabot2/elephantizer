@@ -10,6 +10,8 @@ const translations = {
     europeShort: 'Europe',
     afrique: 'African Countries in French',
     afriqueShort: 'Africa',
+    ameriqueDuSud: 'South America Countries in French',
+    ameriqueDuSudShort: 'South America',
   },
 
   fr: {
@@ -17,6 +19,8 @@ const translations = {
     europeShort: "Europe",
     afrique: "Les pays d'Afrique",
     afriqueShort: 'Afrique',
+    ameriqueDuSud: "Les pays d'Amérique du sud",
+    ameriqueDuSudShort: 'Amérique du sud',
   },
 }
 
