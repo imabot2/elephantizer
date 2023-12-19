@@ -482,6 +482,9 @@ class Model {
     // Restart the question timer
     this.questionTimer.start();
 
+    // Set focus on answer bar
+    answerBar.focus();
+
     // Test was in pause, it is now running    
     this.status = "running";
 

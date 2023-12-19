@@ -20,7 +20,7 @@ const translations = {
   
   fr: {
     lesCouleurs: 'Les couleurs en anglais',
-    lesCouleursShort: 'Les couelurs',  
+    lesCouleursShort: 'Les couleurs',  
     verbesIrregulier: 'Les verbes irréguliers partie 1',
     verbesIrregulierShort: 'Verbes irréguliers (1)',
     verbesIrregulierDailyRoutine: 'Verbes irréguliers (Daily routine)',
