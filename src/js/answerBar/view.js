@@ -6,6 +6,7 @@ import translate from "./translate.js";
 import str2dom from "doma";
 import specialCharacters from "Js/specialCharacters";
 import model from "./model.js";
+import flag from "Js/flag";
 var mobile = require('is-mobile');
 
 /**
@@ -35,6 +36,9 @@ class View {
     // Append the special characters button
     let specialCharacterButtonContainerEl = this.containerEl.querySelector('.special-characters-button-container');
     specialCharacters.appendButtonTo(specialCharacterButtonContainerEl);
+
+    // Append the flag in the container
+    flag.appendTo(this.containerEl);
 
     // Append the special characters button
     this.inputEl = this.containerEl.querySelector('.input');

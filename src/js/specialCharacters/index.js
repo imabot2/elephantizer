@@ -18,7 +18,7 @@ class SpecialCharacters {
 
 
   /**
-   * Append the answer bar to the provided parent
+   * Append the special characters button to the provided parent
    * @param {object} parent Parent element
    */
   appendButtonTo(parent) { view.appendButtonTo(parent); }

@@ -13,7 +13,7 @@ const translations = {
   },
 
   fr: {
-    btnTooltip: "Clickez ou appuyez sur [Tab] pour insérer des caractères spéciaux.",
+    btnTooltip: "Cliquez ou appuyez sur [Tab] pour insérer des caractères spéciaux.",
     btnTooltipDisabled: "Il n'y a pas de caractères spéciaux pour ce test.",
   },
 

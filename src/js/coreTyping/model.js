@@ -17,6 +17,8 @@ import overlay from "Js/overlay";
 import results from "Js/results";
 import statistics from "Js/statistics";
 import specialCharacters from "../specialCharacters/index.js";
+import flag from "Js/flag";
+
 
 /**
  * Model of the Core Typing module
@@ -79,7 +81,7 @@ class Model {
 
     // Prepare the first and next questions
     this.prepareNextQuestion();
-    this.switchToNextQuestion();
+    this.switchToNextQuestion(false);
 
     // Reset the overlay timer
     overlay.resetTimer();
@@ -336,8 +338,12 @@ class Model {
 
     // Get the question
     this.nextQuestion = series.get(next.path, next.uid);
+    
     // Append the remaining
     this.nextQuestion.remaining = next.remaining;
+
+    // Set the next flag
+    flag.setNext(this.nextQuestion.flag);
 
     // Prepare the next question in the DOM
     view.prepareNextQuestion(this.nextQuestion);
@@ -348,7 +354,7 @@ class Model {
    * Switch to the next question 
    * Next question becomes current questionshowOverlay
    */
-  switchToNextQuestion() {
+  switchToNextQuestion(animateFlag = true) {
 
     // If the test is over, do not switch to next question
     if (this.status == 'over') return;
@@ -381,6 +387,9 @@ class Model {
 
     // Set the next prompt
     answerBar.setPrompt(this.currentQuestion.prompt);
+
+    // Update flag (animate if required, otherwise, just set the new flag)
+    if (animateFlag) flag.showNext(); else flag.setCurrent(this.currentQuestion.flag);
 
     // Remove the correction
     correction.setCorrectionHTML('');

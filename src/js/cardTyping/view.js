@@ -4,6 +4,8 @@ import str2dom from "doma";
 import answerBar from "Js/answerBar";
 import correction from "Js/correction";
 
+
+
 /**
  * View for the card typing module
  */
@@ -71,6 +73,7 @@ class View {
       case 'inner': this.prepareNextInnerImage(); break;
       case 'text': this.prepareNextText(); break;
     }
+   
   }
 
 
@@ -78,7 +81,7 @@ class View {
    * Hide the current question and show the next question
    * @returns A promise when the transition is over for both (shown and hidden)
    */
-  switchToNextQuestion() {
+  switchToNextQuestion() {    
     return Promise.all([this.hideCurrentQuestion(), this.showNextQuestion()]);    
   }
 

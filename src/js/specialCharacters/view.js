@@ -93,7 +93,7 @@ class View {
 
 
   /**
-   * Append the answer bar to the provided parent
+   * Append the special characters to the provided parent
    * @param {object} parent Parent element
    */
   appendButtonTo(parent) {

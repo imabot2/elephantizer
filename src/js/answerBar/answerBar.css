@@ -4,9 +4,7 @@
 
   width: 94vw;
 
-  /* height: clamp(38px, 10vmin, 10vh); */
-
-  margin-top: 6vh;
+  margin-top: 8vh;
   margin-bottom: 4vh;
 
   background-color: white;
@@ -14,6 +12,7 @@
   border-radius: 2vmin;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 
@@ -119,6 +118,7 @@
   top: 0;
   width: 100%;
   height: 100%;
+  padding-top: 0.5em;
 
   color: rgb(128, 128, 128);
   background-color: transparent;
