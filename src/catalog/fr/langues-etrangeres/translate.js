@@ -8,6 +8,8 @@ const translations = {
   en: {
     anglais: '🇬🇧 English',
     anglaisShort: '🇬🇧',
+    espagnol: '🇪🇸 Spanish',
+    espagnolShort: '🇪🇸',
     grec: '🇬🇷 Greek',
     grecShort: '🇬🇷',
   },
@@ -15,6 +17,8 @@ const translations = {
   fr: {
     anglais: '🇬🇧 Anglais',
     anglaisShort: '🇬🇧',
+    espagnol: '🇪🇸 Espagnol',
+    espagnolShort: '🇪🇸',
     grec: '🇬🇷 Grec',
     grecShort: '🇬🇷',
   },

@@ -154,7 +154,7 @@ export var cards = {
   },
   'shut-fr2en': {
     type: 'text',
-    question: 'fermer',
+    question: 'fermer (éteindre)',
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: 'shut shut shut'
   }
