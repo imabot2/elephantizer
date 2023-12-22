@@ -7,14 +7,13 @@ sitemap.date = new Date().toISOString();
 sitemap.selection = "\n";
 
 // For each serie
-for (const path of series) {
+for (let path of series) {
 
   // For each language
-  //for (const lang of translations) {
-
+    if (path.length) path = `/${path.replace(/^\/|\/$/g, '')}/`
     sitemap.selection +=
       `<url>\n` +
-      `\t<loc>https://elephantizer.com/${path}\n` +
+      `\t<loc>https://elephantizer.com${path}\n` +
       `\t<lastmod>${sitemap.date}</lastmod>\n` +
       `\t<priority>0.80</priority>\n` +
       `\t<changefreq>weekly</changefreq>\n` +

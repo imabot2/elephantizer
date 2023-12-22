@@ -14,6 +14,4 @@ for (const path of series) {
 }
 
 
-console.log (meta)
-
 module.exports = { meta };

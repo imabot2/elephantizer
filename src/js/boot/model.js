@@ -6,16 +6,25 @@ class Model {
   constructor() { }
 
 
+  /**
+   * Get the deck path from the URL (if exists and valid)
+   * @returns The deck required from the URL path (if valid)
+   */
+  getFromUrl() {
+    // Get the path from the URL
+    const path = window.location.pathname.replace(/^\/|\/$/g, '');
 
-  async getFromUrl() {
-    console.log (window.location.pathname)
+    // If the path is valid, return the path, otherwise, return undefined
+    if (this.checkPath(path)) return path;
+    return undefined;
   }
+
 
   /**
    * Get the selection from the URL
    * @returns {array} The new selection not loaded
    */
-  async getFromUrlQuery() {
+  getFromUrlQuery() {
 
     // Get the string from the URL query
     const selectionString = new URLSearchParams(window.location.search).get('selection');

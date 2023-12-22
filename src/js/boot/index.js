@@ -28,16 +28,20 @@ const settingsId = bootloader.log(translate.settings);
 await settings.init();
 bootloader.setSuccess(settingsId);
 
+// Load selection from URL path
+const fromUrlPath = model.getFromUrl();
+if (fromUrlPath !== undefined) {
+  const loadFromUrlPathId = bootloader.log(translate.loadFromUrlPath.replace('<%=path%>', fromUrlPath));
+  await selection.set([fromUrlPath]);
+  bootloader.setSuccess(loadFromUrlPathId);  
+}
 
-model.getFromUrl();
-
-
-// Load selection from URL
-const fromUrl = await model.getFromUrlQuery();
-if (fromUrl.length) {
-  const loadFromUrlId = bootloader.log(translate.loadFromUrl.replace('<%=n%>', fromUrl.length));
-  await selection.set(fromUrl);
-  bootloader.setSuccess(loadFromUrlId);
+// Load selection from URL query
+const fromUrlQuery = model.getFromUrlQuery();
+if (fromUrlQuery.length) {
+  const loadFromUrlQueryId = bootloader.log(translate.loadFromUrlQuery.replace('<%=n%>', fromUrlQuery.length));
+  await selection.set(fromUrlQuery);
+  bootloader.setSuccess(loadFromUrlQueryId);
 }
 
 // Load default selection if user is not logged and no valid URL query is provided

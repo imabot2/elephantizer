@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-//const { translations } = require("./_translations.js");
 const { unitTests } = require("./unit-test.js");
 const { sitemap } = require("./sitemap.js");
 const { meta } = require("./meta.js");
