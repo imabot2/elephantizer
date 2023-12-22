@@ -2,9 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-const { translations } = require("./translations.js");
+//const { translations } = require("./_translations.js");
 const { unitTests } = require("./unit-test.js");
 const { sitemap } = require("./sitemap.js");
+const { meta } = require("./meta.js");
+
+
 
 
 module.exports = (env) => {
@@ -117,7 +120,7 @@ module.exports = (env) => {
         filename: `404.html`,
       }),
 
-
+/*
       ...translations.map((page) => {
 
         return new HtmlWebpackPlugin({
@@ -125,11 +128,22 @@ module.exports = (env) => {
           chunks: ['main'],
           template: './src/index.ejs',
           filename: `${page.path}index.html`,
-          templateParameters: page.templateParameters,
+          templateParameters: page,
         });
+      }),
+*/
+      ...meta.map((page) => {
 
+        return new HtmlWebpackPlugin({
+          title: 'thememoryzer',
+          chunks: ['main'],
+          template: './src/index.ejs',
+          filename: `${page.path}${(page.path.length)?'/':''}index.html`,
+          templateParameters: page,
+        });
       }),
 
+      
 
       new HtmlWebpackPlugin({
         title: 'sitemap',
@@ -163,7 +177,7 @@ module.exports = (env) => {
           chunks: [test.name],
           filename: `unit-test/${test.name}/index.html`,
           template: './src/index.ejs',
-          templateParameters: translations[0].templateParameters,
+          templateParameters: meta[0],
         });
 
       }),

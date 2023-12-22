@@ -9,7 +9,7 @@ import settings from "Js/settings";
 import selection from "Js/selection";
 import statistics from "Js/statistics";
 import core from "Js/core";
-
+import model from "./model.js";
 
 // Log first message
 const versionId = bootloader.log('Elephantizer v2');
@@ -29,8 +29,11 @@ await settings.init();
 bootloader.setSuccess(settingsId);
 
 
+model.getFromUrl();
+
+
 // Load selection from URL
-const fromUrl = await selection.getFromUrl();
+const fromUrl = await model.getFromUrlQuery();
 if (fromUrl.length) {
   const loadFromUrlId = bootloader.log(translate.loadFromUrl.replace('<%=n%>', fromUrl.length));
   await selection.set(fromUrl);

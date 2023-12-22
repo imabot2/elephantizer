@@ -6,13 +6,13 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
-    isoCountryCode: 'ISO Country Code',
-    isoCountryCodeShort: 'ISO Country Code',
+    europe: 'ISO codes for European countries',
+    europeShort: 'Europe',
   },
 
   fr: {
-    isoCountryCode: 'Les codes ISO des pays',
-    isoCountryCodeShort: 'Les codes ISO des pays',
+    europe: "Les codes ISO des pays d'Europe en anglais",
+    europeShort: "Europe",
   },
 }
 

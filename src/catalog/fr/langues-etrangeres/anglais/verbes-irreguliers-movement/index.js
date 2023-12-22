@@ -138,11 +138,11 @@ export var cards = {
     type: 'text',
     question: 'to seek',
     prompt: 'Passé simple | participe passé | Traduction',
-    answer: 'sought sought chercher'
+    answer: 'sought sought rechercher'
   },
   'seek-fr2en': {
     type: 'text',
-    question: 'chercher',
+    question: 'rechercher',
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: 'seek sought sought'
   },

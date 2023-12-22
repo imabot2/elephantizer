@@ -2,7 +2,7 @@ import translate from "./translate.js";
 import en from "./en/categories.js";
 import de from "./de/categories.js";
 import fr from "./fr/categories.js";
-import iso from "./iso/categories.js";
+
 
 const catalog = {
   en: {
@@ -20,12 +20,7 @@ const catalog = {
     shortName: translate.germanShort,
     category: de,
   },
-  /*
-  iso: {
-    name: translate.iso,
-    category: iso,
-  },
-  */
+
 };
 
 export default catalog;

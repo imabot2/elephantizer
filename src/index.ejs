@@ -8,10 +8,8 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-61Z9FNXQZL');
   </script>
-
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
@@ -19,7 +17,7 @@
   <title>Elephantizer</title>
   <meta name="description" content="<%= description %>">
   <meta itemprop="image" content="http://elephantizer.com/static/logo/logo-square.png">
-  <link rel="canonical" href="https://elephantizer.com" />
+  <link rel="canonical" href="https://elephantizer.com/<%= path %>/" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
@@ -38,7 +36,7 @@
 
   <meta property="og:title" content="Elephantizer">
   <meta property="og:site_name" content="Elephantizer">
-  <meta property="og:url" content="https://elephantizer.com">
+  <meta property="og:url" content="https://elephantizer.com/<%= path %>/">
   <meta property="og:description" content="<%= description %>">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://elephantizer.com/static/logo/logo-square.png">
@@ -48,7 +46,7 @@
   <meta name="twitter:title" content="Elephantizer" />
   <meta name="twitter:description" content="<%= description %>" />
   <meta name="twitter:image" content="https://elephantizer.com/static/logo/logo-square.png" />
-  <meta name="twitter:url" content="https://elephantizer.com" />
+  <meta name="twitter:url" content="https://elephantizer.com/<%= path %>/" />
 
   <style>
     body {

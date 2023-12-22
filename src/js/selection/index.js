@@ -11,12 +11,6 @@ class Selection {
   current() { return model.selection; }
 
 
-  /**
-   * Get the selection from the URL
-   * @returns {array} The new selection not loaded
-   */
-  async getFromUrl() { return model.getFromUrl(); }
-
 
 
   /**

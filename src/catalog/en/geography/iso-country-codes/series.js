@@ -1,11 +1,12 @@
-import translate from './translate.js'
+import translate from "./translate.js";
 
 const series = {
   "europe" : {
-    nativeName: "La code ISO des pays",
+    nativeName: "ISO codes for European countries",
     name: translate.europe,
     shortName: translate.europeShort,
   },
+  
 };
 
 export default series;

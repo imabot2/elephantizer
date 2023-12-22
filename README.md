@@ -6,21 +6,25 @@
 * Delete non confirmed users
 * Fix the bug in the menu with collapse: https://github.com/twbs/bootstrap/issues/39385
 * Add the stop button in the timer in infinite mode
-* Display  Elephantizer when user login with Google
+* Display Elephantizer when user login with Google
 * Fix bug when a second client load a new deck
-* Create a site map for SEO
+* Create a site map for SEO with one url for each deck
 * Add the side card right / wrong
 * Add a button to remove deck in the selection
-* Add the number of remaining questions in series mode (10/50)
-* Add the flag in the answer bar
 * Add Jersey, Guernesey and Sercq in countries
 * Add irregular verbs
 * Add a line chart in the results to display progress
 * Finalize the test with oxymorons, synonyms, etc. by definition
 * Add contact page in the menu
+* Resize the map of russia outline
+* Change the github owner
+* Remove the ISO folder in the catalog
+* Add the german loader
 
 ## Done
 
+* ~~Add the number of remaining questions in series mode (10/50)~~
+* ~~Add the flag in the answer bar~~
 * ~~Load selection from url query, for example: https://elephantizer.com/?selection=en/geography/countries-on-the-map/africa___en/geography/countries-on-the-map/europe~~
 * ~~Switch the radio and checkbox in the memory test selection menu~~
 * ~~Add special characters~~
