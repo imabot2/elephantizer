@@ -136,15 +136,15 @@ export var cards = {
   },
   'lie-en2fr': {
     type: 'text',
-    question: 'to lie',
+    question: 'to lie (in bed)',
     prompt: 'Passé simple | participe passé | Traduction',
-    answer: 'lied lied mentir'
+    answer: "lay lain s'allonger"
   },
   'lie-fr2en': {
     type: 'text',
-    question: 'mentir',
+    question: "s'allonger",
     prompt: 'Infinitif | Passé simple | Participe passé',
-    answer: 'lie lied lied'
+    answer: 'lie lay lain'
   },
   'shut-en2fr': {
     type: 'text',

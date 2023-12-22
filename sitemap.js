@@ -13,7 +13,7 @@ for (let path of series) {
     if (path.length) path = `/${path.replace(/^\/|\/$/g, '')}/`
     sitemap.selection +=
       `<url>\n` +
-      `\t<loc>https://elephantizer.com${path}\n` +
+      `\t<loc>https://elephantizer.com${path}</loc>\n` +
       `\t<lastmod>${sitemap.date}</lastmod>\n` +
       `\t<priority>0.80</priority>\n` +
       `\t<changefreq>weekly</changefreq>\n` +

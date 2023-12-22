@@ -18,11 +18,12 @@
 * Add contact page in the menu
 * Resize the map of russia outline
 * Change the github owner
-* Remove the ISO folder in the catalog
 * Add the german loader
+
 
 ## Done
 
+* ~~Remove the ISO folder in the catalog~~
 * ~~Add the number of remaining questions in series mode (10/50)~~
 * ~~Add the flag in the answer bar~~
 * ~~Load selection from url query, for example: https://elephantizer.com/?selection=en/geography/countries-on-the-map/africa___en/geography/countries-on-the-map/europe~~
