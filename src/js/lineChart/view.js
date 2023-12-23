@@ -1,12 +1,18 @@
 import "./lineChart.css";
 import htmlLineChart from "./lineChart.html";
+import translate from "./translate.js";
 import str2dom from "doma";
+import { parseEjs } from "Js/languages";
 import Chart from 'chart.js/auto';
 var mobile = require('is-mobile');
 import settings from "Js/settings";
 import history from "Js/history";
 import auth from "Js/auth";
 
+
+/**
+ * View for the History module
+ */
 export default class View {
 
   /**
@@ -17,7 +23,7 @@ export default class View {
 
 
     // Create and initialize the pie chart
-    this.containerEl = str2dom.one(htmlLineChart);
+    this.containerEl = str2dom.one(parseEjs(htmlLineChart, translate));
 
     // Append the pie chart to its parent
     parent.append(this.containerEl);
@@ -107,7 +113,7 @@ export default class View {
       labels: labels,
       datasets: [
         {
-          label: 'Memorization',
+          label: translate.memorization,
           data: ['0.1', '0.3', '0.2', '0.5', '0.6', '0.4', '0.7'],
           tension: 0.2,
           borderColor: "#e83c4b",
@@ -118,11 +124,11 @@ export default class View {
           yAxisID: 'y',
           fill: {
             target: 'origin',
-            above: '#e83c4b30',   // Area will be red above the origin
+            above: '#e83c4b10',   // Area will be red above the origin
           },
         },
         {
-          label: 'Search Time',
+          label: translate.searchTime,
           data: ['0.3', '0.2', '0.7', '0.4', '0.1', '0.9', '0.3'],
           tension: 0.2,
           borderColor: "#4865d6",
@@ -134,7 +140,7 @@ export default class View {
           pointHoverRadius: 5,
         },
         {
-          label: 'Accuracy',
+          label: translate.accuracy,
           data: ['0.3', '0.2', '0.7', '0.4', '0.1', '0.9', '0.3'],
           tension: 0.2,
           borderColor: "#F08700",
@@ -146,12 +152,16 @@ export default class View {
           pointHoverRadius: 5,
         },
         {
-          label: 'wpm',
+          label: translate.wpm,
           data: ['10', '16', '20', '70', '50', '60', '70'],
           tension: 0.2,
           borderColor: "#331832",
           backgroundColor: "#331832",
           yAxisID: 'y1',
+          fill: {
+            target: 'origin',
+            above: '#33183210',   // Area will be red above the origin
+          },
         }
       ]
     };
@@ -182,7 +192,7 @@ export default class View {
                   borderRadius: 2,
                 }
               },
-              label: (t) => { return ` ${t.dataset.label}: ${t.raw.toFixed(1)}${(t.dataset.label === 'wpm') ? '' : '%'}`; }
+              label: (t) => { return ` ${t.dataset.label}: ${t.raw.toFixed(1)}${(t.datasetIndex === 3) ? '' : '%'}`; }
             }
           },
         },
@@ -201,7 +211,7 @@ export default class View {
             max: 100,
             title: {
               display: !mobile(),
-              text: 'Memorization',
+              text: translate.memorization,
             },
           },
           y1: {
@@ -211,7 +221,7 @@ export default class View {
             min: 0,
             title: {
               display: !mobile(),
-              text: 'Words Per Minute',
+              text: translate.wpm,
             },
 
             // grid line settings

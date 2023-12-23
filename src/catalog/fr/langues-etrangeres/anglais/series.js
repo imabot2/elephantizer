@@ -14,6 +14,11 @@ const series = {
     shortName: translate.verbesIrregulierShort,
   },
 
+  "verbes-irreguliers-conversation" : {
+    nativeName: "Les verbes irréguliers (conversation)",
+    name: translate.verbesIrregulierConversation,
+    shortName: translate.verbesIrregulierConversationShort,
+  },
   "verbes-irreguliers-daily-routine" : {
     nativeName: "Les verbes irréguliers (daily routine)",
     name: translate.verbesIrregulierDailyRoutine,
