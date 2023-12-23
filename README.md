@@ -1,3 +1,36 @@
+![Elephantizer logo](./src/assets/static/logo/logo-square-300x300.png)
+
+
+# Elephantizer - The Ultimate Memorization and Typing App
+
+[Elephantizer](http://elephantizer.com) is a memory and typing application. Thanks to an ingenious system of flash cards and active recall, you memorize the answers to questions on topics you select, such as:
+
+* [countries on the map](https://elephantizer.com/en/geography/countries-on-the-map/europe/),
+* [the Greek aphabet](https://elephantizer.com/en/foreign-languages/greek/lowercase-alphabet/),
+* [foreign language vocabulary](https://elephantizer.com/en/foreign-languages/french/colors/)...
+
+At the same time, you improve your keyboarding skills.
+
+![Screenshot of the Elephantizer app](screenshot_france.png)
+
+## Fast Memorization
+For each flash card, you have to type the correct answer to the question asked. The application then calculates a multi-criteria score, taking into account response time, typing speed and mistyped characters. The questions you have the most difficulty memorizing will then be suggested to you more frequently. You'll then have question sequences customized to your learning capacity.
+
+## Long-Term Retention
+If you practice regularly, you'll find that you'll memorize very quickly and over the long term. In fact, the application will more frequently suggest the cards you're having the hardest time remembering. However, the cards you already know by heart will also be suggested to you from time to time, to maintain and reinforce the knowledge you've already acquired over the long term.
+
+## Typing Skills
+As you type the answers, the application also measures your typing speed in words per minute (wpm) and the number of characters correctly or incorrectly typed. At the same time, it helps you improve your typing speed and accuracy.
+
+## Correct Spelling
+Unlike other flash card systems, you learn not only the correct answer, but above all the correct spelling. As the answers are typed on the keyboard, Elephantizer analyzes and checks every character in the answer, so you learn both the answer and its spelling.
+
+## Conclusion
+Whether you're a student, a senior citizen or a geek, you're bound to find memorization tests that will help you improve both your typing skills and your general knowledge.
+
+Start your journey to better memorization and knowledge retention today with Elephantizer!
+
+
 ## TODO
 
 * Do the arrows on Friconix for the progress results

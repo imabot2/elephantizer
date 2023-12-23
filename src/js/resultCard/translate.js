@@ -8,7 +8,7 @@ const translations = {
   en: {
     badgePrefix: "#",
     yourAnswer: "Answered:",
-    score: "Score:",
+    score: "Global score:",
     progressRatio: "Progress:",
     searchTime: "Search:",
     totalTime: "Time:",
@@ -24,7 +24,7 @@ const translations = {
   fr: {
     badgePrefix: "",
     yourAnswer: "Répondu :",
-    score: "Score :",
+    score: "Score global :",
     progressRatio: "Progression :",
     searchTime: "Recherche :",
     totalTime: "Temps :",

@@ -25,4 +25,10 @@ $$ WPM = 12000 \times { N_{characters} \over T_{milliseconds} }$$
 
 The following formula is used to convert the time to first key into ratio in the range [0; 1]:
 
-![Time to first key ratio formula](time-to-first-key-ratio.png)
+$$ 1-\frac{1}{\left(1+\exp\left(-1.5x+5.3\right)\right)} $$
+
+When time to first key is less than 2 seconds, the ratio is closed to one, and decrease as the time increase:
+
+[![Time to first key ratio formula](time-to-first-key-ratio.png)](https://www.desmos.com/calculator/q9wh7zoljc)
+
+The factor to get the user time to first key ratio is: 1.1002588437228038

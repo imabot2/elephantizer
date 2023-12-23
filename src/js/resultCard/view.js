@@ -58,7 +58,7 @@ export default class View {
 
     // Set the body data
     this.cardEl.querySelector('.user-answer').textContent = stats.finalAnswer;
-    this.cardEl.querySelector('.memorization-ratio').textContent = `${parseFloat(((100 * stats.memorizationRatioUser).toFixed(1)))}%`;    
+    this.cardEl.querySelector('.new-score').textContent = `${parseFloat(((100 * stats.newScore).toFixed(1)))}%`;    
     let searchTime = stats.time - stats.typingTime;
     this.cardEl.querySelector(".search-time").innerText = `${(searchTime / 1000).toFixed((searchTime < 12000) ? 1 : 0)}s`;
     this.cardEl.querySelector(".time").innerText = `${(stats.time / 1000).toFixed((stats.time < 12000) ? 1 : 0)}s`;
@@ -83,9 +83,9 @@ export default class View {
     // Update score pie chart
     pie.disableAnimation();
     pie.setUnit('%');
-    const { r, g, b } = this.interpolateColor(stats.newScore);
+    const { r, g, b } = this.interpolateColor(stats.memorizationRatioUser);
     pie.setColors(`rgb(${r}, ${g}, ${b})`, colors.lightGrey);
-    pie.setRatio(stats.newScore, 0, stats.newScore, 1);
+    pie.setRatio(stats.memorizationRatioUser, 0, stats.memorizationRatioUser, 1);
 
 
     // Prepare progression badge

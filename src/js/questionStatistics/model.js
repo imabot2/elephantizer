@@ -58,6 +58,7 @@ class Model {
     // Update the deck global statistics and get previous and new score
     this.data.newScore = statistics.update(this.data.path, this.data.uid, this.data.memorizationRatio);
 
+    
     // Add the question in the results    
     results.addQuestion(this.data);    
   }
@@ -79,9 +80,9 @@ class Model {
    */
   computeTimeToFirstKeyRatio() {
     const timeToFirstKey_sec = (this.data.time-this.data.typingTime)/1000;
-    const ratio = 1-1/(1+Math.exp(-0.8*timeToFirstKey_sec + 4))
+    const ratio = 1-1/(1+Math.exp(-1.5*timeToFirstKey_sec + 5.3));
     this.data.timeToFirstKeyRatio = ratio;
-    this.data.timeToFirstKeyRatioUser = Math.min(1.0907*ratio, 1);
+    this.data.timeToFirstKeyRatioUser = Math.min(1.1002588437228038*ratio, 1);
   }
 
 
