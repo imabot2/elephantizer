@@ -76,6 +76,7 @@ const translations = {
     charactersTooltip: "Nombre total de caractères mal tapés.<hr>Nombre de caractères erronés dans les réponses finales.<hr>Nombre total de caractères.",
 
     closeBtn: "Fermer",
+   
   },
 
 }

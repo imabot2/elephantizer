@@ -8,6 +8,7 @@ import "Js/menu"; // For burger menu
 import settings from "Js/settings";
 import selection from "Js/selection";
 import statistics from "Js/statistics";
+import history from "Js/history";
 import core from "Js/core";
 import model from "./model.js";
 
@@ -33,7 +34,7 @@ const fromUrlPath = model.getFromUrl();
 if (fromUrlPath !== undefined) {
   const loadFromUrlPathId = bootloader.log(translate.loadFromUrlPath.replace('<%=path%>', fromUrlPath));
   await selection.set([fromUrlPath]);
-  bootloader.setSuccess(loadFromUrlPathId);  
+  bootloader.setSuccess(loadFromUrlPathId);
 }
 
 // Load selection from URL query
@@ -55,6 +56,11 @@ if (selection.current().length === 0) {
 const statisticsId = bootloader.log(translate.statistics);
 await statistics.init();
 bootloader.setSuccess(statisticsId);
+
+// Wait for history
+const historyId = bootloader.log(translate.history);
+await history.startListeningDB();
+bootloader.setSuccess(historyId);
 
 // Populate the interface for the first questions
 const coreId = bootloader.log(translate.core);

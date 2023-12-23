@@ -52,7 +52,7 @@ Start your journey to better memorization and knowledge retention today with Ele
 * Resize the map of russia outline
 * Change the github owner
 * Add the german loader
-
+* Add/Remove history listener when user log in/out
 
 ## Done
 

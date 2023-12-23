@@ -1,5 +1,6 @@
 import view from "./view.js";
 import selection from "Js/selection";
+import history from "Js/history";
 
 
 /**
@@ -38,8 +39,8 @@ class Model {
    * Count the number of questions answered
    * @returns The number of questions answered
    */
-  countQuestions() { 
-    return this.data.questions.length; 
+  countQuestions() {
+    return this.data.questions.length;
   }
 
 
@@ -49,7 +50,7 @@ class Model {
    * - Compute global memorization ratio
    * @returns False if the user hasn't answered any questions.
    */
-  process() {
+  process(save = true) {
     if (this.data.questions.length === 0) return false;
 
     // Prepare sums for average calculation
@@ -62,6 +63,7 @@ class Model {
     let maxDistance = 0;
     let maxDistanceRatio = 0;
     let timeToFirstKey = 0;
+    let timeToFirstKeyRatio = 0;
     let timeToFirstKeyRatioUser = 0;
     let rightAnswersRaw = 0;
     let rightAnswers = 0;
@@ -73,14 +75,15 @@ class Model {
     // Compute sum for each question
     this.data.questions.forEach((question) => {
       nbCharacters += question.finalAnswer.trim().length + 1;
-      memorizationRatioUser += question.memorizationRatioUser;
       memorizationRatio += question.memorizationRatio;
+      memorizationRatioUser += question.memorizationRatioUser;
       typingtime += question.typingTime;
       finalDistance += question.finalDistance;
       finalDistanceRatio += question.finalDistanceRatio;
       maxDistance += question.maxDistance;
       maxDistanceRatio += question.maxDistanceRatio;
       timeToFirstKey += question.time - question.typingTime;
+      timeToFirstKeyRatio += question.timeToFirstKeyRatio;
       timeToFirstKeyRatioUser += question.timeToFirstKeyRatioUser;
       rightAnswers += (question.finalDistance == 0);
       rightAnswersRaw += (question.maxDistance == 0);
@@ -101,19 +104,23 @@ class Model {
     this.data.maxDistance = maxDistance;
     this.data.maxDistanceRatio = maxDistanceRatio / N;
     this.data.timeToFirstKey_sec = (timeToFirstKey / N) / 1000;
+    this.data.timeToFirstKeyRatio = timeToFirstKeyRatio / N;
     this.data.timeToFirstKeyRatioUser = timeToFirstKeyRatioUser / N;
     this.data.rightAnswers = rightAnswers;
     this.data.rightAnswersRaw = rightAnswersRaw;
     this.data.progress = progress / N;
     this.data.previousScore = previousScore;
     this.data.newScore = newScore;
-    this.data.progress = (newScore - previousScore) / N
+    this.data.progress = (newScore - previousScore) / N;
 
     // Compute global score
     this.data.score = this.data.wpmRaw * this.data.memorizationRatio * 100;
 
     // Update data in the view
     view.setData(this.data);
+
+    // Save data in Firestore
+    if (save) history.save(this.data);
 
     return true;
   }

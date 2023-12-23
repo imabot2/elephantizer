@@ -18,7 +18,7 @@ export default class View {
     this.containerEl = str2dom.one(htmlPieChart);
 
     // Append the pie chart to its parent
-    this.appendTo(parent);
+    parent.append(this.containerEl);
 
     // Get the canvas element
     this.canvasEl = this.containerEl.querySelector('canvas');
@@ -34,6 +34,7 @@ export default class View {
 
     // No tooltip at startup
     this.labels = ['', ''];
+
 
     // Create the chart
     this.chart = new Chart(this.canvasEl, {
@@ -92,14 +93,6 @@ export default class View {
     this.chart.data.datasets[0].data = [this.ratio, 1 - this.ratio];
     this.chart.update();
     this.updateValue(from ?? 100 * previousRatio, to ?? 100 * this.ratio, digit);
-  }
-
-  /**
-   * Append the pie chart to the provided parent
-   * @param {object} parent Parent element
-   */
-  appendTo(parent) {
-    parent.append(this.containerEl);
   }
 
   

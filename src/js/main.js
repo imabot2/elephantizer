@@ -7,6 +7,7 @@ import "Js/boot/";
 import settings from "Js/settings";
 import statistics from "Js/statistics";
 import selection from "Js/selection";
+import history from "Js/history";
 import core from "Js/core";
 import menu from "Js/menu";
 import loader from "Js/loader";
@@ -19,7 +20,8 @@ import overlay from "./overlay";
 // On sign in, load statistics
 document.body.addEventListener('auth-sign-in', async () => {
   await settings.startListeningDB();
-  await statistics.startListeningDB();  
+  await statistics.startListeningDB();
+  await history.startListeningDB();
   core.reset();
 });
 
@@ -28,7 +30,9 @@ document.body.addEventListener('auth-sign-in', async () => {
 document.body.addEventListener('auth-sign-out', async () => {
   settings.stopListeningDB();
   statistics.stopListeningDB();
+  history.stopListeningDB();
   await selection.loadDefaultSelection();
+  
   core.reset();
 });
 

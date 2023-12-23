@@ -4,8 +4,8 @@ import str2dom from "doma";
 import { parseEjs } from "Js/languages";
 import translate from "./translate.js";
 import htmlResults from "./results.html";
-import model from "./model.js";
 import PieChart from "Js/pieChart";
+import LineChart from "Js/lineChart";
 import ease from "Js/ease";
 import settings from "Js/settings";
 import colors from "Js/cssColors";
@@ -69,7 +69,8 @@ class View {
     this.pieAccuracy.setUnit('%');
     this.pieAccuracy.setColors(colors.orange, colors.lightGrey);
 
-
+    // Create line chart
+    this.mainLineChart = new LineChart(this.modalEl.querySelector('.main-line-chart'), 'main');
   }
 
 
@@ -83,7 +84,6 @@ class View {
 
     // Modal is ready to show results
     this.isReady = true;
-
   }
 
 
@@ -126,8 +126,9 @@ class View {
     this.pieAccuracy.disableAnimation();
     this.pieAccuracy.setRatio(0);
 
-    //this.resultsProgressEl.innerText = 0;
-
+    // Reset the line chart
+    this.mainLineChart.disableAnimation();
+    this.mainLineChart.reset();
 
     // Populate stats and cards
     this.populateStats();
@@ -161,6 +162,10 @@ class View {
     this.pieAccuracy.enableAnimation();
     this.pieAccuracy.setRatio(this.data.maxDistanceRatio);
 
+    // Update the line chart
+    this.mainLineChart.enableAnimation();
+    this.mainLineChart.update();
+
     //ease.outQuartProgress(this.progressEl, 0, 100 * this.results.progress, (this.results.progress >= 0.1) ? 1 : 2, true)
 
   }
@@ -170,11 +175,11 @@ class View {
 
     // Memory test duration
     let duration = Math.round(this.data.duration / 1000);
-    if (this.data.duration>60000) duration = format(this.data.duration);
+    if (this.data.duration > 60000) duration = format(this.data.duration);
     this.modalEl.querySelector('.data-card.time .value').textContent = duration;
 
     // Progress
-    let progress = 100*this.data.progress;
+    let progress = 100 * this.data.progress;
     this.modalEl.querySelector('.data-card.progress-percent .value').textContent = `${(progress > 0) ? '+' : ''}${progress.toFixed(1)}`;
     if (progress > 0)
       this.modalEl.querySelector('.data-card.progress-percent .value').parentElement.style.color = "var(--main-green)";

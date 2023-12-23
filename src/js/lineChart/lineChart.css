@@ -1,0 +1,10 @@
+.line-chart .chart-container{
+  height: clamp(100px, 30vmin, 200px);
+  width: 100%;
+}
+
+
+.line-chart .message {
+  color: var(--main-darker-grey);
+  font-size: 1.1em;
+}

@@ -43,7 +43,7 @@ class Results {
    * - Compute global memorization ratio
    * @returns False if the user hasn't answered any questions.
    */
-  process() { return model.process(); }
+  process(save) { return model.process(save); }
 
 
   /**
