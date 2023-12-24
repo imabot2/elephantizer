@@ -6,7 +6,11 @@ const series = {
     name: translate.lesCouleurs,
     shortName: translate.lesCouleursShort,
   },
-
+  "les-nombres-de-0-a-19" : {
+    nativeName: "Les nombres en anglais",
+    name: translate.lesNombreDe0à19,
+    shortName: translate.lesNombreDe0à19Short,
+  },
 
   "verbes-irreguliers-1" : {
     nativeName: "Les verbes irréguliers",

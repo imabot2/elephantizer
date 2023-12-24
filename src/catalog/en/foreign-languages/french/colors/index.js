@@ -5,7 +5,7 @@ import "Catalog/en/english-language/colors/style.css";
 export var metaData = {
 
   // Quiz flag
-  flag: "/static/circle-flags/gb.svg",
+  flag: "/static/circle-flags/fr.svg",
 
   // Special characters for this test
   specialCharacters: ['é', 'à', 'è', 'ê', 'ô', 'û', 'â', 'î', 'ü', 'ù', 'ë', 'œ', 'ç', 'ï', 'É', 'À', 'È', 'Ê', 'Ô', 'Û', 'Â', 'Î', 'Ü', 'Ù', 'Ë', 'Œ', 'Ç', 'Ï'],

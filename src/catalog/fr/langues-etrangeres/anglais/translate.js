@@ -8,6 +8,8 @@ const translations = {
   en: {
     lesCouleurs: 'Colors',
     lesCouleursShort: 'Colors',
+    lesNombreDe0à19: 'Numbers from 0 to 19',
+    lesNombreDe0à19Short: 'Numbers (0 to 19)',
     verbesIrregulier: 'Irregular verbs part 1',
     verbesIrregulierShort: 'Irregular verbs (1)',
     verbesIrregulierConversation: 'Irregular verbs (Conversation)',
@@ -22,7 +24,9 @@ const translations = {
   
   fr: {
     lesCouleurs: 'Les couleurs en anglais',
-    lesCouleursShort: 'Les couleurs',  
+    lesCouleursShort: 'Couleurs',  
+    lesNombreDe0à19: 'Les nombres en anglais de 0 à 19',
+    lesNombreDe0à19Short: 'Nombres (0 to 19)',    
     verbesIrregulier: 'Les verbes irréguliers partie 1',
     verbesIrregulierShort: 'Verbes irréguliers (1)',
     verbesIrregulierConversation: 'Verbes irréguliers (Conversation)',

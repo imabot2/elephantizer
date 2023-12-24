@@ -19,7 +19,7 @@ const translations = {
   fr: {
     geography: 'Géographie',
     geographyShort: 'Géographie',
-    foreignLanguages: 'Langues étrangères en anglais',
+    foreignLanguages: 'Langues étrangères',
     foreignLanguagesShort: 'Langues étrangères',
     mathematics: 'Mathématiques en anglais',
     mathematicsShort: 'Mathématiques',
