@@ -40,7 +40,6 @@ Start your journey to better memorization and knowledge retention today with Ele
 * Display Elephantizer when user login with Google
 * Fix bug when a second client load a new deck
 * Add the side card right / wrong
-* Add a button to remove deck in the selection
 * Add Jersey, Guernesey and Sercq in countries
 * Add irregular verbs
 * Add line chart for individual deck in the results
@@ -54,6 +53,7 @@ Start your journey to better memorization and knowledge retention today with Ele
 
 ## Done
 
+* ~~Add a button to remove deck in the selection~~
 * ~~Review the calculation of probas to enable the most frequently asked questions to be picked.~~
 * ~~Create a site map for SEO with one url for each deck~~
 * ~~Add a line chart in the results to display progress~~

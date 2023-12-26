@@ -1,23 +1,37 @@
 <li class="list-group-item">
+  <div class="d-flex justify-content-between">
+    <div>
+      <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="main">
+        <i class="bi bi-house-door"></i>
+      </button>
+      /
+      <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="languages">
+        <%=language%>
+      </button>
+      /
+      <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="categories"
+        navigation-path="<%=categoryPath%>">
+        <%=category%>
+      </button>
+      /
+      <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="themes"
+        navigation-path="<%=themePath%>">
+        <%=theme%>
+      </button>
+      /
+      <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="series"
+        navigation-path="<%=seriesPath%>">
+        <%=series%>
+      </button>      
+      
+      <button type="button" class="btn btn-link p-0 ms-2 text-danger text-decoration-none" remove-from-selection="<%=path%>" data-bs-toggle="tooltip" data-bs-title="<%=removeDeck%>" data-bs-placement="right">
+        <i class="bi bi-trash-fill"></i>
+      </button>
+      
 
-  <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="languages">
-    <i class="bi bi-house-door"></i>
-  </button>
-  /
-  <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="categories" navigation-path="<%=categoryPath%>">
-    <%=language%>
-  </button>
-  /
-  <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="themes" navigation-path="<%=themePath%>">
-    <%=category%>
-  </button>
-  /
-  <button type="button" class="btn btn-link p-0 text-decoration-none" navigation-target="series" navigation-path="<%=deckPath%>">
-    <%=theme%>
-  </button>
-  /
-  <button type="button" class="btn btn-link p-0 text-decoration-none disabled" navigation-target="series" navigation-path="<%=deckPath%>">
-    <%=deck%>
-  </button>
-
+    </div>
+    <div>
+      
+    </div>
+  </div>
 </li>

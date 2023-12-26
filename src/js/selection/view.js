@@ -5,7 +5,7 @@ import htmlItem from "./item.html";
 import translate from "./translate.js";
 import str2dom from "doma";
 import { parseEjs } from "Js/languages/";
-import series from "Js/series";
+
 
 /** 
  * View for the SELECTION module
@@ -22,8 +22,10 @@ class View {
     // Get the unordered list
     this.listContainerEl = this.containerEl.querySelector('.selection');
     // Store the title to populate the list item
-    this.listItemTitleEl = this.listContainerEl.querySelector('.list-group-item');   
+    this.listItemTitleEl = this.listContainerEl.querySelector('.list-group-item');
 
+
+    this.listContainerEl.addEventListener('click', (event) => { this.onSelectionClicked(event) }) 
   }
 
 
@@ -34,12 +36,14 @@ class View {
 
     // Empty the list, but keep the title
     this.listContainerEl.replaceChildren(this.listItemTitleEl);
-  
+
     // For each selected deck
     const list = model.orderedList();
+
     list.forEach((meta) => {
       // If the test is not loaded yet, return
-      if (meta===undefined) return;
+      if (meta === undefined) return;
+
 
       // Prepare the data to populate the item template
       const data = {
@@ -48,14 +52,36 @@ class View {
         categoryPath: meta.language.key,
         theme: meta.theme.shortName,
         themePath: `${meta.language.key}/${meta.category.key}`,
-        deck: meta.deck.shortName,
-        deckPath: `${meta.language.key}/${meta.category.key}/${meta.theme.key}`,
+        series: meta.deck.shortName,
+        seriesPath: `${meta.language.key}/${meta.category.key}/${meta.theme.key}`,
+        path: `${meta.language.key}/${meta.category.key}/${meta.theme.key}/${meta.deck.key}`,
       }
 
-      // Populate the template and append to the list
-      const newItemEl = str2dom.one(parseEjs(htmlItem, data));
+      // Populate the template and append to the list and activate the tooltip
+      const newItemEl = str2dom.one(parseEjs(parseEjs(htmlItem, translate), data));
+      new bootstrap.Tooltip(newItemEl.querySelector('[data-bs-toggle="tooltip"]'));
+
       this.listContainerEl.append(newItemEl)
     })
+  }
+
+
+  /**
+   * Callback function called when the user click in the selection
+   * Used to catch the event when the user remove a dech from the selection
+   * @param {object} event The event that triggered the call
+   */
+  onSelectionClicked(event) {
+
+    // Get the element to remove deck, and propagate there is no element found
+    let element = event.target.closest("[remove-from-selection]");
+    if (element === null) return;
+    
+    // Remove tooltip
+    bootstrap.Tooltip.getInstance(element).dispose();
+    
+    // Remove the element from the current selection
+    model.remove(element.getAttribute('remove-from-selection'));
   }
 
 
@@ -71,6 +97,7 @@ class View {
     this.containerCollapse = new bootstrap.Collapse(this.containerEl, { toggle: false });
   }
 
+
   /**
    * Collapse the selection after a given delay
    * @param {integer} delay Delay before collapsing in milliseconds
@@ -82,12 +109,13 @@ class View {
     }, delay);
   }
 
+  
   /**
    * Expand the selection after a given delay
    * @param {integer} delay Delay before expanding in milliseconds
    */
   expand(delay = 0) {
-    
+
     // Update the current selection if the selection is not empty
     if (model.selection.length) this.populate();
 

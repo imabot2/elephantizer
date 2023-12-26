@@ -11,7 +11,7 @@ const translations = {
     greek: '🇬🇷 Greek',
     greekShort: '🇬🇷',
     spanish: '🇪🇸 Spanish',
-    spanishlShort: '🇪🇸',
+    spanishShort: '🇪🇸',
   },
 
   fr: {

@@ -9,6 +9,7 @@ const translations = {
     title: "Current selection",
     atLeastOneDeck: "Empty Selection",
     atLeastOneDeckMessage: "You must select at least one series.",
+    removeDeck: "Remove this memory test from the selection",
 
     error7000: 'Error #7000',
     error7000Message: 'Error while loading memory test.',
@@ -18,6 +19,7 @@ const translations = {
     title: "Thèmes sélectionnés",
     atLeastOneDeck: "Selection vide",
     atLeastOneDeckMessage: "Vous devez sélectionner au moins une série.",
+    removeDeck: "Supprimer ce test mémoire de la sélection",
 
     error7000: 'Erreur #7000',
     error7000Message: "Erreur lors du chargement d'un test.",
