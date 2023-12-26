@@ -1,5 +1,5 @@
 import "Catalog/catalog.css";
-import "Catalog/en/english-language/colors/style.css";
+
 
 // Target language of the test
 export var metaData = {

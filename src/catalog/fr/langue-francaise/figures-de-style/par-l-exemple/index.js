@@ -79,34 +79,100 @@ export var cards = {
     answer: "métaphore"
   },
 
-  
+
   "comparaison1": {
     type: 'text',
     question: "<div class='text-md'>Cette bougie brille comme une étoile.</div>",
     prompt: "Quelle est cette figure de style?",
     answer: "comparaison"
   },
-
-
-  "parabole1": {
+  "comparaison2": {
     type: 'text',
-    question: "<div class='text-xl'>Un lièvre défi une tortue. La course commence. Le lièvre, sûr de gagner laisse trop d'avance à la tortue qui gagne la course. Morale : la persévérance vainc arrogance.</div>",
+    question: "<div class='text-md'>La terre est rouge comme le feu.</div>",
     prompt: "Quelle est cette figure de style?",
-    answer: "parabole"
+    answer: "comparaison"
   },
+  "comparaison3": {
+    type: 'text',
+    question: "<div class='text-md'>Ses yeux brillaient comme un ciel étoilé.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "comparaison"
+  },
+  "comparaison4": {
+    type: 'text',
+    question: "<div class='text-md'>Sa voix était plus douce que le murmure du vent.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "comparaison"
+  },
+  "comparaison5": {
+    type: 'text',
+    question: "<div class='text-md'>Il était rapide comme un éclair sur la piste.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "comparaison"
+  },
+
   "personnification1": {
     type: 'text',
     question: "<div class='text-md'>J'ai demandé à la lune.</div>",
     prompt: "Quelle est cette figure de style?",
     answer: "personnification"
   },
+  "personnification2": {
+    type: 'text',
+    question: "<div class='text-md'>La mer rugissait de colère.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "personnification"
+  },
+  "personnification3": {
+    type: 'text',
+    question: "<div class='text-md'>La fleur souriait au soleil du matin.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "personnification"
+  }, 
+  "personnification4": {
+    type: 'text',
+    question: "<div class='text-md'>La peur rampait silencieusement.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "personnification"
+  }, 
+  "personnification5": {
+    type: 'text',
+    question: "<div class='text-md'>La pluie caressait doucement le sol.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "personnification"
+  },
+
+
   "accumulation1": {
     type: 'text',
     question: "<div class='text-md'>Elle centre, elle aligne, elle justifie, elle paragraphe, elle tabule, elle mémorise...</div>",
     prompt: "Quelle est cette figure de style?",
     answer: "accumulation"
   },
-
+  "accumulation2": {
+    type: 'text',
+    question: "<div class='text-md'>Il courut, sauta, tournoya, et finalement s'effondra.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "accumulation"
+  },
+  "accumulation3": {
+    type: 'text',
+    question: "<div class='text-md'>La chose la plus étonnante, surprenante, merveilleuse, miraculeuse, étourdissante.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "accumulation"
+  },
+  "accumulation4": {
+    type: 'text',
+    question: "<div class='text-md'>Le palais était orné de colonnes, de fresques, de scultures et de fontaines.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "accumulation"
+  },
+  "accumulation5": {
+    type: 'text',
+    question: "<div class='text-md'>Un vieux flacon désolé, décrépit, poudreux, sale, abject, visqueux et fêlé.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "accumulation"
+  },
 
   "hyperbole1": {
     type: 'text',
@@ -139,7 +205,7 @@ export var cards = {
     answer: "hyperbole"
   },
 
-  
+
   "periphrase1": {
     type: 'text',
     question: "<div class='text-sm'>Le pays du fromage</div>",

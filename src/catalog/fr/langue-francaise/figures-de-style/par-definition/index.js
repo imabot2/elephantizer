@@ -61,4 +61,6 @@ export var cards = {
     prompt: "Quelle est cette figure de style?",
     answer: "périphrase"
   },
+
+  // Enumération
 };

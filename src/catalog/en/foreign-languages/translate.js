@@ -7,9 +7,11 @@ const translations = {
 
   en: {
     french: '🇫🇷 French',
-    frenchShort: '🇫🇷',
+    frenchShort: '🇫🇷',    
     greek: '🇬🇷 Greek',
     greekShort: '🇬🇷',
+    spanish: '🇪🇸 Spanish',
+    spanishlShort: '🇪🇸',
   },
 
   fr: {
@@ -17,6 +19,8 @@ const translations = {
     frenchShort: '🇫🇷',
     greek: '🇬🇷 Grec',
     greekShort: '🇬🇷',
+    spanish: '🇪🇸 Espagnol',
+    spanishShort: '🇪🇸',
   },
 }
 

@@ -33,29 +33,31 @@ Start your journey to better memorization and knowledge retention today with Ele
 
 ## TODO
 
-* Do the arrows on Friconix for the progress results
-* Review the calculation of probas to enable the most frequently asked questions to be picked.
 * There is a bug when calculating the accuracy => enter Egypte when the expected answer is Egypt => accuracy = 100%
 * Delete non confirmed users
 * Fix the bug in the menu with collapse: https://github.com/twbs/bootstrap/issues/39385
 * Add the stop button in the timer in infinite mode
 * Display Elephantizer when user login with Google
 * Fix bug when a second client load a new deck
-* Create a site map for SEO with one url for each deck
 * Add the side card right / wrong
 * Add a button to remove deck in the selection
 * Add Jersey, Guernesey and Sercq in countries
 * Add irregular verbs
-* Add a line chart in the results to display progress
+* Add line chart for individual deck in the results
 * Finalize the test with oxymorons, synonyms, etc. by definition
 * Add contact page in the menu
 * Resize the map of russia outline
 * Change the github owner
 * Add the german loader
-* Add/Remove history listener when user log in/out
+* Check if the first erroneous character stops the search time
+
 
 ## Done
 
+* ~~Review the calculation of probas to enable the most frequently asked questions to be picked.~~
+* ~~Create a site map for SEO with one url for each deck~~
+* ~~Add a line chart in the results to display progress~~
+* ~~Add/Remove history listener when user log in/out~~
 * ~~Remove the ISO folder in the catalog~~
 * ~~Add the number of remaining questions in series mode (10/50)~~
 * ~~Add the flag in the answer bar~~
