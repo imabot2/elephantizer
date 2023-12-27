@@ -19,7 +19,7 @@ import statistics from "Js/statistics";
 import specialCharacters from "../specialCharacters/index.js";
 import flag from "Js/flag";
 import mistyped from "Js/mistyped";
-
+import sideCards from "Js/sideCards";
 
 
 /**
@@ -233,8 +233,17 @@ class Model {
     questionStatistics.setFinalAnswer(answer);
     questionStatistics.setTypingTime(this.wpmTimer.getTime().raw);
     questionStatistics.setTime(this.questionTimer.getTime().raw);
-    questionStatistics.process();
+    const stats = questionStatistics.process();
+    
 
+    const score = stats.memorizationRatioUser*100;
+    const progress = (stats.newScore - stats.previousScore)*100;
+
+    if (distance===0)
+      sideCards.showSuccessCard(score, progress, stats.time, stats.wpm);
+    else 
+      sideCards.showFailedCard(score, progress, stats.time, stats.wpm);
+    
     // Restart the timer
     this.questionTimer.restart();
     this.wpmTimer.reset();

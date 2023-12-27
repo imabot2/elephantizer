@@ -17,11 +17,14 @@ class QuestionStatistics {
    */
   new(path, uid) { model.new(path, uid); }
 
-
+  
   /**
    * Process the last question
+   * - compute the ratio 
+   * - store the question in the results
+   * @returns The statistics for the question
    */
-  process() { model.process(); }
+  process() { return model.process(); }
 
 
   /**

@@ -8,6 +8,7 @@ const unitTests = [
   { name: 'results' },
   { name: 'result-card' },
   { name: 'mistyped' },
+  { name: 'sideCards' },
 ];
 
 module.exports = { unitTests };

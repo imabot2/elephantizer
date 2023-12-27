@@ -45,6 +45,7 @@ class Model {
    * Process the last question
    * - compute the ratio 
    * - store the question in the results
+   * @returns The statistics for the question
    */
   process() {
 
@@ -58,9 +59,11 @@ class Model {
     // Update the deck global statistics and get previous and new score
     this.data.newScore = statistics.update(this.data.path, this.data.uid, this.data.memorizationRatio);
 
-    
+
     // Add the question in the results    
-    results.addQuestion(this.data);    
+    results.addQuestion(this.data);
+
+    return this.data;
   }
 
 
@@ -79,17 +82,17 @@ class Model {
    * Convert time to first key into ratio in the range [0; 1]
    */
   computeTimeToFirstKeyRatio() {
-    const timeToFirstKey_sec = (this.data.time-this.data.typingTime)/1000;
-    const ratio = 1-1/(1+Math.exp(-1.5*timeToFirstKey_sec + 5.3));
+    const timeToFirstKey_sec = (this.data.time - this.data.typingTime) / 1000;
+    const ratio = 1 - 1 / (1 + Math.exp(-1.5 * timeToFirstKey_sec + 5.3));
     this.data.timeToFirstKeyRatio = ratio;
-    this.data.timeToFirstKeyRatioUser = Math.min(1.1002588437228038*ratio, 1);
+    this.data.timeToFirstKeyRatioUser = Math.min(1.1002588437228038 * ratio, 1);
   }
 
 
   /**
    * Compute the maximum distance ratio
    */
-  computeMaxDistanceRatio() {    
+  computeMaxDistanceRatio() {
     this.data.maxDistanceRatio = Math.max(1 - (this.data.maxDistance / this.data.rightAnswer.length), 0);
   }
 
@@ -97,7 +100,7 @@ class Model {
   /**
    * Compute the final distance ratio
    */
-  computeFinalDistanceRatio() {    
+  computeFinalDistanceRatio() {
     this.data.finalDistanceRatio = Math.max(1 - (this.data.finalDistance / this.data.rightAnswer.length), 0);
   }
 

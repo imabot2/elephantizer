@@ -1,0 +1,94 @@
+#success-card {
+  --success-card-width: 200px;
+  position: absolute;
+  opacity: 0.8;
+  top: 45%;
+  right: calc(var(--success-card-width)*-1.7);
+  padding-right: calc(2*var(--bs-border-radius));
+  padding-left: calc(2*var(--bs-border-radius));
+  background-color: white;
+  border-radius: var(--bs-border-radius);
+  transform: translateY(-50%);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4), 0 10px 10px rgba(0, 0, 0, 0.4);
+  transition: right 1000ms ease-in;
+}
+
+
+#failed-card {
+  --failed-card-width: 200px;
+  position: absolute;
+  opacity: 0.8;  
+  top: 45%;
+  left: calc(var(--failed-card-width)*-1.7);  
+  padding-right: calc(2*var(--bs-border-radius));
+  padding-left: calc(2*var(--bs-border-radius));
+  background-color: white;
+  border-radius: var(--bs-border-radius);
+  transform: translateY(-50%);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4), 0 10px 10px rgba(0, 0, 0, 0.4);
+  transition: left 1000ms ease-in;
+}
+
+
+#failed-card.show {
+  left: calc(var(--bs-border-radius)*-1);
+  transition: left 250ms ease-out;
+}
+
+#success-card.show {
+  right: calc(var(--bs-border-radius)*-1);
+  transition: right 250ms ease-out;
+}
+
+
+.side-card>img {
+  max-width: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(5px 5px 5px #222);
+
+}
+
+.side-card .content {
+  
+  padding-top: 3.5em;
+  font-size: clamp(0.8em, 2em ,2vmin);
+  text-align: center;  
+  line-height: 1.7em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.side-card .score,
+.side-card .time,
+.side-card .wpm {
+  font-family: var(--main-title-font);
+}
+
+
+.side-card .score {
+  font-size: 1.2em;
+}
+
+.side-card .score span {
+  font-size: 2em;
+}
+
+.side-card .time span {
+  font-size: 1.5em;
+}
+
+.side-card .progression {
+  font-size: 1.05em;
+}
+
+.side-card .wpm {
+  font-size: 0.9em;
+}
+
+.side-card .wpm span {
+  font-size: 1.5em;
+}
+

@@ -42,6 +42,7 @@ Start your journey to better memorization and knowledge retention today with Ele
 * Add the side card right / wrong
 * Add Jersey, Guernesey and Sercq in countries
 * Add irregular verbs
+* Add a "Not enough data" in the line charts
 * Add line chart for individual deck in the results
 * Finalize the tests with oxymorons, synonyms, etc. 
 * Add contact page in the menu
@@ -49,7 +50,9 @@ Start your journey to better memorization and knowledge retention today with Ele
 * Change the github owner
 * Add the german loader
 * Check if the first erroneous key stops the search time
-
+* At the end of the memory test, if the time is less than 2s, do not display the corrrection
+* Add a memory test on Regex
+* Redirect cavarentrer to elephantizer
 
 
 ## Done
