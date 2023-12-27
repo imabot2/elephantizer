@@ -68,3 +68,12 @@ mistyped.setAnswer('abc');
 mistyped.update('abcde');
 mistyped.update('abc');
 console.log ('2 => ', mistyped.count());
+
+mistyped.setAnswer('with spaces');
+mistyped.update('with spaces   ');
+console.log ('0 => ', mistyped.count());
+
+mistyped.setAnswer('uno');
+mistyped.update('un ');
+mistyped.update('uno');
+console.log ('1 => ', mistyped.count());

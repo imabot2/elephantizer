@@ -178,8 +178,8 @@ class Model {
     let len = Math.min(sanitized.length, this.currentQuestion.answer.length);
     let distance = levenshtein.distance(sanitized.slice(0, len), this.currentQuestion.answer.slice(0, len));
 
-    // Update max Leenshtein distance
-    questionStatistics.updateMaxDistance(distance);
+    // Update max distance
+    mistyped.update(answer);    
 
     // Set the correction if the distance is higher than zero or the user answer is longer than the expected answer
     // And the score is not higher than 0.8
@@ -228,7 +228,7 @@ class Model {
   processQuestionOver(answer, distance) {
 
     // Store the final data and compute question statistics    
-    questionStatistics.updateMaxDistance(distance);
+    questionStatistics.updateMaxDistance(mistyped.count());
     questionStatistics.setFinalDistance(distance);
     questionStatistics.setFinalAnswer(answer);
     questionStatistics.setTypingTime(this.wpmTimer.getTime().raw);
@@ -377,6 +377,9 @@ class Model {
 
     // The new current question is the old next one
     this.currentQuestion = this.nextQuestion;
+
+    // Set the new expected answer
+    mistyped.setAnswer(this.currentQuestion.answer);
 
     // Create a new question in the memory test
     questionStatistics.new(this.currentQuestion.path, this.currentQuestion.uid);

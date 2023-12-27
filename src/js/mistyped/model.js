@@ -61,7 +61,7 @@ class Model {
    * @param {string} answer The answer submitted by the user
    */
   update(answer) {
-    answer = this.sanitize(answer);
+    answer = this.sanitize(answer, true);
 
     // Replace hyphen if required in the options
     if (settings.get('ignoreHyphens')) answer = answer.replace(/-/g, " ");
@@ -89,9 +89,13 @@ class Model {
    */
   count() {
     // Count the number of non valid characters
-    return this.mask.reduce((accumulator, status) => {
+    let counter = this.mask.reduce((accumulator, status) => {
       return (status !== RIGHT) ? accumulator + 1 : accumulator;
-    }, 0)
+    }, 0);
+
+    // Limit to the number of character in the expeted answer
+    return Math.min(counter, this.expected.length);
+
   }
 }
 
