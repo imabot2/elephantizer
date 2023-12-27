@@ -106,7 +106,7 @@ export var cards = {
   },
   "comparaison5": {
     type: 'text',
-    question: "<div class='text-md'>Il était rapide comme un éclair sur la piste.</div>",
+    question: "<div class='text-md'>Il est rapide comme une gazelle.</div>",
     prompt: "Quelle est cette figure de style?",
     answer: "comparaison"
   },
@@ -214,7 +214,7 @@ export var cards = {
   },
   "periphrase2": {
     type: 'text',
-    question: "<div class='text-sm'>Le roi soleil</div>",
+    question: "<div class='text-sm'>Le pays du soleil levant</div>",
     prompt: "Quelle est cette figure de style?",
     answer: "périphrase"
   },
@@ -235,5 +235,36 @@ export var cards = {
     question: "<div class='text-sm'>Les combattants du feu</div>",
     prompt: "Quelle est cette figure de style?",
     answer: "périphrase"
+  },
+
+  "litote1": {
+    type: 'text',
+    question: "<div class='text-sm'>C'est pas faux!</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "litote"
+  },
+  "litote2": {
+    type: 'text',
+    question: "<div class='text-sm'>Ce n'est pas mal du tout!</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "litote"
+  },
+  "litote3": {
+    type: 'text',
+    question: "<div class='text-sm'>Il ne fait pas chaud.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "litote"
+  },
+  "litote4": {
+    type: 'text',
+    question: "<div class='text-sm'>Elle n'est pas vilaine.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "litote"
+  },
+  "litote5": {
+    type: 'text',
+    question: "<div class='text-sm'>Il n'est plus tout jeune.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "litote"
   },
 };

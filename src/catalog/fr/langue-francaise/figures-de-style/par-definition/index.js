@@ -21,13 +21,13 @@ export var cards = {
   },
   "metaphore": {
     type: 'text',
-    question: "<div class='text-md'>Remplacer un mot par un autre d'un champ lexical différent.</div>",
+    question: "<div class='text-md'>Remplacer un mot par un autre d'un champ lexical différent (sans outil de comparaison).</div>",
     prompt: "Quelle est cette figure de style?",
     answer: "métaphore"
   },
   "comparaison": {
     type: 'text',
-    question: "<div class='text-md'>Cette bougie brille comme une étoile.</div>",
+    question: "<div class='text-md'>Mise en relation de deux termes à l'aide d'un outil comparant.</div>",
     prompt: "Quelle est cette figure de style?",
     answer: "comparaison"
   },
@@ -61,6 +61,11 @@ export var cards = {
     prompt: "Quelle est cette figure de style?",
     answer: "périphrase"
   },
-
+  "litote": {
+    type: 'text',
+    question: "<div class='text-md'>Atténuation qui consiste à dire moins pour en dire plus.</div>",
+    prompt: "Quelle est cette figure de style?",
+    answer: "litote"
+  },
   // Enumération
 };
