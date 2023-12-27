@@ -29,6 +29,13 @@ class SideCards {
    * @param {float} wpm wordd per minute
    */
   showFailedCard(score, progress, ms, wpm) { view.showFailedCard(score, progress, ms, wpm); }
+
+
+  /**
+   * Return a promise resolved when the side cards are hidden
+   * @returns A promise resolved when the side card are hidden
+   */
+  waitForCardsOver() { return view.waitForCardsOver(); }
 }
 
 

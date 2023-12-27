@@ -4,7 +4,7 @@ import { parseEjs } from "Js/languages";
 import translate from "./translate.js";
 import htmlSuccessCards from "./successCard.html";
 import htmlFailedCards from "./failedCard.html";
-
+import settings from "Js/settings";
 
 /**
  * View for the Side Card module
@@ -32,7 +32,8 @@ class View {
     this.successContainer.style.setProperty("--success-card-width", `${width}px`);
 
 
-    console.log(width)
+
+    // Get the card width for the animation    
     this.failedContainer = str2dom.one(parseEjs(htmlFailedCards, translate));
     document.body.append(this.failedContainer);
 
@@ -48,6 +49,13 @@ class View {
     // Set the card width for the animation
     width = this.failedContainer.offsetWidth;
     this.failedContainer.style.setProperty("--failed-card-width", `${width}px`);
+
+    // Counter that count the side card pending
+    this.toHideCounterSuccess = 0;
+    this.toHideCounterFailed = 0;
+
+    // Create the event when the card are hide
+    this.cardHideEvent = new Event('cards-hide');
   }
 
 
@@ -55,7 +63,15 @@ class View {
    * Hide the success card
    */
   hideSuccessCard() {
+    // Decrease the counter and return if not equal to zero (still cards pending)
+    this.toHideCounterSuccess--;
+    if (this.toHideCounterSuccess) return;
+
+    // Hide the card
     this.successContainer.classList.remove("show");
+        
+    // If both cards are hidden trigger the event    
+    if (this.toHideCounterFailed === 0) this.successContainer.dispatchEvent(this.cardHideEvent);
   }
 
 
@@ -63,7 +79,31 @@ class View {
    * Hide the failed card
    */
   hideFailedCard() {
+    // Decrease the counter and return if not equal to zero (still cards pending)
+    this.toHideCounterFailed--;
+    if (this.toHideCounterFailed) return; 
+
+    // Hide the card
     this.failedContainer.classList.remove("show");
+
+
+    // If both cards are hidden trigger the event
+    if (!this.toHideCounterSuccess) this.successContainer.dispatchEvent(this.cardHideEvent);
+  }
+
+
+  /**
+   * Return a promise resolved when the side cards are hidden
+   * @returns A promise resolved when the side card are hidden
+   */
+  waitForCardsOver() {
+    return new Promise((resolve) => {
+      // If the cards are hidden, resolve the promise
+      if (this.toHideCounterSuccess + this.toHideCounterFailed==0) { resolve(); return; }
+      this.successContainer.addEventListener('cards-hide', () => {
+        setTimeout (() => { resolve(); }, 200);
+      }, { once: true })
+    })
   }
 
 
@@ -77,6 +117,9 @@ class View {
    */
   showSuccessCard(score, progress, ms, wpm) {
 
+    // Do not show the side card if option is off
+    if (settings.get('sideCardsAnimationDuration') === 0) return;
+
     // Set values in the card
     this.successScore.textContent = `${Math.round(score)}`;
     this.setSuccessProgress(progress);
@@ -85,11 +128,12 @@ class View {
 
     // Show the card
     this.successContainer.classList.add("show");
+    this.toHideCounterSuccess++;
 
     // Hide the card after 800 milliseconds
     setTimeout(() => {
       this.hideSuccessCard();
-    }, 2000)
+    }, settings.get('sideCardsAnimationDuration'))
   }
 
   /**
@@ -102,6 +146,9 @@ class View {
    */
   showFailedCard(score, progress, ms, wpm) {
 
+    // Do not show the side card if option is off
+    if (settings.get('sideCardsAnimationDuration') === 0) return;
+
     // Set values in the card
     this.failedScore.textContent = `${Math.round(score)}`;
     this.setFailedProgress(progress);
@@ -110,11 +157,12 @@ class View {
 
     // Show the card
     this.failedContainer.classList.add("show");
+    this.toHideCounterFailed++;
 
     // Hide the card after 800 milliseconds
     setTimeout(() => {
       this.hideFailedCard();
-    }, 2000)
+    }, settings.get('sideCardsAnimationDuration'))
 
   }
 

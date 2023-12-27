@@ -115,4 +115,5 @@ export var cards = {
     prompt: 'Translate in Spanish?',
     answer: 'negro'
   }
+  
 };

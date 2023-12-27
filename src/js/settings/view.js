@@ -72,12 +72,15 @@ class View {
     this.settingsEl.querySelector(`#settings-resultsAnimationDuration-${model.current.resultsAnimationDuration}`).checked = true;
 
     // Update the results animation duration in the menu
+    this.settingsEl.querySelector(`#settings-sideCardsAnimationDuration-${model.current.sideCardsAnimationDuration}`).checked = true;
+    
+    // Update the results animation duration in the menu
     this.settingsEl.querySelector('#settings-beta').value = model.current.beta;
 
 
     // Disable / enable the sections
     if (model.current.timerMode != 'down') this.disable('.duration'); else this.enable('.duration');
-    if (model.current.timerMode === 'series') this.disable('.beta'); else this.enable('.beta');    
+    if (model.current.timerMode === 'series') this.disable('.beta'); else this.enable('.beta');
   }
 
 

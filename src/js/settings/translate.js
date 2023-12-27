@@ -86,6 +86,13 @@ const translations = {
     resultsAnimationDuration750ms: "750ms",
     resultsAnimationDuration1000ms: "1s",
 
+    sideCardsAnimationDuration: "Side Cards Animation",
+    sideCardsAnimationDurationLabel: "Select animation duration when the side cards are shown every time an answer is submitted.",
+    sideCardsAnimationDuration0ms: "Off",
+    sideCardsAnimationDuration750ms: "750ms",
+    sideCardsAnimationDuration1200ms: "1.2ms",
+    sideCardsAnimationDuration2000ms: "2s",
+
 
     error5000: 'Error #5000',
     error5000Message: 'An unknow error occurred while saving your settings. Please check your internet connection or try again later.',
@@ -178,6 +185,15 @@ const translations = {
     resultsAnimationDuration500ms: "500ms",
     resultsAnimationDuration750ms: "750ms",
     resultsAnimationDuration1000ms: "1s",
+
+
+    sideCardsAnimationDuration: "Cartes latérales",
+    sideCardsAnimationDurationLabel: "Sélectionnez la durée de l'animation des cartes latérales qui s'affiche chaque fois qu'une réponse est soumise.",
+    sideCardsAnimationDuration0ms: "Off",
+    sideCardsAnimationDuration750ms: "750ms",
+    sideCardsAnimationDuration1200ms: "1.2ms",
+    sideCardsAnimationDuration2000ms: "2s",
+
 
     error5000: 'Erreur 5000',
     error5000Message: "Une erreur inconnue s'est produite lors de la sauvegarde de vos paramètres. Veuillez vérifier votre connexion internet ou réessayer plus tard.",

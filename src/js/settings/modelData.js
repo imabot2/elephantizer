@@ -43,6 +43,10 @@ export default class ModelData {
       // Duration of the animation when the results are shown
       resultsAnimationDuration: 750,
 
+
+      // Duration of the side cards animations
+      sideCardsAnimationDuration: 750,
+
       // The beta coeficient to pick relevant question
       // -10 => always pick the best known question
       // 0 => pick random question

@@ -170,7 +170,7 @@ class Model {
    * @param {string} answer The answer typed by the user
    */
   updateCorrection(answer) {
-    
+
     // Sanitize the user answer, and preserve the last space
     const sanitized = mistyped.sanitize(answer, true);
 
@@ -179,11 +179,11 @@ class Model {
     let distance = levenshtein.distance(sanitized.slice(0, len), this.currentQuestion.answer.slice(0, len));
 
     // Update max distance
-    mistyped.update(answer);    
+    mistyped.update(answer);
 
     // Set the correction if the distance is higher than zero or the user answer is longer than the expected answer
     // And the score is not higher than 0.8
-    if ((distance || sanitized.length > this.currentQuestion.answer.length) && (questionStatistics.getScore() < settings.get('correctionThreshold') )) {
+    if ((distance || sanitized.length > this.currentQuestion.answer.length) && (questionStatistics.getScore() < settings.get('correctionThreshold'))) {
 
       // Show the correction if the Levenshtein distance is not null
       let html = levenshtein.getHTML();
@@ -214,7 +214,7 @@ class Model {
 
     // Compute the Levenshtein distance
     let distance = levenshtein.distance(answer, this.currentQuestion.answer);
-    console.log (answer, distance)
+
     // Process the current question for statistics
     this.processQuestionOver(answer, distance);
   }
@@ -234,16 +234,17 @@ class Model {
     questionStatistics.setTypingTime(this.wpmTimer.getTime().raw);
     questionStatistics.setTime(this.questionTimer.getTime().raw);
     const stats = questionStatistics.process();
-    
 
-    const score = stats.memorizationRatioUser*100;
-    const progress = (stats.newScore - stats.previousScore)*100;
 
-    if (distance===0)
+    const score = stats.memorizationRatioUser * 100;
+    const progress = (stats.newScore - stats.previousScore) * 100;
+
+    if (distance === 0)
       sideCards.showSuccessCard(score, progress, stats.time, stats.wpm);
-    else 
+    else
       sideCards.showFailedCard(score, progress, stats.time, stats.wpm);
-    
+
+
     // Restart the timer
     this.questionTimer.restart();
     this.wpmTimer.reset();
@@ -315,10 +316,21 @@ class Model {
 
     // Save the memory test statistics    
     statistics.save();
-    
-    // Show the last answer and show the results
-    view.showLastAnswer(this.currentQuestion.answer)
-      .then(() => { this.showResults(); })
+
+    console.log(this.questionTimer.getElapsedTime());
+
+    // If the elapsed time is more than 2 seconds
+    if (this.questionTimer.getElapsedTime() > 2000) {
+      
+      // Show the last answer and show the results
+      view.showLastAnswer(this.currentQuestion.answer)
+        .then(() => {
+          sideCards.waitForCardsOver().then(() => { this.showResults(); })
+        });
+    }
+    else {
+      sideCards.waitForCardsOver().then(() => { this.showResults(); })
+    }
   }
 
 
@@ -326,7 +338,7 @@ class Model {
    * Show final results if the user answered at least one question
    */
   showResults() {
-    
+
     // Hide the stopwatch
     stopwatch.hide();
 
@@ -349,10 +361,10 @@ class Model {
 
     // Get the question
     this.nextQuestion = series.get(next.path, next.uid);
-    
+
     // Append the remaining
     this.nextQuestion.remaining = next.remaining;
-    
+
     // Set the next flag
     flag.setNext(this.nextQuestion.flag);
 

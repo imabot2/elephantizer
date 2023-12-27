@@ -18,4 +18,5 @@ await settings.init();
 
 
 // Hide the bootloader
-bootloader.hide()
+bootloader.hide();
+
