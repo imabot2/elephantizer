@@ -151,7 +151,7 @@ class Model {
    */
   computeProbabilities() {
     // Get beta coefficient
-    let beta = 2.2*settings.get("beta");
+    let beta = 2.5*settings.get("beta");
 
     // Prepare data
     let stats = this.questions.map((q, i) => {

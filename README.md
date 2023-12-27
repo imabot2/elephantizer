@@ -49,11 +49,12 @@ Start your journey to better memorization and knowledge retention today with Ele
 * Change the github owner
 * Add the german loader
 * Check if the first erroneous key stops the search time
-* Count properly the number of erroneous characters in core typing
+
 
 
 ## Done
 
+* ~~Count properly the number of erroneous characters in core typing~~
 * ~~Add a button to remove deck in the selection~~
 * ~~Review the calculation of probas to enable the most frequently asked questions to be picked.~~
 * ~~Create a site map for SEO with one url for each deck~~
