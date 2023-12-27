@@ -18,6 +18,8 @@ import results from "Js/results";
 import statistics from "Js/statistics";
 import specialCharacters from "../specialCharacters/index.js";
 import flag from "Js/flag";
+import mistyped from "Js/mistyped";
+
 
 
 /**
@@ -122,7 +124,7 @@ class Model {
     if (answer[answer.length - 1] === " ") {
 
       // If this is the right answer or the answer is longer than the expected answer process the answer
-      if ((levenshtein.sanitize(answer).length >= this.currentQuestion.answer.length) || distanceCheck == 0) {
+      if ((mistyped.sanitize(answer).length >= this.currentQuestion.answer.length) || distanceCheck == 0) {
 
         // Process the current question for statistics
         this.processQuestionOver(answer, distanceCheck);
@@ -170,7 +172,7 @@ class Model {
   updateCorrection(answer) {
     
     // Sanitize the user answer, and preserve the last space
-    const sanitized = levenshtein.sanitize(answer, true);
+    const sanitized = mistyped.sanitize(answer, true);
 
     // Compute the Levenshtein distance of the truncated answer
     let len = Math.min(sanitized.length, this.currentQuestion.answer.length);
@@ -212,7 +214,7 @@ class Model {
 
     // Compute the Levenshtein distance
     let distance = levenshtein.distance(answer, this.currentQuestion.answer);
-
+    console.log (answer, distance)
     // Process the current question for statistics
     this.processQuestionOver(answer, distance);
   }
@@ -341,7 +343,7 @@ class Model {
     
     // Append the remaining
     this.nextQuestion.remaining = next.remaining;
-
+    
     // Set the next flag
     flag.setNext(this.nextQuestion.flag);
 

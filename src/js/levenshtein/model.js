@@ -28,26 +28,6 @@ class Model {
 
 
   /**
-   * Return the string sanitized (trim and remove extra spaces)
-   * @param {string} str The string to sanitize
-   * @param {boolean} preserveLastSpace When true, the function preseve the last space of the string is exists
-   * @returns The sanitized string
-   */
-  sanitize(str, preserveLastSpace = false) {
-
-    // Prepare last space character
-    const lastSpace = (preserveLastSpace && str[str.length - 1] == ' ') ? ' ' : '';
-
-    // Sanitize and return the string
-    return str
-      .trim()                   // Trim
-      .replace(/\s*-\s*/, "-")  // Remove spaces around hyphens
-      .replace(/\s+/g, " ")
-      + lastSpace;
-  }
-
-
-  /**
    * Compute the Levenshtein distance between two strings
    * @param {string} from Initial string
    * @param {string} to Final string

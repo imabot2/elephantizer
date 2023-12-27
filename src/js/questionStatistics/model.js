@@ -138,6 +138,7 @@ class Model {
    */
   updateMaxDistance(distance) {
     this.data.maxDistance = Math.max(this.data.maxDistance, distance);
+    console.log (this.data.maxDistance);
   }
 
 

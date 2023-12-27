@@ -43,12 +43,13 @@ Start your journey to better memorization and knowledge retention today with Ele
 * Add Jersey, Guernesey and Sercq in countries
 * Add irregular verbs
 * Add line chart for individual deck in the results
-* Finalize the test with oxymorons, synonyms, etc. by definition
+* Finalize the tests with oxymorons, synonyms, etc. 
 * Add contact page in the menu
 * Resize the map of russia outline
 * Change the github owner
 * Add the german loader
-* Check if the first erroneous character stops the search time
+* Check if the first erroneous key stops the search time
+* Count properly the number of erroneous characters in core typing
 
 
 ## Done

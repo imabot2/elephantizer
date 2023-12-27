@@ -11,14 +11,6 @@ class Levenshtein {
 
 
   /**
-   * Return the string sanitized (trim and remove extra spaces)
-   * @param {string} str The string to sanitize
-   * @returns The sanitized string
-   */
-  sanitize(str) { return model.sanitize(str); }
-
-
-  /**
    * Compute the Levenshtein distance between two strings
    * @param {string} from Initial string
    * @param {string} to Final string

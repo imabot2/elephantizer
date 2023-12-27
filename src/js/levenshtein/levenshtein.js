@@ -55,18 +55,18 @@ export default class Levenshtein {
     if (this.options.trim) this.from = this.from.trim();
     if (this.options.trim) this.to = this.to.trim();
 
-
-    // Remove extra spaces
+    // Remove extra spaces is required in options
     if (this.options.removeExtraSpaces) this.from = this.from.replace(/\s*-\s*/, "-").replace(/\s+/g, " ");
     if (this.options.removeExtraSpaces) this.to = this.to.replace(/\s*-\s*/, "-").replace(/\s+/g, " ");
 
+    // Complete the strings with spaces to get same length if required in options 
     if (this.options.appendSpaces && this.from.length < this.to.length) this.from += " ".repeat(this.to.length - this.from.length);
     if (this.options.appendSpaces && this.from.length > this.to.length) this.to += " ".repeat(this.from.length - this.to.length);
 
 
-
-    this.fromSanitized = this.from
-    this.toSanitized = this.to
+    // Copy the strings
+    this.fromSanitized = this.from;
+    this.toSanitized = this.to;
 
     // OPERATIONS THAT DO NOT MODIFY STRING LENGTH
 
