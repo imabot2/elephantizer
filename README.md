@@ -53,7 +53,7 @@ Start your journey to better memorization and knowledge retention today with Ele
 * At the end of the memory test, if the time is less than 2s, do not display the corrrection
 * Add a memory test on Regex
 * Redirect cavarentrer to elephantizer
-
+* Translate prompts in en/geography/country-on-the-map/north-america
 
 ## Done
 

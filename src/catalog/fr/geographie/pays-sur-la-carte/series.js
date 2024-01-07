@@ -11,6 +11,11 @@ const series = {
     name: translate.europe,
     shortName: translate.europeShort,
   },
+  "amerique-du-nord" : {
+    nativeName: "Les pays d'Amérique du nord sur la carte",
+    name: translate.ameriqueDuNord,
+    shortName: translate.ameriqueDuNordShort,
+  },
   "amerique-du-sud" : {
     nativeName: "Les pays d'Amérique du sud sur la carte",
     name: translate.ameriqueDuSud,

@@ -32,79 +32,79 @@ export var cards = {
     "ar": {
       image: argentina,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Argentina"
     },
     "bo": {
       image: bolivia,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Bolivia"
     },
     "br": {
       image: brazil,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Brazil"
     },
     "cl": {
       image: chile,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Chile"
     },
     "co": {
       image: colombia,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Colombia"
     },
     "ec": {
       image: ecuador,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Ecuador"
     },
     "gy": {
       image: guyana,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Guyana"
     },
     "py": {
       image: paraguay,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Paraguay"
     },
     "pe": {
       image: peru,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Peru"
     },
     "sr": {
       image: suriname,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Suriname"
     },
     "tt": {
       image: trinidadAndTobago,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Trinidad and Tobago"
     },
     "uy": {
       image: uruguay,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Uruguay"
     },
     "ve": {
       image: venezuela,
       type: 'outer',
-      prompt: "What is this country?",
+      prompt: "What country is this?",
       answer: "Venezuela"
     },
     

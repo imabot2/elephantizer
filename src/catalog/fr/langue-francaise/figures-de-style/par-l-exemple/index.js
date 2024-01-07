@@ -100,7 +100,7 @@ export var cards = {
   },
   "comparaison4": {
     type: 'text',
-    question: "<div class='text-md'>Sa voix était plus douce que le murmure du vent.</div>",
+    question: "<div class='text-md'>Elle ressemble à sa mère.</div>",
     prompt: "Quelle est cette figure de style?",
     answer: "comparaison"
   },
