@@ -6,11 +6,6 @@ const series = {
     name: translate.afrique,
     shortName: translate.afriqueShort,
   },
-  "europe" : {
-    nativeName: "Les pays d'Europe sur la carte",
-    name: translate.europe,
-    shortName: translate.europeShort,
-  },
   "amerique-du-nord" : {
     nativeName: "Les pays d'Amérique du nord sur la carte",
     name: translate.ameriqueDuNord,
@@ -20,6 +15,16 @@ const series = {
     nativeName: "Les pays d'Amérique du sud sur la carte",
     name: translate.ameriqueDuSud,
     shortName: translate.ameriqueDuSudShort,
+  },
+  "europe" : {
+    nativeName: "Les pays d'Europe sur la carte",
+    name: translate.europe,
+    shortName: translate.europeShort,
+  },
+  "oceanie" : {
+    nativeName: "Les pays d'Océanie sur la carte",
+    name: translate.oceanie,
+    shortName: translate.oceanieShort,
   },
   
 };

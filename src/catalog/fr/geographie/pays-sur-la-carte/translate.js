@@ -14,6 +14,8 @@ const translations = {
     ameriqueDuNordShort: 'north America',
     ameriqueDuSud: 'South America Countries in French',
     ameriqueDuSudShort: 'South America',
+    oceanie: 'Countries of Oceania in French',
+    oceanieShort: 'Ocenania',
   },
 
   fr: {
@@ -25,6 +27,9 @@ const translations = {
     ameriqueDuNordShort: 'Amérique du nord',
     ameriqueDuSud: "Les pays d'Amérique du sud",
     ameriqueDuSudShort: 'Amérique du sud',
+    oceanie: "Les pays d'Océanie",
+    oceanieShort: 'Océanie',
+
   },
 }
 

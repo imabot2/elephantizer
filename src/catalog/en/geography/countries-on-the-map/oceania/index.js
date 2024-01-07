@@ -126,5 +126,4 @@ export var cards = {
     prompt: "What country is this?",
     answer: "Vanuatu"
   },
-
 };
