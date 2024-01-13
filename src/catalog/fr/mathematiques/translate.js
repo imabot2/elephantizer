@@ -7,10 +7,12 @@ const translations = {
 
   en: {
     tableDeMultiplication: 'Multiplication tables',
+    tableDAddition: 'Addition tables',
   },
 
   fr: {
     tableDeMultiplication: 'Tables de multiplication',
+    tableDAddition: "Tables d'addition"
   },
 }
 

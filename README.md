@@ -39,7 +39,6 @@ Start your journey to better memorization and knowledge retention today with Ele
 * Add the stop button in the timer in infinite mode
 * Display Elephantizer when user login with Google
 * Fix bug when a second client load a new deck
-* Add the side card right / wrong
 * Add Jersey, Guernesey and Sercq in countries
 * Add irregular verbs
 * Add a "Not enough data" in the line charts
@@ -53,10 +52,12 @@ Start your journey to better memorization and knowledge retention today with Ele
 * At the end of the memory test, if the time is less than 2s, do not display the corrrection
 * Add a memory test on Regex
 * Redirect cavarentrer to elephantizer
-* Translate prompts in en/geography/country-on-the-map/north-america
+* Add addition table in English
 
 ## Done
 
+* ~~* Add the side card right / wrong~~
+* ~~Translate prompts in en/geography/country-on-the-map/north-america~~
 * ~~Count properly the number of erroneous characters in core typing~~
 * ~~Add a button to remove deck in the selection~~
 * ~~Review the calculation of probas to enable the most frequently asked questions to be picked.~~

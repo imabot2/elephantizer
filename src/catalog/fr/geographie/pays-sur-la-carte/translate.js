@@ -29,7 +29,6 @@ const translations = {
     ameriqueDuSudShort: 'Amérique du sud',
     oceanie: "Les pays d'Océanie",
     oceanieShort: 'Océanie',
-
   },
 }
 
