@@ -6,11 +6,15 @@ import languages from "Js/languages/index.js";
 const translations = {
 
   en: {
+    additionTables: 'Addition Tables',
+    additionTablesShort: 'Addition Tables', 
     multiplicationTables: 'Multiplication Tables',
     multiplicationTablesShort: 'Multiplication Tables',  
   },
 
   fr: {
+    additionTables: "Tables d'addition",
+    additionTablesShort: "Tables d'addition", 
     multiplicationTables: 'Tables de multiplication',
     multiplicationTablesShort: 'Tables de multiplication',
   },
