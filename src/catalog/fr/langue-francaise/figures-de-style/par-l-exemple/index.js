@@ -50,13 +50,13 @@ export var cards = {
 
   "metaphore1": {
     type: 'text',
-    question: "<div class='text-md'>L'homme est un <em>loup</em> pour l’homme.</div>",
+    question: "<div class='text-md'>L'homme est un loup pour l’homme.</div>",
     prompt: "Quelle est cette figure de style?",
     answer: "métaphore"
   },
   "metaphore2": {
     type: 'text',
-    question: "<div class='text-md'>Il a pété un câble.</div>",
+    question: "<div class='text-md'>C'est une tête brulée.</div>",
     prompt: "Quelle est cette figure de style?",
     answer: "métaphore"
   },
@@ -74,7 +74,7 @@ export var cards = {
   },
   "metaphore5": {
     type: 'text',
-    question: "<div class='text-md'>Nous allons passer entre les gouttes.</div>",
+    question: "<div class='text-md'>Mon patron est un requin.</div>",
     prompt: "Quelle est cette figure de style?",
     answer: "métaphore"
   },
@@ -111,6 +111,7 @@ export var cards = {
     answer: "comparaison"
   },
 
+  
   "personnification1": {
     type: 'text',
     question: "<div class='text-md'>J'ai demandé à la lune.</div>",

@@ -53,6 +53,7 @@ Start your journey to better memorization and knowledge retention today with Ele
 * Add a memory test on Regex
 * Redirect cavarentrer to elephantizer
 * Add addition table in English
+* Add French chords in French
 
 ## Done
 

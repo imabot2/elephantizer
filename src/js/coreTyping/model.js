@@ -317,8 +317,6 @@ class Model {
     // Save the memory test statistics    
     statistics.save();
 
-    console.log(this.questionTimer.getElapsedTime());
-
     // If the elapsed time is more than 2 seconds
     if (this.questionTimer.getElapsedTime() > 2000) {
       

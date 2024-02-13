@@ -12,7 +12,7 @@ const series = {
     shortName: translate.lesNombreDe0à19Short,
   },
 
-  "verbes-irreguliers-1" : {
+  "verbes-irreguliers" : {
     nativeName: "Les verbes irréguliers",
     name: translate.verbesIrregulier,
     shortName: translate.verbesIrregulierShort,
