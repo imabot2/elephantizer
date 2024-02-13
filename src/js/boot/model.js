@@ -13,7 +13,6 @@ class Model {
   getFromUrl() {
     // Get the path from the URL
     const path = window.location.pathname.replace(/^\/|\/$/g, '');
-
     // If the path is valid, return the path, otherwise, return undefined
     if (this.checkPath(path)) return path;
     return undefined;

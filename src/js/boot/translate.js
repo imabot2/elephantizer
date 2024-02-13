@@ -21,7 +21,7 @@ const translations = {
     settings: "Paramètres de l'utilisateur",
     statistics: 'Données utilisateur', 
     history: "Chargement de l'historique",
-    loadFromUrlPath: "Charge le jeu de carte <%=path%> depuis l'URL",
+    loadFromUrlPath: "Charge le jeu de cartes <%=path%> depuis l'URL",
     loadFromUrlQuery: "Charge <%=n%> jeu(x) de cartes depuis l'URL",
     defaultSeries: 'Charge le jeu de cartes',
     core: 'Prépare les premières questions',

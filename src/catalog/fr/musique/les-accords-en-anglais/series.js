@@ -2,7 +2,7 @@ import translate from "./translate.js";
 
 
 const series = {
-  "français-vers-anglais" : {
+  "francais-vers-anglais" : {
     nativeName: "Les accords français en anglais",
     name: translate.accordsFrancaisEnAnglais,
     shortName: translate.accordsFrancaisEnAnglaisShort,
