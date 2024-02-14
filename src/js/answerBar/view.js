@@ -29,8 +29,13 @@ class View {
     this.submitButtonContainerEl = this.containerEl.querySelector('.submit-button-container');
     this.placeHolderEl = this.containerEl.querySelector('.place-holder');
     this.placeHolderContentEl = this.placeHolderEl.querySelector('div');
+
+    // Prepare the tooltip and hide after 1.5s to prevent hiding the answer bar
     this.submitButtonEl = this.submitButtonContainerEl.querySelector('img');
-    this.submitButtonTooltip = new bootstrap.Tooltip(this.submitButtonEl);
+    this.submitButtonTooltip = new bootstrap.Tooltip(this.submitButtonEl, {trigger: 'hover'});
+    this.submitButtonEl.addEventListener('shown.bs.tooltip', () => {
+      setTimeout(() => { this.submitButtonTooltip.hide()}, 1500);
+    })
     
 
     // Append the special characters button
