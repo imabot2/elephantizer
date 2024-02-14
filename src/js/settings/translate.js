@@ -90,7 +90,7 @@ const translations = {
     sideCardsAnimationDurationLabel: "Select animation duration when the side cards are shown every time an answer is submitted.",
     sideCardsAnimationDuration0ms: "Off",
     sideCardsAnimationDuration750ms: "750ms",
-    sideCardsAnimationDuration1200ms: "1.2ms",
+    sideCardsAnimationDuration1200ms: "1.2s",
     sideCardsAnimationDuration2000ms: "2s",
 
 
@@ -191,7 +191,7 @@ const translations = {
     sideCardsAnimationDurationLabel: "Sélectionnez la durée de l'animation des cartes latérales qui s'affiche chaque fois qu'une réponse est soumise.",
     sideCardsAnimationDuration0ms: "Off",
     sideCardsAnimationDuration750ms: "750ms",
-    sideCardsAnimationDuration1200ms: "1.2ms",
+    sideCardsAnimationDuration1200ms: "1.2s",
     sideCardsAnimationDuration2000ms: "2s",
 
 
