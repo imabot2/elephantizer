@@ -1,5 +1,6 @@
 import translate from "./translate.js"
 import accordsEnAnglais from "./les-accords-en-anglais/series.js";
+import piano from "./piano/series.js";
 
 
 const categories = {
@@ -8,7 +9,11 @@ const categories = {
     shortName: translate.accordsEnAnglais,
     series: accordsEnAnglais,
   },
-
+  "piano" : {
+    name: translate.piano,
+    shortName: translate.piano,
+    series: piano,
+  },
 
 };
 

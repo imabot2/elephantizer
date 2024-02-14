@@ -18,8 +18,8 @@ const translations = {
     responseTimeTitle: "Time to First Key",
     responseTimeTitleTooltip: "Response time represents the time elapsed between the <strong>question being displayed</strong> and <strong>the start of the answer</strong>.<br>On average, good memorization should enable you to start answering in less than 2 seconds.",
 
-    rightAnswersTitle: "Right Answers",
-    rightAnswersTitleTooltip: "This percentage represents the <strong>number of correct answers</strong>.<br>A score of 100% means that all answers submitted are correct.",
+    rightAnswersTitle: "Final Answers",
+    rightAnswersTitleTooltip: "This percentage represents the <strong>number of correct final answers</strong>.<br>A score of 100% means that all answers submitted are correct.",
 
     accuracyTitle: "Accuracy",
     accuracyTitleTooltip: "This percentage represents the <strong>accuracy of your answers</strong>.<br>A percentage of 100% means you've typed all the answers without ever mistyping. ",
@@ -55,8 +55,8 @@ const translations = {
     responseTimeTitle: "Temps de réponse",
     responseTimeTitleTooltip: "Le temps de réponse représente le temps écoulé entre <strong>l'affichage de la question</strong> et le <strong>début de la réponse</strong>.<br>En moyenne, une bonne mémorisation permet de commencer à répondre en moins de 2 secondes.",
 
-    rightAnswersTitle: "Réponses correctes",
-    rightAnswersTitleTooltip: "Ce pourcentage représente le <strong>nombre de réponses correctes</strong>. Les erreurs de frappe corrigées ne sont pas comptabilisées.<br>Un score de 100% signifie que toutes les réponses soumises sont exactes.",
+    rightAnswersTitle: "Réponses finales",
+    rightAnswersTitleTooltip: "Ce pourcentage représente le <strong>nombre de réponses finales correctes</strong>. Les erreurs de frappe corrigées ne sont pas comptabilisées.<br>Un score de 100% signifie que toutes les réponses soumises sont exactes.",
 
     accuracyTitle: "Précision",
     accuracyTitleTooltip: "Ce pourcentage représente la <strong>précision de vos réponses</strong>.<br>Un pourcentage de 100% signifie que vous avez tapé toutes les réponses sans jamais faire une seule erreur de frappe.",

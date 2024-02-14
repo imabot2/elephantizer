@@ -7,10 +7,12 @@ const translations = {
 
   en: {
     accordsEnAnglais: 'English to French chords',
+    piano: 'piano',
   },
 
   fr: {
-    accordsEnAnglais: "Les accords en Anglais"
+    accordsEnAnglais: "Les accords en Anglais",
+    piano: 'piano',
   },
 }
 
