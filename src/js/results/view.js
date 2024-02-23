@@ -11,6 +11,8 @@ import settings from "Js/settings";
 import colors from "Js/cssColors";
 import ResultCard from "Js/resultCard";
 import format from "format-duration";
+import ratioToColor from "Js/ratioToColor";
+
 
 /**
  * View for the Rscoreesults module
@@ -56,6 +58,7 @@ class View {
     this.pieMemorization = new PieChart(this.modalEl.querySelector('.pie-memorization'));
     this.pieMemorization.setUnit('%');
     this.pieMemorization.setColors(colors.red, colors.lightGrey);
+
 
     this.pieResponseTime = new PieChart(this.modalEl.querySelector('.pie-response-time'));
     this.pieResponseTime.setUnit('s');
@@ -112,6 +115,10 @@ class View {
     // Reset memory score pie chart
     this.pieMemorization.disableAnimation();
     this.pieMemorization.setRatio(0);
+
+    //this.pieMemorization.setColors(colors.red, colors.lightGrey);
+    this.pieMemorization.setColors(ratioToColor.toCss(this.data.memorizationRatioUser), colors.lightGrey);
+
 
     // Reset response time pie chart
     this.pieResponseTime.disableAnimation();

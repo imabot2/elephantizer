@@ -6,7 +6,7 @@ import htmlCard from "./card.html";
 import series from "Js/series";
 import PieChart from "Js/pieChart";
 import colors from "Js/cssColors";
-
+import ratioToColor from "Js/ratioToColor";
 
 
 /**
@@ -83,7 +83,7 @@ export default class View {
     // Update score pie chart
     pie.disableAnimation();
     pie.setUnit('%');
-    const { r, g, b } = this.interpolateColor(stats.memorizationRatioUser);
+    const { r, g, b } = ratioToColor.toRgb(stats.memorizationRatioUser);
     pie.setColors(`rgb(${r}, ${g}, ${b})`, colors.lightGrey);
     pie.setRatio(stats.memorizationRatioUser, 0, stats.memorizationRatioUser, 1);
 
@@ -174,14 +174,15 @@ export default class View {
    * @param {float} value The ratio value
    * @returns {object} An object containing the RGB components [r,g,b]
    */
+/*
   interpolateColor(value) {
 
     // Colors and values
     const colorStops = [
-      { value: 0, color: { r: 232, g: 60, b: 75 } },    // Red
-      { value: 1 / 3, color: { r: 240, g: 135, b: 0 } },   // Orange
-      { value: 2 / 3, color: { r: 187, g: 219, b: 6 } },   // Yellow
-      { value: 1, color: { r: 12, g: 202, b: 74 } }      // Green
+      { value: 0, color: { r: 232, g: 60, b: 75 } },      // Red
+      { value: 1 / 3, color: { r: 240, g: 135, b: 0 } },  // Orange
+      { value: 2 / 3, color: { r: 187, g: 219, b: 6 } },  // Yellow
+      { value: 1, color: { r: 12, g: 202, b: 74 } }       // Green
     ];
 
     // Compute beginning and end of the range
@@ -205,4 +206,6 @@ export default class View {
     // Returns the color
     return { r, g, b };
   }
+
+  */
 }
