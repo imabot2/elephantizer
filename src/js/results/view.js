@@ -57,7 +57,7 @@ class View {
     // Create pie charts
     this.pieMemorization = new PieChart(this.modalEl.querySelector('.pie-memorization'));
     this.pieMemorization.setUnit('%');
-    this.pieMemorization.setColors(colors.red, colors.lightGrey);
+    this.pieMemorization.setColors(colors.green, colors.lightGrey);
 
 
     this.pieResponseTime = new PieChart(this.modalEl.querySelector('.pie-response-time'));
@@ -66,7 +66,7 @@ class View {
 
     this.pieRightAnswers = new PieChart(this.modalEl.querySelector('.pie-right-answers'));
     this.pieRightAnswers.setUnit('%');
-    this.pieRightAnswers.setColors(colors.green, colors.lightGrey);
+    this.pieRightAnswers.setColors(colors.red, colors.lightGrey);
 
     this.pieAccuracy = new PieChart(this.modalEl.querySelector('.pie-accuracy'));
     this.pieAccuracy.setUnit('%');
