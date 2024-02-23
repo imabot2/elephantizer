@@ -47,10 +47,11 @@ class Model {
     if (settings.get('ignoreHyphens')) this.expected = this.expected.replace(/-/g, " ");
 
     // To lower case if case non sensitive
-    if (!settings.get('caseInsensitive')) this.expected = this.expected.toLowerCase();
+    if (settings.get('caseInsensitive')) this.expected = this.expected.toLowerCase();
 
     // Remove accents if ignored
     if (settings.get('ignoreAccents')) this.expected = this.expected.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
 
     this.mask = new Array(this.expected.length).fill(NOT_SET);
   }
@@ -67,14 +68,12 @@ class Model {
     if (settings.get('ignoreHyphens')) answer = answer.replace(/-/g, " ");
 
     // To lower case if case non sensitive
-    if (!settings.get('caseInsensitive')) answer = answer.toLowerCase();
+    if (settings.get('caseInsensitive')) answer = answer.toLowerCase();
 
     // Remove accents if ignored
     if (settings.get('ignoreAccents')) answer = answer.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-    
-    //console.log(this.expected)
-    //console.log(answer)
+
     for (let i = 0; i < answer.length; i++) {
 
       if (answer[i] !== this.expected[i] ?? '') this.mask[i] = WRONG;

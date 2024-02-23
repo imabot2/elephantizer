@@ -214,7 +214,7 @@ class Model {
 
     // Compute the Levenshtein distance
     let distance = levenshtein.distance(answer, this.currentQuestion.answer);
-
+    
     // Process the current question for statistics
     this.processQuestionOver(answer, distance);
   }
@@ -234,7 +234,6 @@ class Model {
     questionStatistics.setTypingTime(this.wpmTimer.getTime().raw);
     questionStatistics.setTime(this.questionTimer.getTime().raw);
     const stats = questionStatistics.process();
-
 
     const score = stats.memorizationRatioUser * 100;
     const progress = (stats.newScore - stats.previousScore) * 100;
