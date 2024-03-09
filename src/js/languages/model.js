@@ -20,6 +20,12 @@ class Languages {
       // Get the language from browser client
       this.current = this.languageFromUserLocal();
     }
+
+    // If the URL language is not supported, set english by default
+    if (!this.supported.includes(this.current)) {
+      // Get the language from browser client
+      this.current = 'en';
+    }
   }
 
 
