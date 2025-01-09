@@ -31,6 +31,13 @@ Whether you're a student, a senior citizen or a geek, you're bound to find memor
 Start your journey to better memorization and knowledge retention today with Elephantizer!
 
 
+## Deployement
+
+``` bash
+npm run prod
+firebase deploy
+```
+
 ## TODO
 
 * There is a bug when calculating the accuracy => enter Egypte when the expected answer is Egypt => accuracy = 100%
