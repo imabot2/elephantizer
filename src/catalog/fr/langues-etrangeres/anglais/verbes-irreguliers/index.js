@@ -1476,7 +1476,7 @@ export var cards = {
     type: 'text',
     question: "lier",
     prompt: 'Infinitif | Passé simple | Participe passé',
-    answer: "bind bind bound"
+    answer: "bind bound bound"
   },
   'smell-en2fr': {
     type: 'text',
