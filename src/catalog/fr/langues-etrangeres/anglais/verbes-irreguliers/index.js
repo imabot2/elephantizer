@@ -2130,11 +2130,11 @@ export var cards = {
     type: 'text',
     question: 'to inlay',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "inlaid inlaid incuster"
+    answer: "inlaid inlaid incruster"
   },
   'inlay-fr2en': {
     type: 'text',
-    question: "incuster",
+    question: "incruster",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "inlay inlaid inlaid"
   },
@@ -2334,11 +2334,11 @@ export var cards = {
     type: 'text',
     question: 'to frostbite',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "frostbit frostbitten avois des engelures"
+    answer: "frostbit frostbitten avoir des engelures"
   },
   'frostbite-fr2en': {
     type: 'text',
-    question: "avois des engelures",
+    question: "avoir des engelures",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "frostbite frostbit frostbitten"
   },
