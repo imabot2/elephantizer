@@ -2190,13 +2190,13 @@ export var cards = {
     type: 'text',
     question: 'to mislead',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "misled tomisled induire en erreur"
+    answer: "misled misled induire en erreur"
   },
   'mislead-fr2en': {
     type: 'text',
     question: "induire en erreur",
     prompt: 'Infinitif | Passé simple | Participe passé',
-    answer: "mislead misled tomisled"
+    answer: "mislead misled misled"
   },
   'foresee-en2fr': {
     type: 'text',
