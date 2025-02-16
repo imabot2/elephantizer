@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack --env=mode=development",
-    "prod": "webpack --env=mode=production"
+    "prod": "webpack --env=mode=production",
+    "deploy": "webpack --env=mode=production && firebase deploy"
+
   },
   "keywords": [],
   "author": "",

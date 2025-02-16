@@ -2046,11 +2046,11 @@ export var cards = {
     type: 'text',
     question: 'to stride',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "strode stridden marcher à grand pas"
+    answer: "strode stridden marcher à grands pas"
   },
   'stride-fr2en': {
     type: 'text',
-    question: "marcher à grand pas",
+    question: "marcher à grands pas",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "stride strode stridden"
   },
@@ -2058,11 +2058,11 @@ export var cards = {
     type: 'text',
     question: 'to slit',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "slit slit fendre"
+    answer: "slit slit fendre, inciser"
   },
   'slit-fr2en': {
     type: 'text',
-    question: "fendre",
+    question: "fendre, inciser",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "slit slit slit"
   },
