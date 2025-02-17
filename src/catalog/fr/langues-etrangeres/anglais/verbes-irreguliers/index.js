@@ -2382,11 +2382,11 @@ export var cards = {
     type: 'text',
     question: 'to wend',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "went went se rendre"
+    answer: "went went se rendre, se déplacer"
   },
   'wend-fr2en': {
     type: 'text',
-    question: "se rendre",
+    question: "se rendre, se déplacer",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "wend went went"
   },
