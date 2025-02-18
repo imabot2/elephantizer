@@ -1470,7 +1470,7 @@ export var cards = {
     type: 'text',
     question: 'to bind',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "bind bound lier"
+    answer: "bound bound lier"
   },
   'bind-fr2en': {
     type: 'text',
