@@ -1806,13 +1806,13 @@ export var cards = {
     type: 'text',
     question: 'to shear',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "shore shorn tondre"
+    answer: "sheared sheared, cisailler"
   },
   'shear-fr2en': {
     type: 'text',
-    question: "tondre",
+    question: "tondre, cisailler",
     prompt: 'Infinitif | Passé simple | Participe passé',
-    answer: "shear shore shorn"
+    answer: "shear sheared sheared"
   },
   'behold-en2fr': {
     type: 'text',
