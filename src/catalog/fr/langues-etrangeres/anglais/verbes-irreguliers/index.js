@@ -546,11 +546,11 @@ export var cards = {
     type: 'text',
     question: 'to spring',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "sprang sprung surgir"
+    answer: "sprang sprung bondir, surgir"
   },
   'spring-fr2en': {
     type: 'text',
-    question: "surgir",
+    question: "bondir, surgir",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "spring sprang sprung"
   },
@@ -1806,7 +1806,7 @@ export var cards = {
     type: 'text',
     question: 'to shear',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "sheared sheared, cisailler"
+    answer: "sheared sheared tondre, cisailler"
   },
   'shear-fr2en': {
     type: 'text',
