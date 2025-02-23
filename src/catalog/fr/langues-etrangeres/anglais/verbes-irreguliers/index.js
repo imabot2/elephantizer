@@ -1626,11 +1626,11 @@ export var cards = {
     type: 'text',
     question: 'to leap',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "leapt leapt bondir"
+    answer: "leapt leapt sauter, bondir"
   },
   'leap-fr2en': {
     type: 'text',
-    question: "bondir",
+    question: "sauter, bondir",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "leap leapt leapt"
   },
