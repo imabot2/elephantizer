@@ -546,11 +546,11 @@ export var cards = {
     type: 'text',
     question: 'to spring',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "sprang sprung bondir, surgir"
+    answer: "sprang sprung bondir, jaillir"
   },
   'spring-fr2en': {
     type: 'text',
-    question: "bondir, surgir",
+    question: "bondir, jaillir",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "spring sprang sprung"
   },
@@ -1626,11 +1626,11 @@ export var cards = {
     type: 'text',
     question: 'to leap',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "leapt leapt sauter, bondir"
+    answer: "leapt leapt sauter, franchir"
   },
   'leap-fr2en': {
     type: 'text',
-    question: "sauter, bondir",
+    question: "sauter, franchir",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "leap leapt leapt"
   },
@@ -1722,11 +1722,11 @@ export var cards = {
     type: 'text',
     question: 'to thrust',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "thrust thrust pousser"
+    answer: "thrust thrust pousser, enfoncer"
   },
   'thrust-fr2en': {
     type: 'text',
-    question: "pousser",
+    question: "pousser, enfoncer",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "thrust thrust thrust"
   },
