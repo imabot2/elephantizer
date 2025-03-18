@@ -414,11 +414,11 @@ export var cards = {
     type: 'text',
     question: 'to feel',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "felt felt sentir"
+    answer: "felt felt ressentir"
   },
   'feel-fr2en': {
     type: 'text',
-    question: "sentir",
+    question: "ressentir",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "feel felt felt"
   },
