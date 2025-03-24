@@ -762,11 +762,11 @@ export var cards = {
     type: 'text',
     question: 'to cast',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "cast cast jeter"
+    answer: "cast cast jeter, projeter"
   },
   'cast-fr2en': {
     type: 'text',
-    question: "jeter",
+    question: "jeter, projeter",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "cast cast cast"
   },
