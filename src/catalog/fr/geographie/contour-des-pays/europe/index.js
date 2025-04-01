@@ -65,277 +65,277 @@ export var cards = {
   "al": {
     image: albania,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Albanie"
   },
   "ad": {
     image: andorra,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Andorre"
   },
   "at": {
     image: austria,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Autriche"
   },
   "by": {
     image: belarus,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Biélorussie"
   },
   "be": {
     image: belgium,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Belgique"
   },
   "ba": {
     image: bosniaAndHerzegovina,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Bosnie-Herzégovine"
   },
   "bg": {
     image: bulgaria,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Bulgarie"
   },  
   "hr": {
     image: croatia,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Croatie"
   },
   "cz": {
     image: czechia,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Tchéquie"
   },
   "cy": {
     image: cyprus,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Chypre"
   },
   "dk": {
     image: denmark,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Danemark"
   },
   "ee": {
     image: estonia,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Estonie"
   },
   "fi": {
     image: finland,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Finlande"
   },
   "fr": {
     image: france,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "France"
   },
   "de": {
     image: germany,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Allemagne"
   },
   "gr": {
     image: greece,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Grèce"
   },
   "hu": {
     image: hungary,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Hongrie"
   },
   "is": {
     image: iceland,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Islande"
   },  
   "ie": {
     image: ireland,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Irlande"
   },
   "it": {
     image: italy,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Italie"
   },
   "xk": {
     image: kosovo,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Kosovo"
   },  
   "lv": {
     image: latvia,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Lettonie"
   },
   "li": {
     image: liechtenstein,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Liechtenstein"
   },
   "lt": {
     image: lithuania,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Lituanie"
   },
   "lu": {
     image: luxembourg,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Luxembourg"
   },
   "mt": {
     image: malta,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Malte"
   },
   "md": {
     image: moldova,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Moldavie"
   },
   "mc": {
     image: monaco,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Monaco"
   },
   "me": {
     image: montenegro,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Monténégro"
   },  
   "nl": {
     image: netherlands,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Pays-Bas"
   },
   "mk": {
     image: northMacedonia,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Macédoine du Nord"
   },
   "no": {
     image: norway,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Norvège"
   },
   "pl": {
     image: poland,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Pologne"
   },
   "pt": {
     image: portugal,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Portugal"
   },
   "ro": {
     image: romania,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Roumanie"
   },  
   "ru": {
     image: russia,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Russie"
   },
   "sm": {
     image: sanMarino,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Saint-Marin"
   },
   "rs": {
     image: serbia,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Serbie"
   },  
   "sk": {
     image: slovakia,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Slovaquie"
   },
   "si": {
     image: slovenia,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Slovénie"
   },
   "es": {
     image: spain,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Espagne"
   },  
   "se": {
     image: sweden,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Suède"
   },
   "ch": {
     image: switzerland,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Suisse"
   },
   "gb": {
     image: unitedKingdom,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Royaume-Uni"
   },  
   "va": {
     image: vaticanCity,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Vatican"
   },
   "ua": {
     image: ukraine,
     type: 'inner',
-    prompt: "What country is this?",
+    prompt: "Quel est ce pays ?",
     answer: "Ukraine"
   },
 };

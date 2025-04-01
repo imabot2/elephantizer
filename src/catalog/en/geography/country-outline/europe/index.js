@@ -1,49 +1,49 @@
-import albania from "Catalog/en/geography/countries-on-the-map/europe/img/albania.png";
-import andorra from "Catalog/en/geography/countries-on-the-map/europe/img/andorra.png";
-import austria from "Catalog/en/geography/countries-on-the-map/europe/img/austria.png";
-import belarus from "Catalog/en/geography/countries-on-the-map/europe/img/belarus.png";
-import belgium from "Catalog/en/geography/countries-on-the-map/europe/img/belgium.png";
-import bosniaAndHerzegovina from "Catalog/en/geography/countries-on-the-map/europe/img/bosnia-and-herzegovina.png";
-import bulgaria from "Catalog/en/geography/countries-on-the-map/europe/img/bulgaria.png";
-import croatia from "Catalog/en/geography/countries-on-the-map/europe/img/croatia.png";
-import czechia from "Catalog/en/geography/countries-on-the-map/europe/img/czechia.png";
-import cyprus from "Catalog/en/geography/countries-on-the-map/europe/img/cyprus.png";
-import denmark from "Catalog/en/geography/countries-on-the-map/europe/img/denmark.png";
-import estonia from "Catalog/en/geography/countries-on-the-map/europe/img/estonia.png";
-import finland from "Catalog/en/geography/countries-on-the-map/europe/img/finland.png";
-import france from "Catalog/en/geography/countries-on-the-map/europe/img/france.png";
-import germany from "Catalog/en/geography/countries-on-the-map/europe/img/germany.png";
-import greece from "Catalog/en/geography/countries-on-the-map/europe/img/greece.png";
-import hungary from "Catalog/en/geography/countries-on-the-map/europe/img/hungary.png";
-import iceland from "Catalog/en/geography/countries-on-the-map/europe/img/iceland.png";
-import ireland from "Catalog/en/geography/countries-on-the-map/europe/img/ireland.png";
-import italy from "Catalog/en/geography/countries-on-the-map/europe/img/italy.png";
-import kosovo from "Catalog/en/geography/countries-on-the-map/europe/img/kosovo.png";
-import latvia from "Catalog/en/geography/countries-on-the-map/europe/img/latvia.png";
-import liechtenstein from "Catalog/en/geography/countries-on-the-map/europe/img/liechtenstein.png";
-import lithuania from "Catalog/en/geography/countries-on-the-map/europe/img/lithuania.png";
-import luxembourg from "Catalog/en/geography/countries-on-the-map/europe/img/luxembourg.png";
-import malta from "Catalog/en/geography/countries-on-the-map/europe/img/malta.png";
-import moldova from "Catalog/en/geography/countries-on-the-map/europe/img/moldova.png";
-import monaco from "Catalog/en/geography/countries-on-the-map/europe/img/monaco.png";
-import montenegro from "Catalog/en/geography/countries-on-the-map/europe/img/montenegro.png";
-import netherlands from "Catalog/en/geography/countries-on-the-map/europe/img/netherlands.png";
-import northMacedonia from "Catalog/en/geography/countries-on-the-map/europe/img/north-macedonia.png";
-import norway from "Catalog/en/geography/countries-on-the-map/europe/img/norway.png";
-import poland from "Catalog/en/geography/countries-on-the-map/europe/img/poland.png";
-import portugal from "Catalog/en/geography/countries-on-the-map/europe/img/portugal.png";
-import romania from "Catalog/en/geography/countries-on-the-map/europe/img/romania.png";
-import russia from "Catalog/en/geography/countries-on-the-map/europe/img/russia.png";
-import sanMarino from "Catalog/en/geography/countries-on-the-map/europe/img/san-marino.png";
-import serbia from "Catalog/en/geography/countries-on-the-map/europe/img/serbia.png";
-import slovakia from "Catalog/en/geography/countries-on-the-map/europe/img/slovakia.png";
-import slovenia from "Catalog/en/geography/countries-on-the-map/europe/img/slovenia.png";
-import spain from "Catalog/en/geography/countries-on-the-map/europe/img/spain.png";
-import sweden from "Catalog/en/geography/countries-on-the-map/europe/img/sweden.png";
-import switzerland from "Catalog/en/geography/countries-on-the-map/europe/img/switzerland.png";
-import unitedKingdom from "Catalog/en/geography/countries-on-the-map/europe/img/united-kingdom.png";
-import vaticanCity from "Catalog/en/geography/countries-on-the-map/europe/img/vatican-city.png";
-import ukraine from "Catalog/en/geography/countries-on-the-map/europe/img/ukraine.png";
+import albania from "Catalog/en/geography/country-outline/europe/img/al.svg";
+import andorra from "Catalog/en/geography/country-outline/europe/img/ad.svg";
+import austria from "Catalog/en/geography/country-outline/europe/img/at.svg";
+import belarus from "Catalog/en/geography/country-outline/europe/img/by.svg";
+import belgium from "Catalog/en/geography/country-outline/europe/img/be.svg";
+import bosniaAndHerzegovina from "Catalog/en/geography/country-outline/europe/img/ba.svg";
+import bulgaria from "Catalog/en/geography/country-outline/europe/img/bg.svg";
+import croatia from "Catalog/en/geography/country-outline/europe/img/hr.svg";
+import czechia from "Catalog/en/geography/country-outline/europe/img/cz.svg";
+import cyprus from "Catalog/en/geography/country-outline/europe/img/cy.svg";
+import denmark from "Catalog/en/geography/country-outline/europe/img/dk.svg";
+import estonia from "Catalog/en/geography/country-outline/europe/img/ee.svg";
+import finland from "Catalog/en/geography/country-outline/europe/img/fi.svg";
+import france from "Catalog/en/geography/country-outline/europe/img/fr.svg";
+import germany from "Catalog/en/geography/country-outline/europe/img/de.svg";
+import greece from "Catalog/en/geography/country-outline/europe/img/gr.svg";
+import hungary from "Catalog/en/geography/country-outline/europe/img/hu.svg";
+import iceland from "Catalog/en/geography/country-outline/europe/img/is.svg";
+import ireland from "Catalog/en/geography/country-outline/europe/img/ie.svg";
+import italy from "Catalog/en/geography/country-outline/europe/img/it.svg";
+import kosovo from "Catalog/en/geography/country-outline/europe/img/xk.svg";
+import latvia from "Catalog/en/geography/country-outline/europe/img/lv.svg";
+import liechtenstein from "Catalog/en/geography/country-outline/europe/img/li.svg";
+import lithuania from "Catalog/en/geography/country-outline/europe/img/lt.svg";
+import luxembourg from "Catalog/en/geography/country-outline/europe/img/lu.svg";
+import malta from "Catalog/en/geography/country-outline/europe/img/mt.svg";
+import moldova from "Catalog/en/geography/country-outline/europe/img/md.svg";
+import monaco from "Catalog/en/geography/country-outline/europe/img/mc.svg";
+import montenegro from "Catalog/en/geography/country-outline/europe/img/me.svg";
+import netherlands from "Catalog/en/geography/country-outline/europe/img/nl.svg";
+import northMacedonia from "Catalog/en/geography/country-outline/europe/img/mk.svg";
+import norway from "Catalog/en/geography/country-outline/europe/img/no.svg";
+import poland from "Catalog/en/geography/country-outline/europe/img/pl.svg";
+import portugal from "Catalog/en/geography/country-outline/europe/img/pt.svg";
+import romania from "Catalog/en/geography/country-outline/europe/img/ro.svg";
+import russia from "Catalog/en/geography/country-outline/europe/img/ru.svg";
+import sanMarino from "Catalog/en/geography/country-outline/europe/img/sm.svg";
+import serbia from "Catalog/en/geography/country-outline/europe/img/rs.svg";
+import slovakia from "Catalog/en/geography/country-outline/europe/img/sk.svg";
+import slovenia from "Catalog/en/geography/country-outline/europe/img/si.svg";
+import spain from "Catalog/en/geography/country-outline/europe/img/es.svg";
+import sweden from "Catalog/en/geography/country-outline/europe/img/se.svg";
+import switzerland from "Catalog/en/geography/country-outline/europe/img/ch.svg";
+import unitedKingdom from "Catalog/en/geography/country-outline/europe/img/gb.svg";
+import vaticanCity from "Catalog/en/geography/country-outline/europe/img/va.svg";
+import ukraine from "Catalog/en/geography/country-outline/europe/img/ua.svg";
 
 
 
@@ -60,7 +60,6 @@ export var metaData = {
 }
 
 
-// Target language of the test
 export var cards = {
   "al": {
     image: albania,

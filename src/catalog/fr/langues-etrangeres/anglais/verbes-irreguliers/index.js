@@ -2010,11 +2010,11 @@ export var cards = {
     type: 'text',
     question: 'to sling',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "slung slung lancer"
+    answer: "slung slung balancer, jeter"
   },
   'sling-fr2en': {
     type: 'text',
-    question: "lancer",
+    question: "balancer, jeter",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "sling slung slung"
   },
