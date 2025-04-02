@@ -28,11 +28,11 @@ import unitedStates from "Catalog/en/geography/countries-on-the-map/north-americ
 export var metaData = {
 
   // Quiz flag
-  flag: "/static/circle-flags/fr.svg",
+  flag: "/static/circle-flags/gb.svg",
 
 
   // Special characters for this test
-  specialCharacters: ['é', 'à', 'è', 'ê', 'ô', 'û', 'â', 'î', 'ü', 'ù', 'ë', 'œ', 'ç', 'ï', 'É', 'À', 'È', 'Ê', 'Ô', 'Û', 'Â', 'Î', 'Ü', 'Ù', 'Ë', 'Œ', 'Ç', 'Ï'],
+  specialCharacters: [],
 
 }
 
