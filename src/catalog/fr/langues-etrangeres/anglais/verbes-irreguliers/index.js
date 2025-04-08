@@ -66,13 +66,13 @@ export var cards = {
     type: 'text',
     question: 'to get',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "got got obtenir"
+    answer: "got gotten obtenir"
   },
   'get-fr2en': {
     type: 'text',
     question: "obtenir",
     prompt: 'Infinitif | Passé simple | Participe passé',
-    answer: "get got got"
+    answer: "get got gotten"
   },
   'find-en2fr': {
     type: 'text',
@@ -1566,11 +1566,11 @@ export var cards = {
     type: 'text',
     question: 'to tear',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "tore torn pleurer"
+    answer: "tore torn déchirer"
   },
   'tear-fr2en': {
     type: 'text',
-    question: "pleurer",
+    question: "déchirer",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "tear tore torn"
   },
@@ -2178,11 +2178,11 @@ export var cards = {
     type: 'text',
     question: 'to fling',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "flung flung lancer"
+    answer: "flung flung lancer, jeter"
   },
   'fling-fr2en': {
     type: 'text',
-    question: "lancer",
+    question: "lancer, jeter",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "fling flung flung"
   },
@@ -2274,11 +2274,11 @@ export var cards = {
     type: 'text',
     question: 'to rive',
     prompt: 'Passé simple | Participe passé | Traduction',
-    answer: "rived riven déchirer"
+    answer: "rived riven déchirer violemment"
   },
   'rive-fr2en': {
     type: 'text',
-    question: "déchirer",
+    question: "déchirer violemment",
     prompt: 'Infinitif | Passé simple | Participe passé',
     answer: "rive rived riven"
   },
